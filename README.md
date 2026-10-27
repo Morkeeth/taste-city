@@ -2,10 +2,10 @@
 
 Explore culture through taste, then bring the results into a playful 3D city.
 
+- **For a coffee shop: test** is the main route. A coffee-shop owner sets three tastes they think their customers share and compares two ideas, such as a pop-up or a late event, against a taste graph. Cultural fit and the planner's spending assumptions stay separate. Save and reopen a local action brief with a budget and feasibility checks. A festival planner can use the same flow.
+- **Live Taste Agent** follows one cited cultural lead into another Qloo domain, checks that result and proposes a small test. The card shows the returned entity ID, the follow-up query seeded with it, the result and the conditions that should drop the idea. It uses up to 11 Qloo HTTP reads including retries and needs no model key.
 - **For me: discover** takes three favourites and a food city, then finds music, film, food, books and places through Qloo. Each result carries its source call.
-- **For business: test** compares two coffee-shop or festival ideas against a taste graph. Cultural fit and the planner's spending assumptions stay separate. Save and reopen a local action brief with a budget and feasibility checks.
 - **City and gift game** keeps the Sims-style city, residents, outlets, subway, festival and day/night cycle available from the header.
-- **Live Taste Agent** follows one cited cultural lead into another Qloo domain, checks that result and proposes a small buyer test. It uses up to 11 Qloo HTTP reads including retries and needs no model key.
 
 Qloo affinity describes cultural relationships. It does not predict demand, sales, attendance, conversion or partner availability. The business audience is a planner hypothesis.
 
