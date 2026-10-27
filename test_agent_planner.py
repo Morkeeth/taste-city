@@ -46,6 +46,39 @@ class AgentPlannerTests(unittest.TestCase):
             self.assertEqual(tool.queries[0][2]['signal.interests.entities'], seed)
             self.assertEqual(tool.queries[0][2]['filter.type'], target)
 
+    def test_trace_shows_the_entity_ids_actually_sent(self):
+        tool = Followup()
+        result = agent_planner.plan(BODY, first_graph=graph(), followup_client=tool)
+        sent = tool.queries[0][2]
+        observe, choose, verify = result['steps']
+        self.assertEqual(observe['entity_id'], 'qloo-music-id')
+        self.assertEqual(result['lead']['id'], sent['signal.interests.entities'])
+        self.assertEqual(choose['query']['signal.interests.entities'], sent['signal.interests.entities'])
+        self.assertEqual(choose['query']['filter.type'], sent['filter.type'])
+        self.assertEqual(verify['entity_id'], 'qloo-bridge-id')
+        self.assertEqual(result['bridge']['id'], 'qloo-bridge-id')
+        self.assertEqual(len(result['reject_if']), 3)
+        self.assertIn('Returned bridge', result['reject_if'][0])
+
+    def test_two_coffee_briefs_take_different_next_queries(self):
+        coffee = {'flow': 'brand', 'experiment': 'popup', 'size': 'neighbourhood', 'city': 'London'}
+        jazz = dict(coffee, picks=['Nina Simone', 'Miles Davis', 'Erykah Badu'])
+        cinema = dict(coffee, picks=['Wes Anderson', 'Sofia Coppola', 'Wong Kar-wai'])
+        music_led = graph(.88, .61)
+        film_led = graph(.58, .93)
+        film_led['outlets'][1]['entity']['id'] = 'qloo-other-film-id'
+        sent = []
+        for brief, source in [(jazz, music_led), (cinema, film_led)]:
+            tool = Followup()
+            result = agent_planner.plan(brief, first_graph=source, followup_client=tool)
+            self.assertEqual(result['picks'], brief['picks'])
+            sent.append(tool.queries[0][2])
+        self.assertEqual(sent[0]['signal.interests.entities'], 'qloo-music-id')
+        self.assertEqual(sent[0]['filter.type'], 'urn:entity:movie')
+        self.assertEqual(sent[1]['signal.interests.entities'], 'qloo-other-film-id')
+        self.assertEqual(sent[1]['filter.type'], 'urn:entity:artist')
+        self.assertNotEqual(sent[0], sent[1])
+
     def test_fictional_graph_cannot_be_an_agent_result(self):
         bad = graph(); bad['mode'] = 'synthetic'
         with self.assertRaisesRegex(agent_planner.AgentUnavailable, 'live Qloo graph'):

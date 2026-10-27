@@ -125,6 +125,7 @@ details { margin-top:8px; font-size:12px; color:var(--soft); } details ul { max-
 .archetype-head { display:flex; justify-content:space-between; gap:8px; align-items:baseline; }
 .archetype p { margin:5px 0; font-size:12px; }
 .archetype small { display:block; color:var(--soft); overflow-wrap:anywhere; }
+.reject-list { margin:4px 0 8px; padding-left:18px; font-size:12px; }
 .idea-compare { display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:9px 0; }
 .idea-result { padding:9px; border:1px solid var(--line); border-radius:13px; background:rgba(255,255,255,.38); }
 .idea-result h3 { margin:0; font-size:14px; }
@@ -1070,8 +1071,10 @@ function openScenarioFlow(flow="brand", sourceContext=null) {
       const d = await response.json();
       if (!response.ok || d.error) throw new Error(d.error || `HTTP ${response.status}`);
       document.body.dataset.agentPlan = "ready";
-      const steps = d.steps.map(s => `<article class="archetype"><b>${esc(s.action)}</b><p>${esc(s.detail)}</p><small>${s.call ? "Qloo " + esc(s.call) : s.seed_call ? "From Qloo " + esc(s.seed_call) : ""}</small></article>`).join("");
-      panel.innerHTML = `<div class="kind">Live Qloo Taste Agent · ${d.actual_http_reads} of ${d.max_http_reads} HTTP reads</div><div class="market-title">${esc(d.lead.name)} → ${esc(d.bridge.name)}</div><p>This is a live, rule-driven agent. It chose its follow-up query from Qloo's first result. No model call or fictional graph was used. The city scene behind this panel may still be illustrative.</p><div class="archetype-list">${steps}</div><p><b>Next:</b> ${esc(d.next_action)}</p><p><b>Stop:</b> ${esc(d.stop_rule)}</p><p class="sample">${esc(d.limits)} Source calls: ${d.qloo_calls.map(c => esc(c.id)).join(" · ")}.</p><button id="agentback">Try another idea</button>`;
+      const trace = s => s.query ? `Query: ${esc(s.query.path)} · ${esc(s.query["filter.type"])} · seeded with entity ${esc(s.query["signal.interests.entities"])} from Qloo ${esc(s.seed_call)}` : `${s.call ? "Qloo " + esc(s.call) : ""}${s.entity_id ? " · entity " + esc(s.entity_id) : ""}${s.affinity != null ? " · affinity " + esc(s.affinity) : ""}`;
+      const steps = d.steps.map(s => `<article class="archetype"><b>${esc(s.action)}</b><p>${esc(s.detail)}</p><small>${trace(s)}</small></article>`).join("");
+      const reject = (d.reject_if || []).map(r => `<li>${esc(r)}</li>`).join("");
+      panel.innerHTML = `<div class="kind">Live Qloo Taste Agent · ${d.actual_http_reads} of ${d.max_http_reads} HTTP reads</div><div class="market-title">${esc(d.lead.name)} → ${esc(d.bridge.name)}</div><p>This is a live, rule-driven agent. It chose its follow-up query from Qloo's first result. No model call or fictional graph was used. The city scene behind this panel may still be illustrative.</p><div class="archetype-list">${steps}</div><p><b>Next:</b> ${esc(d.next_action)}</p>${reject ? `<p><b>Drop this idea if:</b></p><ul class="reject-list">${reject}</ul>` : ""}<p><b>Stop:</b> ${esc(d.stop_rule)}</p><p class="sample">${esc(d.limits)} Source calls: ${d.qloo_calls.map(c => esc(c.id)).join(" · ")}.</p><button id="agentback">Try another idea</button>`;
       $("#agentback").onclick = () => openScenarioFlow(flow);
     } catch (error) {
       document.body.dataset.agentPlan = "error";
