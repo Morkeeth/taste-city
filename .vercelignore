@@ -1,0 +1,11 @@
+cache/
+.git/
+__pycache__/
+*.pyc
+review-assets/
+tests/
+test_*.py
+*.md
+*.out
+performance-results.json
+.env*

@@ -1,0 +1,45 @@
+HIPSTER BACKTEST, PRE-REGISTRATION. Written 17 Oct 2026 by Claude, before any held-out number was computed.
+Nothing below changes after the first run. A change means a new file with a new date, and both results get reported.
+
+QUESTION
+Can Hipster call an artist's rise before it happens, better than plain baselines? And does the Qloo taste graph add anything beyond momentum?
+
+UNIVERSE
+Every artist in the recorded Qloo similar-artist calls (../live/slice1-core-20261015.json, 55 calls, 976 artists).
+Kept: artists with a Wikidata id in Qloo's external ids and an English Wikipedia article. 676 titles at fetch time.
+
+PAIRING SOURCE (the truth label)
+English Wikipedia daily pageviews, agent=user, all-access, 1 Jul 2023 to 11 Oct 2026 (fetch.py).
+Daily views are summed into Monday to Sunday weeks. w(t) is the total for week t.
+
+AT EACH CUTOFF WEEK t (features only use weeks up to and including t)
+past(i) = median of w over weeks t-7 to t.
+Eligible: past(i) >= 700 (about 100 views a day), and all 16 weeks t-7 to t+8 present.
+Breakout(i, t): median of w over weeks t+1 to t+8 >= 1.5 x past(i). This is the event Hipster tries to call.
+
+ARMS (each picks k = 10 eligible artists per cutoff)
+R random: expected precision = the breakout base rate among eligible artists that week.
+P popularity: the 10 highest past(i).
+M momentum (no Qloo): m(i) = ln(1 + mean of w over weeks t-1, t) minus ln(1 + median of w over weeks t-7 to t-2). Top 10 by m.
+Q Hipster (Qloo taste graph): s(i) = m(i) + 1.0 x mean of m(j) over Qloo neighbours j of i that are eligible at t.
+  Neighbours: artists that share a Qloo similar-artist list with i. No eligible neighbour: the term is 0.
+Ties broken by name, so every run is deterministic.
+
+SPLIT
+Dev cutoffs: weeks ending 7 Jan 2024 to 29 Dec 2024. Used only to check the code. No parameter is tuned on them.
+Held-out cutoffs: weeks ending 5 Jan 2025 to 16 Aug 2026 (the last week whose 8 future weeks end by 11 Oct 2026).
+
+METRIC
+Precision at 10 per cutoff, averaged over the held-out cutoffs.
+95% interval: moving-block bootstrap over cutoffs, block 8 weeks, 2000 resamples, seed 7, on each arm and on the differences Q minus P, Q minus M, Q minus base rate, M minus P.
+Reported too: lift = precision / base rate, and for Q hits the median number of weeks from the cutoff to the peak week.
+
+KILL LINES (decided now)
+K1. Hipster is a result only if Q beats P and the base rate on held-out weeks with the lower end of both difference intervals above 0. Otherwise Hipster is a toy, and the handover says so.
+K2. Qloo earns its place only if the lower end of the Q minus M interval is above 0. Otherwise the handover says: momentum on Wikipedia does the work and the Qloo graph is decoration in this test.
+
+KNOWN LIMITS (stated before the run)
+L1. Leakage: the Qloo calls were made on 15 Oct 2026. The neighbour lists already reflect 2024 to 2026 tastes. Qloo is used only for the universe and the neighbour graph; every time-varying number comes from Wikipedia and is past-only at each cutoff. The graph itself can still carry hindsight.
+L2. Wikipedia views measure attention, not listening or sales. A death, a scandal or a tour also counts as a breakout.
+L3. The universe comes from one festival lineup (Way Out West 2026) and its Qloo neighbours. It is not all music.
+L4. Overlapping 8-week windows make weeks correlated. The block bootstrap is there for that; the intervals may still be too narrow.

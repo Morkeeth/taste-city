@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Taste Match</title>
+<meta name="description" content="You and a friend each name three things you love. A Qloo-powered agent finds where your tastes meet.">
+<style>
+:root { --bg:#f6f1e7; --card:#fffaf1; --ink:#1f1a14; --soft:#6b6155; --line:#e2d8c6; --a:#d9583b; --b:#2f7f78; --both:#7a4fb0; }
+@media (prefers-color-scheme: dark) { :root { --bg:#16130f; --card:#211c16; --ink:#f3ece0; --soft:#a89b88; --line:#3a3127; --a:#f07a5c; --b:#5bb5ad; --both:#b38be6; } }
+* { box-sizing:border-box; }
+body { margin:0; background:var(--bg); color:var(--ink); font:16px/1.5 ui-sans-serif, system-ui, -apple-system, sans-serif; }
+main { max-width:860px; margin:0 auto; padding:32px 16px 64px; }
+h1 { font:600 clamp(34px,7vw,56px)/1.05 ui-serif, Georgia, serif; margin:0 0 10px; letter-spacing:-0.01em; }
+.lede { color:var(--soft); margin:0 0 28px; max-width:560px; }
+.pair { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+@media (max-width:640px) { .pair { grid-template-columns:1fr; } }
+.side { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:18px; border-top:4px solid var(--a); }
+.side.b { border-top-color:var(--b); }
+label { display:block; font-size:13px; color:var(--soft); margin:10px 0 4px; }
+input { width:100%; font:inherit; padding:10px 12px; border:1px solid var(--line); border-radius:9px; background:var(--bg); color:var(--ink); }
+input:focus { outline:2px solid var(--both); outline-offset:1px; }
+.row { display:flex; gap:12px; align-items:end; margin-top:16px; flex-wrap:wrap; }
+.row .city { flex:1 1 180px; }
+button { font:600 16px/1 inherit; font-family:inherit; padding:13px 20px; border-radius:10px; border:0; background:var(--ink); color:var(--bg); cursor:pointer; }
+button.ghost { background:transparent; color:var(--ink); border:1px solid var(--line); }
+button:disabled { opacity:.5; cursor:wait; }
+.note { color:var(--soft); font-size:14px; margin-top:10px; min-height:1.5em; }
+.given { font-size:15px; } .given b { color:var(--a); }
+#out { margin-top:36px; }
+.headline { font:600 clamp(26px,5vw,38px)/1.15 ui-serif, Georgia, serif; margin:0 0 18px; }
+.cards { display:grid; grid-template-columns:repeat(auto-fit,minmax(190px,1fr)); gap:12px; }
+.card { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:14px; }
+.what { font-size:12px; letter-spacing:.08em; text-transform:uppercase; color:var(--both); }
+.name { font-weight:650; font-size:18px; margin:4px 0 6px; }
+.why { color:var(--soft); font-size:14px; margin:0; }
+.badges { margin-top:8px; display:flex; gap:6px; flex-wrap:wrap; }
+.badge { font-size:12px; padding:2px 8px; border-radius:99px; border:1px solid var(--line); }
+.badge.a { color:var(--a); border-color:var(--a); } .badge.b { color:var(--b); border-color:var(--b); }
+.swap { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:12px; }
+@media (max-width:640px) { .swap { grid-template-columns:1fr; } }
+.swap .card.a { border-left:4px solid var(--a); } .swap .card.b { border-left:4px solid var(--b); }
+.ask { margin-top:16px; padding:18px; border-radius:12px; background:var(--ink); color:var(--bg); font:500 20px/1.35 ui-serif, Georgia, serif; }
+.diff { margin:14px 0 0; color:var(--soft); }
+details { margin-top:22px; font-size:13px; color:var(--soft); }
+details li { margin:4px 0; word-break:break-word; }
+code { font-size:12px; }
+.share { margin-top:18px; display:flex; gap:10px; flex-wrap:wrap; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Taste Match</h1>
+  <p class="lede">You and a friend each name three things you love: a band, a show, a film, a restaurant, a brand. An agent asks Qloo's taste graph where your two tastes meet, and what each of you should show the other.</p>
+  <p class="lede" style="margin-top:-18px">Or <a href="/" style="color:var(--both)">play Taste City</a>: give each gift to the villager who will love it. The Matchmaker in the village runs this same agent.</p>
+
+  <p class="given" id="given" hidden></p>
+  <div class="pair">
+    <section class="side a" id="sideA">
+      <label for="an">Your name</label><input id="an" placeholder="Oscar" maxlength="30">
+      <label>Three things you love</label>
+      <input class="la" maxlength="80" placeholder="Radiohead"><br>
+      <input class="la" maxlength="80" placeholder="Fleabag" style="margin-top:6px"><br>
+      <input class="la" maxlength="80" placeholder="Wes Anderson films" style="margin-top:6px">
+    </section>
+    <section class="side b" id="sideB">
+      <label for="bn">Friend's name</label><input id="bn" placeholder="Sam" maxlength="30">
+      <label>Three things they love</label>
+      <input class="lb" maxlength="80" placeholder="Beyoncé"><br>
+      <input class="lb" maxlength="80" placeholder="Succession" style="margin-top:6px"><br>
+      <input class="lb" maxlength="80" placeholder="Nobu" style="margin-top:6px">
+    </section>
+  </div>
+  <div class="row">
+    <div class="city"><label for="city">City you share</label><input id="city" value="London" maxlength="40"></div>
+    <button id="go">Find where we meet</button>
+    <button class="ghost" id="send">Send my side to a friend</button>
+  </div>
+  <p class="note" id="note"></p>
+  <div id="out"></div>
+</main>
+<script>
+const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const loves = cls => $$(cls).map(i => i.value.trim()).filter(Boolean);
+const q = new URLSearchParams(location.search);
+
+if (q.get("a")) {
+  const a = q.get("a").split("|").slice(0, 3);
+  $$(".la").forEach((i, k) => i.value = a[k] || "");
+  $("#an").value = q.get("an") || "";
+  if (q.get("city")) $("#city").value = q.get("city");
+  const who = esc(q.get("an") || "Your friend");
+  $("#given").innerHTML = `<b>${who}</b> loves ${a.map(esc).join(", ")}. Add your three and see where you meet.`;
+  $("#given").hidden = false;
+  $("#sideA").hidden = true;
+  $("#send").hidden = true;
+  $("#bn").previousElementSibling.textContent = "Your name";
+  $("#sideB label:nth-of-type(2)").textContent = "Three things you love";
+}
+if (q.get("b")) {
+  const b = q.get("b").split("|").slice(0, 3);
+  $$(".lb").forEach((i, k) => i.value = b[k] || "");
+  $("#bn").value = q.get("bn") || "";
+  if (q.get("a")) setTimeout(() => $("#go").click(), 0);   // a shared match opens straight into its result
+}
+
+function link(withB) {
+  const p = new URLSearchParams({ an: $("#an").value.trim(), a: loves(".la").join("|"), city: $("#city").value.trim() });
+  if (withB) { p.set("bn", $("#bn").value.trim()); p.set("b", loves(".lb").join("|")); }
+  return location.origin + location.pathname + "?" + p;
+}
+async function share(url, text) {
+  try { if (navigator.share) { await navigator.share({ title: "Taste Match", text, url }); return; } } catch (e) { return; }
+  try { await navigator.clipboard.writeText(url); $("#note").textContent = "Link copied. Paste it to your friend."; }
+  catch (e) { prompt("Copy this link", url); }
+}
+$("#send").onclick = async () => {   // a short /pair link, so the send and the finish are counted
+  if (!loves(".la").length) { $("#note").textContent = "Add at least one thing you love first."; return; }
+  const r = await fetch("/api/pair", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ an: $("#an").value.trim(), a: loves(".la"), city: $("#city").value.trim() }) });
+  const d = await r.json();
+  if (!r.ok) { $("#note").textContent = d.error; return; }
+  share(location.origin + d.path, "Three questions, then we see where our tastes meet.");
+};
+
+const STEPS = ["Finding your six loves in Qloo", "Asking what people with each taste love", "Asking what people with both tastes love", "The agent is reading the overlap", "Checking every pick against its Qloo call"];
+$("#go").onclick = async () => {
+  const a = loves(".la"), b = loves(".lb");
+  if (!a.length || !b.length) { $("#note").textContent = "Each side needs at least one thing."; return; }
+  $("#go").disabled = true; $("#out").innerHTML = "";
+  let k = 0; $("#note").textContent = STEPS[0] + "…";
+  const tick = setInterval(() => { k = Math.min(k + 1, STEPS.length - 1); $("#note").textContent = STEPS[k] + "…"; }, 4000);
+  try {
+    const r = await fetch("/api/match", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ a, b, city: $("#city").value, an: $("#an").value.trim(), bn: $("#bn").value.trim() }) });
+    const d = await r.json();
+    if (!r.ok || d.error || !d.answer || (d.problems || []).length) throw new Error(d.error || (d.problems || []).join("; ") || "No answer");
+    render(d);
+    history.replaceState(null, "", link(true));
+    $("#note").textContent = `${d.cost.qloo_calls} live Qloo calls, ${d.cost.seconds} s.`;
+  } catch (e) { $("#note").textContent = "That did not work: " + e.message; }
+  finally { clearInterval(tick); $("#go").disabled = false; }
+};
+
+function render(d) {
+  const A = esc($("#an").value.trim() || "You"), B = esc($("#bn").value.trim() || "Your friend");
+  const ans = d.answer, byId = Object.fromEntries(d.calls.map(c => [c.id, c]));
+  const flags = {};   // name -> which person's own list it also appeared in
+  d.calls.forEach(c => { const who = c.purpose.startsWith("A only") ? "a" : c.purpose.startsWith("B only") ? "b" : null; if (who) c.names.forEach(n => (flags[n] = flags[n] || new Set()).add(who)); });
+  const badges = n => { const f = flags[n] || new Set(); return `<div class="badges">${f.has("a") ? `<span class="badge a">${A}'s taste</span>` : ""}${f.has("b") ? `<span class="badge b">${B}'s taste</span>` : ""}</div>`; };
+  const card = (m, cls = "") => `<div class="card ${cls}"><div class="what">${esc(m.label || m.what)}</div><div class="name">${esc(m.name)}</div><p class="why">${esc(m.why)}</p>${badges(m.name)}</div>`;
+  const label = { listen: "Listen together", watch: "Watch together", go: "Go together in " + esc(d.city) };
+  const unfound = [...d.A, ...d.B].filter(x => !x.name).map(x => esc(x.asked));
+  $("#out").innerHTML = `
+    <h2 class="headline">${esc(ans.headline)}</h2>
+    <div class="cards">${ans.meet.map(m => card({ ...m, label: label[m.what] })).join("")}</div>
+    <div class="swap">
+      ${card({ ...ans.a_shows_b, label: `${A}, show ${B} this` }, "a")}
+      ${card({ ...ans.b_shows_a, label: `${B}, show ${A} this` }, "b")}
+    </div>
+    <p class="diff">${esc(ans.difference)}</p>
+    <div class="ask">${esc(ans.ask_each_other)}</div>
+    <div class="share"><button id="again" class="ghost">Share this match</button></div>
+    <details><summary>How the agent got here: ${d.calls.length} Qloo calls</summary>
+      <p>Qloo matched: ${[...d.A, ...d.B].filter(x => x.name).map(x => `${esc(x.asked)} → ${esc(x.name)} (${esc(x.type)})`).join(", ")}.${unfound.length ? " Not found: " + unfound.join(", ") + "." : ""}</p>
+      <p>Every pick above names the call it came from, and the server rejects a pick that call did not return. Model: ${esc(d.model)}, ${d.cost.turns} turn(s), about $${d.cost.usd}.</p>
+      <ul>${d.calls.map(c => `<li><b>${esc(c.id)}</b> ${esc(c.purpose)}: ${c.names.map(esc).join(", ") || "nothing"}</li>`).join("")}</ul>
+    </details>`;
+  $("#again").onclick = () => share(link(true), ans.headline);
+}
+</script>
+</body>
+</html>

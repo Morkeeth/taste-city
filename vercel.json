@@ -1,0 +1,73 @@
+{
+  "rewrites": [
+    {
+      "source": "/api/brand-taste",
+      "destination": "/api/brand_taste"
+    },
+    {
+      "source": "/api/agent-plan",
+      "destination": "/api/agent_plan"
+    },
+    {
+      "source": "/",
+      "destination": "/village.html"
+    },
+    {
+      "source": "/village",
+      "destination": "/village.html"
+    },
+    {
+      "source": "/match",
+      "destination": "/match.html"
+    },
+    {
+      "source": "/pair",
+      "destination": "/pair.html"
+    },
+    {
+      "source": "/pair/:id",
+      "destination": "/pair.html"
+    },
+    {
+      "source": "/panel",
+      "destination": "/panel.html"
+    }
+  ],
+  "functions": {
+    "api/match.py": {
+      "maxDuration": 60
+    },
+    "api/village.py": {
+      "maxDuration": 60
+    },
+    "api/street.py": {
+      "maxDuration": 60
+    },
+    "api/ask.py": {
+      "maxDuration": 30
+    },
+    "api/pair.py": {
+      "maxDuration": 60
+    },
+    "api/panel.py": {
+      "maxDuration": 60
+    },
+    "api/taste.py": {
+      "maxDuration": 60
+    },
+    "api/scenario.py": {
+      "maxDuration": 60
+    },
+    "api/agent_plan.py": {
+      "maxDuration": 60
+    },
+    "api/brand_taste.py": {
+      "maxDuration": 60
+    },
+    "api/brand_source.py": {
+      "maxDuration": 30
+    }
+  },
+  "buildCommand": "python3 build_static.py",
+  "outputDirectory": "public"
+}

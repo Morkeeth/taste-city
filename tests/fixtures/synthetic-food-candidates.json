@@ -1,0 +1,72 @@
+{
+  "source": "Hand-authored synthetic cases; no Qloo response data. Tests primary genre precedence over a conflicting secondary tag.",
+  "candidates": [
+    {
+      "entity_id": "fictional:food-0",
+      "name": "Fictional Museum",
+      "subtype": "urn:entity:place",
+      "properties": {
+        "primary_genre": {
+          "id": "urn:tag:genre:place:museum",
+          "name": "museum",
+          "type": "urn:tag:genre:place"
+        }
+      },
+      "tags": [
+        {
+          "id": "urn:tag:genre:place:restaurant",
+          "name": "Restaurant",
+          "type": "urn:tag:genre:place"
+        }
+      ]
+    },
+    {
+      "entity_id": "fictional:food-1",
+      "name": "Fictional Gallery",
+      "subtype": "urn:entity:place",
+      "properties": {
+        "primary_genre": {
+          "id": "urn:tag:genre:place:art_gallery",
+          "name": "art_gallery",
+          "type": "urn:tag:genre:place"
+        }
+      }
+    },
+    {
+      "entity_id": "fictional:food-2",
+      "name": "Fictional Library",
+      "subtype": "urn:entity:place",
+      "properties": {
+        "primary_genre": {
+          "id": "urn:tag:genre:place:library",
+          "name": "library",
+          "type": "urn:tag:genre:place"
+        }
+      }
+    },
+    {
+      "entity_id": "fictional:food-3",
+      "name": "Fictional Corner Cafe",
+      "subtype": "urn:entity:place",
+      "properties": {
+        "primary_genre": {
+          "id": "urn:tag:genre:place:restaurant:cafe",
+          "name": "restaurant:cafe",
+          "type": "urn:tag:genre:place"
+        }
+      }
+    },
+    {
+      "entity_id": "fictional:food-4",
+      "name": "Fictional Art Centre",
+      "subtype": "urn:entity:place",
+      "properties": {
+        "primary_genre": {
+          "id": "urn:tag:genre:place:art_gallery",
+          "name": "art_gallery",
+          "type": "urn:tag:genre:place"
+        }
+      }
+    }
+  ]
+}

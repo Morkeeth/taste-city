@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Taste Match</title>
+<meta name="description" content="Answer three taste questions, send one link to a friend, and see where your tastes meet and the one place to go.">
+<style>
+:root { --bg:#f6f1e7; --card:#fffaf1; --ink:#1f1a14; --soft:#6b6155; --line:#e2d8c6; --a:#d9583b; --b:#2f7f78; --both:#7a4fb0; }
+@media (prefers-color-scheme: dark) { :root { --bg:#16130f; --card:#211c16; --ink:#f3ece0; --soft:#a89b88; --line:#3a3127; --a:#f07a5c; --b:#5bb5ad; --both:#b38be6; } }
+* { box-sizing:border-box; }
+body { margin:0; background:var(--bg); color:var(--ink); font:17px/1.5 ui-sans-serif, system-ui, -apple-system, sans-serif; }
+main { max-width:560px; margin:0 auto; padding:28px 16px 56px; }
+h1 { font:600 clamp(30px,8vw,44px)/1.08 ui-serif, Georgia, serif; margin:0 0 10px; letter-spacing:-0.01em; }
+.lede { color:var(--soft); margin:0 0 22px; }
+.lede b { color:var(--a); font-weight:600; }
+label { display:block; font-weight:600; margin:18px 0 6px; }
+label small { display:block; font-weight:400; color:var(--soft); font-size:14px; }
+input { width:100%; font:inherit; padding:13px 14px; border:1px solid var(--line); border-radius:11px; background:var(--card); color:var(--ink); }
+input:focus { outline:2px solid var(--both); outline-offset:1px; }
+button, .btn { display:block; width:100%; text-align:center; text-decoration:none; font-family:inherit; font-weight:600; font-size:17px; line-height:1; padding:16px 20px; margin-top:22px; border-radius:12px; border:0; background:var(--ink); color:var(--bg); cursor:pointer; }
+.ghost { background:transparent; color:var(--ink); border:1px solid var(--line); margin-top:12px; }
+button:disabled { opacity:.5; cursor:wait; }
+.note { color:var(--soft); font-size:15px; margin-top:12px; min-height:1.5em; }
+.link { margin-top:18px; padding:14px; border-radius:11px; border:1px dashed var(--both); font:600 16px/1.3 ui-monospace, monospace; word-break:break-all; }
+.verdict { font:600 clamp(26px,7vw,36px)/1.15 ui-serif, Georgia, serif; margin:0 0 18px; }
+.go { background:var(--ink); color:var(--bg); border-radius:14px; padding:18px; }
+.go .what { color:var(--bg); opacity:.7; }
+.go .name { font:600 26px/1.2 ui-serif, Georgia, serif; }
+.go .why { color:var(--bg); opacity:.85; }
+.card { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:14px; margin-top:12px; }
+.card.a { border-left:4px solid var(--a); } .card.b { border-left:4px solid var(--b); }
+.what { font-size:12px; letter-spacing:.08em; text-transform:uppercase; color:var(--both); }
+.name { font-weight:650; font-size:19px; margin:4px 0 4px; }
+.why { color:var(--soft); font-size:15px; margin:0; }
+.ask { margin-top:16px; padding:16px; border-radius:12px; border:2px solid var(--both); font:500 19px/1.35 ui-serif, Georgia, serif; }
+.counts { margin-top:28px; color:var(--soft); font-size:13px; text-align:center; }
+details { margin-top:22px; font-size:13px; color:var(--soft); }
+details li { margin:4px 0; word-break:break-word; }
+</style>
+</head>
+<body>
+<main id="app"><p class="note">Loading…</p></main>
+<script>
+const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const QUESTIONS = ["A band or artist you would put on tonight", "A show or film you would happily watch again", "A place you love going: a restaurant, bar, cafe or shop"];
+const HINTS = ["Mitski, Fred again.., ABBA", "Fleabag, Paddington 2, The Bear", "Dishoom, a record shop, your local"];
+const id = (location.pathname.match(/^\/pair\/([^/]+)/) || [])[1] || new URLSearchParams(location.search).get("id");
+const app = $("#app");
+
+const form = (who, city) => `
+  <label for="name">Your name</label><input id="name" maxlength="30" autocomplete="given-name" placeholder="${who}">
+  ${QUESTIONS.map((q, k) => `<label for="q${k}">${k + 1}. ${q}<small>${HINTS[k]}</small></label><input id="q${k}" class="q" maxlength="80">`).join("")}
+  ${city ? `<label for="city">The city you share</label><input id="city" value="London" maxlength="40">` : ""}`;
+const filled = () => $$(".q").map(i => i.value.trim()).filter(Boolean);
+
+async function api(method, body, q = "") {
+  const r = await fetch("/api/pair" + q, method === "GET" ? {} : { method, headers: { "Content-Type": "application/json" }, body: JSON.stringify(body) });
+  const d = await r.json().catch(() => ({ error: "the server sent no answer" }));
+  return { status: r.status, d };
+}
+async function share(url, text) {
+  try { if (navigator.share) { await navigator.share({ title: "Taste Match", text, url }); return true; } } catch (e) { return false; }
+  try { await navigator.clipboard.writeText(url); $("#note").textContent = "Link copied. Paste it to your friend."; return true; }
+  catch (e) { prompt("Copy this link", url); return true; }
+}
+async function counts() {
+  const { d } = await api("GET", null, "?counts=1");
+  if (d.made != null) app.insertAdjacentHTML("beforeend", `<p class="counts">${d.made} link${d.made === 1 ? "" : "s"} made, ${d.finished} finished.</p>`);
+}
+
+/* Step 1: you answer, and get the link to send. */
+function start() {
+  app.innerHTML = `<h1>Where do your tastes meet?</h1>
+    <p class="lede">Answer three questions, send the link to one friend. When they answer theirs, you both see where your tastes meet and the one place to go together.</p>
+    ${form("Oscar", true)}
+    <button id="make">Get my link</button><p class="note" id="note"></p>
+    <a class="btn ghost" href="/">Or walk into the Taste City</a>`;
+  $("#make").onclick = async () => {
+    if (!filled().length) { $("#note").textContent = "Answer at least one question first."; return; }
+    $("#make").disabled = true;
+    const { status, d } = await api("POST", { an: $("#name").value.trim(), a: $$(".q").map(i => i.value.trim()), city: $("#city").value.trim() });
+    if (status !== 200) { $("#note").textContent = d.error; $("#make").disabled = false; return; }
+    const url = location.origin + d.path, name = $("#name").value.trim();
+    app.innerHTML = `<h1>Send this to one friend</h1>
+      <p class="lede">When they answer, open the same link to see your match.</p>
+      <div class="link" id="url">${esc(url)}</div>
+      <button id="send">Send the link</button><p class="note" id="note"></p>
+      <a class="btn ghost" href="${esc(d.path)}">Open it myself</a>`;
+    $("#send").onclick = () => share(url, `${name ? name + " here. " : ""}Three questions, then we see where our tastes meet.`);
+    counts();
+  };
+}
+
+/* Step 2: the friend answers. */
+function answer(p) {
+  app.innerHTML = `<h1>${esc(p.an || "Your friend")} wants to know where your tastes meet</h1>
+    <p class="lede"><b>${esc(p.an || "They")}</b> loves ${p.a.map(esc).join(", ")}. Three questions and you will both see it.</p>
+    ${form("Sam", false)}
+    <button id="go">See where we meet</button><p class="note" id="note"></p>`;
+  const STEPS = ["Finding your six answers in Qloo", "Asking what people with each taste love", "Asking what people with both tastes love", "The Matchmaker is reading the overlap", "Checking every pick against its Qloo call"];
+  $("#go").onclick = async () => {
+    if (!filled().length) { $("#note").textContent = "Answer at least one question first."; return; }
+    $("#go").disabled = true;
+    let k = 0; $("#note").textContent = STEPS[0] + "…";
+    const tick = setInterval(() => { k = Math.min(k + 1, STEPS.length - 1); $("#note").textContent = STEPS[k] + "…"; }, 4000);
+    const { status, d } = await api("POST", { id: p.id, bn: $("#name").value.trim(), b: $$(".q").map(i => i.value.trim()) });
+    clearInterval(tick);
+    if (status !== 200) { $("#note").textContent = "That did not work: " + d.error; $("#go").disabled = false; return; }
+    result(d, true);
+  };
+}
+
+/* Step 3: the result, the same for both people at the same link. */
+function result(p, fresh) {
+  const d = p.result, ans = d.answer, A = esc(p.an || "You"), B = esc(p.bn || "your friend");
+  const go = ans.meet.find(m => m.what === "go"), rest = ans.meet.filter(m => m !== go);
+  const label = { listen: "Listen together", watch: "Watch together", go: "Go together in " + esc(d.city) };
+  const card = (m, cls, what) => `<div class="card ${cls}"><div class="what">${what}</div><div class="name">${esc(m.name)}</div><p class="why">${esc(m.why)}</p></div>`;
+  const loves = [p.a[0], (p.b || [])[0]].filter(Boolean).join("|");
+  app.innerHTML = `<p class="what">${A} and ${B}</p>
+    <h1 class="verdict">${esc(ans.headline)}</h1>
+    ${go ? `<div class="go"><div class="what">The one place to go, in ${esc(d.city)}</div><div class="name">${esc(go.name)}</div><p class="why">${esc(go.why)}</p></div>` : ""}
+    ${rest.map(m => card(m, "", label[m.what])).join("")}
+    ${card(ans.a_shows_b, "a", `${A}, show ${B} this`)}
+    ${card(ans.b_shows_a, "b", `${B}, show ${A} this`)}
+    <div class="ask">${esc(ans.ask_each_other)}</div>
+    <button id="send">${fresh ? `Send it back to ${A}` : "Share this match"}</button><p class="note" id="note"></p>
+    <a class="btn ghost" id="city" href="/?loves=${encodeURIComponent(loves)}">See the Taste City built from your loves</a>
+    <details><summary>How the Matchmaker got here: ${d.calls.length} live Qloo calls</summary>
+      <p>Every pick names the Qloo call it came from, and the server rejects a pick that call did not return. Model ${esc(d.model)}.</p>
+      <ul>${d.calls.map(c => `<li><b>${esc(c.id)}</b> ${esc(c.purpose)}: ${c.names.map(esc).join(", ") || "nothing"}</li>`).join("")}</ul>
+    </details>`;
+  $("#send").onclick = () => share(location.origin + "/pair/" + p.id, ans.headline);
+  counts();
+}
+
+function missing() {
+  app.innerHTML = `<h1>This link is not here</h1><p class="lede">It may be mistyped, or the server forgot it. Ask your friend to send it again, or start your own.</p>
+    <a class="btn" href="/pair">Start my own</a>`;
+}
+
+(async () => {
+  if (!id) return start();
+  const { status, d } = await api("GET", null, "?id=" + encodeURIComponent(id));
+  if (status === 404) return missing();
+  if (status !== 200) { app.innerHTML = `<p class="note">That did not load: ${esc(d.error)}</p>`; return; }
+  d.result ? result(d, false) : answer(d);
+})();
+</script>
+</body>
+</html>

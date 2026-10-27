@@ -1,0 +1,757 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Taste City</title>
+<style>
+/* 2010 Dashboard language: denim ground, glossy header, Georgia italic display, Lucida body.
+   THE ONE THING: the six characters as voxel figures, extruded from the same 12 x 16 pixel grids. */
+:root {
+  --bg: #195c59; --bg2: #26736e; --ink: #26352f; --ink-soft: #718079; --card: #fffef5; --line: #d9e1d7;
+  --head-a: #ee6b4d; --head-b: #d94343; --accent: #ea4f4f; --win: #398449; --miss: #a6463b;
+  --display: Georgia, "Times New Roman", serif; --body: "Lucida Grande", "Lucida Sans Unicode", Verdana, sans-serif;
+  --r: 10px; --top: 52px;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; height: 100%; overflow: hidden; }
+body { background: var(--bg); color: var(--ink); font: 13px/1.5 var(--body); }
+#gl { position: fixed; inset: 0; width: 100vw; height: 100dvh; display: block; touch-action: none; }
+header { position: fixed; top: 0; left: 0; right: 0; height: var(--top); z-index: 5; color: #fff;
+  background: linear-gradient(var(--head-a), var(--head-b)); box-shadow: inset 0 1px 0 rgba(255,255,255,.35), 0 1px 3px rgba(0,0,0,.3); }
+.bar { height: 100%; padding: 0 16px; display: flex; align-items: center; gap: 14px; }
+.logo { font: italic 700 28px/1 var(--display); letter-spacing: -1px; text-shadow: 0 1px 0 rgba(0,0,0,.35); }
+.beta { font: 700 9px/1 var(--body); letter-spacing: 1px; text-transform: uppercase; background: #fff4a8; color: #783d2d; padding: 4px 7px; border-radius: 10px; }
+.tag-line { opacity: .85; font-size: 12px; }
+.steps { display: flex; gap: 4px; margin-left: auto; }
+.steps button { font: 11px var(--body); color: #fff; background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.35);
+  border-radius: 12px; padding: 4px 10px; cursor: pointer; white-space: nowrap; }
+.steps button b { display: inline-block; width: 16px; height: 16px; line-height: 16px; border-radius: 50%; background: rgba(255,255,255,.25); margin-right: 5px; font-size: 10px; text-align: center; }
+.steps button[aria-current=step] { background: rgba(255,255,255,.92); color: var(--head-b); }
+.steps button[aria-current=step] b { background: var(--accent); color: #fff; }
+#labels { position: fixed; inset: 0; pointer-events: none; z-index: 2; overflow: hidden; }
+.lab { position: absolute; left: 0; top: 0; transform: translate(-50%, -100%); white-space: nowrap; font: 11px/1.2 var(--body);
+  padding: 3px 7px; border-radius: 9px; background: rgba(255,255,255,.94); color: var(--ink); box-shadow: 0 1px 3px rgba(0,0,0,.35); transition: opacity .25s ease-out; }
+.lab.anchor { background: rgba(27,45,63,.86); color: #d6e4f0; font-style: italic; font-family: var(--display); font-size: 12px; }
+.lab.pick { font-weight: 700; border: 1px solid var(--accent); }
+.lab.win { background: var(--win); color: #fff; border-color: var(--win); }
+.lab.lose { background: #ddd; color: #555; border-color: #bbb; }
+/* Sheets: one per step, laid over the full-viewport scene. */
+.sheet { position: fixed; z-index: 3; opacity: 0; pointer-events: none; transform: translateY(30px); transition: opacity .25s ease-out, transform .25s cubic-bezier(.2,.8,.2,1); }
+.sheet.on { opacity: 1; pointer-events: auto; transform: none; }
+.panel { background: var(--card); border-radius: var(--r); box-shadow: 0 2px 10px rgba(0,0,0,.35); }
+h2 { font: italic 400 18px/1.2 var(--display); margin: 0; padding: 10px 14px; border-bottom: 1px solid var(--line); }
+.pad { padding: 12px 14px; }
+#s1 { left: 24px; top: calc(var(--top) + 24px); width: 380px; }
+#s2 { right: 24px; top: calc(var(--top) + 24px); bottom: 24px; width: min(760px, 52vw); overflow: auto; }
+#s3 { right: 24px; top: calc(var(--top) + 24px); width: 380px; max-height: calc(100dvh - var(--top) - 48px); overflow: auto; }
+#s4 { right: 24px; top: calc(var(--top) + 24px); bottom: 24px; width: min(760px, 54vw); overflow: auto; }
+.cast { display: grid; grid-template-columns: repeat(6, 1fr); gap: 5px; padding: 10px 14px 0; }
+.who { border: 1px solid var(--line); background: linear-gradient(#fff, #f1f1f1); border-radius: 8px; padding: 4px 0 2px; cursor: pointer; }
+.who svg { width: 30px; height: 40px; display: block; margin: 0 auto; }
+.who[aria-pressed=true] { border-color: var(--accent); box-shadow: 0 0 0 2px var(--accent) inset; }
+.name { font: italic 400 28px/1.1 var(--display); margin: 0 0 4px; }
+.blurb { color: var(--ink-soft); margin: 0 0 10px; }
+.record { display: flex; align-items: baseline; gap: 10px; }
+.big { font: 700 34px/1 var(--display); color: var(--ink); }
+.small { font-size: 11px; color: var(--ink-soft); }
+.btn { font: 12px var(--body); background: linear-gradient(#fff, #e6e6e6); border: 1px solid #bbb; border-radius: 4px; padding: 4px 10px; cursor: pointer; box-shadow: inset 0 1px 0 #fff; color: var(--ink); }
+.btn.primary { font-size: 14px; padding: 8px 14px; width: 100%; margin-top: 12px; background: linear-gradient(#7fb8dc, var(--accent)); color: #fff;
+  border-color: #3d7ea6; text-shadow: 0 -1px 0 rgba(0,0,0,.25); }
+.when { display: flex; gap: 6px; align-items: center; flex-wrap: wrap; padding: 10px 14px; border-bottom: 1px solid var(--line); background: #f6f8fa; }
+.when select { font: 12px var(--body); max-width: 190px; }
+.calls { list-style: none; margin: 0; padding: 0; }
+.calls li { display: grid; grid-template-columns: 22px 1fr auto; gap: 2px 8px; padding: 8px 14px; border-bottom: 1px solid var(--line); opacity: .25; transition: opacity .3s ease-out; }
+.calls li.lit { opacity: 1; }
+.calls .n { font: 700 11px var(--body); color: #fff; background: var(--accent); border-radius: 50%; width: 20px; height: 20px; line-height: 20px; text-align: center; }
+.calls .who-name { font: 400 17px/1.2 var(--display); }
+.calls .up { font: 700 13px var(--body); color: var(--accent); }
+.calls .why { grid-column: 2 / 4; font-size: 11px; color: var(--ink-soft); }
+.grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; padding: 12px 14px; }
+.post { border: 1px solid var(--line); border-radius: 8px; padding: 10px; display: grid; grid-template-columns: 1fr auto; gap: 2px 8px; align-content: start; }
+.post .rank { font: 700 10px var(--body); color: var(--ink-soft); text-transform: uppercase; letter-spacing: .5px; }
+.post .artist { font: 400 19px/1.15 var(--display); margin: 0; }
+.post svg.spark { width: 100%; height: 40px; display: block; grid-column: 1 / 3; margin: 4px 0; }
+.post p { grid-column: 1 / 3; margin: 0; font-size: 11px; color: var(--ink-soft); }
+.verdict { grid-row: 1 / span 2; grid-column: 2; align-self: start; text-align: right; font: 700 13px/1.2 var(--body); color: var(--win); }
+.verdict small { display: block; font-weight: 400; font-size: 11px; color: var(--ink-soft); }
+.verdict.miss { color: #777; }
+.verdict.locked { color: var(--ink-soft); font-weight: 400; }
+.sum { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+.receipt table { border-collapse: collapse; width: 100%; font-size: 12px; }
+.receipt td, .receipt th { padding: 4px 6px; border-bottom: 1px solid var(--line); text-align: left; }
+.receipt td.num { text-align: right; font-family: Menlo, Monaco, monospace; }
+.receipt tr.us td { font-weight: 700; }
+.honest { margin: 10px 0 0; padding: 8px 10px; background: #eef5fa; border-left: 3px solid var(--accent); }
+.empty { padding: 16px 14px; color: var(--ink-soft); }
+.traits { list-style: none; margin: 10px 0 0; padding: 0; border-top: 1px solid var(--line); }
+.traits li { display: grid; grid-template-columns: 74px 1fr; gap: 0 8px; padding: 6px 0; border-bottom: 1px solid var(--line); }
+.traits b { font: 700 10px/1.9 var(--body); text-transform: uppercase; letter-spacing: .5px; color: var(--ink-soft); }
+.traits span:not(.src) { font: 400 15px/1.3 var(--display); color: var(--ink); }
+.src { font: 10px Menlo, Monaco, monospace; color: var(--ink-soft); white-space: nowrap; }
+.day { list-style: none; margin: 0; padding: 0; }
+.day li { display: grid; grid-template-columns: 46px 1fr; gap: 1px 10px; padding: 9px 14px; border-bottom: 1px solid var(--line); opacity: .3; transform: translateX(-12px); transition: opacity .28s ease-out, transform .28s cubic-bezier(.2,.8,.2,1); }
+.day li.lit { opacity: 1; transform: none; }
+.day li.here .place { color: var(--accent); }
+.day .clock { font: 700 12px/1.6 Menlo, Monaco, monospace; color: var(--ink-soft); }
+.day .place { font: 400 17px/1.2 var(--display); }
+.day .what { grid-column: 2; font-size: 11px; color: var(--ink-soft); }
+.lab.sign { background: #fff; color: var(--ink); font: 400 13px/1.15 var(--display); border-radius: 4px; padding: 4px 8px; }
+.lab.sign i { font: 700 10px Menlo, Monaco, monospace; color: var(--ink-soft); font-style: normal; margin-right: 6px; }
+.lab.sign.here { border: 1px solid var(--accent); }
+.two { display: grid; grid-template-columns: 1fr 1fr; }
+.two .col { min-width: 0; border-right: 1px solid var(--line); }
+.two .col:last-child { border-right: 0; }
+.who-head { display: flex; gap: 10px; align-items: center; padding: 10px 14px 6px; }
+.who-head svg { width: 30px; height: 40px; flex: none; }
+.person { font: italic 400 24px/1.1 var(--display); margin: 0; }
+.wk li { padding: 6px 14px; }
+.wk .place { font-size: 15px; }
+.note { margin: 0; padding: 8px 14px; font-size: 11px; color: var(--ink-soft); border-bottom: 1px solid var(--line); }
+.note b { color: var(--ink); }
+.vs { display: flex; gap: 5px; align-items: center; padding: 8px 14px; border-bottom: 1px solid var(--line); background: #f6f8fa; }
+.vs .small { margin-right: 4px; }
+.vs .who { width: 38px; }
+.vs .btn[aria-pressed="true"] { background: #2d5a88; color: #fff; }
+.hint { position: fixed; z-index: 3; left: 50%; bottom: 18px; transform: translateX(-50%); color: #cfdbe6; font-size: 11px; text-shadow: 0 1px 0 rgba(0,0,0,.4); pointer-events: none; }
+.pulse { display:flex; align-items:center; gap:8px; padding:8px 14px; color:#fff; background:#173f3d; border-bottom:1px solid rgba(255,255,255,.12); }
+.pulse strong { font: italic 700 18px/1 var(--display); min-width:96px; }
+.pulse span { flex:1; font-size:11px; opacity:.8; }
+.pulse .btn { background:#fff4a8; border-color:#d6bd54; color:#523d17; }
+@media (max-width: 760px) {
+  :root { --top: 46px; }
+  .logo { font-size: 24px; }
+  .tag-line, .steps button span, .hint { display: none; }
+  .steps button { padding: 4px 8px; }
+  .steps button b { margin: 0; }
+  #s1, #s2, #s3, #s4 { left: 10px; right: 10px; top: auto; bottom: 10px; width: auto; max-height: 42dvh; overflow: auto; }
+  #s1 { max-height: 50dvh; }
+  #s4 { max-height: 56dvh; }
+  #s2 { bottom: 10px; max-height: 46dvh; }
+  .person { font-size: 18px; }
+  .wk li { padding: 5px 8px; grid-template-columns: 30px 1fr; }
+  .who-head, .note { padding-left: 8px; padding-right: 8px; }
+  .grid { grid-template-columns: 1fr; }
+  .name { font-size: 22px; }
+  .blurb { margin-bottom: 6px; }
+}
+@media (prefers-reduced-motion: reduce) { .sheet, .lab, .calls li, .day li { transition: none; } }
+</style>
+</head>
+<body>
+<canvas id="gl" aria-label="3D scene: the characters on a plinth, then the tribe as a city of artists"></canvas>
+<div id="labels"></div>
+<header><div class="bar">
+  <div class="logo">Taste City</div>
+  <div class="beta">Qloo powered</div>
+  <div class="tag-line">Six tastes. One city. Very different weeks.</div>
+  <nav class="steps" aria-label="Steps">
+    <button data-step="1"><b>1</b><span>Pick a taste</span></button>
+    <button data-step="2"><b>2</b><span>Live a week</span></button>
+    <button data-step="3"><b>3</b><span>See the taste map</span></button>
+    <button data-step="4"><b>4</b><span>Check the call</span></button>
+  </nav>
+</div></header>
+
+<section class="sheet panel" id="s1" aria-label="Step 1">
+  <h2>Who moves into the village?</h2>
+  <div class="cast" id="cast"></div>
+  <div class="pad" id="hero"></div>
+</section>
+
+<section class="sheet panel" id="s2" aria-label="Step 2">
+  <h2 id="s2h">A week in the village</h2>
+  <div class="pulse"><strong id="simClock">Mon 08:00</strong><span>Taste moves each resident through a different week.</span><button class="btn" id="replay">Replay</button></div>
+  <div class="vs" id="by"></div>
+  <div class="vs" id="vs"></div>
+  <div class="two" id="two"></div>
+  <p class="pad small" style="margin:0">Same city, same seven days. Taste changes where each person eats, watches, listens and stays out late. The names are ours. Every place, film, show and artist comes from a recorded Qloo call, cited by its ID.</p>
+  <div class="pad"><button class="btn primary" id="go3">Watch Qloo make the call &#9654;</button></div>
+</section>
+
+<section class="sheet panel" id="s3" aria-label="Step 3">
+  <h2 id="s3h">The call</h2>
+  <div class="when">
+    <button class="btn" id="prev" aria-label="Earlier week">&#9664;</button>
+    <select id="week" aria-label="Week"></select>
+    <button class="btn" id="next" aria-label="Later week">&#9654;</button>
+  </div>
+  <p class="pad small" style="margin:0" id="s3note"></p>
+  <ol class="calls" id="calls"></ol>
+  <div class="pad"><button class="btn primary" id="go4">See the result &#9654;</button></div>
+</section>
+
+<section class="sheet panel" id="s4" aria-label="Step 4">
+  <h2 id="s4h">The result</h2>
+  <div class="pad" id="sum"></div>
+  <div class="grid" id="feed"></div>
+  <div class="pad receipt" id="receipt"></div>
+</section>
+<div class="hint" id="hint">Drag to turn. Click a character to pick it.</div>
+
+<script type="module">
+import * as THREE from "/vendor/three.module.min.js";
+
+// 12 x 16 pixel people. Letters map to the palette below each sprite. "." is empty.
+const BODY = ["............","............","............","..ssssssss..","..skssssks..","..ssssssss..","..sssmmsss..","...ssssss...","....ssss....","..cccccccc..",".cccccccccc.",".sccccccccs.",".sccccccccs.","..pppppppp..","..ppp..ppp..","..ff....ff.."];
+const SPRITES = {
+  digger:   { top: ["..hhhhhhhh..",".hhhhhhhhhh.",".hhhhhhhhhh."], over: {11: ".scccccrrrr.", 12: ".scccccrarr."}, pal: { h: "#2b1d14", s: "#a46b45", c: "#d9a227", p: "#4a3b2a", f: "#7a4a22", r: "#111", a: "#c0392b" } },
+  monk:     { top: ["............","...hhhhhh...","..hhhhhhhh.."], over: {3: ".assssssssa.", 4: ".askssssksa.", 5: ".assssssssa."}, pal: { h: "#111", s: "#f0c8a8", c: "#1b1b1b", p: "#2a2a2a", f: "#eee", a: "#e2231a" } },
+  poet:     { top: ["...hhhhhh...","..hhhhhhhh..","..hhhhhhhh.."], over: {3: "..hhhhhhss..", 4: "..hhhhssks.."}, pal: { h: "#0d0d0d", s: "#f3dccb", c: "#222", p: "#111", f: "#3a2a20" } },
+  romantic: { top: ["...hhhhhh...","..hhhhhhhh..",".hhhhhhhhhh."], over: {3: ".hssssssssh.", 4: ".hskssssksh.", 10: ".ccaccccacc."}, pal: { h: "#f29bb5", s: "#f6d5c0", c: "#a8d8c8", p: "#6d7fb0", f: "#fff", a: "#fff6a8" } },
+  sneaker:  { top: ["............","..aaaaaaaa..","..aaaaaaaaaa"], over: {15: ".aaa....aaa."}, pal: { a: "#e2231a", s: "#6b4430", c: "#3d4f63", p: "#22303f", f: "#fff" } },
+  wine:     { top: ["....aaaa....","..aaaaaaaa..","..hhhhhhhh.."], over: {10: ".sccccccccsg", 11: ".sccccccccsg", 9: "..cccccccc.g"}, pal: { a: "#6b1f3a", h: "#7a5230", s: "#f1cdb0", c: "#d8cbb0", p: "#5d6b4f", f: "#3a2a20", g: "#c9384f" } },
+};
+const NS = "http://www.w3.org/2000/svg";
+function grid(id) {
+  const sp = SPRITES[id], rows = BODY.slice();
+  sp.top.forEach((r, i) => { rows[i] = r; });
+  for (const [i, r] of Object.entries(sp.over)) rows[+i] = r;
+  return { rows, pal: Object.assign({ k: "#1a1a1a", m: "#8a3b3b" }, sp.pal) };
+}
+function sprite(id) {
+  const { rows, pal } = grid(id);
+  const svg = document.createElementNS(NS, "svg");
+  svg.setAttribute("viewBox", "0 0 12 16"); svg.setAttribute("shape-rendering", "crispEdges"); svg.setAttribute("aria-hidden", "true");
+  rows.forEach((row, y) => [...row].forEach((ch, x) => {
+    if (ch === "." || !pal[ch]) return;
+    const r = document.createElementNS(NS, "rect");
+    r.setAttribute("x", x); r.setAttribute("y", y); r.setAttribute("width", 1); r.setAttribute("height", 1); r.setAttribute("fill", pal[ch]);
+    svg.appendChild(r);
+  }));
+  return svg;
+}
+function el(tag, attrs, ...kids) {
+  const e = document.createElement(tag);
+  for (const [k, v] of Object.entries(attrs || {})) { if (k === "class") e.className = v; else e.setAttribute(k, v); }
+  for (const k of kids) if (k != null) e.append(k);
+  return e;
+}
+function spark(before, after) {
+  const all = before.concat(after || []), max = Math.max(...all, 1), n = 20, w = 360, h = 40;
+  const x = i => (i / (n - 1)) * w, y = v => h - 3 - (v / max) * (h - 8);
+  const svg = document.createElementNS(NS, "svg");
+  svg.setAttribute("viewBox", `0 0 ${w} ${h}`); svg.setAttribute("class", "spark"); svg.setAttribute("preserveAspectRatio", "none");
+  svg.setAttribute("role", "img"); svg.setAttribute("aria-label", "Weekly Wikipedia views, 12 weeks to the call" + (after ? " and 8 weeks after" : ""));
+  const line = (pts, dash, colour) => { const p = document.createElementNS(NS, "polyline");
+    p.setAttribute("points", pts.map(([i, v]) => `${x(i)},${y(v)}`).join(" ")); p.setAttribute("fill", "none");
+    p.setAttribute("stroke", colour); p.setAttribute("stroke-width", "2"); p.setAttribute("vector-effect", "non-scaling-stroke");
+    if (dash) p.setAttribute("stroke-dasharray", "4 3"); svg.appendChild(p); };
+  const off = 12 - before.length;
+  line(before.map((v, i) => [i + off, v]), false, "var(--accent)");
+  if (after) line([[11, before[before.length - 1]]].concat(after.map((v, i) => [12 + i, v])), true, "var(--ink-soft)");
+  const cut = document.createElementNS(NS, "line");
+  cut.setAttribute("x1", x(11)); cut.setAttribute("x2", x(11)); cut.setAttribute("y1", 0); cut.setAttribute("y2", h);
+  cut.setAttribute("stroke", "var(--line)"); svg.appendChild(cut);
+  return svg;
+}
+const fmt = n => n.toLocaleString("en-GB");
+const pct = x => (100 * x).toFixed(1) + "%";
+const addWeeks = (iso, k) => { const d = new Date(iso + "T00:00:00Z"); d.setUTCDate(d.getUTCDate() + 7 * k); return d.toISOString().slice(0, 10); };
+const $ = id => document.getElementById(id);
+async function get(url) { const r = await fetch(url); if (!r.ok) throw new Error(r.status); return r.json(); }
+const REDUCED = matchMedia("(prefers-reduced-motion: reduce)").matches;
+const ease = t => 1 - Math.pow(1 - Math.min(1, Math.max(0, t)), 3);
+
+let META = null, ARCH = null, WEEK = null, STEP = 1, RADAR = null, CITY = null, LIFE = null, built = 0;
+
+// ---------- 3D scene ----------
+const canvas = $("gl");
+const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, preserveDrawingBuffer: true });
+renderer.setPixelRatio(Math.min(2, devicePixelRatio));
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(40, 1, 0.1, 900);
+{ // The page texture of the 2010 Dashboard, painted onto the ground and the sky.
+  const c = document.createElement("canvas"); c.width = 4; c.height = 256; const g = c.getContext("2d");
+  const grad = g.createLinearGradient(0, 0, 0, 256); grad.addColorStop(0, "#49a497"); grad.addColorStop(1, "#164743");
+  g.fillStyle = grad; g.fillRect(0, 0, 4, 256);
+  scene.background = new THREE.CanvasTexture(c); scene.background.colorSpace = THREE.SRGBColorSpace;
+}
+scene.fog = new THREE.Fog(0x1f5d58, 320, 820);
+const hemi = new THREE.HemisphereLight(0xfff7cf, 0x163d3a, 1.6); scene.add(hemi);
+const sun = new THREE.DirectionalLight(0xffffff, 1.9); sun.position.set(18, 40, 26); scene.add(sun);
+{
+  const c = document.createElement("canvas"); c.width = c.height = 64; const g = c.getContext("2d");
+  g.fillStyle = "#1e625d"; g.fillRect(0, 0, 64, 64); g.strokeStyle = "rgba(255,244,168,.09)"; g.lineWidth = 4;
+  for (let i = -64; i < 128; i += 12) { g.beginPath(); g.moveTo(i, 64); g.lineTo(i + 64, 0); g.stroke(); }
+  const tex = new THREE.CanvasTexture(c); tex.wrapS = tex.wrapT = THREE.RepeatWrapping; tex.repeat.set(120, 120); tex.colorSpace = THREE.SRGBColorSpace;
+  const ground = new THREE.Mesh(new THREE.PlaneGeometry(800, 800), new THREE.MeshLambertMaterial({ map: tex }));
+  ground.rotation.x = -Math.PI / 2; ground.position.set(0, -0.01, -60); scene.add(ground);
+}
+const shadowTex = (() => { const c = document.createElement("canvas"); c.width = c.height = 64; const g = c.getContext("2d");
+  const r = g.createRadialGradient(32, 32, 2, 32, 32, 32); r.addColorStop(0, "rgba(0,0,0,.45)"); r.addColorStop(1, "rgba(0,0,0,0)");
+  g.fillStyle = r; g.fillRect(0, 0, 64, 64); return new THREE.CanvasTexture(c); })();
+
+// Step 1: the plinth and the six voxel characters.
+const V = 0.5, RING = 8.5;
+const plinth = new THREE.Group(); scene.add(plinth);
+{
+  const top = new THREE.Mesh(new THREE.CylinderGeometry(13, 13.4, 1.2, 64), new THREE.MeshPhongMaterial({ color: 0xf2f5f8, shininess: 90, specular: 0x777777 }));
+  top.position.y = -0.6; scene.add(top);
+  const rim = new THREE.Mesh(new THREE.TorusGeometry(13.05, 0.12, 8, 96), new THREE.MeshBasicMaterial({ color: 0x529ecc }));
+  rim.rotation.x = Math.PI / 2; rim.position.y = 0.01; scene.add(rim);
+}
+const FIGS = {};
+const box = new THREE.BoxGeometry(V, V, V * 3);
+function voxelFigure(id) {
+  const { rows, pal } = grid(id), cells = [];
+  rows.forEach((row, y) => [...row].forEach((ch, x) => { if (ch !== "." && pal[ch]) cells.push([x, y, pal[ch]]); }));
+  const mesh = new THREE.InstancedMesh(box, new THREE.MeshLambertMaterial(), cells.length);
+  const m = new THREE.Matrix4(), col = new THREE.Color();
+  cells.forEach(([x, y, c], i) => { m.makeTranslation((x - 5.5) * V, (15.5 - y) * V, 0); mesh.setMatrixAt(i, m); mesh.setColorAt(i, col.set(c)); });
+  mesh.userData.id = id;
+  const g = new THREE.Group(); g.add(mesh);
+  const sh = new THREE.Mesh(new THREE.PlaneGeometry(6, 3), new THREE.MeshBasicMaterial({ map: shadowTex, transparent: true, depthWrite: false }));
+  sh.rotation.x = -Math.PI / 2; sh.position.y = 0.02; g.add(sh);
+  return g;
+}
+let ringAngle = 0, ringTarget = 0, drag = null;
+
+// Step 2 and 3: the tribe as a city. One tower per artist, one block per Qloo similar-artist call.
+const CITY_AT = new THREE.Vector3(0, 0, -70);
+const city = new THREE.Group(); city.position.copy(CITY_AT); scene.add(city);
+const towerGeo = new THREE.BoxGeometry(1, 1, 1); towerGeo.translate(0, 0.5, 0);
+let towers = null, towerInfo = [], arcs = [], cityBox = null;
+const LABELS = [];
+
+const LIFT = 4;
+function hFor(v) { return v == null ? 0.25 : Math.max(0.25, (Math.log10(v + 1) - 2) * 3.2); }
+function buildCity() {
+  city.clear(); LABELS.length = 0; $("labels").replaceChildren(); arcs = []; towerInfo = [];
+  const picks = new Map(RADAR.picks.map((p, i) => [p.id, i]));
+  const CELL = 1.9, STREET = 3.2, total = CITY.districts.reduce((s, d) => s + d.members.length, 0);
+  const MAXW = Math.max(24, Math.sqrt(total) * CELL * (narrow() ? 1.3 : 2.1));
+  let x = 0, z = 0, rowDepth = 0, placed = [];
+  for (const d of CITY.districts) {
+    const side = Math.ceil(Math.sqrt(d.members.length)), w = side * CELL;
+    if (x > 0 && x + w > MAXW) { x = 0; z += rowDepth + STREET; rowDepth = 0; }
+    placed.push({ d, x, z, side }); x += w + STREET; rowDepth = Math.max(rowDepth, Math.ceil(d.members.length / side) * CELL);
+  }
+  const width = Math.max(...placed.map(p => p.x + p.side * CELL)), depth = z + rowDepth;
+  const ox = -width / 2, oz = -depth / 2;
+  const n = CITY.districts.reduce((s, d) => s + d.members.length, 0);
+  towers = new THREE.InstancedMesh(towerGeo, new THREE.MeshPhongMaterial({ shininess: 60, specular: 0x333333 }), Math.max(1, n));
+  let i = 0;
+  for (const p of placed) {
+    const anchorPos = new THREE.Vector3(ox + p.x - 0.6, 0.2, oz + p.z - 0.6);
+    p.d.members.forEach((m, k) => {
+      const tx = ox + p.x + (k % p.side) * CELL + CELL / 2, tz = oz + p.z + Math.floor(k / p.side) * CELL + CELL / 2;
+      const pick = picks.has(m.id) ? picks.get(m.id) : -1;
+      towerInfo.push({ i, x: tx, z: tz, h: hFor(m.views), pick, name: m.name, views: m.views, dist: Math.hypot(tx, tz) });
+      if (pick >= 0) {
+        LABELS.push({ kind: "pick", idx: pick, pos: new THREE.Vector3(tx, hFor(m.views) + LIFT + 0.8, tz).add(CITY_AT), text: `${pick + 1}. ${m.name}` });
+        arcs.push({ from: anchorPos.clone(), to: new THREE.Vector3(tx, hFor(m.views) + LIFT, tz), idx: pick });
+      }
+      i++;
+    });
+    if (p.d.members.some(m => picks.has(m.id)))
+      LABELS.push({ kind: "anchor", idx: Math.min(...p.d.members.filter(m => picks.has(m.id)).map(m => picks.get(m.id))), pos: anchorPos.clone().add(CITY_AT), text: `Qloo: like ${p.d.anchor}` });
+  }
+  const pad = new THREE.Mesh(new THREE.BoxGeometry(width + 6, 0.4, depth + 6), new THREE.MeshPhongMaterial({ color: 0x3a5d7f, shininess: 20 }));
+  pad.position.y = -0.2; city.add(pad, towers);
+  for (const a of arcs) {
+    const mid = a.from.clone().lerp(a.to, 0.5); mid.y = Math.max(a.from.y, a.to.y) + 6;
+    const curve = new THREE.QuadraticBezierCurve3(a.from, mid, a.to);
+    const geo = new THREE.TubeGeometry(curve, 40, 0.09, 6, false);
+    a.mesh = new THREE.Mesh(geo, new THREE.MeshBasicMaterial({ color: 0x8fd0ff, transparent: true, opacity: 0 }));
+    geo.setDrawRange(0, 0); a.count = geo.index.count; city.add(a.mesh);
+  }
+  for (const L of LABELS) { L.el = el("div", { class: "lab " + L.kind }, L.text); L.el.style.opacity = 0; $("labels").append(L.el); }
+  cityBox = { width, depth };
+  built = performance.now();
+  layoutTowers(0);
+}
+const tmpM = new THREE.Matrix4(), tmpC = new THREE.Color();
+function towerColour(t) {
+  if (t.pick < 0) return STEP === 4 ? 0x5d7a96 : (t.views == null ? 0x6d849b : 0xb9cada);
+  if (STEP < 4) return 0x2f8fd6;
+  const p = RADAR.picks[t.pick];
+  return !("called_it" in p) ? 0xf4f4f4 : p.called_it ? 0x4b9a2f : 0xa9a9a9;
+}
+function layoutTowers(now) {
+  if (!towers) return;
+  const age = (now - built) / 1000;
+  for (const t of towerInfo) {
+    const grow = REDUCED ? 1 : ease((age - t.dist * 0.025) / 0.9);
+    const lift = t.pick >= 0 && STEP >= 3 ? (REDUCED ? 1 : ease((age - 1.1 - t.pick * 0.45) / 0.5)) : 0;
+    const h = Math.max(0.01, t.h * grow + lift * LIFT);
+    tmpM.compose(new THREE.Vector3(t.x, 0, t.z), new THREE.Quaternion(), new THREE.Vector3(1.35, h, 1.35));
+    towers.setMatrixAt(t.i, tmpM); towers.setColorAt(t.i, tmpC.set(towerColour(t)));
+  }
+  towers.instanceMatrix.needsUpdate = true; towers.instanceColor.needsUpdate = true;
+  for (const a of arcs) {
+    const k = STEP >= 3 ? (REDUCED ? 1 : ease((age - 1.1 - a.idx * 0.45) / 0.5)) : 0;
+    a.mesh.geometry.setDrawRange(0, Math.floor(a.count * k)); a.mesh.material.opacity = STEP === 4 ? 0.35 : 0.9;
+  }
+  document.querySelectorAll(".calls li").forEach((li, k) => li.classList.toggle("lit", STEP !== 3 || REDUCED || age > 1.1 + k * 0.45));
+}
+
+
+// Step 2: two weeks. Two streets in the same city, one per person: home at the left, each Qloo place of the week along it.
+// Both walkers keep one 7-day clock (out3), the light follows the clock, and on a night at home the TV is on.
+const HOOD_AT = new THREE.Vector3(-150, 0, 40), LANE_GAP = 26;
+const hood = new THREE.Group(); hood.position.copy(HOOD_AT); scene.add(hood);
+const SPACING = 11, WALK = 1.4, HOLD = 2.4;
+const KIND = { day: { w: 5, h: 3.2, d: 4, c: 0xe9eef3, trim: 0x529ecc }, evening: { w: 5.5, h: 5, d: 4.5, c: 0xc9b79c, trim: 0x8a5a3b }, late: { w: 5, h: 8, d: 4.5, c: 0x2b3440, trim: 0x529ecc } };
+const SLOT = { eat: "evening", out: "evening", late: "late", day: "day" };
+let STORIES = null, RULE = null, AGENT = null, BY = "rule", RIVAL = null, streets = [], dayT0 = 0, windowMat = null;
+function nightOf(clock) { return { "08:00": 0.15, "11:00": 0, "19:00": 0.5, "21:00": 0.7, "23:00": 0.9 }[clock] ?? 0; }
+function building(kind, x) {
+  const k = KIND[kind], g = new THREE.Group();
+  const body = new THREE.Mesh(new THREE.BoxGeometry(k.w, k.h, k.d), new THREE.MeshLambertMaterial({ color: k.c }));
+  body.position.set(0, k.h / 2, 0); g.add(body);
+  const trim = new THREE.Mesh(new THREE.BoxGeometry(k.w + 0.3, 0.35, k.d + 0.3), new THREE.MeshLambertMaterial({ color: k.trim }));
+  trim.position.y = kind === "day" ? 2.4 : k.h; g.add(trim);
+  for (let r = 0; r < Math.floor(k.h / 2.2); r++) for (const wx of [-1.3, 1.3]) {
+    const win = new THREE.Mesh(new THREE.PlaneGeometry(1, 0.9), windowMat); win.position.set(wx, 1.4 + r * 2.1, k.d / 2 + 0.01); g.add(win);
+  }
+  g.position.set(x, 0, -4); return g;
+}
+function house(colour, tvMat) {
+  const g = new THREE.Group();
+  const body = new THREE.Mesh(new THREE.BoxGeometry(5, 3.4, 4.5), new THREE.MeshLambertMaterial({ color: colour })); body.position.y = 1.7; g.add(body);
+  const roof = new THREE.Mesh(new THREE.CylinderGeometry(0.01, 3.9, 2.4, 4, 1), new THREE.MeshLambertMaterial({ color: 0x6b3b2e }));
+  roof.rotation.y = Math.PI / 4; roof.scale.set(1, 1, 0.85); roof.position.y = 4.6; g.add(roof);
+  const tv = new THREE.Mesh(new THREE.PlaneGeometry(1.6, 1), tvMat); tv.position.set(-1.2, 1.6, 2.26); g.add(tv);
+  const win = new THREE.Mesh(new THREE.PlaneGeometry(1, 0.9), windowMat); win.position.set(1.3, 1.7, 2.26); g.add(win);
+  g.position.set(0, 0, -4); return g;
+}
+function street(S, z) {
+  // One person's street. xs[i] is where the walker stands on day i: 0 is home, a place line gets the next building.
+  const g = new THREE.Group(); g.position.z = z; hood.add(g);
+  let k = 0;
+  const xs = S.week.map(d => { if (d.at !== "place" || !d.name) return 0; k++; g.add(building(SLOT[d.what], k * SPACING)); return k * SPACING; });
+  const len = (k + 1) * SPACING + 8;
+  const road = new THREE.Mesh(new THREE.BoxGeometry(len, 0.3, 5), new THREE.MeshLambertMaterial({ color: 0x4a6a8a })); road.position.set(len / 2 - 6, -0.1, 2.5);
+  const walk = new THREE.Mesh(new THREE.BoxGeometry(len, 0.4, 20), new THREE.MeshLambertMaterial({ color: 0x3a5d7f })); walk.position.set(len / 2 - 6, -0.25, -1.5);
+  g.add(walk, road);
+  for (let j = 0; j <= k; j++) {
+    const tx = j * SPACING + SPACING / 2, trunk = new THREE.Mesh(new THREE.BoxGeometry(0.5, 1.6, 0.5), new THREE.MeshLambertMaterial({ color: 0x5a4030 }));
+    const leaf = new THREE.Mesh(new THREE.BoxGeometry(2.2, 2.2, 2.2), new THREE.MeshLambertMaterial({ color: 0x4f7f4a }));
+    trunk.position.set(tx, 0.8, -9); leaf.position.set(tx, 2.6, -9); g.add(trunk, leaf);
+  }
+  const tv = new THREE.MeshBasicMaterial({ color: 0x1b2633 });
+  g.add(house(new THREE.Color(grid(S.id).pal.c).getHex(), tv));
+  const walker = voxelFigure(S.id); walker.scale.setScalar(0.55); walker.position.set(0, 0, 1.6); g.add(walker);
+  const sign = el("div", { class: "lab sign" }, el("i", {}, ""), ""); sign.style.opacity = 0; $("labels").append(sign);
+  return { S, z, xs, len, walker, tv, sign };
+}
+function buildHood() {
+  hood.clear(); streets.forEach(s => s.sign.remove()); streets = [];
+  if (!STORIES || !STORIES.stories[ARCH] || !STORIES.stories[RIVAL]) return;
+  windowMat = new THREE.MeshBasicMaterial({ color: 0x3a4a5c });
+  streets = [street(STORIES.stories[ARCH], 0), street(STORIES.stories[RIVAL], -LANE_GAP)];
+}
+function weekClock(now) {
+  // One loop over Mon to Sun: walk to the day's spot, then hold there. Returns the day, the walk progress and the night level.
+  const leg = WALK + HOLD, n = 7, t = REDUCED ? n * leg - 0.01 : (Math.max(0, now - dayT0) / 1000) % (n * leg + 2);
+  const i = Math.min(n - 1, Math.floor(t / leg)), k = REDUCED ? 1 : ease((t - i * leg) / WALK);
+  const prev = streets[0].S.week[Math.max(0, i - 1)].clock, cur = streets[0].S.week[i].clock;
+  return { i, k, night: i ? nightOf(prev) + (nightOf(cur) - nightOf(prev)) * k : nightOf(cur) };
+}
+const DOES = { listen: "Listens to", eat: "Eats at", film: "Watches", out: "Drinks at", late: "Out late at", day: "Spends the day at", show: "Watches" };
+const NONE = { listen: "No new artist from Qloo", eat: "No food place from Qloo", film: "No film from Qloo", out: "No bar from Qloo", late: "No late place from Qloo", day: "No day place from Qloo", show: "No show from Qloo" };
+function updateDay(now) {
+  const on = STEP === 2 && streets.length === 2;
+  const c = on ? weekClock(now) : null, night = c ? c.night : 0;
+  hemi.intensity = 1.6 - 1.0 * night; sun.intensity = 1.9 - 1.6 * night;
+  if (!on) { streets.forEach(s => { s.sign.style.opacity = 0; }); return; }
+  windowMat.color.setHex(night > 0.45 ? 0xffd27a : 0x3a4a5c);
+  const liveDay = streets[0].S.week[c.i];
+  $("simClock").textContent = `${liveDay.day} ${liveDay.clock}`;
+  const w = innerWidth, h = innerHeight;
+  streets.forEach((s, j) => {
+    const d = s.S.week[c.i], from = c.i ? s.xs[c.i - 1] : 0, x = from + (s.xs[c.i] - from) * c.k, moving = c.k < 1 && from !== s.xs[c.i];
+    s.walker.position.x = x; s.walker.rotation.y = moving ? Math.sign(s.xs[c.i] - from) * Math.PI / 2 : 0;
+    s.tv.color.setHex(d.at === "home" && !moving ? 0x8fd0ff : 0x1b2633);
+    s.sign.firstChild.textContent = `${s.S.person}, ${d.day} ${d.clock}`;
+    s.sign.lastChild.textContent = d.name ? `${DOES[d.what]} ${d.name}` : NONE[d.what];
+    s.sign.classList.toggle("here", !moving);
+    if (j === 0 && narrow() && !shot) { const dx = HOOD_AT.x + x - cam.look.x; cam.look.x += dx * 0.08; cam.pos.x += dx * 0.08; }
+    v3.set(x, 5.4, s.z + 1.6).add(HOOD_AT).project(camera);
+    s.sign.style.opacity = v3.z < 1 ? 1 : 0;
+    const lw = s.sign.offsetWidth || 160, lx = Math.min(w - lw / 2 - 8, Math.max(lw / 2 + 8, (v3.x + 1) / 2 * w));
+    s.sign.style.transform = `translate(${lx}px, ${Math.max(TOP_PX + 30, (1 - v3.y) / 2 * h)}px) translate(-50%, -100%)`;
+  });
+  document.querySelectorAll("#two .wk li").forEach(li => { li.classList.toggle("lit", REDUCED || +li.dataset.i <= c.i); li.classList.toggle("here", +li.dataset.i === c.i); });
+}
+function startDay() {
+  if (STORIES && (!RIVAL || RIVAL === ARCH || !STORIES.stories[RIVAL])) RIVAL = STORIES.rival[ARCH];
+  buildHood(); drawTwo(); dayT0 = performance.now();
+  $("simClock").textContent = "Mon 08:00";
+}
+function hoodShot(nar) {
+  const len = streets.length ? Math.max(...streets.map(s => s.len)) : 40;
+  if (nar) return { pos: HOOD_AT.clone().add(new THREE.Vector3(6, 46, 50)), look: HOOD_AT.clone().add(new THREE.Vector3(6, 2, -LANE_GAP / 2)), shift: 0, shiftY: 0.26 };
+  const mid = HOOD_AT.clone().add(new THREE.Vector3(len / 2 - 6, 0, -LANE_GAP / 2)), d = fit(len + 4, LANE_GAP + 10, [0.56, 0.9]);
+  return { pos: mid.clone().add(new THREE.Vector3(0, d * 0.62, d * 0.72)), look: mid.clone().add(new THREE.Vector3(0, 1, 0)), shift: 0.17, shiftY: -0.04 };
+}
+
+// Camera shots, one per step, eased from wherever the camera is now.
+const cam = { pos: new THREE.Vector3(0, 9, 30), look: new THREE.Vector3(0, 4.5, 0), shift: 0, shiftY: 0 };
+let shot = null;
+function narrow() { return innerWidth <= 760; }
+// Distance that fits a w x d footprint into the part of the screen the sheet leaves free.
+function fit(w, d, free) {
+  const tan = Math.tan(THREE.MathUtils.degToRad(camera.fov / 2)), asp = innerWidth / innerHeight;
+  return 1.2 * Math.max(w / (2 * tan * asp * free[0]), d / (2 * tan * free[1]));
+}
+function target() {
+  const nar = narrow();
+  if (STEP === 1) {
+    const d = fit(30, 15, nar ? [1, 0.45] : [0.68, 0.8]);
+    return { pos: new THREE.Vector3(0, d * 0.32 + 4, d), look: new THREE.Vector3(0, 4, 0), shift: nar ? 0 : -0.15, shiftY: nar ? 0.25 : 0 };
+  }
+  if (STEP === 2) return hoodShot(nar);
+  const free = nar ? [1, 0.5] : [STEP === 3 ? 0.7 : 0.44, 0.85];
+  if (STEP === 3) {
+    const d = fit((cityBox ? cityBox.width : 60) + 6, (cityBox ? cityBox.depth : 40) + 6, free);
+    return { pos: CITY_AT.clone().add(new THREE.Vector3(0, d * 0.82, d * 0.57)), look: CITY_AT.clone(), shift: nar ? 0 : 0.14, shiftY: nar ? 0.2 : 0 };
+  }
+  const pk = towerInfo.filter(t => t.pick >= 0), c = new THREE.Vector3();
+  pk.forEach(t => c.add(new THREE.Vector3(t.x, 0, t.z))); if (pk.length) c.divideScalar(pk.length);
+  const xs = pk.map(t => t.x), zs = pk.map(t => t.z);
+  const w = pk.length ? Math.max(...xs) - Math.min(...xs) : 20, dd = pk.length ? Math.max(...zs) - Math.min(...zs) : 20;
+  const d = fit(Math.max(w, 16) + 10, Math.max(dd, 12) + 10, free);
+  return { pos: CITY_AT.clone().add(c).add(new THREE.Vector3(-d * 0.3, d * 0.6, d * 0.75)), look: CITY_AT.clone().add(c), shift: nar ? 0 : 0.27, shiftY: nar ? 0.3 : 0 };
+}
+function fly(ms) {
+  const to = target();
+  shot = { from: { pos: cam.pos.clone(), look: cam.look.clone(), shift: cam.shift, shiftY: cam.shiftY }, to, t0: performance.now(), ms: REDUCED ? 0 : ms };
+}
+function resize() {
+  TOP_PX = narrow() ? 46 : 52;
+  renderer.setSize(innerWidth, innerHeight, false);
+  camera.aspect = innerWidth / innerHeight; camera.updateProjectionMatrix();
+  fly(0);
+}
+addEventListener("resize", resize);
+
+const v3 = new THREE.Vector3();
+let TOP_PX = 52;
+function frame(now) {
+  if (shot) {
+    const k = shot.ms ? ease((now - shot.t0) / shot.ms) : 1;
+    cam.pos.lerpVectors(shot.from.pos, shot.to.pos, k); cam.look.lerpVectors(shot.from.look, shot.to.look, k);
+    cam.shift = shot.from.shift + (shot.to.shift - shot.from.shift) * k; cam.shiftY = shot.from.shiftY + (shot.to.shiftY - shot.from.shiftY) * k;
+    if (k >= 1) shot = null;
+  }
+  camera.position.copy(cam.pos); camera.lookAt(cam.look);
+  const w = innerWidth, h = innerHeight;
+  camera.setViewOffset(w, h, cam.shift * w, cam.shiftY * h, w, h);
+  if (!drag) ringAngle += (ringTarget - ringAngle) * (REDUCED ? 1 : 0.08);
+  plinth.rotation.y = ringAngle;
+  for (const [id, g] of Object.entries(FIGS)) {
+    const chosen = id === ARCH;
+    const s = g.scale.x + ((chosen ? 1.25 : 0.9) - g.scale.x) * (REDUCED ? 1 : 0.1); g.scale.setScalar(s);
+    g.rotation.y = g.userData.a + (chosen && !REDUCED && STEP === 1 ? Math.sin(now / 1400) * 0.35 : 0);
+  }
+  layoutTowers(now); updateDay(now);
+  renderer.render(scene, camera);
+  const placed = [];
+  for (const L of LABELS) {
+    v3.copy(L.pos).project(camera);
+    const vis = STEP >= 3 && v3.z < 1 && (REDUCED || (now - built) / 1000 > 1.3 + L.idx * 0.45);
+    L.el.style.opacity = vis ? 1 : 0;
+    const lx = (v3.x + 1) / 2 * w, lw = L.el.offsetWidth || 80; let ly = (1 - v3.y) / 2 * h;
+    ly = Math.max(ly, TOP_PX + 30);
+    for (let tries = 0; tries < 6 && placed.some(r => Math.abs(r.x - lx) < (r.w + lw) / 2 + 4 && Math.abs(r.y - ly) < 22); tries++) ly -= 22;
+    ly = Math.max(ly, TOP_PX + 30);
+    if (vis) placed.push({ x: lx, y: ly, w: lw });
+    L.el.style.transform = `translate(${lx}px, ${ly}px) translate(-50%, -100%)`;
+    if (L.kind === "pick" && STEP === 4) {
+      const p = RADAR.picks[L.idx];
+      L.el.classList.toggle("win", !!p.called_it); L.el.classList.toggle("lose", "called_it" in p && !p.called_it);
+    } else L.el.classList.remove("win", "lose");
+  }
+  requestAnimationFrame(frame);
+}
+
+// Pick by clicking a figure, turn the ring by dragging.
+const ray = new THREE.Raycaster(), ptr = new THREE.Vector2();
+canvas.addEventListener("pointerdown", e => { if (STEP === 1) drag = { x: e.clientX, a: ringAngle, moved: false }; });
+addEventListener("pointermove", e => { if (!drag) return; const dx = e.clientX - drag.x; if (Math.abs(dx) > 4) drag.moved = true; ringAngle = drag.a + dx * 0.008; });
+addEventListener("pointerup", e => {
+  if (!drag) return; const moved = drag.moved; drag = null;
+  if (moved) { const step = Math.PI / 3, k = Math.round(-ringAngle / step); choose(META.archetypes[((k % 6) + 6) % 6].id); return; }
+  ptr.set(e.clientX / innerWidth * 2 - 1, -(e.clientY / innerHeight) * 2 + 1); ray.setFromCamera(ptr, camera);
+  const hit = ray.intersectObjects(Object.values(FIGS).map(g => g.children[0]))[0];
+  if (hit) choose(hit.object.userData.id);
+});
+
+// ---------- the flow ----------
+function choose(id) {
+  ARCH = id;
+  const k = META.archetypes.findIndex(a => a.id === id), step = Math.PI / 3;
+  let t = -k * step; while (t - ringAngle > Math.PI) t -= 2 * Math.PI; while (ringAngle - t > Math.PI) t += 2 * Math.PI;
+  ringTarget = t;
+  CITY = null; drawCast(); drawHero(); syncURL();
+  RIVAL = null;
+  loadLife().then(() => { if (ARCH === id) { drawHero(); if (STEP === 2) { startDay(); fly(900); } } });
+}
+async function loadLife() {
+  if (LIFE && LIFE.id === ARCH) return;
+  try { LIFE = await get(`/api/life?a=${encodeURIComponent(ARCH)}`); } catch { LIFE = null; }
+}
+async function go(step) {
+  if (step === 2) await loadStories();
+  if (step >= 3 && (!CITY || CITY.archetype !== ARCH || CITY.week !== WEEK)) await loadWeek();
+  const was = STEP; STEP = step;
+  document.querySelectorAll(".steps button").forEach(b => b.setAttribute("aria-current", +b.dataset.step === step ? "step" : "false"));
+  document.querySelectorAll(".sheet").forEach(s => s.classList.toggle("on", s.id === "s" + step));
+  $("hint").style.display = step === 1 ? "" : "none";
+  if (step === 3 && was !== 3) built = performance.now();
+  if (step === 2) startDay();
+  fly(was === 1 || step === 1 ? 1700 : 1100);
+  syncURL();
+}
+async function loadWeek() {
+  [RADAR, CITY] = await Promise.all([get(`/api/radar?a=${encodeURIComponent(ARCH)}&week=${encodeURIComponent(WEEK)}`), get(`/api/city?a=${encodeURIComponent(ARCH)}&week=${encodeURIComponent(WEEK)}`)]);
+  drawCalls(); drawFeed(); buildCity(); if (STEP > 2) fly(700);
+}
+function syncURL() { const u = new URL(location); u.searchParams.set("a", ARCH); if (RIVAL) u.searchParams.set("vs", RIVAL); u.searchParams.set("week", WEEK); u.searchParams.set("step", STEP); u.searchParams.set("by", BY); history.replaceState(null, "", u); }
+
+function drawCast() {
+  $("cast").replaceChildren(...META.archetypes.map(a => {
+    const b = el("button", { class: "who", "aria-pressed": String(a.id === ARCH), title: a.name, "aria-label": a.name }, sprite(a.id));
+    b.addEventListener("click", () => choose(a.id)); return b;
+  }));
+}
+function drawHero() {
+  const a = META.archetypes.find(x => x.id === ARCH), rec = a.record, L = LIFE && LIFE.id === ARCH ? LIFE : null;
+  const btn = el("button", { class: "btn primary" }, L ? `Run ${L.person}'s village week ▶` : "Build the taste city ▶");
+  btn.addEventListener("click", () => go(L ? 2 : 3));
+  const src = t => el("span", { class: "src" }, " " + t);
+  const row = (k, text, s) => el("li", {}, el("b", {}, k), el("span", {}, text, s ? src(s) : null));
+  const traits = L ? el("ul", { class: "traits" },
+    row("Listens", L.listens.join(", "), "Qloo tags"),
+    L.watches.show ? row("Watches", `${L.watches.show.name}, ${L.watches.film ? L.watches.film.name : ""}`, `${L.watches.show.call} ${L.watches.film ? L.watches.film.call : ""}`) : null,
+    L.wears.length ? row("Brands", L.wears.slice(0, 2).map(b => b.name).join(", "), L.wears[0].call) : null,
+    L.day.length ? row("Goes to", L.day.map(d => d.name).join(", "), [...new Set(L.day.map(d => d.call))].join(" ")) : null,
+    L.crowd ? row("Crowd", `leans ${L.crowd.lean}, ${L.crowd.age}`, `${L.crowd.call}, index +${L.crowd.age_index}`) : null) : null;
+  $("hero").replaceChildren(el("p", { class: "name" }, L ? `${L.person}, ${a.name.replace(/^The /, "the ")}` : a.name), el("p", { class: "blurb" }, a.blurb),
+    traits,
+    el("div", { class: "record", style: "margin-top:10px" }, el("span", { class: "big" }, fmt(rec.called_it)),
+      el("span", { class: "small" }, `Called it from ${fmt(rec.calls)} calls (${pct(rec.called_it / rec.calls)}). A random pick from this tribe rises ${pct(rec.base_rate)} of the time. Exploratory, not pre-registered.`)),
+    el("p", { class: "small", style: "margin:8px 0 0" }, L ? `The name is ours. Every other line is a live Qloo call (${L.fetched.slice(0, 10)}), seeded with ${a.members} tribe artists found by Qloo tags.` : `${a.members} artists in this tribe, by Qloo tags: ${a.tags.slice(0, 6).join(", ")}...`), btn);
+}
+async function loadStories() {
+  if (STORIES) return;
+  try { RULE = await get("/api/stories"); } catch { RULE = null; }
+  try { AGENT = await get("/api/stories?by=agent"); } catch { AGENT = null; }
+  if (BY === "agent" && !(AGENT && AGENT.stories[ARCH])) BY = "rule";
+  STORIES = BY === "agent" ? AGENT : RULE;
+}
+function drawTwo() {
+  if (!STORIES || !STORIES.stories[ARCH]) { $("two").replaceChildren(el("p", { class: "empty" }, "No stories recorded for this character. Run live_week.py, then restart app.py.")); $("vs").replaceChildren(); return; }
+  const A = STORIES.stories[ARCH], B = STORIES.stories[RIVAL];
+  $("s2h").textContent = `${A.city} village: ${A.person} and ${B.person}`;
+  $("two").replaceChildren(storyCol(A), storyCol(B));
+  const pick = (k, label) => {
+    const b = el("button", { class: "btn", "aria-pressed": String(BY === k) }, label);
+    b.disabled = k === "agent" && !(AGENT && AGENT.stories[ARCH]);
+    b.addEventListener("click", () => { BY = k; STORIES = k === "agent" ? AGENT : RULE; if (!STORIES.stories[RIVAL]) RIVAL = null; startDay(); syncURL(); }); return b;
+  };
+  $("by").replaceChildren(el("span", { class: "small" }, "Village brain"), pick("agent", "Qloo agent"), pick("rule", "Fixed control"));
+  $("vs").replaceChildren(el("span", { class: "small" }, "Compare with"), ...META.archetypes.filter(a => a.id !== ARCH && STORIES.stories[a.id]).map(a => {
+    const b = el("button", { class: "who", "aria-pressed": String(a.id === RIVAL), title: a.name, "aria-label": "Compare with " + a.name }, sprite(a.id));
+    b.addEventListener("click", () => { RIVAL = a.id; startDay(); fly(700); syncURL(); }); return b;
+  }));
+}
+function storyCol(S) {
+  const t = S.tension, p = S.prediction;
+  const vsRule = d => !S.agent ? "" : d.rule === d.name ? " The rule picked the same." : d.rule ? ` The rule picked ${d.rule}.` : " The rule had nothing.";
+  const rows = S.week.map((d, i) => el("li", { "data-i": i }, el("span", { class: "clock" }, d.day), el("span", { class: "place" }, d.name || "Nothing"),
+    el("span", { class: "what" }, (d.name ? `${DOES[d.what]}, ${d.clock}. Qloo ${d.call}.` : `${NONE[d.what]}. Kept as a gap.`) + vsRule(d))));
+  const g = S.agent;
+  return el("div", { class: "col" },
+    el("div", { class: "who-head" }, sprite(S.id), el("div", {}, el("p", { class: "person" }, S.person),
+      el("p", { class: "small", style: "margin:0" }, `${S.archetype.replace(/^The /, "the ")}, ${S.age || "age unknown"}, ${S.city}`))),
+    el("ol", { class: "day wk" }, ...rows),
+    g ? el("p", { class: "note" }, el("b", {}, "Planned by an agent. "),
+      `${g.turns} turns, ${g.qloo_calls} Qloo calls it chose itself, ${Math.round(g.seconds)} s, $${g.usd.toFixed(2)} of model time. Same as the fixed rule on ${g.same} of 7 days. Every row names a call the agent made; a row without one is rejected.`) :
+    el("p", { class: "note" }, el("b", {}, "Tension. "), t
+      ? `Wants ${t.want}: ${Math.round(100 * t.want_share)}% of ${t.tribe} tribe artists carry that Qloo tag. Goes to places Qloo tags ${t.do.join(" and ")}: ${t.do_places.join(", ")}. Qloo ${t.calls.join(" ")}.`
+      : "None found. No place in this week carries a Qloo tag that clashes with the tribe."),
+    p ? el("p", { class: "note" }, el("b", {}, "Next week. "),
+      `${p.artist} (Qloo: like ${p.qloo.join(", ")}) needs ${fmt(p.needs_views)} Wikipedia views in the week to ${p.check_week}, 1.5 x the 8-week median of ${fmt(p.median_8w)}. In ${p.odds.weeks} past weeks this rule held for the tribe's top pick ${pct(p.odds.rate)} of the time, for a random tribe artist ${pct(p.odds.random)}. Frozen 19 Oct.`) : null);
+}
+function drawWeeks() {
+  const s = $("week"); s.replaceChildren();
+  for (const w of META.weeks.slice().reverse()) s.append(el("option", { value: w }, w === META.weeks[META.weeks.length - 1] ? `This week (to ${w})` : `Week to ${w}`));
+  s.value = WEEK;
+}
+function drawCalls() {
+  const a = META.archetypes.find(x => x.id === ARCH);
+  $("s3h").textContent = `${a.name.replace(/^The /, "")}: the call`;
+  const n = CITY.districts.reduce((s, d) => s + d.members.length, 0);
+  $("s3note").textContent = `Each tower is one of ${n} artists in this tribe. Each block is one Qloo similar-artist list. Height is Wikipedia views in the week to ${RADAR.week}. Hipster lifts the ${RADAR.picks.length} with the steepest two-week rise.`;
+  if (!RADAR.picks.length) { $("calls").replaceChildren(el("li", { class: "lit empty" }, `Nothing in this tribe had enough views that week (${RADAR.eligible} eligible). That is the real result, not an error.`)); return; }
+  $("calls").replaceChildren(...RADAR.picks.map((p, i) => el("li", {}, el("span", { class: "n" }, String(i + 1)), el("span", { class: "who-name" }, p.name),
+    el("span", { class: "up" }, `x${Math.exp(p.momentum).toFixed(2)}`),
+    el("span", { class: "why" }, `Qloo: in the similar artists of ${p.qloo.map(s => `${s.anchor} (rank ${s.rank})`).join(", ")}. Tags: ${p.why_tags.join(", ")}.`))));
+}
+function drawFeed() {
+  const graded = RADAR.picks.filter(p => "called_it" in p), hits = graded.filter(p => p.called_it).length;
+  $("s4h").textContent = RADAR.now ? "The result: still locked" : `The result: ${hits} of ${graded.length} called`;
+  const last = META.weeks[META.weeks.length - 9];
+  const sum = el("div", { class: "sum" });
+  if (RADAR.now) {
+    const b = el("button", { class: "btn" }, `Go to the last graded week (${last})`);
+    b.addEventListener("click", () => { WEEK = last; $("week").value = WEEK; loadWeek().then(() => go(4)); });
+    sum.append(el("span", { class: "small" }, `This week's calls are graded on the 8 weeks to ${addWeeks(RADAR.week, 8)}. Badges unlock then.`), b);
+  } else sum.append(el("span", { class: "big" }, `${hits}/${graded.length}`), el("span", { class: "small" }, `Graded on the 8 weeks to ${addWeeks(RADAR.week, 8)}. A hit: the next 8 weeks run at 1.5x the last 8 or more.`));
+  $("sum").replaceChildren(sum);
+  $("feed").replaceChildren(...RADAR.picks.map((p, i) => {
+    let badge;
+    if (!("called_it" in p)) badge = el("div", { class: "verdict locked", title: "Result not in yet" }, "Not graded yet");
+    else badge = el("div", { class: "verdict" + (p.called_it ? "" : " miss") }, p.called_it ? "Called it" : "Missed", el("small", {}, `8 weeks on: x${p.ratio}`));
+    return el("article", { class: "post" }, el("div", { class: "rank" }, `Call ${i + 1} of ${RADAR.picks.length}`), badge,
+      el("h3", { class: "artist" }, p.name), spark(p.spark, p.after),
+      el("p", {}, `Rose x${Math.exp(p.momentum).toFixed(2)} in 2 weeks. Qloo: ${p.qloo.map(s => s.anchor).join(", ")}.` + ("ratio" in p ? ` 8 weeks on: x${p.ratio}.` : "")));
+  }));
+}
+function drawReceipt() {
+  const r = $("receipt"); r.replaceChildren(el("h3", { style: "font:italic 400 17px var(--display);margin:0 0 6px" }, "The receipt"));
+  const bt = META.backtest; if (!bt) { r.append(el("p", { class: "small" }, "Run backtest.py to fill this.")); return; }
+  const t = bt.test.summary, row = (label, k, cls) => el("tr", cls ? { class: cls } : {}, el("td", {}, label), el("td", { class: "num" }, pct(t[k].mean)), el("td", { class: "num" }, `${(100 * t[k].ci[0]).toFixed(1)}-${(100 * t[k].ci[1]).toFixed(1)}`));
+  r.append(el("p", { class: "small", style: "margin:0 0 6px" }, `Held-out test: ${t.cutoffs} weeks (Jan 2025 to Aug 2026), about ${Math.round(t.mean_eligible)} artists each week, 10 calls a week. A hit: the next 8 weeks run at 1.5x the last 8 or more.`),
+    el("table", {}, el("tr", {}, el("th", {}, "Picker"), el("th", {}, "Hit rate"), el("th", {}, "95% range")),
+      row("Hipster (momentum)", "M", "us"), row("Plus Qloo neighbours", "Q"), row("Most viewed now", "P"), row("Random pick", "base")),
+    el("p", { class: "honest" }, `Hipster beats random by ${(t.M.mean / t.base.mean).toFixed(1)}x. The Qloo neighbour signal did not help: ${(100 * t["Q-M"].mean).toFixed(1)} points, range ${(100 * t["Q-M"].ci[0]).toFixed(1)} to ${(100 * t["Q-M"].ci[1]).toFixed(1)}. Qloo picks your tribe. Wikipedia makes the call.`),
+    el("p", { class: "small", style: "margin:8px 0 0" }, "Taste neighbourhoods: recorded Qloo similar-artist calls (15 Oct 2026). Rise signal: English Wikipedia daily pageviews, summed by week. No live call is made by this page."));
+}
+function stepWeek(k) { const i = META.weeks.indexOf(WEEK) + k; if (i >= 0 && i < META.weeks.length) { WEEK = META.weeks[i]; $("week").value = WEEK; built = performance.now(); loadWeek(); syncURL(); } }
+
+META = await get("/api/archetypes");
+const q = new URLSearchParams(location.search);
+ARCH = META.archetypes.some(a => a.id === q.get("a")) ? q.get("a") : META.archetypes[0].id;
+WEEK = META.weeks.includes(q.get("week")) ? q.get("week") : META.weeks[META.weeks.length - 1];
+META.archetypes.forEach((a, k) => {
+  const g = voxelFigure(a.id), ang = k * Math.PI / 3;
+  g.position.set(Math.sin(ang) * RING, 0, Math.cos(ang) * RING); g.userData.a = ang; g.scale.setScalar(0.9);
+  plinth.add(g); FIGS[a.id] = g;
+});
+document.querySelectorAll(".steps button").forEach(b => b.addEventListener("click", () => go(+b.dataset.step)));
+$("week").addEventListener("change", e => { WEEK = e.target.value; built = performance.now(); loadWeek(); syncURL(); });
+$("prev").addEventListener("click", () => stepWeek(-1));
+$("next").addEventListener("click", () => stepWeek(1));
+$("go3").addEventListener("click", () => go(3));
+$("go4").addEventListener("click", () => go(4));
+$("replay").addEventListener("click", () => { dayT0 = performance.now(); });
+addEventListener("keydown", e => {
+  if (e.target.tagName === "SELECT") return;
+  const k = META.archetypes.findIndex(a => a.id === ARCH);
+  if (STEP === 1 && e.key === "ArrowRight") choose(META.archetypes[(k + 1) % 6].id);
+  if (STEP === 1 && e.key === "ArrowLeft") choose(META.archetypes[(k + 5) % 6].id);
+  if (e.key === "Enter" && STEP < 4 && e.target === document.body) go(STEP + 1);
+});
+choose(ARCH); RIVAL = q.get("vs"); BY = q.get("by") === "rule" ? "rule" : "agent"; ringAngle = ringTarget; drawWeeks(); drawReceipt();
+resize(); shot = null; Object.assign(cam, target());
+requestAnimationFrame(frame);
+const s0 = +q.get("step");
+await go([1, 2, 3, 4].includes(s0) ? s0 : 1);
+document.body.dataset.ready = "1";
+</script>
+</body>
+</html>

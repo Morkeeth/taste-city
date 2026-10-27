@@ -1,0 +1,11 @@
+# Qloo response data stays out of git. Runtime caches and local demo recordings are ignored.
+cache/
+benchmark-results.json
+__pycache__/
+*.pyc
+
+.vercel/
+.env*
+public/
+demo-recordings/
+.vercel
