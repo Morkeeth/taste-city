@@ -2,6 +2,15 @@
 
 Explore culture through taste, then bring the results into a playful 3D city.
 
+[Open Taste City](https://taste-city.vercel.app/) · [Try the fictional no-key sample](https://taste-city.vercel.app/?demo=1&setup=1)
+
+## Judge path
+
+1. Open the fictional sample. Choose **For a coffee shop: test** to compare ideas, or **For me: discover** to explore tastes. Sample results are invented; they do not prove a live Qloo request or customer demand.
+2. For a live run, return to the app without `demo=1`. Qloo access must be configured on the server. A live request uses Qloo quota; the Taste Agent does not need an LLM key. Inspect the source-call/entity trail and the conditions that should drop an idea.
+3. To reproduce without API access, clone the public source and follow the sample setup and tests below. Tests use synthetic providers, so passing them establishes implementation behavior, not Qloo superiority or real audience preference.
+4. Business spending and feasibility inputs are planner assumptions. Cultural affinity, demand and sales are different claims; do not read a fit score as a demand forecast.
+
 - **For a coffee shop: test** is the main route. A coffee-shop owner sets three tastes they think their customers share and compares two ideas, such as a pop-up or a late event, against a taste graph. Cultural fit and the planner's spending assumptions stay separate. Save and reopen a local action brief with a budget and feasibility checks. A festival planner can use the same flow.
 - **Live Taste Agent** follows one cited cultural lead into another Qloo domain, checks that result and proposes a small test. The card shows the returned entity ID, the follow-up query seeded with it, the result and the conditions that should drop the idea. It uses up to 11 Qloo HTTP reads including retries and needs no model key.
 - **For me: discover** takes three favourites and a food city, then finds music, film, food, books and places through Qloo. Each result carries its source call.
@@ -14,7 +23,9 @@ Qloo affinity describes cultural relationships. It does not predict demand, sale
 Use Python 3.12 and install the dependencies:
 
 ```sh
-python3 -m venv .venv
+git clone https://github.com/Morkeeth/taste-city.git
+cd taste-city
+python3.12 -m venv .venv
 . .venv/bin/activate
 pip install -r requirements.txt
 python3 match_app.py
