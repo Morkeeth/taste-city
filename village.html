@@ -108,6 +108,10 @@ details { margin-top:8px; font-size:12px; color:var(--soft); } details ul { max-
 .bar { grid-column:1/-1; height:6px; border-radius:99px; background:rgba(42,33,24,.12); overflow:hidden; }
 .bar i { display:block; height:100%; border-radius:inherit; background:#2f7658; }
 .sample { margin-top:8px; color:var(--soft); font-size:10px; line-height:1.3; }
+.guide { margin:8px 0 10px; font-size:12px; line-height:1.4; }
+.guide ol { margin:4px 0 0; padding-left:18px; } .guide li { margin:2px 0; }
+.sample-guide { margin:8px 0; padding:8px 10px; border:1px solid rgba(255,255,255,.18); border-radius:10px; font-size:12px; line-height:1.35; }
+.taste-card[disabled] { opacity:.45; cursor:not-allowed; }
 .brand-form { display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:10px 0; }
 .brand-form label { color:var(--soft); font-size:11px; font-weight:700; }
 .brand-form input, .brand-form select { display:block; width:100%; margin-top:4px; border:1px solid var(--line); border-radius:10px; padding:9px 10px; background:transparent; color:var(--ink); font:600 13px/1.2 inherit; }
@@ -370,6 +374,12 @@ const hairFor = (age, i) => age === "55_and_older" || age === "45_to_54" ? 0xd8d
 let V = [], G = [], round = 0, score = 0, streak = 0, chosen = null, answered = false, data = null;
 let mode = q.get("demo") === "1" ? "game" : "setup", lastVerdict = null;
 let setupStarted = false, setupCity = "London";
+/* The labelled fictional sample answers exactly one example. Say so before anyone taps. */
+const DEMO = q.get("demo") === "1", SAMPLE_PICKS = ["Björk","Radiohead","Little Simz"], SAMPLE_CITY = "London";
+if (DEMO) setupCity = SAMPLE_CITY;
+function sampleGuide() {
+  return `<p class="sample-guide" data-sample-guide>Sample mode shows one worked example: <b>Björk, Radiohead and Little Simz in London</b>. It is fictional and makes no Qloo request. For your own tastes or city, <a href="?setup=1">use live mode</a>.</p>`;
+}
 
 // The Matchmaker: the Taste Match agent, standing by the gifts. No plumbob, because it is never a gift's answer.
 // It carries a second, smaller gift: the one it finds for you and a friend.
@@ -815,19 +825,25 @@ function openDiscovery() {
 }
 function openTasteOutlet(id) {
   panel.scrollTop = 0;
-  const outlet = OUTLETS.find(x => x.id === id) || OUTLETS[0], picked = new Set();
+  let outlet = OUTLETS.find(x => x.id === id) || OUTLETS[0];
+  if (DEMO && !SAMPLE_PICKS.every(p => outlet.choices.includes(p))) outlet = OUTLETS.find(x => SAMPLE_PICKS.every(p => x.choices.includes(p))) || outlet;
+  const picked = new Set(DEMO ? SAMPLE_PICKS : []);
   mode = "market"; marketNav("market"); panel.hidden = false; zoomTo = 74;
   document.body.dataset.userPath = "consumer";
   document.body.dataset.tasteOutlet = outlet.id; document.body.dataset.tastePicks = "0";
   panel.style.setProperty("--outlet", `#${outlet.color.toString(16).padStart(6,"0")}`);
   panel.innerHTML = `<div class="kind">For me · discover</div><div class="market-title">Find your next favourite.</div>
     <div class="hint">Choose three things you love. Discover music, films, food, books and places connected to your taste.</div>
-    <label class="setup-city">Where to eat<input id="discoverycity" value="${esc(setupCity)}" maxlength="60"></label>
-    <div class="taste-grid">${outlet.choices.map(choice => `<button type="button" class="taste-card" data-taste-pick="${esc(choice)}" aria-pressed="false">${esc(choice)}<small>Tap to choose</small></button>`).join("")}</div>
-    <button class="go" id="trytaste" disabled>Find things I’ll love</button>
+    ${DEMO ? sampleGuide() : ""}
+    <label class="setup-city">Where to eat<input id="discoverycity" value="${esc(DEMO ? SAMPLE_CITY : setupCity)}" maxlength="60" ${DEMO ? "readonly" : ""}></label>
+    <div class="taste-grid">${outlet.choices.map(choice => { const on = picked.has(choice), off = DEMO && !on;
+      return `<button type="button" class="taste-card" data-taste-pick="${esc(choice)}" aria-pressed="${on}" ${off ? "disabled" : ""}>${esc(choice)}<small>${on ? "Chosen" : off ? "Live mode only" : "Tap to choose"}</small></button>`; }).join("")}</div>
+    <button class="go" id="trytaste" ${picked.size === 3 ? "" : "disabled"}>Find things I’ll love</button>
     <button class="quiet" id="backoutlets">Change my path</button>
     <p class="sample">The key stays on the server. This page receives entity names, IDs and call references only.</p>`;
+  document.body.dataset.tastePicks = String(picked.size);
   panel.querySelectorAll("[data-taste-pick]").forEach(card => card.onclick = () => {
+    if (DEMO) return;  // the sample answers one example only
     const choice = card.dataset.tastePick;
     if (picked.has(choice)) picked.delete(choice); else if (picked.size < 3) picked.add(choice);
     card.setAttribute("aria-pressed", String(picked.has(choice)));
@@ -835,7 +851,7 @@ function openTasteOutlet(id) {
     $("#trytaste").disabled = picked.size !== 3;
   });
   $("#backoutlets").onclick = openSetup;
-  $("#trytaste").onclick = () => { setupCity = $("#discoverycity").value.trim() || "London"; reactToTaste(outlet, [...picked]); };
+  $("#trytaste").onclick = () => { setupCity = DEMO ? SAMPLE_CITY : ($("#discoverycity").value.trim() || "London"); reactToTaste(outlet, [...picked]); };
 }
 async function reactToTaste(outlet, picks) {
   panel.scrollTop = 0;
@@ -848,7 +864,8 @@ async function reactToTaste(outlet, picks) {
     d = await response.json();
     if (!response.ok || d.error) throw new Error(d.error || `HTTP ${response.status}`);
   } catch (error) {
-    panel.innerHTML = `<div class="kind">The city stayed quiet</div><div class="market-title">This result is unavailable</div><p>${q.get("demo") === "1" ? esc(error.message) : "Provider evidence is unavailable. No shortlist was generated. You can use the labelled demo or try again later."}</p><button class="quiet" id="againoutlet">Try these cards again</button>`;
+    panel.innerHTML = `<div class="kind">The city stayed quiet</div><div class="market-title">This result is unavailable</div><p>${DEMO ? esc(error.message) : "Provider evidence is unavailable. No shortlist was generated."}</p>${DEMO ? sampleGuide() : ""}<button class="go" id="usesample">${DEMO ? "Use the working sample" : "Open the labelled sample instead"}</button><button class="quiet" id="againoutlet">Try these cards again</button>`;
+    $("#usesample").onclick = () => { if (DEMO) openTasteOutlet(outlet.id); else location.href = "?demo=1&setup=1"; };
     $("#againoutlet").onclick = () => openTasteOutlet(outlet.id);
     return;
   }
@@ -1004,15 +1021,15 @@ function renderScenarioResult(d, comparison, browserMs) {
 }
 function openScenarioFlow(flow="brand", sourceContext=null) {
   panel.scrollTop = 0;
-  const audiencePicks = sourceContext?.picks || ["Björk","Radiohead","Little Simz"];
+  const audiencePicks = DEMO ? SAMPLE_PICKS : (sourceContext?.picks || SAMPLE_PICKS);
   const ui = FLOW_UI[flow]; mode = flow; marketNav(flow); lightUp([]); zoomTo = 88; panel.hidden = false; hud();
   document.body.dataset.userPath = "business"; $("#load").hidden = true; applyPopulation(25);
   document.body.dataset.brandPlan = "draft"; document.body.dataset.scenarioFlow = flow;
   panel.innerHTML = `<div class="kind">${setupStarted ? "Setup · step 2 of 2 · " : ""}For business · ${flow === "brand" ? "Brand planning mode" : "Festival planning mode"}</div><div class="market-title">${esc(ui.title)}</div>
     <div class="flow-switch"><button id="flowbrand" aria-current="${flow === "brand"}">Coffee shop</button><button id="flowfestival" aria-current="${flow === "festival"}">Festival</button></div>
     ${sourceContext ? `<p class="sample">Website source: ${esc(sourceContext.page.title)} · ${esc(sourceContext.page.url)}. Interests below are planner-confirmed hypotheses, not inferred customer behaviour.</p>` : ""}<div class="hint">${flow === "brand" ? "Name your coffee shop, set three tastes you think your customers share, then compare two ideas or ask the live Taste Agent to follow one cultural lead into a small test." : "Describe your festival, set three audience tastes, then compare two ideas."} Audience tastes are your hypothesis; this is not a customer survey.</div>
-    <div class="brand-form"><label>${esc(ui.nameLabel)}<input id="scenarioname" value="${esc(sourceContext?.page?.title || ui.name)}" maxlength="60"></label><label>City<input id="scenariocity" value="${esc(setupCity)}" maxlength="60"></label>${flow === "brand" ? '<label style="grid-column:1/-1">Public website (optional reference)<input id="brandurl" type="url" value="https://www.monmouthcoffee.co.uk/" maxlength="300"></label>' : ""}<label>Size<select id="scenariosize">${ui.sizes.map(([value,label]) => `<option value="${value}">${esc(label)}</option>`).join("")}</select></label><label>Idea A<select id="scenarioexperiment">${ui.experiments.map(([value,label]) => `<option value="${value}">${esc(label)}</option>`).join("")}</select></label><label>Compare with<select id="scenariocompare">${ui.experiments.map(([value,label], index) => `<option value="${value}" ${index === 1 ? "selected" : ""}>${esc(label)}</option>`).join("")}</select></label></div>
-    <div class="taste-grid">${["Björk","Radiohead","Little Simz","Studio Ghibli","New Nordic","Ursula Le Guin"].map((choice, i) => `<button type="button" class="taste-card" data-brand-pick="${esc(choice)}" aria-pressed="${audiencePicks.includes(choice)}">${esc(choice)}<small>${audiencePicks.includes(choice) ? "In the audience" : "Tap to swap in"}</small></button>`).join("")}</div>
+    <div class="brand-form"><label>${esc(ui.nameLabel)}<input id="scenarioname" value="${esc(sourceContext?.page?.title || ui.name)}" maxlength="60"></label><label>City<input id="scenariocity" value="${esc(DEMO ? SAMPLE_CITY : setupCity)}" maxlength="60" ${DEMO ? "readonly" : ""}></label>${flow === "brand" ? '<label style="grid-column:1/-1">Public website (optional reference)<input id="brandurl" type="url" value="https://www.monmouthcoffee.co.uk/" maxlength="300"></label>' : ""}<label>Size<select id="scenariosize">${ui.sizes.map(([value,label]) => `<option value="${value}">${esc(label)}</option>`).join("")}</select></label><label>Idea A<select id="scenarioexperiment">${ui.experiments.map(([value,label]) => `<option value="${value}">${esc(label)}</option>`).join("")}</select></label><label>Compare with<select id="scenariocompare">${ui.experiments.map(([value,label], index) => `<option value="${value}" ${index === 1 ? "selected" : ""}>${esc(label)}</option>`).join("")}</select></label></div>
+    <div class="taste-grid">${["Björk","Radiohead","Little Simz","Studio Ghibli","New Nordic","Ursula Le Guin"].map((choice, i) => `<button type="button" class="taste-card" data-brand-pick="${esc(choice)}" aria-pressed="${audiencePicks.includes(choice)}" ${DEMO && !audiencePicks.includes(choice) ? "disabled" : ""}>${esc(choice)}<small>${audiencePicks.includes(choice) ? "In the audience" : DEMO ? "Live mode only" : "Tap to swap in"}</small></button>`).join("")}</div>${DEMO ? sampleGuide() : ""}
     ${flow === "brand" ? '<button class="go" id="readwebsite">Read optional website reference</button><button class="quiet" id="runwebsite">Profile the website and taste it</button>' : ""}<button class="go" id="runbrand">${esc(ui.button)}</button><button class="quiet" id="runagent">Ask live Taste Agent · Qloo</button><button class="quiet" id="backmarket">Back to the taste city</button>${setupStarted ? '<button class="quiet" id="backsetup">Change my starting path</button>' : ''}
     <p class="sample">${q.get("demo") === "1" ? "The city and comparison demo may use fictional examples. The live Taste Agent is a separate Qloo request and needs a server key; its result is never simulated." : "Qloo supplies the cross-domain graph and affinity. Population and spend stay separate as visible scenario assumptions."}</p><button class="quiet" id="restorebuyer">Open saved next-action brief</button>`;
   $("#restorebuyer").onclick = () => {
@@ -1027,6 +1044,7 @@ function openScenarioFlow(flow="brand", sourceContext=null) {
   if (flow === "brand" && !sourceContext && q.get("demo") !== "1") { $("#brandurl").value = ""; $("#brandurl").placeholder = "https://your-brand.example"; }
   if (sourceContext && flow === "brand") $("#brandurl").value=sourceContext.page.url;
   panel.querySelectorAll("[data-brand-pick]").forEach(card => card.onclick = () => {
+    if (DEMO) return;  // the sample answers one example only
     const value = card.dataset.brandPick;
     if (selected.has(value)) selected.delete(value); else if (selected.size < 3) selected.add(value);
     if (sourceContext) sourceContext.picks=[...selected];
@@ -1099,7 +1117,8 @@ function openScenarioFlow(flow="brand", sourceContext=null) {
       renderScenarioResult(d, comparison, performance.now() - started);
     } catch (error) {
       document.body.dataset.brandPlan = "error";
-      panel.innerHTML = `<div class="kind">The simulation stayed blank</div><div class="market-title">This result is unavailable</div><p>${q.get("demo") === "1" ? esc(error.message) : "Provider evidence is unavailable. No shortlist was generated. You can use the labelled demo or try again later."}</p><button class="quiet" id="editbrand">Try again</button>`;
+      panel.innerHTML = `<div class="kind">The simulation stayed blank</div><div class="market-title">This result is unavailable</div><p>${DEMO ? esc(error.message) : "Provider evidence is unavailable. No shortlist was generated."}</p>${DEMO ? sampleGuide() : ""}<button class="go" id="usesamplebrand">${DEMO ? "Use the working sample" : "Open the labelled sample instead"}</button><button class="quiet" id="editbrand">Try again</button>`;
+      $("#usesamplebrand").onclick = () => { if (DEMO) openScenarioFlow(flow); else location.href = "?demo=1&setup=1"; };
       $("#editbrand").onclick = () => openScenarioFlow(flow);
     }
   };
@@ -1117,11 +1136,13 @@ function openSetup() {
   document.body.dataset.userPath = "choose";
   panel.innerHTML = `<div class="kind">One city · two ways in</div><div class="market-title">Test your next idea. Or find your next favourite.</div>
     <p class="hint">Explore the same living 3D city through two different questions.</p>
-    <label class="setup-city">Your city<input id="setupcity" value="${esc(setupCity)}" maxlength="60" autocomplete="address-level2"></label>
+    <div class="guide" data-first-use><b>How it works</b><ol><li>Pick a way in: <b>For me</b> finds music, films, food, books and places connected to what you love. <b>For business</b> tests a small idea for a café or festival before you spend.</li><li>Choose three tastes and a city.</li><li>Read what connects, with where each result came from: live Qloo, a recording, or a labelled fictional sample.</li></ol></div>
+    ${DEMO ? sampleGuide() : ""}
+    <label class="setup-city">Your city<input id="setupcity" value="${esc(DEMO ? SAMPLE_CITY : setupCity)}" maxlength="60" autocomplete="address-level2" ${DEMO ? "readonly" : ""}></label>
     <div class="setup-actions"><button id="setupbusiness"><span class="kind">For a coffee shop · test</span><b>Test your next small idea</b><small>Set three tastes you think your customers share. Qloo follows one cultural lead into a small test you can price before you book.</small></button>
     <button id="setupconsumer"><span class="kind">For me · discover</span><b>Find what I’ll love</b><small>Start with your favourites. Find connected music, films, food, books and places.</small></button></div>
     <p class="sample">${q.get("demo") === "1" ? "Fictional sample mode. Discovery and comparison use labelled examples, not provider results." : "Live results need a server Qloo key. Each result identifies live or recorded evidence."} <a id="setupsample" href="?demo=1&setup=1">Try the labelled fictional sample</a>.</p>`;
-  const saveCity = () => { setupCity = $("#setupcity").value.trim().slice(0, 60) || "London"; };
+  const saveCity = () => { setupCity = DEMO ? SAMPLE_CITY : ($("#setupcity").value.trim().slice(0, 60) || "London"); };
   $("#setupconsumer").onclick = () => { saveCity(); openDiscovery(); };
   $("#setupbusiness").onclick = () => { saveCity(); openScenarioFlow("brand"); };
 }
