@@ -12,6 +12,7 @@
 html, body { margin:0; height:100%; overflow:hidden; background:#bfe3f2; color:var(--ink); font:15px/1.4 ui-sans-serif, system-ui, -apple-system, sans-serif; }
 canvas#scene { position:fixed; inset:0; width:100%; height:100%; display:block; touch-action:none; }
 #labels { position:fixed; inset:0; pointer-events:none; }
+#labels .covered { visibility:hidden !important; pointer-events:none !important; }
 .tag { position:absolute; transform:translate(-50%,-100%); font-size:12px; font-weight:650; padding:2px 8px; border-radius:99px; background:var(--card); border:1px solid var(--line); white-space:nowrap; }
 .say { position:absolute; transform:translate(-50%,-100%); font-size:13px; padding:6px 10px; border-radius:12px; background:#fff; color:#2a2118; box-shadow:0 4px 14px rgba(0,0,0,.15); white-space:nowrap; font-weight:600; }
 header { position:fixed; z-index:4; top:0; left:0; right:0; display:flex; justify-content:space-between; align-items:flex-start; padding:max(12px, env(safe-area-inset-top)) 16px 10px; pointer-events:none; }
@@ -515,6 +516,20 @@ function clampLabel(el, x, y, w, h) {
   const half = el.offsetWidth / 2 + 8, height = el.offsetHeight + 8;
   el.style.left = Math.min(w - half, Math.max(half, x)) + "px";
   el.style.top = Math.min(h - 8, Math.max(height, y)) + "px";
+}
+/* On a phone the header and the open card cover most of the city. Labels under them showed
+   through the translucent card and took taps; hide only those, keep the rest of the city labelled. */
+const PHONE = matchMedia("(max-width: 600px)");
+function hideCoveredLabels() {
+  const kids = labels.children;
+  if (!PHONE.matches) { for (const el of kids) el.classList.remove("covered"); return; }
+  const covers = [document.querySelector("header").getBoundingClientRect()];
+  if (!panel.hidden) covers.push(panel.getBoundingClientRect());
+  for (const el of kids) {
+    el.classList.remove("covered");
+    const r = el.getBoundingClientRect();
+    if (covers.some(c => r.left < c.right && r.right > c.left && r.top < c.bottom && r.bottom > c.top)) el.classList.add("covered");
+  }
 }
 function syncLabels() {
   const w = canvas.clientWidth, h = canvas.clientHeight, v3 = new THREE.Vector3();
@@ -1224,7 +1239,7 @@ function tick() {
   document.body.dataset.simulationMoving = String(movingResidents);
   for (let k = hearts.length - 1; k >= 0; k--) { const h = hearts[k]; h.life -= dt; h.sp.position.y += h.vy * dt; h.sp.material.opacity = Math.min(1, h.life);
     if (h.life <= 0) { scene.remove(h.sp); hearts.splice(k, 1); } }
-  renderer.render(scene, camera); syncLabels(); requestAnimationFrame(tick);
+  renderer.render(scene, camera); syncLabels(); hideCoveredLabels(); requestAnimationFrame(tick);
 }
 tick();
 applyPopulation(targetPopulation);
