@@ -10,7 +10,7 @@
 
 **The problem.** Ask an AI model with no audience context what a London coffee pop-up should do, and you get the classic answer: single-origin beans, pour-over, limited seating. Give it Qloo taste profiles for the audience and you get Yves Tumor listening sessions and Synecdoche, New York in the decor. A small business needs the second kind of answer, and it needs to know where each suggestion came from before it spends on it.
 
-**Who it is for.** Coffee-shop owners and festival programmers testing an idea, and anyone who wants to explore their own taste.
+**Who it is for.** Coffee-shop owners and festival programmers testing an idea, and anyone who wants to explore their own taste. Before building, we talked with pop-up shops, cafés and run clubs to understand the problem. Oscar spoke with 3 café owners and 2 bar owners, and they have this issue.
 
 **What it does.**
 
