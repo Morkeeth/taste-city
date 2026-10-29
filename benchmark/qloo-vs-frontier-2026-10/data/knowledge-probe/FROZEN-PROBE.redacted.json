@@ -1,0 +1,213 @@
+{
+ "at": "2026-10-29T13:55:15+01:00",
+ "places": [
+  {
+   "real": true,
+   "name": "WITHHELD (Qloo-returned)"
+  },
+  {
+   "real": true,
+   "name": "WITHHELD (Qloo-returned)"
+  },
+  {
+   "real": true,
+   "name": "WITHHELD (Qloo-returned)"
+  },
+  {
+   "real": true,
+   "name": "WITHHELD (Qloo-returned)"
+  },
+  {
+   "real": true,
+   "name": "WITHHELD (Qloo-returned)"
+  },
+  {
+   "real": false,
+   "name": "Grey Heron Records"
+  },
+  {
+   "real": true,
+   "name": "WITHHELD (Qloo-returned)"
+  },
+  {
+   "real": true,
+   "name": "WITHHELD (Qloo-returned)"
+  },
+  {
+   "real": true,
+   "name": "WITHHELD (Qloo-returned)"
+  },
+  {
+   "real": true,
+   "name": "WITHHELD (Qloo-returned)"
+  },
+  {
+   "real": true,
+   "name": "WITHHELD (Qloo-returned)"
+  },
+  {
+   "real": true,
+   "name": "WITHHELD (Qloo-returned)"
+  },
+  {
+   "real": true,
+   "name": "WITHHELD (Qloo-returned)"
+  },
+  {
+   "real": true,
+   "name": "WITHHELD (Qloo-returned)"
+  },
+  {
+   "real": false,
+   "name": "Saltbox Vinyl Bar"
+  },
+  {
+   "real": true,
+   "name": "WITHHELD (Qloo-returned)"
+  },
+  {
+   "real": true,
+   "name": "WITHHELD (Qloo-returned)"
+  },
+  {
+   "real": true,
+   "name": "WITHHELD (Qloo-returned)"
+  },
+  {
+   "real": true,
+   "name": "WITHHELD (Qloo-returned)"
+  },
+  {
+   "real": true,
+   "name": "WITHHELD (Qloo-returned)"
+  },
+  {
+   "real": false,
+   "name": "Marlowe & Finch Coffee House"
+  },
+  {
+   "real": true,
+   "name": "WITHHELD (Qloo-returned)"
+  },
+  {
+   "real": false,
+   "name": "Kestrel Lane Cinema Club"
+  },
+  {
+   "real": true,
+   "name": "WITHHELD (Qloo-returned)"
+  },
+  {
+   "real": false,
+   "name": "The Halcyon Listening Room"
+  }
+ ],
+ "artists": [
+  {
+   "real": true,
+   "name": "WITHHELD (Qloo-returned)"
+  },
+  {
+   "real": true,
+   "name": "WITHHELD (Qloo-returned)"
+  },
+  {
+   "real": true,
+   "name": "WITHHELD (Qloo-returned)"
+  },
+  {
+   "real": true,
+   "name": "WITHHELD (Qloo-returned)"
+  },
+  {
+   "real": true,
+   "name": "WITHHELD (Qloo-returned)"
+  },
+  {
+   "real": true,
+   "name": "WITHHELD (Qloo-returned)"
+  },
+  {
+   "real": true,
+   "name": "WITHHELD (Qloo-returned)"
+  },
+  {
+   "real": false,
+   "name": "Juniper Static"
+  },
+  {
+   "real": false,
+   "name": "Kalto Ramires"
+  },
+  {
+   "real": false,
+   "name": "Mireille Okafor-Lund"
+  },
+  {
+   "real": true,
+   "name": "WITHHELD (Qloo-returned)"
+  },
+  {
+   "real": true,
+   "name": "WITHHELD (Qloo-returned)"
+  },
+  {
+   "real": false,
+   "name": "Velvet Marrow"
+  },
+  {
+   "real": true,
+   "name": "WITHHELD (Qloo-returned)"
+  },
+  {
+   "real": true,
+   "name": "WITHHELD (Qloo-returned)"
+  },
+  {
+   "real": true,
+   "name": "WITHHELD (Qloo-returned)"
+  },
+  {
+   "real": true,
+   "name": "WITHHELD (Qloo-returned)"
+  },
+  {
+   "real": true,
+   "name": "WITHHELD (Qloo-returned)"
+  },
+  {
+   "real": true,
+   "name": "WITHHELD (Qloo-returned)"
+  },
+  {
+   "real": true,
+   "name": "WITHHELD (Qloo-returned)"
+  },
+  {
+   "real": false,
+   "name": "Oona & The Glass Tides"
+  },
+  {
+   "real": true,
+   "name": "WITHHELD (Qloo-returned)"
+  },
+  {
+   "real": true,
+   "name": "WITHHELD (Qloo-returned)"
+  },
+  {
+   "real": true,
+   "name": "WITHHELD (Qloo-returned)"
+  },
+  {
+   "real": true,
+   "name": "WITHHELD (Qloo-returned)"
+  }
+ ],
+ "prompt_places": "Do not use tools or read files. For each London place below, give its London postcode district (for example SE15 or WC2N) if you know it, or UNKNOWN if you do not recognise the place. Do not guess. Return ONLY a JSON object mapping the list number to the district or \"UNKNOWN\".\n\n[list withheld]",
+ "prompt_artists": "Do not use tools or read files. For each musician or band below, answer REAL plus one genre word if you recognise them, or UNKNOWN if you do not. Do not guess. Return ONLY a JSON object mapping the list number to a string like \"REAL: shoegaze\" or \"UNKNOWN\".\n\n[list withheld]",
+ "_published_note": {
+  "original_sha256": "2ee88088c5a73c96bd4d26174c50a968a16d12d25e514c06aa727b7d7e572ce3",
+  "withheld": "the 20 real places and 20 real artists returned by Qloo; the 5+5 invented decoys are shown"
+ }
+}

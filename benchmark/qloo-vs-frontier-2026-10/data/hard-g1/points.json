@@ -1,0 +1,62 @@
+{
+ "Leeds": {
+  "address": "Call Lane, Leeds",
+  "lat": 53.7954626,
+  "lon": -1.541026,
+  "osm": "Call Lane, Warehouse Hill, Arena Quarter, Lovell Park, Leeds, West Yorkshire, England, LS1"
+ },
+ "Lyon": {
+  "address": "Place de la Croix-Rousse, Lyon",
+  "lat": 45.774891,
+  "lon": 4.8320789,
+  "osm": "Place de la Croix-Rousse, Gros Caillou, Lyon 4e Arrondissement, Lyon, Métropole de Lyon, R"
+ },
+ "Ghent": {
+  "address": "Vrijdagmarkt, Gent",
+  "lat": 51.0571106,
+  "lon": 3.7250209,
+  "osm": "Vrijdagmarkt, Patershol, Gent, Oost-Vlaanderen, Vlaanderen, 9000, België / Belgique / Belg"
+ },
+ "Porto": {
+  "address": "Rua de Miguel Bombarda, Porto",
+  "lat": 41.1498522,
+  "lon": -8.6193228,
+  "osm": "Rua de Miguel Bombarda, Baixa do Porto, Conjunto Urbano da Ribeira, Cedofeita, Cedofeita, "
+ },
+ "Paris 19e": {
+  "address": "Place de la Bataille-de-Stalingrad, Paris",
+  "lat": 48.8837604,
+  "lon": 2.369661,
+  "osm": "Place de la Bataille de Stalingrad, Quartier de la Villette, Paris 19e Arrondissement, Par"
+ },
+ "Bristol": {
+  "address": "Stokes Croft, Bristol",
+  "lat": 51.4618157,
+  "lon": -2.5904443,
+  "osm": "Stokes Croft, Broadmead, Bristol, City of Bristol, West of England, England, BS1 3QD, Unit"
+ },
+ "Manchester": {
+  "address": "Oldham Street, Manchester",
+  "lat": 53.4822563,
+  "lon": -2.2360632,
+  "osm": "Oldham Street, Northern Quarter, City Centre, Manchester, Greater Manchester, England, M1 "
+ },
+ "Marseille": {
+  "address": "Cours Julien, Marseille",
+  "lat": 43.2935058,
+  "lon": 5.3829759,
+  "osm": "Cours Julien, La Plaine, Marseille 6e Arrondissement, Marseille, Bouches-du-Rhône, Provenc"
+ },
+ "Antwerp": {
+  "address": "Kloosterstraat, 2000 Antwerpen",
+  "lat": 51.2165371,
+  "lon": 4.395231,
+  "osm": "Kloosterstraat, Sint-Andries, Antwerpen, Vlaanderen, 2000, België / Belgique / Belgien"
+ },
+ "Valencia": {
+  "address": "Carrer de Sueca, Valencia",
+  "lat": 39.4621194,
+  "lon": -0.3755517,
+  "osm": "Carrer de Sueca, Russafa, l'Eixample, València, Comarca de València, València / Valencia, "
+ }
+}

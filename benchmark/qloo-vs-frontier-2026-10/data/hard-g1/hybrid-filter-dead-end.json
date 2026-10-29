@@ -1,0 +1,56 @@
+{
+ "composer": {
+  "named": 50,
+  "kept": 12,
+  "kept_in500": 12,
+  "dropped_in500": 11
+ },
+ "deepseek": {
+  "named": 50,
+  "kept": 9,
+  "kept_in500": 9,
+  "dropped_in500": 15
+ },
+ "fable": {
+  "named": 50,
+  "kept": 18,
+  "kept_in500": 18,
+  "dropped_in500": 19
+ },
+ "gemini": {
+  "named": 50,
+  "kept": 15,
+  "kept_in500": 14,
+  "dropped_in500": 18
+ },
+ "gpt": {
+  "named": 50,
+  "kept": 21,
+  "kept_in500": 21,
+  "dropped_in500": 17
+ },
+ "grok": {
+  "named": 40,
+  "kept": 16,
+  "kept_in500": 16,
+  "dropped_in500": 19
+ },
+ "kimi": {
+  "named": 50,
+  "kept": 13,
+  "kept_in500": 13,
+  "dropped_in500": 13
+ },
+ "opus": {
+  "named": 50,
+  "kept": 18,
+  "kept_in500": 18,
+  "dropped_in500": 22
+ },
+ "sonnet": {
+  "named": 56,
+  "kept": 14,
+  "kept_in500": 14,
+  "dropped_in500": 15
+ }
+}

@@ -1,0 +1,137 @@
+{
+ "opus": {
+  "step0": [
+   18,
+   25
+  ],
+  "step1": [
+   21,
+   25
+  ],
+  "better_same_worse": [
+   3,
+   1,
+   1
+  ]
+ },
+ "fable": {
+  "step0": [
+   14,
+   25
+  ],
+  "step1": [
+   22,
+   25
+  ],
+  "better_same_worse": [
+   3,
+   1,
+   1
+  ]
+ },
+ "sonnet": {
+  "step0": [
+   15,
+   26
+  ],
+  "step1": [
+   20,
+   25
+  ],
+  "better_same_worse": [
+   3,
+   2,
+   0
+  ]
+ },
+ "gpt": {
+  "step0": [
+   17,
+   25
+  ],
+  "step1": [
+   20,
+   25
+  ],
+  "better_same_worse": [
+   2,
+   1,
+   2
+  ]
+ },
+ "composer": {
+  "step0": [
+   6,
+   25
+  ],
+  "step1": [
+   20,
+   25
+  ],
+  "better_same_worse": [
+   5,
+   0,
+   0
+  ]
+ },
+ "gemini": {
+  "step0": [
+   14,
+   25
+  ],
+  "step1": [
+   21,
+   25
+  ],
+  "better_same_worse": [
+   3,
+   1,
+   1
+  ]
+ },
+ "grok": {
+  "step0": [
+   15,
+   20
+  ],
+  "step1": [
+   22,
+   25
+  ],
+  "better_same_worse": [
+   3,
+   2,
+   0
+  ]
+ },
+ "kimi": {
+  "step0": [
+   11,
+   25
+  ],
+  "step1": [
+   21,
+   25
+  ],
+  "better_same_worse": [
+   5,
+   0,
+   0
+  ]
+ },
+ "deepseek": {
+  "step0": [
+   12,
+   25
+  ],
+  "step1": [
+   21,
+   25
+  ],
+  "better_same_worse": [
+   4,
+   1,
+   0
+  ]
+ }
+}
