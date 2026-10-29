@@ -1,0 +1,112 @@
+{
+ "at": "2026-10-29T13:52:51+01:00",
+ "radius_km": 0.5,
+ "questions": [
+  {
+   "id": "h_leeds",
+   "city": "Leeds",
+   "lat": 53.7954626,
+   "lon": -1.541026,
+   "question": "Which 5 real places within 500 metres of Call Lane, Leeds (Leeds) would this audience go to: independent record shops, listening bars, independent cinemas, small music venues or cafes?"
+  },
+  {
+   "id": "h_lyon",
+   "city": "Lyon",
+   "lat": 45.774891,
+   "lon": 4.8320789,
+   "question": "Which 5 real places within 500 metres of Place de la Croix-Rousse, Lyon (Lyon) would this audience go to: independent record shops, listening bars, independent cinemas, small music venues or cafes?"
+  },
+  {
+   "id": "h_ghent",
+   "city": "Ghent",
+   "lat": 51.0571106,
+   "lon": 3.7250209,
+   "question": "Which 5 real places within 500 metres of Vrijdagmarkt, Gent (Ghent) would this audience go to: independent record shops, listening bars, independent cinemas, small music venues or cafes?"
+  },
+  {
+   "id": "h_porto",
+   "city": "Porto",
+   "lat": 41.1498522,
+   "lon": -8.6193228,
+   "question": "Which 5 real places within 500 metres of Rua de Miguel Bombarda, Porto (Porto) would this audience go to: independent record shops, listening bars, independent cinemas, small music venues or cafes?"
+  },
+  {
+   "id": "h_paris19e",
+   "city": "Paris 19e",
+   "lat": 48.8837604,
+   "lon": 2.369661,
+   "question": "Which 5 real places within 500 metres of Place de la Bataille-de-Stalingrad, Paris (Paris 19e) would this audience go to: independent record shops, listening bars, independent cinemas, small music venues or cafes?"
+  },
+  {
+   "id": "h_bristol",
+   "city": "Bristol",
+   "lat": 51.4618157,
+   "lon": -2.5904443,
+   "question": "Which 5 real places within 500 metres of Stokes Croft, Bristol (Bristol) would this audience go to: independent record shops, listening bars, independent cinemas, small music venues or cafes?"
+  },
+  {
+   "id": "h_manchester",
+   "city": "Manchester",
+   "lat": 53.4822563,
+   "lon": -2.2360632,
+   "question": "Which 5 real places within 500 metres of Oldham Street, Manchester (Manchester) would this audience go to: independent record shops, listening bars, independent cinemas, small music venues or cafes?"
+  },
+  {
+   "id": "h_marseille",
+   "city": "Marseille",
+   "lat": 43.2935058,
+   "lon": 5.3829759,
+   "question": "Which 5 real places within 500 metres of Cours Julien, Marseille (Marseille) would this audience go to: independent record shops, listening bars, independent cinemas, small music venues or cafes?"
+  },
+  {
+   "id": "h_antwerp",
+   "city": "Antwerp",
+   "lat": 51.2165371,
+   "lon": 4.395231,
+   "question": "Which 5 real places within 500 metres of Kloosterstraat, 2000 Antwerpen (Antwerp) would this audience go to: independent record shops, listening bars, independent cinemas, small music venues or cafes?"
+  },
+  {
+   "id": "h_valencia",
+   "city": "Valencia",
+   "lat": 39.4621194,
+   "lon": -0.3755517,
+   "question": "Which 5 real places within 500 metres of Carrer de Sueca, Valencia (Valencia) would this audience go to: independent record shops, listening bars, independent cinemas, small music venues or cafes?"
+  }
+ ],
+ "answerers": [
+  "opus",
+  "fable",
+  "sonnet",
+  "gpt",
+  "composer",
+  "gemini",
+  "grok",
+  "kimi",
+  "deepseek"
+ ],
+ "steps": {
+  "0_control": "You are advising a small cultural events team. Do not use tools or read files.\n\nAudience: people whose taste is anchored by Björk, Radiohead and Little Simz.\n\nAnswer as a numbered list of exactly 5 items. Each line: the name only, then \" - \" and a reason of at most 10 words. No other text.\n\nQuestion: {question}",
+  "1_qloo_location": "You are advising a small cultural events team. Do not use tools or read files.\n\nAudience: people whose taste is anchored by Björk, Radiohead and Little Simz.\n\nQloo places within 500 m of that address, ranked for this audience (taste signal, not demand):\n{ctx}\n\nAnswer as a numbered list of exactly 5 items. Each line: the name only, then \" - \" and a reason of at most 10 words. No other text.\n\nQuestion: {question}"
+ },
+ "ctx": {
+  "h_leeds": "WITHHELD: Qloo response data stays out of git; regenerate with harness context()",
+  "h_lyon": "WITHHELD: Qloo response data stays out of git; regenerate with harness context()",
+  "h_ghent": "WITHHELD: Qloo response data stays out of git; regenerate with harness context()",
+  "h_porto": "WITHHELD: Qloo response data stays out of git; regenerate with harness context()",
+  "h_paris19e": "WITHHELD: Qloo response data stays out of git; regenerate with harness context()",
+  "h_bristol": "WITHHELD: Qloo response data stays out of git; regenerate with harness context()",
+  "h_manchester": "WITHHELD: Qloo response data stays out of git; regenerate with harness context()",
+  "h_marseille": "WITHHELD: Qloo response data stays out of git; regenerate with harness context()",
+  "h_antwerp": "WITHHELD: Qloo response data stays out of git; regenerate with harness context()",
+  "h_valencia": "WITHHELD: Qloo response data stays out of git; regenerate with harness context()"
+ },
+ "qloo_context_file_sha256": "1e50eb6647a6caa7fb584252cf8bb6ed9e447fc8c43d6a5c1b545d2809fb15c5",
+ "_published_note": {
+  "original_sha256": "deda83b1c031caa5ca33ef41589728bcbe62ae446a74a8ab0ad93b924330a763",
+  "original_sha256_matches": true,
+  "withheld": [
+   "ctx"
+  ],
+  "why": "Qloo response data (names, addresses, tags returned by Qloo) is kept out of git by this repo's policy (test_no_qloo_data_in_git, .gitignore)"
+ }
+}

@@ -1,0 +1,231 @@
+{
+ "composer": {
+  "artists": {
+   "real_n": 20,
+   "real_known_correct": 8,
+   "real_known_wrong": 0,
+   "real_unknown": 12,
+   "decoy_n": 5,
+   "decoy_invented": 0,
+   "decoy_unknown": 5,
+   "wrong_examples": [],
+   "invented_examples": []
+  },
+  "places": {
+   "real_n": 20,
+   "real_known_correct": 12,
+   "real_known_wrong": 0,
+   "real_unknown": 8,
+   "decoy_n": 5,
+   "decoy_invented": 0,
+   "decoy_unknown": 5,
+   "wrong_examples": [],
+   "invented_examples": []
+  }
+ },
+ "deepseek": {
+  "artists": {
+   "real_n": 20,
+   "real_known_correct": 11,
+   "real_known_wrong": 0,
+   "real_unknown": 9,
+   "decoy_n": 5,
+   "decoy_invented": 0,
+   "decoy_unknown": 5,
+   "wrong_examples": [],
+   "invented_examples": []
+  },
+  "places": {
+   "real_n": 20,
+   "real_known_correct": 15,
+   "real_known_wrong": 1,
+   "real_unknown": 4,
+   "decoy_n": 5,
+   "decoy_invented": 0,
+   "decoy_unknown": 5,
+   "wrong_examples": [
+    "The Canary: said E14, Qloo E2"
+   ],
+   "invented_examples": []
+  }
+ },
+ "fable": {
+  "artists": {
+   "real_n": 20,
+   "real_known_correct": 15,
+   "real_known_wrong": 0,
+   "real_unknown": 5,
+   "decoy_n": 5,
+   "decoy_invented": 0,
+   "decoy_unknown": 5,
+   "wrong_examples": [],
+   "invented_examples": []
+  },
+  "places": {
+   "real_n": 20,
+   "real_known_correct": 15,
+   "real_known_wrong": 0,
+   "real_unknown": 5,
+   "decoy_n": 5,
+   "decoy_invented": 0,
+   "decoy_unknown": 5,
+   "wrong_examples": [],
+   "invented_examples": []
+  }
+ },
+ "gemini": {
+  "artists": {
+   "real_n": 20,
+   "real_known_correct": 17,
+   "real_known_wrong": 0,
+   "real_unknown": 3,
+   "decoy_n": 5,
+   "decoy_invented": 0,
+   "decoy_unknown": 5,
+   "wrong_examples": [],
+   "invented_examples": []
+  },
+  "places": {
+   "real_n": 20,
+   "real_known_correct": 16,
+   "real_known_wrong": 1,
+   "real_unknown": 3,
+   "decoy_n": 5,
+   "decoy_invented": 0,
+   "decoy_unknown": 5,
+   "wrong_examples": [
+    "Below Stone Nest: said WC2H, Qloo W1D"
+   ],
+   "invented_examples": []
+  }
+ },
+ "gpt": {
+  "artists": {
+   "real_n": 20,
+   "real_known_correct": 18,
+   "real_known_wrong": 0,
+   "real_unknown": 2,
+   "decoy_n": 5,
+   "decoy_invented": 0,
+   "decoy_unknown": 5,
+   "wrong_examples": [],
+   "invented_examples": []
+  },
+  "places": {
+   "real_n": 20,
+   "real_known_correct": 13,
+   "real_known_wrong": 0,
+   "real_unknown": 7,
+   "decoy_n": 5,
+   "decoy_invented": 0,
+   "decoy_unknown": 5,
+   "wrong_examples": [],
+   "invented_examples": []
+  }
+ },
+ "grok": {
+  "artists": {
+   "real_n": 20,
+   "real_known_correct": 12,
+   "real_known_wrong": 0,
+   "real_unknown": 8,
+   "decoy_n": 5,
+   "decoy_invented": 0,
+   "decoy_unknown": 5,
+   "wrong_examples": [],
+   "invented_examples": []
+  },
+  "places": {
+   "real_n": 20,
+   "real_known_correct": 9,
+   "real_known_wrong": 1,
+   "real_unknown": 10,
+   "decoy_n": 5,
+   "decoy_invented": 0,
+   "decoy_unknown": 5,
+   "wrong_examples": [
+    "Below Stone Nest: said WC2H, Qloo W1D"
+   ],
+   "invented_examples": []
+  }
+ },
+ "kimi": {
+  "artists": {
+   "real_n": 20,
+   "real_known_correct": 17,
+   "real_known_wrong": 0,
+   "real_unknown": 3,
+   "decoy_n": 5,
+   "decoy_invented": 0,
+   "decoy_unknown": 5,
+   "wrong_examples": [],
+   "invented_examples": []
+  },
+  "places": {
+   "real_n": 20,
+   "real_known_correct": 14,
+   "real_known_wrong": 0,
+   "real_unknown": 6,
+   "decoy_n": 5,
+   "decoy_invented": 0,
+   "decoy_unknown": 5,
+   "wrong_examples": [],
+   "invented_examples": []
+  }
+ },
+ "opus": {
+  "artists": {
+   "real_n": 20,
+   "real_known_correct": 13,
+   "real_known_wrong": 0,
+   "real_unknown": 7,
+   "decoy_n": 5,
+   "decoy_invented": 0,
+   "decoy_unknown": 5,
+   "wrong_examples": [],
+   "invented_examples": []
+  },
+  "places": {
+   "real_n": 20,
+   "real_known_correct": 9,
+   "real_known_wrong": 0,
+   "real_unknown": 11,
+   "decoy_n": 5,
+   "decoy_invented": 0,
+   "decoy_unknown": 5,
+   "wrong_examples": [],
+   "invented_examples": []
+  }
+ },
+ "sonnet": {
+  "artists": {
+   "real_n": 20,
+   "real_known_correct": 7,
+   "real_known_wrong": 0,
+   "real_unknown": 13,
+   "decoy_n": 5,
+   "decoy_invented": 0,
+   "decoy_unknown": 5,
+   "wrong_examples": [],
+   "invented_examples": []
+  },
+  "places": {
+   "real_n": 20,
+   "real_known_correct": 8,
+   "real_known_wrong": 6,
+   "real_unknown": 6,
+   "decoy_n": 5,
+   "decoy_invented": 0,
+   "decoy_unknown": 5,
+   "wrong_examples": [
+    "Arcola Bar: said N1, Qloo E8",
+    "Jamyang Buddhist Centre London: said SW9, Qloo SE11",
+    "El Garito: said OX1, Qloo E8",
+    "Aspire Point: said E14, Qloo E15",
+    "Byng Place: said WC1H, Qloo WC1E",
+    "Imagination London: said WC1B, Qloo WC1E"
+   ],
+   "invented_examples": []
+  }
+ }
+}
