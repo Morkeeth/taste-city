@@ -374,7 +374,7 @@ function person(shirt, skin, hairColor, tall) {
 const hairFor = (age, i) => age === "55_and_older" || age === "45_to_54" ? 0xd8d4cc : [0x3a2a1e, 0x6b4426, 0xd9b26a, 0x1c1c1c, 0xa0522d][i % 5];
 let V = [], G = [], round = 0, score = 0, streak = 0, chosen = null, answered = false, data = null;
 let mode = q.get("demo") === "1" ? "game" : "setup", lastVerdict = null;
-let setupStarted = false, setupCity = "London";
+let setupStarted = false, setupCity = "London", discoveryAddress = "";
 /* The labelled fictional sample answers exactly one example. Say so before anyone taps. */
 const DEMO = q.get("demo") === "1", SAMPLE_PICKS = ["Björk","Radiohead","Little Simz"], SAMPLE_CITY = "London";
 if (DEMO) setupCity = SAMPLE_CITY;
@@ -850,7 +850,8 @@ function openTasteOutlet(id) {
   panel.innerHTML = `<div class="kind">For me · discover</div><div class="market-title">Find your next favourite.</div>
     <div class="hint">Choose three things you love. Discover music, films, food, books and places connected to your taste.</div>
     ${DEMO ? sampleGuide() : ""}
-    <label class="setup-city">Where to eat<input id="discoverycity" value="${esc(DEMO ? SAMPLE_CITY : setupCity)}" maxlength="60" ${DEMO ? "readonly" : ""}></label>
+    <label class="setup-city">Address or postcode to eat near<input id="discoverycity" value="${esc(DEMO ? SAMPLE_CITY : discoveryAddress || setupCity)}" maxlength="160" ${DEMO ? "readonly" : ""}></label>
+    ${DEMO ? "" : `<label class="setup-city">Search radius<select id="discoveryradius"><option value="500">500 metres</option><option value="1000" selected>1 kilometre</option><option value="1500">1.5 kilometres</option></select></label><label><input id="discoverylongtail" type="checkbox" checked> Explore less mainstream restaurants</label><p class="sample">Add the city or country to your address. Distances use the matched address or area centre, not walking routes. Address lookup uses OpenStreetMap; Qloo receives its coordinates. The server keeps an exact-search recording for fallback.</p>`}
     <div class="taste-grid">${outlet.choices.map(choice => { const on = picked.has(choice), off = DEMO && !on;
       return `<button type="button" class="taste-card" data-taste-pick="${esc(choice)}" aria-pressed="${on}" ${off ? "disabled" : ""}>${esc(choice)}<small>${on ? "Chosen" : off ? "Live mode only" : "Tap to choose"}</small></button>`; }).join("")}</div>
     <button class="go" id="trytaste" ${picked.size === 3 ? "" : "disabled"}>Find things I’ll love</button>
@@ -866,16 +867,17 @@ function openTasteOutlet(id) {
     $("#trytaste").disabled = picked.size !== 3;
   });
   $("#backoutlets").onclick = openSetup;
-  $("#trytaste").onclick = () => { setupCity = DEMO ? SAMPLE_CITY : ($("#discoverycity").value.trim() || "London"); reactToTaste(outlet, [...picked]); };
+  $("#trytaste").onclick = () => { discoveryAddress = DEMO ? SAMPLE_CITY : ($("#discoverycity").value.trim() || "London"); reactToTaste(outlet, [...picked], DEMO ? {} : {radius:Number($("#discoveryradius").value), discovery:$("#discoverylongtail").checked}); };
 }
-async function reactToTaste(outlet, picks) {
+async function reactToTaste(outlet, picks, localOptions = {}) {
+  const requestedArea = DEMO ? SAMPLE_CITY : discoveryAddress || setupCity;
   panel.scrollTop = 0;
   const started = performance.now();
   document.body.dataset.tastePicks = String(picks.length);
   panel.innerHTML = `<div class="kind">${q.get("demo") === "1" ? "Loading fictional sample" : "Asking Qloo"}</div><div class="market-title">${esc(picks.join(" · "))}</div><p>${q.get("demo") === "1" ? "No provider request will be made." : "Resolving three entities, then filling five city outlets…"}</p>`;
   let d;
   try {
-    const response = await fetch("/api/taste", { method:"POST", headers:{ "Content-Type":"application/json" }, body:JSON.stringify({ picks, city:setupCity, demo:q.get("demo") === "1" }) });
+    const response = await fetch("/api/taste", { method:"POST", headers:{ "Content-Type":"application/json" }, body:JSON.stringify({ picks, city:requestedArea, ...localOptions, demo:q.get("demo") === "1" }) });
     d = await response.json();
     if (!response.ok || d.error) throw new Error(d.error || `HTTP ${response.status}`);
   } catch (error) {
@@ -895,10 +897,12 @@ async function reactToTaste(outlet, picks) {
   document.body.dataset.tasteMode = d.mode;
   document.body.dataset.tasteEntities = String((d.outlets || []).length);
   say(MM, `${outlet.name} woke up the city.`, 2400);
-  const rows = (d.outlets || []).map(row => `<div class="qloo-result"><span class="kind">${esc(row.domain)}</span><b>${esc(row.entity.name)}</b><small data-entity-id="${esc(row.entity.id)}">${d.mode === "synthetic" ? "Fictional sample" : "Qloo " + esc(row.domain)} · call ${esc(row.call)}</small></div>`).join("");
+  const rows = (d.outlets || []).map(row => `<div class="qloo-result"><span class="kind">${esc(row.domain)}</span><b>${esc(row.entity.name)}</b><small data-entity-id="${esc(row.entity.id)}">${d.mode === "synthetic" ? "Fictional sample" : "Qloo " + esc(row.domain)} · entity ${esc(row.entity.id)} · call ${esc(row.call)}${row.entity.distance_m != null ? " · " + esc(row.entity.distance_m) + " m from matched centre" : ""}</small></div>`).join("");
+  const nearby = (d.nearby_places || []).map(place => `<div class="qloo-result"><b>${esc(place.name)}</b><small>${esc(place.distance_m)} m straight-line · ${esc(place.why)}</small><small>Qloo entity ${esc(place.id)} · ${esc(place.call)}</small></div>`).join("");
+  const area = d.local_area ? `<p>Within ${esc(d.local_area.radius_m)} m of ${esc(d.local_area.label)}. ${d.local_area.popularity_cap != null ? "Less mainstream: Qloo popularity at most " + esc(d.local_area.popularity_cap) + "." : "All popularity levels."} Distances are straight-line from this matched centre.</p><h3>Restaurants near your address</h3>${nearby}` : "";
   const source = d.mode === "live" ? "Live Qloo response" : d.mode === "synthetic" ? "Fictional sample · no provider request" : `Recorded Qloo response from ${esc(d.recorded_at || "an earlier live call")}`;
-  panel.innerHTML = `<div class="kind">${source}</div><div class="market-title">Your next discoveries</div><p>Because you love ${esc(picks.join(" · "))}. Food results are in ${esc(setupCity)}.</p>
-    <div class="qloo-results">${rows}</div>
+  panel.innerHTML = `<div class="kind">${source}</div><div class="market-title">Your next discoveries</div><p>Because you love ${esc(picks.join(" · "))}. Food results are in ${esc(requestedArea)}.</p>
+    <div class="qloo-results">${rows}</div>${area}
     <p class="perf-line" role="status">${Math.round(performance.now() - started)} ms from your tap to this result in this browser · ${esc(d.mode)}.</p><div class="hint">${d.mode === "synthetic" ? "Fictional examples only. No taste inference was made." : "Affinity suggests a connection, not a guarantee you will like it. Each result names its entity and source call."} ${(d.anchors || []).length ? "Source anchors: " + d.anchors.map(anchor => esc(anchor.name)).join(" · ") + "." : ""}</div>
     <div class="row"><button id="againoutlet" style="flex:1">Try another taste</button><button id="alloutlets" style="flex:1">Start again</button></div>`;
   $("#againoutlet").onclick = () => openTasteOutlet(outlet.id); $("#alloutlets").onclick = openDiscovery;

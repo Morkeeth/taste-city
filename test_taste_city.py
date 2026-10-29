@@ -5,6 +5,7 @@ import pathlib
 import tempfile
 import threading
 import unittest
+from unittest.mock import patch
 import urllib.error
 import urllib.request
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
@@ -267,7 +268,10 @@ class TasteRoute(unittest.TestCase):
             return error.code, json.loads(error.read())
 
     def test_route_runs_the_mocked_live_path(self):
-        status, result = self.post({"picks": ["Björk", "Radiohead", "Little Simz"], "city": "London"})
+        area = {'lat':51.5,'lon':-0.12,'label':'Fixture address, London','source':'fixture'}
+        food = [dict(row, location={'lat':51.5,'lon':-0.12}, popularity=0.2) for row in FakeQloo.food_entities]
+        with patch('taste_city.resolve_area', return_value=area), patch.object(FakeQloo, 'food_entities', food):
+            status, result = self.post({"picks": ["Björk", "Radiohead", "Little Simz"], "city": "London"})
         self.assertEqual(status, 200)
         self.assertEqual(result["mode"], "live")
         self.assertEqual(len(result["outlets"]), 5)

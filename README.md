@@ -59,3 +59,21 @@ Qloo data is fetched live into ignored caches; repeated exact business choices c
 ## License and data
 
 MIT; see `LICENSE`. Bundled Three.js retains its license in `vendor/THREE-LICENSE`. Qloo results are service data and are not included in this source release. The city can pair returned public Wikidata references with English Wikipedia pageviews; pageviews measure attention rather than taste.
+
+### Nearby discovery
+
+The **For me** flow accepts an address or postcode with its city/country and a
+500 m, 1 km or 1.5 km radius. OpenStreetMap Nominatim resolves that input to a
+matched centre; the UI shows the matched address so it can be checked. Qloo
+receives `filter.location=POINT(longitude latitude)` and
+`filter.location.radius` for restaurant recommendations, seeded by the same
+three taste entities. Less mainstream discovery also sets
+`filter.popularity.max=0.5`; users can turn that option off. The server rejects
+places with missing or out-of-radius coordinates. Results show Qloo entity IDs,
+source calls and straight-line distance, not a walking-distance claim.
+
+No extra API key is needed for address lookup. If lookup or Qloo is unavailable,
+the app reports that failure or uses an explicitly labelled recording for the
+exact same input, radius and discovery setting. It never silently broadens a
+local search. The fictional sample and business scenario flows keep their
+existing setup and provenance labels.

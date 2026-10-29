@@ -6,6 +6,7 @@ from http.server import BaseHTTPRequestHandler
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 import taste_city
+from local_places import LocationInvalid, LocationUnavailable
 
 
 class handler(BaseHTTPRequestHandler):
@@ -27,15 +28,15 @@ class handler(BaseHTTPRequestHandler):
             if body.get('demo') is True:
                 import sample_demo
                 return self.reply(200, sample_demo.discovery(body))
-            result = taste_city.build(body.get("picks"), body.get("city") or "London")
+            result = taste_city.build(body.get("picks"), body.get("city") or "London", local=True, radius=body.get("radius", 1000), discovery=body.get("discovery", True))
             return self.reply(200, result)
         except taste_city.InvalidTaste as error:
             return self.reply(400, {"error": str(error)})
-        except ValueError as error:
+        except (json.JSONDecodeError, LocationInvalid) as error:
             return self.reply(400, {"error": str(error)})
         except taste_city.MissingKey as error:
             return self.reply(503, {"error": str(error)})
-        except taste_city.QlooUnavailable as error:
+        except (taste_city.QlooUnavailable, LocationUnavailable) as error:
             return self.reply(502, {"error": str(error)})
         except Exception as error:
             return self.reply(500, {"error": f"{type(error).__name__}: the taste city failed, try again."})
