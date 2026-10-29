@@ -1101,6 +1101,7 @@ function renderScenarioResult(d, comparison, browserMs) {
 }
 function openScenarioFlow(flow="brand", sourceContext=null) {
   localJourney.purpose='business';localJourney.flow=flow;
+  if (sourceContext) localJourney.sourceContext=sourceContext;
   if (!localJourney.result || !localJourney.selected.size) {localJourney.sourceContext=sourceContext;return openTasteOutlet('echo');}
   document.body.dataset.journeyStage='plan';
   panel.scrollTop = 0;
