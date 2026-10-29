@@ -1,0 +1,62 @@
+{
+ "at": "2026-10-29T14:36:09+01:00",
+ "questions": [
+  {
+   "id": "g2_A_artist",
+   "aud": "A",
+   "kind": "artist",
+   "seed": "Audience: people whose taste is anchored by Björk, Radiohead and Little Simz.\n\n",
+   "question": "Which 5 lesser-known musicians or bands, not household names, would this audience love?",
+   "ctx": "WITHHELD: Qloo response data stays out of git; regenerate with harness g2live.py context()"
+  },
+  {
+   "id": "g2_A_film",
+   "aud": "A",
+   "kind": "film",
+   "seed": "Audience: people whose taste is anchored by Björk, Radiohead and Little Simz.\n\n",
+   "question": "Which 5 lesser-known films, not household names, would this audience love?",
+   "ctx": "WITHHELD: Qloo response data stays out of git; regenerate with harness g2live.py context()"
+  },
+  {
+   "id": "g2_A_book",
+   "aud": "A",
+   "kind": "book",
+   "seed": "Audience: people whose taste is anchored by Björk, Radiohead and Little Simz.\n\n",
+   "question": "Which 5 lesser-known books, not household names, would this audience love?",
+   "ctx": "WITHHELD: Qloo response data stays out of git; regenerate with harness g2live.py context()"
+  },
+  {
+   "id": "g2_B_artist",
+   "aud": "B",
+   "kind": "artist",
+   "seed": "Audience: people whose taste is anchored by Ezra Collective, Nubya Garcia and Moses Boyd.\n\n",
+   "question": "Which 5 lesser-known musicians or bands, not household names, would this audience love?",
+   "ctx": "WITHHELD: Qloo response data stays out of git; regenerate with harness g2live.py context()"
+  },
+  {
+   "id": "g2_B_film",
+   "aud": "B",
+   "kind": "film",
+   "seed": "Audience: people whose taste is anchored by Ezra Collective, Nubya Garcia and Moses Boyd.\n\n",
+   "question": "Which 5 lesser-known films, not household names, would this audience love?",
+   "ctx": "WITHHELD: Qloo response data stays out of git; regenerate with harness g2live.py context()"
+  },
+  {
+   "id": "g2_B_book",
+   "aud": "B",
+   "kind": "book",
+   "seed": "Audience: people whose taste is anchored by Ezra Collective, Nubya Garcia and Moses Boyd.\n\n",
+   "question": "Which 5 lesser-known books, not household names, would this audience love?",
+   "ctx": "WITHHELD: Qloo response data stays out of git; regenerate with harness g2live.py context()"
+  }
+ ],
+ "steps": {
+  "0_control": "You are advising a small cultural events team. Do not use tools or read files.\n\n{seed}Answer as a numbered list of exactly 5 items. Each line: the name only, then \" - \" and a reason of at most 10 words. No other text.\n\nQuestion: {question}",
+  "1_qloo_popcap": "You are advising a small cultural events team. Do not use tools or read files.\n\n{seed}Qloo results for this audience, filtered to lesser-known entries (Qloo popularity at most 0.5):\n{ctx}\n\nAnswer as a numbered list of exactly 5 items. Each line: the name only, then \" - \" and a reason of at most 10 words. No other text.\n\nQuestion: {question}"
+ },
+ "lesser_known_views_60d": 30000,
+ "_published_note": {
+  "original_sha256": "5153d6ca2e1fe92d2c52149c711f0745b42ae4c26cf33c27f106aa2f6fb06f0c",
+  "withheld": "per-question Qloo lists"
+ }
+}

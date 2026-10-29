@@ -57,7 +57,7 @@ def answer(step):
     body = F.read_text(); assert ladder.sha(body) == (OUT/'FROZEN-HARD-B.sha256').read_text().strip()
     fr, path, lock = json.loads(body), OUT/f'answers-hardb-{step}.json', threading.Lock()
     data = json.loads(path.read_text()) if path.exists() else {}
-    jobs = [(m, q) for m in models.ALL for q in fr['questions'] if f'{m}|{q["id"]}' not in data]
+    jobs = [(m, q) for m in models.ALL_PLUS_VENICE for q in fr['questions'] if f'{m}|{q["id"]}' not in data]
 
     def one(job):
         m, q = job
@@ -68,7 +68,7 @@ def answer(step):
         with lock:
             data[f'{m}|{q["id"]}'] = {'qid': q['id'], 'text': text, 'meta': meta}; path.write_text(json.dumps(data, indent=1, ensure_ascii=False))
         print('answered', step, m, q['id'], flush=True)
-    with cf.ThreadPoolExecutor(9) as ex:
+    with cf.ThreadPoolExecutor(4) as ex:
         list(ex.map(one, jobs))
 
 
@@ -84,7 +84,7 @@ def score():
                 ok = r['status'] == 'in_radius' or (ov is not None and ov[0] <= 0.5)
                 c = per[(m, a['qid'])][step]; c[1] += 1; c[0] += ok
     out = {}
-    for m in models.ALL:
+    for m in models.ALL_PLUS_VENICE:
         a = b = na = nb = w = t = l = 0
         for (mm, q), v in per.items():
             if mm != m:

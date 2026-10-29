@@ -32,6 +32,14 @@
    "not_in_osm_but_in_qloo_list": 2,
    "not_in_osm_examples": []
   },
+  "glm": {
+   "named": 50,
+   "in_500m": 44,
+   "out_of_range": 1,
+   "not_in_osm_1500m": 0,
+   "not_in_osm_but_in_qloo_list": 5,
+   "not_in_osm_examples": []
+  },
   "gpt": {
    "named": 50,
    "in_500m": 44,
@@ -56,12 +64,36 @@
    "not_in_osm_but_in_qloo_list": 5,
    "not_in_osm_examples": []
   },
+  "minimax": {
+   "named": 50,
+   "in_500m": 43,
+   "out_of_range": 3,
+   "not_in_osm_1500m": 0,
+   "not_in_osm_but_in_qloo_list": 4,
+   "not_in_osm_examples": []
+  },
+  "nemotron": {
+   "named": 50,
+   "in_500m": 42,
+   "out_of_range": 2,
+   "not_in_osm_1500m": 0,
+   "not_in_osm_but_in_qloo_list": 6,
+   "not_in_osm_examples": []
+  },
   "opus": {
    "named": 50,
    "in_500m": 44,
    "out_of_range": 2,
    "not_in_osm_1500m": 0,
    "not_in_osm_but_in_qloo_list": 4,
+   "not_in_osm_examples": []
+  },
+  "qwen": {
+   "named": 50,
+   "in_500m": 41,
+   "out_of_range": 2,
+   "not_in_osm_1500m": 0,
+   "not_in_osm_but_in_qloo_list": 7,
    "not_in_osm_examples": []
   },
   "sonnet": {
@@ -2521,6 +2553,618 @@
    }
   },
   {
+   "model": "glm",
+   "qid": "h_antwerp",
+   "name": "Jones & Co",
+   "status": "in_radius",
+   "km": 0.48,
+   "osm": "Jones & Co, 7, Pelgrimstraat, Historisch Centrum, Antwerpen, Vlaanderen, 2000, B",
+   "final": "in_500m",
+   "overpass": {
+    "km": 0.48,
+    "osm_name": "Jones & Co"
+   }
+  },
+  {
+   "model": "glm",
+   "qid": "h_antwerp",
+   "name": "Amici",
+   "status": "in_radius",
+   "km": 0.41,
+   "osm": "Amici - Coffee & Books, 47, Kammenstraat, Sint-Andries, Antwerpen, Vlaanderen, 2",
+   "final": "in_500m",
+   "overpass": {
+    "km": 0.41,
+    "osm_name": "Amici - Coffee & Books"
+   }
+  },
+  {
+   "model": "glm",
+   "qid": "h_antwerp",
+   "name": "De Vagant",
+   "status": "in_radius",
+   "km": 0.41,
+   "osm": "De Vagant, Reyndersstraat, Historisch Centrum, Antwerpen, Vlaanderen, 2000, Belg",
+   "final": "in_500m",
+   "overpass": {
+    "km": 0.41,
+    "osm_name": "De Vagant"
+   }
+  },
+  {
+   "model": "glm",
+   "qid": "h_antwerp",
+   "name": "Beestenbos",
+   "status": "in_radius",
+   "km": 0.2,
+   "osm": "Beestenbos, 17, Sint-Andriesplaats, Sint-Andries, Antwerpen, Vlaanderen, 2000, B",
+   "final": "in_500m",
+   "overpass": {
+    "km": 0.2,
+    "osm_name": "Beestenbos"
+   }
+  },
+  {
+   "model": "glm",
+   "qid": "h_antwerp",
+   "name": "Spritz",
+   "status": "in_radius",
+   "km": 0.3,
+   "osm": "Spritz, Stoofstraat, Historisch Centrum, Antwerpen, Vlaanderen, 2000, België / B",
+   "final": "in_500m",
+   "overpass": {
+    "km": 0.3,
+    "osm_name": "Spritz"
+   }
+  },
+  {
+   "model": "glm",
+   "qid": "h_bristol",
+   "name": "The Bell",
+   "status": "in_radius",
+   "km": 0.09,
+   "osm": "The Bell, 16-18, Hillgrove Street, Stokes Croft, Kingsdown, Bristol, City of Bri",
+   "final": "in_500m",
+   "overpass": {
+    "km": 0.09,
+    "osm_name": "The Bell"
+   }
+  },
+  {
+   "model": "glm",
+   "qid": "h_bristol",
+   "name": "Lakota",
+   "status": "in_radius",
+   "km": 0.06,
+   "osm": "Lakota, 6, Upper York Street, Stokes Croft, Broadmead, Bristol, City of Bristol,",
+   "final": "in_500m",
+   "overpass": {
+    "km": 0.06,
+    "osm_name": "Lakota"
+   }
+  },
+  {
+   "model": "glm",
+   "qid": "h_bristol",
+   "name": "The Croft",
+   "status": "in_radius",
+   "km": 0.22,
+   "osm": "The Croft, 117-119, Stokes Croft, Broadmead, Bristol, City of Bristol, West of E",
+   "final": "in_500m",
+   "overpass": {
+    "km": 0.0,
+    "osm_name": "Stokes Croft"
+   }
+  },
+  {
+   "model": "glm",
+   "qid": "h_bristol",
+   "name": "Cafe Kino",
+   "status": "in_radius",
+   "km": 0.27,
+   "osm": "Café Kino, 108, Stokes Croft, St Paul's, Bristol, City of Bristol, West of Engla",
+   "final": "in_500m",
+   "overpass": {
+    "km": 0.27,
+    "osm_name": "Café Kino"
+   }
+  },
+  {
+   "model": "glm",
+   "qid": "h_bristol",
+   "name": "The Love Inn",
+   "status": "in_radius",
+   "km": 0.16,
+   "osm": "The Love Inn, 84, Stokes Croft, Broadmead, Bristol, City of Bristol, West of Eng",
+   "final": "in_500m",
+   "overpass": {
+    "km": 0.16,
+    "osm_name": "The Love Inn"
+   }
+  },
+  {
+   "model": "glm",
+   "qid": "h_ghent",
+   "name": "Hot Club Gent",
+   "status": "in_radius",
+   "km": 0.19,
+   "osm": "Hot Club Gent, 2, Schuddevisstraatje, Patershol, Gent, Oost-Vlaanderen, Vlaander",
+   "final": "in_500m",
+   "overpass": {
+    "km": 0.19,
+    "osm_name": "Hot Club Gent"
+   }
+  },
+  {
+   "model": "glm",
+   "qid": "h_ghent",
+   "name": "Sphinx Cinema and Cafe",
+   "status": "not_found_hand_check",
+   "final": "in_500m",
+   "overpass": {
+    "km": 0.45,
+    "osm_name": "Sphinx"
+   }
+  },
+  {
+   "model": "glm",
+   "qid": "h_ghent",
+   "name": "Cocteau",
+   "status": "in_radius",
+   "km": 0.48,
+   "osm": "Cocteau, 17, Jan Palfijnstraat, Sint-Jacobs, Gent, Oost-Vlaanderen, Vlaanderen, ",
+   "final": "in_500m",
+   "overpass": {
+    "km": 0.48,
+    "osm_name": "Cocteau"
+   }
+  },
+  {
+   "model": "glm",
+   "qid": "h_ghent",
+   "name": "Roes",
+   "status": "in_radius",
+   "km": 0.3,
+   "osm": "De Roes, 4, Donkersteeg, Patershol, Gent, Oost-Vlaanderen, Vlaanderen, 9000, Bel",
+   "final": "in_500m",
+   "overpass": {
+    "km": 0.3,
+    "osm_name": "De Roes"
+   }
+  },
+  {
+   "model": "glm",
+   "qid": "h_ghent",
+   "name": "De Parkiet",
+   "status": "in_radius",
+   "km": 0.18,
+   "osm": "De Parkiet, 31, Kraanlei, Patershol, Gent, Oost-Vlaanderen, Vlaanderen, 9000, Be",
+   "final": "in_500m",
+   "overpass": {
+    "km": 0.18,
+    "osm_name": "De Parkiet"
+   }
+  },
+  {
+   "model": "glm",
+   "qid": "h_leeds",
+   "name": "Crash Records",
+   "status": "not_found_hand_check",
+   "final": "in_500m",
+   "overpass": {
+    "km": 0.39,
+    "osm_name": "Crash"
+   }
+  },
+  {
+   "model": "glm",
+   "qid": "h_leeds",
+   "name": "Wharf Chambers",
+   "status": "in_radius",
+   "km": 0.2,
+   "osm": "Wharf Chambers Co-operative Club, 23-25, Wharf Street, Warehouse Hill, Arena Qua",
+   "final": "in_500m",
+   "overpass": {
+    "km": 0.2,
+    "osm_name": "Wharf Chambers Co-operative Club"
+   }
+  },
+  {
+   "model": "glm",
+   "qid": "h_leeds",
+   "name": "Colours May Vary",
+   "status": "not_found_hand_check",
+   "final": "qloo_listed_not_in_osm",
+   "overpass": null
+  },
+  {
+   "model": "glm",
+   "qid": "h_leeds",
+   "name": "The HiFi Club",
+   "status": "in_radius",
+   "km": 0.08,
+   "osm": "The HiFi Club, 2, Central Road, Warehouse Hill, Arena Quarter, Lovell Park, Leed",
+   "final": "in_500m",
+   "overpass": {
+    "km": 0.08,
+    "osm_name": "The HiFi Club"
+   }
+  },
+  {
+   "model": "glm",
+   "qid": "h_leeds",
+   "name": "Everyman Leeds",
+   "status": "in_radius",
+   "km": 0.25,
+   "osm": "Everyman Cinema, First Floor, Albion Street, Warehouse Hill, Arena Quarter, Love",
+   "final": "in_500m",
+   "overpass": {
+    "km": 0.28,
+    "osm_name": "Leeds"
+   }
+  },
+  {
+   "model": "glm",
+   "qid": "h_lyon",
+   "name": "Aquarium Ciné-Café",
+   "status": "in_radius",
+   "km": 0.2,
+   "osm": "Ciné-Café Aquarium, Rue Dumont, La Croix-Rousse, Lyon 4e Arrondissement, Lyon, M",
+   "final": "in_500m",
+   "overpass": {
+    "km": 0.2,
+    "osm_name": "Ciné-Café Aquarium"
+   }
+  },
+  {
+   "model": "glm",
+   "qid": "h_lyon",
+   "name": "LA PENTE",
+   "status": "in_radius",
+   "km": 0.5,
+   "osm": "La Pente, 14, Montée des Carmélites, Pentes de la Croix-Rousse, Lyon 1er Arrondi",
+   "final": "in_500m",
+   "overpass": {
+    "km": 0.11,
+    "osm_name": "Pentes de la Croix-Rousse Parcours de la Grande Côte"
+   }
+  },
+  {
+   "model": "glm",
+   "qid": "h_lyon",
+   "name": "Comptoir Sauvage",
+   "status": "in_radius",
+   "km": 0.19,
+   "osm": "Comptoir sauvage, Rue du Pavillon, Gros Caillou, Lyon 4e Arrondissement, Lyon, M",
+   "final": "in_500m",
+   "overpass": {
+    "km": 0.19,
+    "osm_name": "Comptoir sauvage"
+   }
+  },
+  {
+   "model": "glm",
+   "qid": "h_lyon",
+   "name": "Le Terrier du Lapin Blanc",
+   "status": "not_found_hand_check",
+   "final": "qloo_listed_not_in_osm",
+   "overpass": null
+  },
+  {
+   "model": "glm",
+   "qid": "h_lyon",
+   "name": "Le Sacré Cœur des Pentes",
+   "status": "not_found_hand_check",
+   "final": "in_500m",
+   "overpass": {
+    "km": 0.5,
+    "osm_name": "La Pente"
+   }
+  },
+  {
+   "model": "glm",
+   "qid": "h_manchester",
+   "name": "Piccadilly Records",
+   "status": "in_radius",
+   "km": 0.07,
+   "osm": "Piccadilly Records, 53, Oldham Street, Northern Quarter, City Centre, Manchester",
+   "final": "in_500m",
+   "overpass": {
+    "km": 0.07,
+    "osm_name": "Piccadilly Records"
+   }
+  },
+  {
+   "model": "glm",
+   "qid": "h_manchester",
+   "name": "Band on the Wall",
+   "status": "in_radius",
+   "km": 0.36,
+   "osm": "Band on the Wall, 25, Swan Street, Central Retail District, Strangeways, Manches",
+   "final": "in_500m",
+   "overpass": {
+    "km": 0.36,
+    "osm_name": "Band on the Wall"
+   }
+  },
+  {
+   "model": "glm",
+   "qid": "h_manchester",
+   "name": "Night & Day Cafe",
+   "status": "not_found_hand_check",
+   "final": "in_500m",
+   "overpass": {
+    "km": 0.08,
+    "osm_name": "Night & Day"
+   }
+  },
+  {
+   "model": "glm",
+   "qid": "h_manchester",
+   "name": "The Fitzgerald",
+   "status": "in_radius",
+   "km": 0.2,
+   "osm": "The Fitzgerald, 11, Stevenson Square, Northern Quarter, City Centre, Manchester,",
+   "final": "in_500m",
+   "overpass": {
+    "km": 0.2,
+    "osm_name": "The Fitzgerald"
+   }
+  },
+  {
+   "model": "glm",
+   "qid": "h_manchester",
+   "name": "Ezra & Gil",
+   "status": "in_radius",
+   "km": 0.2,
+   "osm": "Ezra & Gil, 20, Hilton Street, Northern Quarter, City Centre, Manchester, Greate",
+   "final": "in_500m",
+   "overpass": {
+    "km": 0.2,
+    "osm_name": "Ezra & Gil"
+   }
+  },
+  {
+   "model": "glm",
+   "qid": "h_marseille",
+   "name": "Videodrome 2",
+   "status": "in_radius",
+   "km": 0.07,
+   "osm": "Vidéodrome 2, Cours Julien, La Plaine, Marseille 6e Arrondissement, Marseille, B",
+   "final": "in_500m",
+   "overpass": {
+    "km": 0.07,
+    "osm_name": "Vidéodrome 2"
+   }
+  },
+  {
+   "model": "glm",
+   "qid": "h_marseille",
+   "name": "Le Molotov",
+   "status": "in_radius",
+   "km": 0.09,
+   "osm": "Le Molotov, 3, Place Paul Cézanne, La Plaine, Marseille 6e Arrondissement, Marse",
+   "final": "in_500m",
+   "overpass": {
+    "km": 0.09,
+    "osm_name": "Le Molotov"
+   }
+  },
+  {
+   "model": "glm",
+   "qid": "h_marseille",
+   "name": "Espace Julien",
+   "status": "in_radius",
+   "km": 0.1,
+   "osm": "Espace Julien, 39, Cours Julien, La Plaine, Marseille 6e Arrondissement, Marseil",
+   "final": "in_500m",
+   "overpass": {
+    "km": 0.1,
+    "osm_name": "Espace Julien"
+   }
+  },
+  {
+   "model": "glm",
+   "qid": "h_marseille",
+   "name": "Ummagumma",
+   "status": "in_radius",
+   "km": 0.16,
+   "osm": "Ummagumma, Rue des Trois Rois, La Plaine, Marseille 6e Arrondissement, Marseille",
+   "final": "in_500m",
+   "overpass": {
+    "km": 0.16,
+    "osm_name": "Ummagumma"
+   }
+  },
+  {
+   "model": "glm",
+   "qid": "h_marseille",
+   "name": "Epicerie L'IDEAL",
+   "status": "in_radius",
+   "km": 0.4,
+   "osm": "Épicerie l'Idéal, Rue d'Aubagne, Noailles, Marseille 1er Arrondissement, Marseil",
+   "final": "in_500m",
+   "overpass": {
+    "km": 0.4,
+    "osm_name": "Épicerie l'Idéal"
+   }
+  },
+  {
+   "model": "glm",
+   "qid": "h_paris19e",
+   "name": "Yoyaku",
+   "status": "in_radius",
+   "km": 0.45,
+   "osm": "Yoyaku Record Store, 14, Boulevard de la Chapelle, Quartier de la Chapelle, Pari",
+   "final": "in_500m",
+   "overpass": {
+    "km": 0.45,
+    "osm_name": "Yoyaku Record Store"
+   }
+  },
+  {
+   "model": "glm",
+   "qid": "h_paris19e",
+   "name": "Point Éphémère",
+   "status": "in_radius",
+   "km": 0.26,
+   "osm": "Le Point Ephémère, 200, Quai de Valmy, Quartier de l'Hôpital Saint-Louis, Paris ",
+   "final": "in_500m",
+   "overpass": {
+    "km": 0.26,
+    "osm_name": "Le Point Ephémère"
+   }
+  },
+  {
+   "model": "glm",
+   "qid": "h_paris19e",
+   "name": "MK2 Cinémas",
+   "status": "in_radius",
+   "km": 0.17,
+   "osm": "MK2 Quai de Loire, 7, Quai de la Loire, Quartier de la Villette, Paris 19e Arron",
+   "final": "in_500m",
+   "overpass": null
+  },
+  {
+   "model": "glm",
+   "qid": "h_paris19e",
+   "name": "La Rotonde Stalingrad",
+   "status": "in_radius",
+   "km": 0.01,
+   "osm": "Rotonde de la Villette, Place de la Bataille de Stalingrad, Quartier de la Ville",
+   "final": "in_500m",
+   "overpass": {
+    "km": 0.06,
+    "osm_name": "La terrasse de la Rotonde Stalingrad"
+   }
+  },
+  {
+   "model": "glm",
+   "qid": "h_paris19e",
+   "name": "KOKO Coffee & Matcha",
+   "status": "not_found_hand_check",
+   "final": "qloo_listed_not_in_osm",
+   "overpass": null
+  },
+  {
+   "model": "glm",
+   "qid": "h_porto",
+   "name": "Pensão Favorita",
+   "status": "in_radius",
+   "km": 0.07,
+   "osm": "Pensão Favorita, 267, Rua de Miguel Bombarda, Baixa do Porto, Conjunto Urbano da",
+   "final": "in_500m",
+   "overpass": {
+    "km": 0.07,
+    "osm_name": "Pensão Favorita"
+   }
+  },
+  {
+   "model": "glm",
+   "qid": "h_porto",
+   "name": "Largo da Maternidade",
+   "status": "in_radius",
+   "km": 0.34,
+   "osm": "Chafariz do Campo Pequeno, s/n, Largo da Maternidade de Júlio Dinis, Baixa do Po",
+   "final": "in_500m",
+   "overpass": {
+    "km": 0.22,
+    "osm_name": "Maternidade"
+   }
+  },
+  {
+   "model": "glm",
+   "qid": "h_porto",
+   "name": "Bar Aduela",
+   "status": "in_radius",
+   "km": 0.37,
+   "osm": "Aduela, 36, Rua das Oliveiras, Baixa do Porto, Conjunto Urbano da Ribeira, Zona ",
+   "final": "in_500m",
+   "overpass": {
+    "km": 0.37,
+    "osm_name": "Aduela"
+   }
+  },
+  {
+   "model": "glm",
+   "qid": "h_porto",
+   "name": "Espaço 77",
+   "status": "in_radius",
+   "km": 0.28,
+   "osm": "Espaço 77, 22, Travessa de Cedofeita, Baixa do Porto, Conjunto Urbano da Ribeira",
+   "final": "in_500m",
+   "overpass": {
+    "km": 0.28,
+    "osm_name": "Espaço 77"
+   }
+  },
+  {
+   "model": "glm",
+   "qid": "h_porto",
+   "name": "Cafe Lusitano",
+   "status": "in_radius",
+   "km": 0.42,
+   "osm": "Café Lusitano, 137, Rua de José Falcão, Baixa do Porto, Conjunto Urbano da Ribei",
+   "final": "in_500m",
+   "overpass": {
+    "km": 0.42,
+    "osm_name": "Café Lusitano"
+   }
+  },
+  {
+   "model": "glm",
+   "qid": "h_valencia",
+   "name": "Sala Russafa",
+   "status": "in_radius",
+   "km": 0.09,
+   "osm": "Sala Russafa, Carrer de Dénia, Russafa, l'Eixample, València, Comarca de Valènci",
+   "final": "in_500m",
+   "overpass": {
+    "km": 0.09,
+    "osm_name": "Sala Russafa"
+   }
+  },
+  {
+   "model": "glm",
+   "qid": "h_valencia",
+   "name": "Café Mercedes Jazz",
+   "status": "in_radius",
+   "km": 0.02,
+   "osm": "Café Mercedes Jazz, 27, Carrer de Sueca, Russafa, l'Eixample, València, Comarca ",
+   "final": "in_500m",
+   "overpass": {
+    "km": 0.02,
+    "osm_name": "Café Mercedes Jazz"
+   }
+  },
+  {
+   "model": "glm",
+   "qid": "h_valencia",
+   "name": "Jerusalem Pop&Rock",
+   "status": "not_found_hand_check",
+   "final": "qloo_listed_not_in_osm",
+   "overpass": null
+  },
+  {
+   "model": "glm",
+   "qid": "h_valencia",
+   "name": "Ubik Café Cafetería Librería",
+   "status": "not_found_hand_check",
+   "final": "out_of_range",
+   "overpass": {
+    "km": 0.58,
+    "osm_name": "Café Café"
+   }
+  },
+  {
+   "model": "glm",
+   "qid": "h_valencia",
+   "name": "Bluebell Coffee Roasters",
+   "status": "not_found_hand_check",
+   "final": "qloo_listed_not_in_osm",
+   "overpass": null
+  },
+  {
    "model": "gpt",
    "qid": "h_antwerp",
    "name": "Amici",
@@ -4349,6 +4993,1218 @@
    }
   },
   {
+   "model": "minimax",
+   "qid": "h_antwerp",
+   "name": "Jones & Co",
+   "status": "in_radius",
+   "km": 0.48,
+   "osm": "Jones & Co, 7, Pelgrimstraat, Historisch Centrum, Antwerpen, Vlaanderen, 2000, B",
+   "final": "in_500m",
+   "overpass": {
+    "km": 0.48,
+    "osm_name": "Jones & Co"
+   }
+  },
+  {
+   "model": "minimax",
+   "qid": "h_antwerp",
+   "name": "Me & My Monkey",
+   "status": "in_radius",
+   "km": 0.15,
+   "osm": "Me & My Monkey, Oever, Sint-Andries, Antwerpen, Vlaanderen, 2000, België / Belgi",
+   "final": "in_500m",
+   "overpass": {
+    "km": 0.15,
+    "osm_name": "Me & My Monkey"
+   }
+  },
+  {
+   "model": "minimax",
+   "qid": "h_antwerp",
+   "name": "Amici",
+   "status": "in_radius",
+   "km": 0.41,
+   "osm": "Amici - Coffee & Books, 47, Kammenstraat, Sint-Andries, Antwerpen, Vlaanderen, 2",
+   "final": "in_500m",
+   "overpass": {
+    "km": 0.41,
+    "osm_name": "Amici - Coffee & Books"
+   }
+  },
+  {
+   "model": "minimax",
+   "qid": "h_antwerp",
+   "name": "Beestenbos",
+   "status": "in_radius",
+   "km": 0.2,
+   "osm": "Beestenbos, 17, Sint-Andriesplaats, Sint-Andries, Antwerpen, Vlaanderen, 2000, B",
+   "final": "in_500m",
+   "overpass": {
+    "km": 0.2,
+    "osm_name": "Beestenbos"
+   }
+  },
+  {
+   "model": "minimax",
+   "qid": "h_antwerp",
+   "name": "BANKS Antwerp",
+   "status": "in_radius",
+   "km": 0.32,
+   "osm": "Banks, 55, Steenhouwersvest, Historisch Centrum, Antwerpen, Vlaanderen, 2000, Be",
+   "final": "in_500m",
+   "overpass": {
+    "km": 0.32,
+    "osm_name": "Banks"
+   }
+  },
+  {
+   "model": "minimax",
+   "qid": "h_bristol",
+   "name": "The Bell",
+   "status": "in_radius",
+   "km": 0.09,
+   "osm": "The Bell, 16-18, Hillgrove Street, Stokes Croft, Kingsdown, Bristol, City of Bri",
+   "final": "in_500m",
+   "overpass": {
+    "km": 0.09,
+    "osm_name": "The Bell"
+   }
+  },
+  {
+   "model": "minimax",
+   "qid": "h_bristol",
+   "name": "Lakota",
+   "status": "in_radius",
+   "km": 0.06,
+   "osm": "Lakota, 6, Upper York Street, Stokes Croft, Broadmead, Bristol, City of Bristol,",
+   "final": "in_500m",
+   "overpass": {
+    "km": 0.06,
+    "osm_name": "Lakota"
+   }
+  },
+  {
+   "model": "minimax",
+   "qid": "h_bristol",
+   "name": "Cosies",
+   "status": "in_radius",
+   "km": 0.31,
+   "osm": "Cosies, 34, Portland Square, Stokes Croft, St Paul's, Bristol, City of Bristol, ",
+   "final": "in_500m",
+   "overpass": {
+    "km": 0.31,
+    "osm_name": "Cosies"
+   }
+  },
+  {
+   "model": "minimax",
+   "qid": "h_bristol",
+   "name": "Cafe Kino",
+   "status": "in_radius",
+   "km": 0.27,
+   "osm": "Café Kino, 108, Stokes Croft, St Paul's, Bristol, City of Bristol, West of Engla",
+   "final": "in_500m",
+   "overpass": {
+    "km": 0.27,
+    "osm_name": "Café Kino"
+   }
+  },
+  {
+   "model": "minimax",
+   "qid": "h_bristol",
+   "name": "Hamilton House",
+   "status": "in_radius",
+   "km": 0.15,
+   "osm": "Hamilton House, 80, Stokes Croft, Broadmead, Bristol, City of Bristol, West of E",
+   "final": "in_500m",
+   "overpass": {
+    "km": 0.14,
+    "osm_name": "Hamilton House Rooftop Solar"
+   }
+  },
+  {
+   "model": "minimax",
+   "qid": "h_ghent",
+   "name": "Hot Club Gent",
+   "status": "in_radius",
+   "km": 0.19,
+   "osm": "Hot Club Gent, 2, Schuddevisstraatje, Patershol, Gent, Oost-Vlaanderen, Vlaander",
+   "final": "in_500m",
+   "overpass": {
+    "km": 0.19,
+    "osm_name": "Hot Club Gent"
+   }
+  },
+  {
+   "model": "minimax",
+   "qid": "h_ghent",
+   "name": "Sphinx Cinema and Cafe",
+   "status": "not_found_hand_check",
+   "final": "in_500m",
+   "overpass": {
+    "km": 0.45,
+    "osm_name": "Sphinx"
+   }
+  },
+  {
+   "model": "minimax",
+   "qid": "h_ghent",
+   "name": "Tolhuisje Gent",
+   "status": "not_found_hand_check",
+   "final": "out_of_range",
+   "overpass": {
+    "km": 0.67,
+    "osm_name": "Tolhuis"
+   }
+  },
+  {
+   "model": "minimax",
+   "qid": "h_ghent",
+   "name": "Huis van Alijn",
+   "status": "in_radius",
+   "km": 0.12,
+   "osm": "Huis van Alijn, 65, Kraanlei, Patershol, Gent, Oost-Vlaanderen, Vlaanderen, 9000",
+   "final": "in_500m",
+   "overpass": {
+    "km": 0.13,
+    "osm_name": "Huis van Alijn"
+   }
+  },
+  {
+   "model": "minimax",
+   "qid": "h_ghent",
+   "name": "Graffiti street | Gent",
+   "status": "in_radius",
+   "km": 0.19,
+   "osm": "Graffitistraatje, Werregarenstraat, Patershol, Gent, Oost-Vlaanderen, Vlaanderen",
+   "final": "in_500m",
+   "overpass": {
+    "km": 0.18,
+    "osm_name": "Graffitistraatje"
+   }
+  },
+  {
+   "model": "minimax",
+   "qid": "h_leeds",
+   "name": "Crash Records Leeds",
+   "status": "not_found_hand_check",
+   "final": "in_500m",
+   "overpass": {
+    "km": 0.28,
+    "osm_name": "Leeds"
+   }
+  },
+  {
+   "model": "minimax",
+   "qid": "h_leeds",
+   "name": "Wharf Chambers",
+   "status": "in_radius",
+   "km": 0.2,
+   "osm": "Wharf Chambers Co-operative Club, 23-25, Wharf Street, Warehouse Hill, Arena Qua",
+   "final": "in_500m",
+   "overpass": {
+    "km": 0.2,
+    "osm_name": "Wharf Chambers Co-operative Club"
+   }
+  },
+  {
+   "model": "minimax",
+   "qid": "h_leeds",
+   "name": "Everyman Leeds",
+   "status": "in_radius",
+   "km": 0.25,
+   "osm": "Everyman Cinema, First Floor, Albion Street, Warehouse Hill, Arena Quarter, Love",
+   "final": "in_500m",
+   "overpass": {
+    "km": 0.28,
+    "osm_name": "Leeds"
+   }
+  },
+  {
+   "model": "minimax",
+   "qid": "h_leeds",
+   "name": "Power, Corruption & Lies",
+   "status": "not_found_hand_check",
+   "final": "in_500m",
+   "overpass": {
+    "km": 0.02,
+    "osm_name": "Power, Corruption And Lies"
+   }
+  },
+  {
+   "model": "minimax",
+   "qid": "h_leeds",
+   "name": "Kapow Coffee",
+   "status": "in_radius",
+   "km": 0.37,
+   "osm": "Kapow Coffee, 15, Thornton's Arcade, Warehouse Hill, Arena Quarter, Lovell Park,",
+   "final": "in_500m",
+   "overpass": {
+    "km": 0.37,
+    "osm_name": "Kapow Coffee"
+   }
+  },
+  {
+   "model": "minimax",
+   "qid": "h_lyon",
+   "name": "Aquarium Ciné-Café",
+   "status": "in_radius",
+   "km": 0.2,
+   "osm": "Ciné-Café Aquarium, Rue Dumont, La Croix-Rousse, Lyon 4e Arrondissement, Lyon, M",
+   "final": "in_500m",
+   "overpass": {
+    "km": 0.2,
+    "osm_name": "Ciné-Café Aquarium"
+   }
+  },
+  {
+   "model": "minimax",
+   "qid": "h_lyon",
+   "name": "LA PENTE",
+   "status": "in_radius",
+   "km": 0.5,
+   "osm": "La Pente, 14, Montée des Carmélites, Pentes de la Croix-Rousse, Lyon 1er Arrondi",
+   "final": "in_500m",
+   "overpass": {
+    "km": 0.11,
+    "osm_name": "Pentes de la Croix-Rousse Parcours de la Grande Côte"
+   }
+  },
+  {
+   "model": "minimax",
+   "qid": "h_lyon",
+   "name": "Les Valseuses",
+   "status": "in_radius",
+   "km": 0.46,
+   "osm": "Les Valseuses, Rue Chappet, Terreaux, Lyon 1er Arrondissement, Lyon, Métropole d",
+   "final": "in_500m",
+   "overpass": {
+    "km": 0.46,
+    "osm_name": "Les Valseuses"
+   }
+  },
+  {
+   "model": "minimax",
+   "qid": "h_lyon",
+   "name": "Le Sacré Cœur des Pentes",
+   "status": "not_found_hand_check",
+   "final": "in_500m",
+   "overpass": {
+    "km": 0.5,
+    "osm_name": "La Pente"
+   }
+  },
+  {
+   "model": "minimax",
+   "qid": "h_lyon",
+   "name": "Le Terrier du Lapin Blanc",
+   "status": "not_found_hand_check",
+   "final": "qloo_listed_not_in_osm",
+   "overpass": null
+  },
+  {
+   "model": "minimax",
+   "qid": "h_manchester",
+   "name": "Piccadilly Records",
+   "status": "in_radius",
+   "km": 0.07,
+   "osm": "Piccadilly Records, 53, Oldham Street, Northern Quarter, City Centre, Manchester",
+   "final": "in_500m",
+   "overpass": {
+    "km": 0.07,
+    "osm_name": "Piccadilly Records"
+   }
+  },
+  {
+   "model": "minimax",
+   "qid": "h_manchester",
+   "name": "Band on the Wall",
+   "status": "in_radius",
+   "km": 0.36,
+   "osm": "Band on the Wall, 25, Swan Street, Central Retail District, Strangeways, Manches",
+   "final": "in_500m",
+   "overpass": {
+    "km": 0.36,
+    "osm_name": "Band on the Wall"
+   }
+  },
+  {
+   "model": "minimax",
+   "qid": "h_manchester",
+   "name": "Night & Day Cafe",
+   "status": "not_found_hand_check",
+   "final": "in_500m",
+   "overpass": {
+    "km": 0.08,
+    "osm_name": "Night & Day"
+   }
+  },
+  {
+   "model": "minimax",
+   "qid": "h_manchester",
+   "name": "Aatma",
+   "status": "in_radius",
+   "km": 0.21,
+   "osm": "Aatma, 14-16, Faraday Street, Northern Quarter, City Centre, Manchester, Greater",
+   "final": "in_500m",
+   "overpass": {
+    "km": 0.21,
+    "osm_name": "Aatma"
+   }
+  },
+  {
+   "model": "minimax",
+   "qid": "h_manchester",
+   "name": "Fig + Sparrow",
+   "status": "in_radius",
+   "km": 0.06,
+   "osm": "Fig + Sparrow, 20, Oldham Street, Northern Quarter, City Centre, Manchester, Gre",
+   "final": "in_500m",
+   "overpass": {
+    "km": 0.06,
+    "osm_name": "Fig + Sparrow"
+   }
+  },
+  {
+   "model": "minimax",
+   "qid": "h_marseille",
+   "name": "Videodrome 2",
+   "status": "in_radius",
+   "km": 0.07,
+   "osm": "Vidéodrome 2, Cours Julien, La Plaine, Marseille 6e Arrondissement, Marseille, B",
+   "final": "in_500m",
+   "overpass": {
+    "km": 0.07,
+    "osm_name": "Vidéodrome 2"
+   }
+  },
+  {
+   "model": "minimax",
+   "qid": "h_marseille",
+   "name": "Espace Julien",
+   "status": "in_radius",
+   "km": 0.1,
+   "osm": "Espace Julien, 39, Cours Julien, La Plaine, Marseille 6e Arrondissement, Marseil",
+   "final": "in_500m",
+   "overpass": {
+    "km": 0.1,
+    "osm_name": "Espace Julien"
+   }
+  },
+  {
+   "model": "minimax",
+   "qid": "h_marseille",
+   "name": "Le Molotov",
+   "status": "in_radius",
+   "km": 0.09,
+   "osm": "Le Molotov, 3, Place Paul Cézanne, La Plaine, Marseille 6e Arrondissement, Marse",
+   "final": "in_500m",
+   "overpass": {
+    "km": 0.09,
+    "osm_name": "Le Molotov"
+   }
+  },
+  {
+   "model": "minimax",
+   "qid": "h_marseille",
+   "name": "Lacaille",
+   "status": "in_radius",
+   "km": 0.2,
+   "osm": "Lacaille Restaurant, Rue des Trois Mages, Notre-Dame-du-Mont, Marseille 6e Arron",
+   "final": "in_500m",
+   "overpass": {
+    "km": 0.2,
+    "osm_name": "Lacaille Restaurant"
+   }
+  },
+  {
+   "model": "minimax",
+   "qid": "h_marseille",
+   "name": "La dame du mont",
+   "status": "in_radius",
+   "km": 0.04,
+   "osm": "Notre-Dame-du-Mont - Cours Julien, Rue Jean-Baptiste Estelle, La Plaine, Marseil",
+   "final": "in_500m",
+   "overpass": {
+    "km": 0.04,
+    "osm_name": "Notre-Dame-du-Mont - Cours Julien"
+   }
+  },
+  {
+   "model": "minimax",
+   "qid": "h_paris19e",
+   "name": "Yoyaku",
+   "status": "in_radius",
+   "km": 0.45,
+   "osm": "Yoyaku Record Store, 14, Boulevard de la Chapelle, Quartier de la Chapelle, Pari",
+   "final": "in_500m",
+   "overpass": {
+    "km": 0.45,
+    "osm_name": "Yoyaku Record Store"
+   }
+  },
+  {
+   "model": "minimax",
+   "qid": "h_paris19e",
+   "name": "Point Éphémère",
+   "status": "in_radius",
+   "km": 0.26,
+   "osm": "Le Point Ephémère, 200, Quai de Valmy, Quartier de l'Hôpital Saint-Louis, Paris ",
+   "final": "in_500m",
+   "overpass": {
+    "km": 0.26,
+    "osm_name": "Le Point Ephémère"
+   }
+  },
+  {
+   "model": "minimax",
+   "qid": "h_paris19e",
+   "name": "MK2 Cinémas",
+   "status": "in_radius",
+   "km": 0.17,
+   "osm": "MK2 Quai de Loire, 7, Quai de la Loire, Quartier de la Villette, Paris 19e Arron",
+   "final": "in_500m",
+   "overpass": null
+  },
+  {
+   "model": "minimax",
+   "qid": "h_paris19e",
+   "name": "KOKO Coffee & Matcha",
+   "status": "not_found_hand_check",
+   "final": "qloo_listed_not_in_osm",
+   "overpass": null
+  },
+  {
+   "model": "minimax",
+   "qid": "h_paris19e",
+   "name": "La Rotonde Stalingrad",
+   "status": "in_radius",
+   "km": 0.01,
+   "osm": "Rotonde de la Villette, Place de la Bataille de Stalingrad, Quartier de la Ville",
+   "final": "in_500m",
+   "overpass": {
+    "km": 0.06,
+    "osm_name": "La terrasse de la Rotonde Stalingrad"
+   }
+  },
+  {
+   "model": "minimax",
+   "qid": "h_porto",
+   "name": "ROSA ET AL",
+   "status": "not_found_hand_check",
+   "final": "qloo_listed_not_in_osm",
+   "overpass": null
+  },
+  {
+   "model": "minimax",
+   "qid": "h_porto",
+   "name": "Pensão Favorita",
+   "status": "in_radius",
+   "km": 0.07,
+   "osm": "Pensão Favorita, 267, Rua de Miguel Bombarda, Baixa do Porto, Conjunto Urbano da",
+   "final": "in_500m",
+   "overpass": {
+    "km": 0.07,
+    "osm_name": "Pensão Favorita"
+   }
+  },
+  {
+   "model": "minimax",
+   "qid": "h_porto",
+   "name": "WINE CLUB restaurante & wine bar",
+   "status": "not_found_hand_check",
+   "final": "in_500m",
+   "overpass": {
+    "km": 0.38,
+    "osm_name": "Wine Club restaurante"
+   }
+  },
+  {
+   "model": "minimax",
+   "qid": "h_porto",
+   "name": "Casa Carolina",
+   "status": "in_radius",
+   "km": 0.19,
+   "osm": "Casa Carolina, 159, Rua de Cedofeita, Baixa do Porto, Conjunto Urbano da Ribeira",
+   "final": "in_500m",
+   "overpass": {
+    "km": 0.19,
+    "osm_name": "Casa Carolina"
+   }
+  },
+  {
+   "model": "minimax",
+   "qid": "h_porto",
+   "name": "Hakko",
+   "status": "in_radius",
+   "km": 0.22,
+   "osm": "Hakko, 313, Rua do Rosário, Baixa do Porto, Conjunto Urbano da Ribeira, Cedofeit",
+   "final": "in_500m",
+   "overpass": {
+    "km": 0.22,
+    "osm_name": "Hakko"
+   }
+  },
+  {
+   "model": "minimax",
+   "qid": "h_valencia",
+   "name": "Sala Russafa",
+   "status": "in_radius",
+   "km": 0.09,
+   "osm": "Sala Russafa, Carrer de Dénia, Russafa, l'Eixample, València, Comarca de Valènci",
+   "final": "in_500m",
+   "overpass": {
+    "km": 0.09,
+    "osm_name": "Sala Russafa"
+   }
+  },
+  {
+   "model": "minimax",
+   "qid": "h_valencia",
+   "name": "Café Mercedes Jazz",
+   "status": "in_radius",
+   "km": 0.02,
+   "osm": "Café Mercedes Jazz, 27, Carrer de Sueca, Russafa, l'Eixample, València, Comarca ",
+   "final": "in_500m",
+   "overpass": {
+    "km": 0.02,
+    "osm_name": "Café Mercedes Jazz"
+   }
+  },
+  {
+   "model": "minimax",
+   "qid": "h_valencia",
+   "name": "Ubik Café Cafetería Librería",
+   "status": "not_found_hand_check",
+   "final": "out_of_range",
+   "overpass": {
+    "km": 0.58,
+    "osm_name": "Café Café"
+   }
+  },
+  {
+   "model": "minimax",
+   "qid": "h_valencia",
+   "name": "La Escuela de Ruzafa",
+   "status": "exists_out_of_radius",
+   "km": 0.61,
+   "osm": "Centro Privado de Enseñanza San José Hermanas Franciscanas de la Inmaculada, Car",
+   "final": "out_of_range",
+   "overpass": {
+    "km": 1.25,
+    "osm_name": "Ruzafa"
+   }
+  },
+  {
+   "model": "minimax",
+   "qid": "h_valencia",
+   "name": "Jerusalem Pop&Rock",
+   "status": "not_found_hand_check",
+   "final": "qloo_listed_not_in_osm",
+   "overpass": null
+  },
+  {
+   "model": "nemotron",
+   "qid": "h_antwerp",
+   "name": "Jones & Co",
+   "status": "in_radius",
+   "km": 0.48,
+   "osm": "Jones & Co, 7, Pelgrimstraat, Historisch Centrum, Antwerpen, Vlaanderen, 2000, B",
+   "final": "in_500m",
+   "overpass": {
+    "km": 0.48,
+    "osm_name": "Jones & Co"
+   }
+  },
+  {
+   "model": "nemotron",
+   "qid": "h_antwerp",
+   "name": "Amici",
+   "status": "in_radius",
+   "km": 0.41,
+   "osm": "Amici - Coffee & Books, 47, Kammenstraat, Sint-Andries, Antwerpen, Vlaanderen, 2",
+   "final": "in_500m",
+   "overpass": {
+    "km": 0.41,
+    "osm_name": "Amici - Coffee & Books"
+   }
+  },
+  {
+   "model": "nemotron",
+   "qid": "h_antwerp",
+   "name": "De Vagant",
+   "status": "in_radius",
+   "km": 0.41,
+   "osm": "De Vagant, Reyndersstraat, Historisch Centrum, Antwerpen, Vlaanderen, 2000, Belg",
+   "final": "in_500m",
+   "overpass": {
+    "km": 0.41,
+    "osm_name": "De Vagant"
+   }
+  },
+  {
+   "model": "nemotron",
+   "qid": "h_antwerp",
+   "name": "Me & My Monkey",
+   "status": "in_radius",
+   "km": 0.15,
+   "osm": "Me & My Monkey, Oever, Sint-Andries, Antwerpen, Vlaanderen, 2000, België / Belgi",
+   "final": "in_500m",
+   "overpass": {
+    "km": 0.15,
+    "osm_name": "Me & My Monkey"
+   }
+  },
+  {
+   "model": "nemotron",
+   "qid": "h_antwerp",
+   "name": "Take 5 Minutes In Paris",
+   "status": "not_found_hand_check",
+   "final": "in_500m",
+   "overpass": {
+    "km": 0.07,
+    "osm_name": "Take 5 minutes Paris"
+   }
+  },
+  {
+   "model": "nemotron",
+   "qid": "h_bristol",
+   "name": "The Bell",
+   "status": "in_radius",
+   "km": 0.09,
+   "osm": "The Bell, 16-18, Hillgrove Street, Stokes Croft, Kingsdown, Bristol, City of Bri",
+   "final": "in_500m",
+   "overpass": {
+    "km": 0.09,
+    "osm_name": "The Bell"
+   }
+  },
+  {
+   "model": "nemotron",
+   "qid": "h_bristol",
+   "name": "Lakota",
+   "status": "in_radius",
+   "km": 0.06,
+   "osm": "Lakota, 6, Upper York Street, Stokes Croft, Broadmead, Bristol, City of Bristol,",
+   "final": "in_500m",
+   "overpass": {
+    "km": 0.06,
+    "osm_name": "Lakota"
+   }
+  },
+  {
+   "model": "nemotron",
+   "qid": "h_bristol",
+   "name": "Hamilton House",
+   "status": "in_radius",
+   "km": 0.15,
+   "osm": "Hamilton House, 80, Stokes Croft, Broadmead, Bristol, City of Bristol, West of E",
+   "final": "in_500m",
+   "overpass": {
+    "km": 0.14,
+    "osm_name": "Hamilton House Rooftop Solar"
+   }
+  },
+  {
+   "model": "nemotron",
+   "qid": "h_bristol",
+   "name": "Cafe Kino",
+   "status": "in_radius",
+   "km": 0.27,
+   "osm": "Café Kino, 108, Stokes Croft, St Paul's, Bristol, City of Bristol, West of Engla",
+   "final": "in_500m",
+   "overpass": {
+    "km": 0.27,
+    "osm_name": "Café Kino"
+   }
+  },
+  {
+   "model": "nemotron",
+   "qid": "h_bristol",
+   "name": "The Crafty Egg",
+   "status": "in_radius",
+   "km": 0.22,
+   "osm": "The Crafty Egg, 113-115, Stokes Croft, Broadmead, Bristol, City of Bristol, West",
+   "final": "in_500m",
+   "overpass": {
+    "km": 0.22,
+    "osm_name": "The Crafty Egg"
+   }
+  },
+  {
+   "model": "nemotron",
+   "qid": "h_ghent",
+   "name": "Sphinx Cinema and Cafe",
+   "status": "not_found_hand_check",
+   "final": "in_500m",
+   "overpass": {
+    "km": 0.45,
+    "osm_name": "Sphinx"
+   }
+  },
+  {
+   "model": "nemotron",
+   "qid": "h_ghent",
+   "name": "Hot Club Gent",
+   "status": "in_radius",
+   "km": 0.19,
+   "osm": "Hot Club Gent, 2, Schuddevisstraatje, Patershol, Gent, Oost-Vlaanderen, Vlaander",
+   "final": "in_500m",
+   "overpass": {
+    "km": 0.19,
+    "osm_name": "Hot Club Gent"
+   }
+  },
+  {
+   "model": "nemotron",
+   "qid": "h_ghent",
+   "name": "Cocteau",
+   "status": "in_radius",
+   "km": 0.48,
+   "osm": "Cocteau, 17, Jan Palfijnstraat, Sint-Jacobs, Gent, Oost-Vlaanderen, Vlaanderen, ",
+   "final": "in_500m",
+   "overpass": {
+    "km": 0.48,
+    "osm_name": "Cocteau"
+   }
+  },
+  {
+   "model": "nemotron",
+   "qid": "h_ghent",
+   "name": "De Parkiet",
+   "status": "in_radius",
+   "km": 0.18,
+   "osm": "De Parkiet, 31, Kraanlei, Patershol, Gent, Oost-Vlaanderen, Vlaanderen, 9000, Be",
+   "final": "in_500m",
+   "overpass": {
+    "km": 0.18,
+    "osm_name": "De Parkiet"
+   }
+  },
+  {
+   "model": "nemotron",
+   "qid": "h_ghent",
+   "name": "'t Dreupelkot",
+   "status": "in_radius",
+   "km": 0.21,
+   "osm": "'T Dreupelkot, 12, Groentenmarkt, Patershol, Gent, Oost-Vlaanderen, Vlaanderen, ",
+   "final": "in_500m",
+   "overpass": {
+    "km": 0.21,
+    "osm_name": "'T Dreupelkot"
+   }
+  },
+  {
+   "model": "nemotron",
+   "qid": "h_leeds",
+   "name": "Crash Records Leeds",
+   "status": "not_found_hand_check",
+   "final": "in_500m",
+   "overpass": {
+    "km": 0.28,
+    "osm_name": "Leeds"
+   }
+  },
+  {
+   "model": "nemotron",
+   "qid": "h_leeds",
+   "name": "Wharf Chambers",
+   "status": "in_radius",
+   "km": 0.2,
+   "osm": "Wharf Chambers Co-operative Club, 23-25, Wharf Street, Warehouse Hill, Arena Qua",
+   "final": "in_500m",
+   "overpass": {
+    "km": 0.2,
+    "osm_name": "Wharf Chambers Co-operative Club"
+   }
+  },
+  {
+   "model": "nemotron",
+   "qid": "h_leeds",
+   "name": "The HiFi Club",
+   "status": "in_radius",
+   "km": 0.08,
+   "osm": "The HiFi Club, 2, Central Road, Warehouse Hill, Arena Quarter, Lovell Park, Leed",
+   "final": "in_500m",
+   "overpass": {
+    "km": 0.08,
+    "osm_name": "The HiFi Club"
+   }
+  },
+  {
+   "model": "nemotron",
+   "qid": "h_leeds",
+   "name": "Everyman Leeds",
+   "status": "in_radius",
+   "km": 0.25,
+   "osm": "Everyman Cinema, First Floor, Albion Street, Warehouse Hill, Arena Quarter, Love",
+   "final": "in_500m",
+   "overpass": {
+    "km": 0.28,
+    "osm_name": "Leeds"
+   }
+  },
+  {
+   "model": "nemotron",
+   "qid": "h_leeds",
+   "name": "Kapow Coffee",
+   "status": "in_radius",
+   "km": 0.37,
+   "osm": "Kapow Coffee, 15, Thornton's Arcade, Warehouse Hill, Arena Quarter, Lovell Park,",
+   "final": "in_500m",
+   "overpass": {
+    "km": 0.37,
+    "osm_name": "Kapow Coffee"
+   }
+  },
+  {
+   "model": "nemotron",
+   "qid": "h_lyon",
+   "name": "Aquarium Ciné-Café",
+   "status": "in_radius",
+   "km": 0.2,
+   "osm": "Ciné-Café Aquarium, Rue Dumont, La Croix-Rousse, Lyon 4e Arrondissement, Lyon, M",
+   "final": "in_500m",
+   "overpass": {
+    "km": 0.2,
+    "osm_name": "Ciné-Café Aquarium"
+   }
+  },
+  {
+   "model": "nemotron",
+   "qid": "h_lyon",
+   "name": "LA PENTE",
+   "status": "in_radius",
+   "km": 0.5,
+   "osm": "La Pente, 14, Montée des Carmélites, Pentes de la Croix-Rousse, Lyon 1er Arrondi",
+   "final": "in_500m",
+   "overpass": {
+    "km": 0.11,
+    "osm_name": "Pentes de la Croix-Rousse Parcours de la Grande Côte"
+   }
+  },
+  {
+   "model": "nemotron",
+   "qid": "h_lyon",
+   "name": "Les Valseuses",
+   "status": "in_radius",
+   "km": 0.46,
+   "osm": "Les Valseuses, Rue Chappet, Terreaux, Lyon 1er Arrondissement, Lyon, Métropole d",
+   "final": "in_500m",
+   "overpass": {
+    "km": 0.46,
+    "osm_name": "Les Valseuses"
+   }
+  },
+  {
+   "model": "nemotron",
+   "qid": "h_lyon",
+   "name": "Le Terrier du Lapin Blanc",
+   "status": "not_found_hand_check",
+   "final": "qloo_listed_not_in_osm",
+   "overpass": null
+  },
+  {
+   "model": "nemotron",
+   "qid": "h_lyon",
+   "name": "Le Sacré Cœur des Pentes",
+   "status": "not_found_hand_check",
+   "final": "in_500m",
+   "overpass": {
+    "km": 0.5,
+    "osm_name": "La Pente"
+   }
+  },
+  {
+   "model": "nemotron",
+   "qid": "h_manchester",
+   "name": "Piccadilly Records",
+   "status": "in_radius",
+   "km": 0.07,
+   "osm": "Piccadilly Records, 53, Oldham Street, Northern Quarter, City Centre, Manchester",
+   "final": "in_500m",
+   "overpass": {
+    "km": 0.07,
+    "osm_name": "Piccadilly Records"
+   }
+  },
+  {
+   "model": "nemotron",
+   "qid": "h_manchester",
+   "name": "Band on the Wall",
+   "status": "in_radius",
+   "km": 0.36,
+   "osm": "Band on the Wall, 25, Swan Street, Central Retail District, Strangeways, Manches",
+   "final": "in_500m",
+   "overpass": {
+    "km": 0.36,
+    "osm_name": "Band on the Wall"
+   }
+  },
+  {
+   "model": "nemotron",
+   "qid": "h_manchester",
+   "name": "Night & Day Cafe",
+   "status": "not_found_hand_check",
+   "final": "in_500m",
+   "overpass": {
+    "km": 0.08,
+    "osm_name": "Night & Day"
+   }
+  },
+  {
+   "model": "nemotron",
+   "qid": "h_manchester",
+   "name": "Fig + Sparrow",
+   "status": "in_radius",
+   "km": 0.06,
+   "osm": "Fig + Sparrow, 20, Oldham Street, Northern Quarter, City Centre, Manchester, Gre",
+   "final": "in_500m",
+   "overpass": {
+    "km": 0.06,
+    "osm_name": "Fig + Sparrow"
+   }
+  },
+  {
+   "model": "nemotron",
+   "qid": "h_manchester",
+   "name": "Tooth and Talon",
+   "status": "not_found_hand_check",
+   "final": "qloo_listed_not_in_osm",
+   "overpass": null
+  },
+  {
+   "model": "nemotron",
+   "qid": "h_marseille",
+   "name": "Videodrome 2",
+   "status": "in_radius",
+   "km": 0.07,
+   "osm": "Vidéodrome 2, Cours Julien, La Plaine, Marseille 6e Arrondissement, Marseille, B",
+   "final": "in_500m",
+   "overpass": {
+    "km": 0.07,
+    "osm_name": "Vidéodrome 2"
+   }
+  },
+  {
+   "model": "nemotron",
+   "qid": "h_marseille",
+   "name": "Le Molotov",
+   "status": "in_radius",
+   "km": 0.09,
+   "osm": "Le Molotov, 3, Place Paul Cézanne, La Plaine, Marseille 6e Arrondissement, Marse",
+   "final": "in_500m",
+   "overpass": {
+    "km": 0.09,
+    "osm_name": "Le Molotov"
+   }
+  },
+  {
+   "model": "nemotron",
+   "qid": "h_marseille",
+   "name": "L’estaminet matinal bar karaoké club électro",
+   "status": "not_found_hand_check",
+   "final": "qloo_listed_not_in_osm",
+   "overpass": null
+  },
+  {
+   "model": "nemotron",
+   "qid": "h_marseille",
+   "name": "Maison des Nines | Café",
+   "status": "not_found_hand_check",
+   "final": "in_500m",
+   "overpass": {
+    "km": 0.41,
+    "osm_name": "Maison des Nines"
+   }
+  },
+  {
+   "model": "nemotron",
+   "qid": "h_marseille",
+   "name": "La Traverse de Balkis",
+   "status": "in_radius",
+   "km": 0.17,
+   "osm": "La Traverse de Balkis, Rue des Trois Rois, La Plaine, Marseille 6e Arrondissemen",
+   "final": "in_500m",
+   "overpass": {
+    "km": 0.17,
+    "osm_name": "La Traverse de Balkis"
+   }
+  },
+  {
+   "model": "nemotron",
+   "qid": "h_paris19e",
+   "name": "Point Éphémère",
+   "status": "in_radius",
+   "km": 0.26,
+   "osm": "Le Point Ephémère, 200, Quai de Valmy, Quartier de l'Hôpital Saint-Louis, Paris ",
+   "final": "in_500m",
+   "overpass": {
+    "km": 0.26,
+    "osm_name": "Le Point Ephémère"
+   }
+  },
+  {
+   "model": "nemotron",
+   "qid": "h_paris19e",
+   "name": "MK2 Cinémas",
+   "status": "in_radius",
+   "km": 0.17,
+   "osm": "MK2 Quai de Loire, 7, Quai de la Loire, Quartier de la Villette, Paris 19e Arron",
+   "final": "in_500m",
+   "overpass": null
+  },
+  {
+   "model": "nemotron",
+   "qid": "h_paris19e",
+   "name": "KOKO Coffee & Matcha",
+   "status": "not_found_hand_check",
+   "final": "qloo_listed_not_in_osm",
+   "overpass": null
+  },
+  {
+   "model": "nemotron",
+   "qid": "h_paris19e",
+   "name": "Café Bolivar",
+   "status": "in_radius",
+   "km": 0.37,
+   "osm": "Café Bolivar, 31, Avenue Secrétan, Quartier de la Villette, Paris 19e Arrondisse",
+   "final": "in_500m",
+   "overpass": {
+    "km": 0.37,
+    "osm_name": "Café Bolivar"
+   }
+  },
+  {
+   "model": "nemotron",
+   "qid": "h_paris19e",
+   "name": "La Rotonde Stalingrad",
+   "status": "in_radius",
+   "km": 0.01,
+   "osm": "Rotonde de la Villette, Place de la Bataille de Stalingrad, Quartier de la Ville",
+   "final": "in_500m",
+   "overpass": {
+    "km": 0.06,
+    "osm_name": "La terrasse de la Rotonde Stalingrad"
+   }
+  },
+  {
+   "model": "nemotron",
+   "qid": "h_porto",
+   "name": "Pensão Favorita",
+   "status": "in_radius",
+   "km": 0.07,
+   "osm": "Pensão Favorita, 267, Rua de Miguel Bombarda, Baixa do Porto, Conjunto Urbano da",
+   "final": "in_500m",
+   "overpass": {
+    "km": 0.07,
+    "osm_name": "Pensão Favorita"
+   }
+  },
+  {
+   "model": "nemotron",
+   "qid": "h_porto",
+   "name": "Bar Aduela",
+   "status": "in_radius",
+   "km": 0.37,
+   "osm": "Aduela, 36, Rua das Oliveiras, Baixa do Porto, Conjunto Urbano da Ribeira, Zona ",
+   "final": "in_500m",
+   "overpass": {
+    "km": 0.37,
+    "osm_name": "Aduela"
+   }
+  },
+  {
+   "model": "nemotron",
+   "qid": "h_porto",
+   "name": "Espaço 77",
+   "status": "in_radius",
+   "km": 0.28,
+   "osm": "Espaço 77, 22, Travessa de Cedofeita, Baixa do Porto, Conjunto Urbano da Ribeira",
+   "final": "in_500m",
+   "overpass": {
+    "km": 0.28,
+    "osm_name": "Espaço 77"
+   }
+  },
+  {
+   "model": "nemotron",
+   "qid": "h_porto",
+   "name": "NOVA ROTA SUBLIMA",
+   "status": "not_found_hand_check",
+   "final": "qloo_listed_not_in_osm",
+   "overpass": null
+  },
+  {
+   "model": "nemotron",
+   "qid": "h_porto",
+   "name": "Largo da Maternidade",
+   "status": "in_radius",
+   "km": 0.34,
+   "osm": "Chafariz do Campo Pequeno, s/n, Largo da Maternidade de Júlio Dinis, Baixa do Po",
+   "final": "in_500m",
+   "overpass": {
+    "km": 0.22,
+    "osm_name": "Maternidade"
+   }
+  },
+  {
+   "model": "nemotron",
+   "qid": "h_valencia",
+   "name": "SPLENDINI BAR I DISCOS",
+   "status": "not_found_hand_check",
+   "final": "qloo_listed_not_in_osm",
+   "overpass": null
+  },
+  {
+   "model": "nemotron",
+   "qid": "h_valencia",
+   "name": "Xtra Lrge Playground Valencia",
+   "status": "not_found_hand_check",
+   "final": "out_of_range",
+   "overpass": {
+    "km": 0.85,
+    "osm_name": "València"
+   }
+  },
+  {
+   "model": "nemotron",
+   "qid": "h_valencia",
+   "name": "Sala Russafa",
+   "status": "in_radius",
+   "km": 0.09,
+   "osm": "Sala Russafa, Carrer de Dénia, Russafa, l'Eixample, València, Comarca de Valènci",
+   "final": "in_500m",
+   "overpass": {
+    "km": 0.09,
+    "osm_name": "Sala Russafa"
+   }
+  },
+  {
+   "model": "nemotron",
+   "qid": "h_valencia",
+   "name": "Café Mercedes Jazz",
+   "status": "in_radius",
+   "km": 0.02,
+   "osm": "Café Mercedes Jazz, 27, Carrer de Sueca, Russafa, l'Eixample, València, Comarca ",
+   "final": "in_500m",
+   "overpass": {
+    "km": 0.02,
+    "osm_name": "Café Mercedes Jazz"
+   }
+  },
+  {
+   "model": "nemotron",
+   "qid": "h_valencia",
+   "name": "Ubik Café Cafetería Librería",
+   "status": "not_found_hand_check",
+   "final": "out_of_range",
+   "overpass": {
+    "km": 0.58,
+    "osm_name": "Café Café"
+   }
+  },
+  {
    "model": "opus",
    "qid": "h_antwerp",
    "name": "Jones & Co",
@@ -4962,6 +6818,608 @@
     "km": 1.25,
     "osm_name": "Ruzafa"
    }
+  },
+  {
+   "model": "qwen",
+   "qid": "h_antwerp",
+   "name": "Jones & Co",
+   "status": "in_radius",
+   "km": 0.48,
+   "osm": "Jones & Co, 7, Pelgrimstraat, Historisch Centrum, Antwerpen, Vlaanderen, 2000, B",
+   "final": "in_500m",
+   "overpass": {
+    "km": 0.48,
+    "osm_name": "Jones & Co"
+   }
+  },
+  {
+   "model": "qwen",
+   "qid": "h_antwerp",
+   "name": "Amici",
+   "status": "in_radius",
+   "km": 0.41,
+   "osm": "Amici - Coffee & Books, 47, Kammenstraat, Sint-Andries, Antwerpen, Vlaanderen, 2",
+   "final": "in_500m",
+   "overpass": {
+    "km": 0.41,
+    "osm_name": "Amici - Coffee & Books"
+   }
+  },
+  {
+   "model": "qwen",
+   "qid": "h_antwerp",
+   "name": "Beestenbos",
+   "status": "in_radius",
+   "km": 0.2,
+   "osm": "Beestenbos, 17, Sint-Andriesplaats, Sint-Andries, Antwerpen, Vlaanderen, 2000, B",
+   "final": "in_500m",
+   "overpass": {
+    "km": 0.2,
+    "osm_name": "Beestenbos"
+   }
+  },
+  {
+   "model": "qwen",
+   "qid": "h_antwerp",
+   "name": "Spritz",
+   "status": "in_radius",
+   "km": 0.3,
+   "osm": "Spritz, Stoofstraat, Historisch Centrum, Antwerpen, Vlaanderen, 2000, België / B",
+   "final": "in_500m",
+   "overpass": {
+    "km": 0.3,
+    "osm_name": "Spritz"
+   }
+  },
+  {
+   "model": "qwen",
+   "qid": "h_antwerp",
+   "name": "De Vagant",
+   "status": "in_radius",
+   "km": 0.41,
+   "osm": "De Vagant, Reyndersstraat, Historisch Centrum, Antwerpen, Vlaanderen, 2000, Belg",
+   "final": "in_500m",
+   "overpass": {
+    "km": 0.41,
+    "osm_name": "De Vagant"
+   }
+  },
+  {
+   "model": "qwen",
+   "qid": "h_bristol",
+   "name": "Lakota",
+   "status": "in_radius",
+   "km": 0.06,
+   "osm": "Lakota, 6, Upper York Street, Stokes Croft, Broadmead, Bristol, City of Bristol,",
+   "final": "in_500m",
+   "overpass": {
+    "km": 0.06,
+    "osm_name": "Lakota"
+   }
+  },
+  {
+   "model": "qwen",
+   "qid": "h_bristol",
+   "name": "The Croft",
+   "status": "in_radius",
+   "km": 0.22,
+   "osm": "The Croft, 117-119, Stokes Croft, Broadmead, Bristol, City of Bristol, West of E",
+   "final": "in_500m",
+   "overpass": {
+    "km": 0.0,
+    "osm_name": "Stokes Croft"
+   }
+  },
+  {
+   "model": "qwen",
+   "qid": "h_bristol",
+   "name": "The Bell",
+   "status": "in_radius",
+   "km": 0.09,
+   "osm": "The Bell, 16-18, Hillgrove Street, Stokes Croft, Kingsdown, Bristol, City of Bri",
+   "final": "in_500m",
+   "overpass": {
+    "km": 0.09,
+    "osm_name": "The Bell"
+   }
+  },
+  {
+   "model": "qwen",
+   "qid": "h_bristol",
+   "name": "Cosies",
+   "status": "in_radius",
+   "km": 0.31,
+   "osm": "Cosies, 34, Portland Square, Stokes Croft, St Paul's, Bristol, City of Bristol, ",
+   "final": "in_500m",
+   "overpass": {
+    "km": 0.31,
+    "osm_name": "Cosies"
+   }
+  },
+  {
+   "model": "qwen",
+   "qid": "h_bristol",
+   "name": "Cafe Kino",
+   "status": "in_radius",
+   "km": 0.27,
+   "osm": "Café Kino, 108, Stokes Croft, St Paul's, Bristol, City of Bristol, West of Engla",
+   "final": "in_500m",
+   "overpass": {
+    "km": 0.27,
+    "osm_name": "Café Kino"
+   }
+  },
+  {
+   "model": "qwen",
+   "qid": "h_ghent",
+   "name": "Sphinx Cinema and Cafe",
+   "status": "not_found_hand_check",
+   "final": "in_500m",
+   "overpass": {
+    "km": 0.45,
+    "osm_name": "Sphinx"
+   }
+  },
+  {
+   "model": "qwen",
+   "qid": "h_ghent",
+   "name": "Hot Club Gent",
+   "status": "in_radius",
+   "km": 0.19,
+   "osm": "Hot Club Gent, 2, Schuddevisstraatje, Patershol, Gent, Oost-Vlaanderen, Vlaander",
+   "final": "in_500m",
+   "overpass": {
+    "km": 0.19,
+    "osm_name": "Hot Club Gent"
+   }
+  },
+  {
+   "model": "qwen",
+   "qid": "h_ghent",
+   "name": "NTGent",
+   "status": "in_radius",
+   "km": 0.37,
+   "osm": "NTGent Arca, 4, Sint-Widostraat, Prinsenhof, Gent, Oost-Vlaanderen, Vlaanderen, ",
+   "final": "in_500m",
+   "overpass": {
+    "km": 0.37,
+    "osm_name": "NTGent Arca"
+   }
+  },
+  {
+   "model": "qwen",
+   "qid": "h_ghent",
+   "name": "Cocteau",
+   "status": "in_radius",
+   "km": 0.48,
+   "osm": "Cocteau, 17, Jan Palfijnstraat, Sint-Jacobs, Gent, Oost-Vlaanderen, Vlaanderen, ",
+   "final": "in_500m",
+   "overpass": {
+    "km": 0.48,
+    "osm_name": "Cocteau"
+   }
+  },
+  {
+   "model": "qwen",
+   "qid": "h_ghent",
+   "name": "Tolhuisje Gent",
+   "status": "not_found_hand_check",
+   "final": "out_of_range",
+   "overpass": {
+    "km": 0.67,
+    "osm_name": "Tolhuis"
+   }
+  },
+  {
+   "model": "qwen",
+   "qid": "h_leeds",
+   "name": "Crash Records Leeds",
+   "status": "not_found_hand_check",
+   "final": "in_500m",
+   "overpass": {
+    "km": 0.28,
+    "osm_name": "Leeds"
+   }
+  },
+  {
+   "model": "qwen",
+   "qid": "h_leeds",
+   "name": "Wharf Chambers",
+   "status": "in_radius",
+   "km": 0.2,
+   "osm": "Wharf Chambers Co-operative Club, 23-25, Wharf Street, Warehouse Hill, Arena Qua",
+   "final": "in_500m",
+   "overpass": {
+    "km": 0.2,
+    "osm_name": "Wharf Chambers Co-operative Club"
+   }
+  },
+  {
+   "model": "qwen",
+   "qid": "h_leeds",
+   "name": "The HiFi Club",
+   "status": "in_radius",
+   "km": 0.08,
+   "osm": "The HiFi Club, 2, Central Road, Warehouse Hill, Arena Quarter, Lovell Park, Leed",
+   "final": "in_500m",
+   "overpass": {
+    "km": 0.08,
+    "osm_name": "The HiFi Club"
+   }
+  },
+  {
+   "model": "qwen",
+   "qid": "h_leeds",
+   "name": "Everyman Leeds",
+   "status": "in_radius",
+   "km": 0.25,
+   "osm": "Everyman Cinema, First Floor, Albion Street, Warehouse Hill, Arena Quarter, Love",
+   "final": "in_500m",
+   "overpass": {
+    "km": 0.28,
+    "osm_name": "Leeds"
+   }
+  },
+  {
+   "model": "qwen",
+   "qid": "h_leeds",
+   "name": "Kapow Coffee",
+   "status": "in_radius",
+   "km": 0.37,
+   "osm": "Kapow Coffee, 15, Thornton's Arcade, Warehouse Hill, Arena Quarter, Lovell Park,",
+   "final": "in_500m",
+   "overpass": {
+    "km": 0.37,
+    "osm_name": "Kapow Coffee"
+   }
+  },
+  {
+   "model": "qwen",
+   "qid": "h_lyon",
+   "name": "Aquarium Ciné-Café",
+   "status": "in_radius",
+   "km": 0.2,
+   "osm": "Ciné-Café Aquarium, Rue Dumont, La Croix-Rousse, Lyon 4e Arrondissement, Lyon, M",
+   "final": "in_500m",
+   "overpass": {
+    "km": 0.2,
+    "osm_name": "Ciné-Café Aquarium"
+   }
+  },
+  {
+   "model": "qwen",
+   "qid": "h_lyon",
+   "name": "LA PENTE",
+   "status": "in_radius",
+   "km": 0.5,
+   "osm": "La Pente, 14, Montée des Carmélites, Pentes de la Croix-Rousse, Lyon 1er Arrondi",
+   "final": "in_500m",
+   "overpass": {
+    "km": 0.11,
+    "osm_name": "Pentes de la Croix-Rousse Parcours de la Grande Côte"
+   }
+  },
+  {
+   "model": "qwen",
+   "qid": "h_lyon",
+   "name": "Le Terrier du Lapin Blanc",
+   "status": "not_found_hand_check",
+   "final": "qloo_listed_not_in_osm",
+   "overpass": null
+  },
+  {
+   "model": "qwen",
+   "qid": "h_lyon",
+   "name": "Les Valseuses",
+   "status": "in_radius",
+   "km": 0.46,
+   "osm": "Les Valseuses, Rue Chappet, Terreaux, Lyon 1er Arrondissement, Lyon, Métropole d",
+   "final": "in_500m",
+   "overpass": {
+    "km": 0.46,
+    "osm_name": "Les Valseuses"
+   }
+  },
+  {
+   "model": "qwen",
+   "qid": "h_lyon",
+   "name": "Comptoir Sauvage",
+   "status": "in_radius",
+   "km": 0.19,
+   "osm": "Comptoir sauvage, Rue du Pavillon, Gros Caillou, Lyon 4e Arrondissement, Lyon, M",
+   "final": "in_500m",
+   "overpass": {
+    "km": 0.19,
+    "osm_name": "Comptoir sauvage"
+   }
+  },
+  {
+   "model": "qwen",
+   "qid": "h_manchester",
+   "name": "Piccadilly Records",
+   "status": "in_radius",
+   "km": 0.07,
+   "osm": "Piccadilly Records, 53, Oldham Street, Northern Quarter, City Centre, Manchester",
+   "final": "in_500m",
+   "overpass": {
+    "km": 0.07,
+    "osm_name": "Piccadilly Records"
+   }
+  },
+  {
+   "model": "qwen",
+   "qid": "h_manchester",
+   "name": "Band on the Wall",
+   "status": "in_radius",
+   "km": 0.36,
+   "osm": "Band on the Wall, 25, Swan Street, Central Retail District, Strangeways, Manches",
+   "final": "in_500m",
+   "overpass": {
+    "km": 0.36,
+    "osm_name": "Band on the Wall"
+   }
+  },
+  {
+   "model": "qwen",
+   "qid": "h_manchester",
+   "name": "Night & Day Cafe",
+   "status": "not_found_hand_check",
+   "final": "in_500m",
+   "overpass": {
+    "km": 0.08,
+    "osm_name": "Night & Day"
+   }
+  },
+  {
+   "model": "qwen",
+   "qid": "h_manchester",
+   "name": "Tooth and Talon",
+   "status": "not_found_hand_check",
+   "final": "qloo_listed_not_in_osm",
+   "overpass": null
+  },
+  {
+   "model": "qwen",
+   "qid": "h_manchester",
+   "name": "Ezra & Gil",
+   "status": "in_radius",
+   "km": 0.2,
+   "osm": "Ezra & Gil, 20, Hilton Street, Northern Quarter, City Centre, Manchester, Greate",
+   "final": "in_500m",
+   "overpass": {
+    "km": 0.2,
+    "osm_name": "Ezra & Gil"
+   }
+  },
+  {
+   "model": "qwen",
+   "qid": "h_marseille",
+   "name": "Videodrome 2",
+   "status": "in_radius",
+   "km": 0.07,
+   "osm": "Vidéodrome 2, Cours Julien, La Plaine, Marseille 6e Arrondissement, Marseille, B",
+   "final": "in_500m",
+   "overpass": {
+    "km": 0.07,
+    "osm_name": "Vidéodrome 2"
+   }
+  },
+  {
+   "model": "qwen",
+   "qid": "h_marseille",
+   "name": "Le Molotov",
+   "status": "in_radius",
+   "km": 0.09,
+   "osm": "Le Molotov, 3, Place Paul Cézanne, La Plaine, Marseille 6e Arrondissement, Marse",
+   "final": "in_500m",
+   "overpass": {
+    "km": 0.09,
+    "osm_name": "Le Molotov"
+   }
+  },
+  {
+   "model": "qwen",
+   "qid": "h_marseille",
+   "name": "Espace Julien",
+   "status": "in_radius",
+   "km": 0.1,
+   "osm": "Espace Julien, 39, Cours Julien, La Plaine, Marseille 6e Arrondissement, Marseil",
+   "final": "in_500m",
+   "overpass": {
+    "km": 0.1,
+    "osm_name": "Espace Julien"
+   }
+  },
+  {
+   "model": "qwen",
+   "qid": "h_marseille",
+   "name": "Maison des Nines",
+   "status": "in_radius",
+   "km": 0.41,
+   "osm": "Maison des Nines, Rue d'Aubagne, Noailles, Marseille 1er Arrondissement, Marseil",
+   "final": "in_500m",
+   "overpass": {
+    "km": 0.41,
+    "osm_name": "Maison des Nines"
+   }
+  },
+  {
+   "model": "qwen",
+   "qid": "h_marseille",
+   "name": "L’estaminet matinal bar karaoké club électro",
+   "status": "not_found_hand_check",
+   "final": "qloo_listed_not_in_osm",
+   "overpass": null
+  },
+  {
+   "model": "qwen",
+   "qid": "h_paris19e",
+   "name": "Point Éphémère",
+   "status": "in_radius",
+   "km": 0.26,
+   "osm": "Le Point Ephémère, 200, Quai de Valmy, Quartier de l'Hôpital Saint-Louis, Paris ",
+   "final": "in_500m",
+   "overpass": {
+    "km": 0.26,
+    "osm_name": "Le Point Ephémère"
+   }
+  },
+  {
+   "model": "qwen",
+   "qid": "h_paris19e",
+   "name": "MK2 Cinémas",
+   "status": "in_radius",
+   "km": 0.17,
+   "osm": "MK2 Quai de Loire, 7, Quai de la Loire, Quartier de la Villette, Paris 19e Arron",
+   "final": "in_500m",
+   "overpass": null
+  },
+  {
+   "model": "qwen",
+   "qid": "h_paris19e",
+   "name": "La Rotonde Stalingrad",
+   "status": "in_radius",
+   "km": 0.01,
+   "osm": "Rotonde de la Villette, Place de la Bataille de Stalingrad, Quartier de la Ville",
+   "final": "in_500m",
+   "overpass": {
+    "km": 0.06,
+    "osm_name": "La terrasse de la Rotonde Stalingrad"
+   }
+  },
+  {
+   "model": "qwen",
+   "qid": "h_paris19e",
+   "name": "Café Bolivar",
+   "status": "in_radius",
+   "km": 0.37,
+   "osm": "Café Bolivar, 31, Avenue Secrétan, Quartier de la Villette, Paris 19e Arrondisse",
+   "final": "in_500m",
+   "overpass": {
+    "km": 0.37,
+    "osm_name": "Café Bolivar"
+   }
+  },
+  {
+   "model": "qwen",
+   "qid": "h_paris19e",
+   "name": "KOKO Coffee & Matcha",
+   "status": "not_found_hand_check",
+   "final": "qloo_listed_not_in_osm",
+   "overpass": null
+  },
+  {
+   "model": "qwen",
+   "qid": "h_porto",
+   "name": "Pensão Favorita",
+   "status": "in_radius",
+   "km": 0.07,
+   "osm": "Pensão Favorita, 267, Rua de Miguel Bombarda, Baixa do Porto, Conjunto Urbano da",
+   "final": "in_500m",
+   "overpass": {
+    "km": 0.07,
+    "osm_name": "Pensão Favorita"
+   }
+  },
+  {
+   "model": "qwen",
+   "qid": "h_porto",
+   "name": "Largo da Maternidade",
+   "status": "in_radius",
+   "km": 0.34,
+   "osm": "Chafariz do Campo Pequeno, s/n, Largo da Maternidade de Júlio Dinis, Baixa do Po",
+   "final": "in_500m",
+   "overpass": {
+    "km": 0.22,
+    "osm_name": "Maternidade"
+   }
+  },
+  {
+   "model": "qwen",
+   "qid": "h_porto",
+   "name": "Espaço 77",
+   "status": "in_radius",
+   "km": 0.28,
+   "osm": "Espaço 77, 22, Travessa de Cedofeita, Baixa do Porto, Conjunto Urbano da Ribeira",
+   "final": "in_500m",
+   "overpass": {
+    "km": 0.28,
+    "osm_name": "Espaço 77"
+   }
+  },
+  {
+   "model": "qwen",
+   "qid": "h_porto",
+   "name": "NOVA ROTA SUBLIMA",
+   "status": "not_found_hand_check",
+   "final": "qloo_listed_not_in_osm",
+   "overpass": null
+  },
+  {
+   "model": "qwen",
+   "qid": "h_porto",
+   "name": "Bar Aduela",
+   "status": "in_radius",
+   "km": 0.37,
+   "osm": "Aduela, 36, Rua das Oliveiras, Baixa do Porto, Conjunto Urbano da Ribeira, Zona ",
+   "final": "in_500m",
+   "overpass": {
+    "km": 0.37,
+    "osm_name": "Aduela"
+   }
+  },
+  {
+   "model": "qwen",
+   "qid": "h_valencia",
+   "name": "Sala Russafa",
+   "status": "in_radius",
+   "km": 0.09,
+   "osm": "Sala Russafa, Carrer de Dénia, Russafa, l'Eixample, València, Comarca de Valènci",
+   "final": "in_500m",
+   "overpass": {
+    "km": 0.09,
+    "osm_name": "Sala Russafa"
+   }
+  },
+  {
+   "model": "qwen",
+   "qid": "h_valencia",
+   "name": "SPLENDINI BAR I DISCOS",
+   "status": "not_found_hand_check",
+   "final": "qloo_listed_not_in_osm",
+   "overpass": null
+  },
+  {
+   "model": "qwen",
+   "qid": "h_valencia",
+   "name": "Xtra Lrge Playground Valencia",
+   "status": "not_found_hand_check",
+   "final": "out_of_range",
+   "overpass": {
+    "km": 0.85,
+    "osm_name": "València"
+   }
+  },
+  {
+   "model": "qwen",
+   "qid": "h_valencia",
+   "name": "Café Mercedes Jazz",
+   "status": "in_radius",
+   "km": 0.02,
+   "osm": "Café Mercedes Jazz, 27, Carrer de Sueca, Russafa, l'Eixample, València, Comarca ",
+   "final": "in_500m",
+   "overpass": {
+    "km": 0.02,
+    "osm_name": "Café Mercedes Jazz"
+   }
+  },
+  {
+   "model": "qwen",
+   "qid": "h_valencia",
+   "name": "Jerusalem Pop&Rock",
+   "status": "not_found_hand_check",
+   "final": "qloo_listed_not_in_osm",
+   "overpass": null
   },
   {
    "model": "sonnet",

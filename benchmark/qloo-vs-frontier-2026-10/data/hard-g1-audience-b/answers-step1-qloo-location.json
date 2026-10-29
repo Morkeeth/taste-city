@@ -488,5 +488,225 @@
    "seconds": 184.6,
    "usd": 0.058314
   }
+ },
+ "glm|hb_ghent": {
+  "qid": "hb_ghent",
+  "text": "1. Kinky Star - Live music bar matching energetic UK jazz gig habit\n2. Missy Sippy Blues & Roots Club - Small live roots venue, late-night improvised feel\n3. Charlatan - Alternative music cafe hosting live acts and DJs\n4. Bar Giraf - DJ booth and electronic nights suit broken-beat listeners\n5. OTIS - Vinyl record shop with bar; collectors anchored by Garcia",
+  "meta": {
+   "model": [
+    "z-ai-glm-5-3"
+   ],
+   "seconds": 7.9,
+   "usd": 0.005465675
+  }
+ },
+ "glm|hb_valencia": {
+  "qid": "hb_valencia",
+  "text": "1. Olhöps - Live music nightly; trendy bar hosting jazz and improv sessions.\n2. Café Mercedes Jazz - Jazz-focused café; relaxed sets match the UK-jazz taste.\n3. Ubik Café Cafetería Librería - Bookshop-cafe with concerts, talks, and listening-culture vibes.\n4. COMIC café - Artsy, cocktails, comics; creative crowd, late-night hangout.\n5. Bluebell Coffee Roasters - Specialty coffee, vinyl-adjacent aesthetic; ideal pre-gig daytime spot.",
+  "meta": {
+   "model": [
+    "z-ai-glm-5-3"
+   ],
+   "seconds": 8.5,
+   "usd": 0.006371175
+  }
+ },
+ "glm|hb_leeds": {
+  "qid": "hb_leeds",
+  "text": "1. Wharf Chambers - DIY co-op venue hosting leftfield jazz and soul gigs\n2. Crash Records Leeds - Independent record shop stocking UK jazz vinyl\n3. Distrikt - Speakeasy listening bar built for music enthusiasts\n4. Headrow House - Intimate upstairs gig space suits UK jazz crowds\n5. Call Lane Social - High-energy live music venue matching festival-going tastes",
+  "meta": {
+   "model": [
+    "z-ai-glm-5-3"
+   ],
+   "seconds": 8.7,
+   "usd": 0.00616725
+  }
+ },
+ "glm|hb_lyon": {
+  "qid": "hb_lyon",
+  "text": "1. Paddy's Corner - Live music pub suits the energetic jazz-night crowd\n2. LA PENTE - Artistic, inclusive space matches this scene's creative community\n3. Like An Elephant - Cozy wine bar with chill listening-bar energy\n4. Le Terrier du Lapin Blanc - Intimate drinks spot, relaxed between-gig hangout\n5. Le Bistro Fait sa Broc' - Vintage brocante charm draws a local artsy crowd",
+  "meta": {
+   "model": [
+    "z-ai-glm-5-3"
+   ],
+   "seconds": 14.2,
+   "usd": 0.00911575
+  }
+ },
+ "minimax|hb_lyon": {
+  "qid": "hb_lyon",
+  "text": "1. LA PENTE - Artistic, inclusive venue aligning with neoteric jazz audience's aesthetic.\n2. Paddy's Corner - Live music pub suiting jazz-rooted, energetic crowd perfectly.\n3. Le Terrier du Lapin Blanc - Intimate wine-cocktail bar, ideal listening-bar atmosphere.\n4. Like An Elephant - Cozy, curated wine spot for relaxed cultural listening sessions.\n5. Café De La Crèche - Social neighborhood cafe-bar with flexible, inviting programming potential.",
+  "meta": {
+   "model": [
+    "minimax-m3-preview"
+   ],
+   "seconds": 22.9,
+   "usd": 0.00118068
+  }
+ },
+ "glm|hb_porto": {
+  "qid": "hb_porto",
+  "text": "1. Embaixada do Porto - small live music venue, late-night, young indie crowd\n2. Gato Vadio - bookshop café hosting live music, relaxed cultural community\n3. Catraio Craft Beer Shop & Bar - friendly community hangout near gallery street\n4. Cafe Lusitano - lively café, artsy street, social young crowd\n5. Espaço 77 - trendy, bustling late-night bar matching post-gig energy",
+  "meta": {
+   "model": [
+    "z-ai-glm-5-3"
+   ],
+   "seconds": 52.0,
+   "usd": 0.030421999999999998
+  }
+ },
+ "minimax|hb_ghent": {
+  "qid": "hb_ghent",
+  "text": "1. Kinky Star - Live music bar with unique character for jazz discovery\n2. Charlatan - Legendary Gent venue hosting diverse live acts nightly\n3. Missy Sippy Blues & Roots Club - Dedicated blues and roots music club\n4. Bar Giraf - DJ booth, electric nightlife with curated sounds\n5. Mokabon - Comfortable coffee roastery, ideal daytime listening cafe",
+  "meta": {
+   "model": [
+    "minimax-m3-preview"
+   ],
+   "seconds": 47.0,
+   "usd": 0.0016162799999999999
+  }
+ },
+ "qwen|hb_lyon": {
+  "qid": "hb_lyon",
+  "text": "1. Paddy's Corner - Live music and energetic pub vibe.\n2. Le Bistro Fait sa Broc' - Cocktails, local bar energy, independent feel.\n3. Like An Elephant - Cozy vegan wine spot for relaxed listening.\n4. Café De La Crèche - Social café and full bar nearby.\n5. LA PENTE - Artistic, inclusive space for culturally curious listeners.",
+  "meta": {
+   "model": [
+    "qwen-3-8-max"
+   ],
+   "seconds": 65.0,
+   "usd": 0.023005
+  }
+ },
+ "minimax|hb_leeds": {
+  "qid": "hb_leeds",
+  "text": "1. Crash Records Leeds - Independent record shop, essential for this jazz/electronic audience\n2. Northern Guitars Cafe Bar - Cafe-bar with in-store guitar retail, music-focused\n3. Wharf Chambers - DIY venue championing jazz and experimental live music\n4. Distrikt - Speakeasy listening bar tailored to music enthusiasts\n5. Oporto - Intimate live music venue for alternative and jazz acts",
+  "meta": {
+   "model": [
+    "minimax-m3-preview"
+   ],
+   "seconds": 69.0,
+   "usd": 0.00226698
+  }
+ },
+ "qwen|hb_leeds": {
+  "qid": "hb_leeds",
+  "text": "1. Crash Records Leeds - independent record shop and central music hub\n2. Distrikt - intimate speakeasy cocktails for music enthusiasts\n3. Call Lane Social - high-energy bar with festival-style music programming\n4. Wharf Chambers - DIY urban-fringe venue for small live sets\n5. The HiFi Club - destination cocktail bar with strong sound-culture appeal",
+  "meta": {
+   "model": [
+    "qwen-3-8-max"
+   ],
+   "seconds": 79.4,
+   "usd": 0.025427500000000002
+  }
+ },
+ "minimax|hb_porto": {
+  "qid": "hb_porto",
+  "text": "1. Gato Vadio - Independent bookstore-cafe with quiet, cultured jazz-friendly vibe\n2. Espaço 77 - Trendy spirits bar with bustling listening-room atmosphere\n3. Torto - Bar & Cocktails - Intimate cocktail bar suiting music aficionados\n4. Apuro - Independent foodie haunt favored by young cultural crowd\n5. Embaixada do Porto - Late-night venue popular with young music enthusiasts",
+  "meta": {
+   "model": [
+    "minimax-m3-preview"
+   ],
+   "seconds": 55.5,
+   "usd": 0.0016567799999999998
+  }
+ },
+ "minimax|hb_valencia": {
+  "qid": "hb_valencia",
+  "text": "1. Olhöps - Live music listening bar, ideal for jazz devotees.\n2. Café Mercedes Jazz - Jazz-themed cafe, directly aligned with taste.\n3. Ubik Café Cafetería Librería - Bookshop cafe, intellectual and artistic vibe.\n4. Bluebell Coffee Roasters - Specialty coffee, aesthetic café culture.\n5. La Mezcalería VLC - Listening-bar style cocktail bar welcoming coffee drinkers.",
+  "meta": {
+   "model": [
+    "minimax-m3-preview"
+   ],
+   "seconds": 38.7,
+   "usd": 0.00143928
+  }
+ },
+ "nemotron|hb_ghent": {
+  "qid": "hb_ghent",
+  "text": "1. Kinky Star - Live‑music bar with eclectic jazz‑fusion nights  \n2. Missy Sippy Blues & Roots Club - Intimate venue hosting roots‑jazz acts  \n3. Bar Giraf - DJ‑booth‑driven space for experimental electronic sets  \n4. Charlatan - Cozy café‑bar fostering local musician jam sessions  \n5. White Cat - Stylish wine bar offering curated listening evenings",
+  "meta": {
+   "model": [
+    "nvidia-nemotron-3-ultra-550b-a55b"
+   ],
+   "seconds": 28.9,
+   "usd": 0.002098125
+  }
+ },
+ "nemotron|hb_lyon": {
+  "qid": "hb_lyon",
+  "text": "1. Paddy's Corner - Live music pub, energetic atmosphere.  \n2. Le Terrier du Lapin Blanc - Cocktail bar, relaxed listening vibe.  \n3. Café De La Crèche - Social cafe with full bar.  \n4. LA PENTE - Artistic venue, inclusive, unique events.  \n5. La Clef de Voûte - Historic casual spot, walkable ambience.",
+  "meta": {
+   "model": [
+    "nvidia-nemotron-3-ultra-550b-a55b"
+   ],
+   "seconds": 68.5,
+   "usd": 0.004673750000000001
+  }
+ },
+ "nemotron|hb_leeds": {
+  "qid": "hb_leeds",
+  "text": "1. Crash Records Leeds - Independent record shop, curated jazz vinyl  \n2. Distrikt - Speakeasy listening bar, music‑enthusiast focus  \n3. The HiFi Club - Intimate live‑music venue, jazz‑friendly  \n4. Wharf Chambers - DIY arts space, hosts experimental gigs  \n5. Northern Guitars Cafe Bar - Cozy cafe‑bar, guitar‑themed atmosphere",
+  "meta": {
+   "model": [
+    "nvidia-nemotron-3-ultra-550b-a55b"
+   ],
+   "seconds": 72.5,
+   "usd": 0.004960625
+  }
+ },
+ "nemotron|hb_valencia": {
+  "qid": "hb_valencia",
+  "text": "1. SPLENDINI BAR I DISCOS - vinyl selection, relaxed listening vibe  \n2. Olhöps - intimate live jazz, trendy atmosphere  \n3. Café Mercedes Jazz - dedicated jazz cafe, lively setting  \n4. Bluebell Coffee Roasters - specialty coffee, aesthetic brunch spot  \n5. Ubik Café Cafetería Librería - coffee, books, quiet creative space",
+  "meta": {
+   "model": [
+    "nvidia-nemotron-3-ultra-550b-a55b"
+   ],
+   "seconds": 56.6,
+   "usd": 0.00464625
+  }
+ },
+ "qwen|hb_ghent": {
+  "qid": "hb_ghent",
+  "text": "1. Kinky Star - Live music bar for jazz-forward audiences.\n2. Bar Giraf - DJ booth and electric nightlife fit dancefloor jazz.\n3. Charlatan - Social cafe good for pre-gig drinks.\n4. Missy Sippy Blues & Roots Club - Live roots club with intimate improvisation-friendly atmosphere.\n5. OTIS - Casual bar near Korenlei for relaxed meetups.",
+  "meta": {
+   "model": [
+    "qwen-3-8-max"
+   ],
+   "seconds": 149.8,
+   "usd": 0.046875
+  }
+ },
+ "nemotron|hb_porto": {
+  "qid": "hb_porto",
+  "text": "1. Gato Vadio - cozy bookstore‑cafe vibe for vinyl browsing  \n2. NOVA ROTA SUBLIMA - craft‑beer listening bar with community feel  \n3. Espaço 77 - trendy spirits venue hosting intimate gigs  \n4. Embaixada do Porto - late‑night spot popular with young jazz fans  \n5. Confeitaria Rian - local cafe favored by musicians for relaxed sessions",
+  "meta": {
+   "model": [
+    "nvidia-nemotron-3-ultra-550b-a55b"
+   ],
+   "seconds": 72.9,
+   "usd": 0.0058175
+  }
+ },
+ "qwen|hb_valencia": {
+  "qid": "hb_valencia",
+  "text": "1. Olhöps - Live music, trendy, extremely close to Sueca.\n2. Café Mercedes Jazz - Jazz café, lively, very close to Sueca.\n3. SPLENDINI BAR I DISCOS - Bar and discos fit dancefloor jazz tastes.\n4. Bluebell Coffee Roasters - Independent specialty coffee for daytime cultural meetups.\n5. Ubik Café Cafetería Librería - Bookish café for cultural coffee meetings.",
+  "meta": {
+   "model": [
+    "qwen-3-8-max"
+   ],
+   "seconds": 148.6,
+   "usd": 0.0499325
+  }
+ },
+ "qwen|hb_porto": {
+  "qid": "hb_porto",
+  "text": "1. NOVA ROTA SUBLIMA - Independent community bar near Bombarda galleries.\n2. Catraio Craft Beer Shop & Bar - Independent craft beer spot for friends.\n3. Gato Vadio - Bookstore cafe with relaxed cultural vibe.\n4. Cafe Lusitano - Social cafe for creative evening meetups.\n5. Espaço 77 - Trendy bustling bar for music fans.",
+  "meta": {
+   "model": [
+    "qwen-3-8-max"
+   ],
+   "seconds": 209.7,
+   "usd": 0.06738000000000001
+  }
  }
 }

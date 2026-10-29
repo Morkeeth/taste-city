@@ -84,7 +84,7 @@ def answer(step, who):
             data[f'{m}|{q["id"]}'] = {'qid': q['id'], 'text': text, 'meta': meta}
             path.write_text(json.dumps(data, indent=1, ensure_ascii=False))
         print('answered', step, m, q['id'], flush=True)
-    with cf.ThreadPoolExecutor(6) as ex:
+    with cf.ThreadPoolExecutor(4) as ex:
         list(ex.map(one, jobs))
 
 

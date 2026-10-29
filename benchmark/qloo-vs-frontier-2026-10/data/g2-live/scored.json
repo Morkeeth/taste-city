@@ -1,0 +1,4230 @@
+{
+ "per_step": {
+  "0_control": {
+   "opus": {
+    "named": 30,
+    "real": 25,
+    "real_lesser_known": 25,
+    "not_found": 1,
+    "unknown": 4
+   },
+   "fable": {
+    "named": 30,
+    "real": 25,
+    "real_lesser_known": 25,
+    "not_found": 4,
+    "unknown": 1
+   },
+   "sonnet": {
+    "named": 46,
+    "real": 29,
+    "real_lesser_known": 25,
+    "not_found": 12,
+    "unknown": 5
+   },
+   "gpt": {
+    "named": 30,
+    "real": 26,
+    "real_lesser_known": 26,
+    "not_found": 2,
+    "unknown": 2
+   },
+   "composer": {
+    "named": 30,
+    "real": 24,
+    "real_lesser_known": 23,
+    "not_found": 4,
+    "unknown": 2
+   },
+   "gemini": {
+    "named": 30,
+    "real": 25,
+    "real_lesser_known": 24,
+    "not_found": 1,
+    "unknown": 4
+   },
+   "grok": {
+    "named": 30,
+    "real": 25,
+    "real_lesser_known": 25,
+    "not_found": 4,
+    "unknown": 1
+   },
+   "kimi": {
+    "named": 30,
+    "real": 24,
+    "real_lesser_known": 24,
+    "not_found": 6,
+    "unknown": 0
+   },
+   "deepseek": {
+    "named": 30,
+    "real": 27,
+    "real_lesser_known": 25,
+    "not_found": 2,
+    "unknown": 1
+   }
+  },
+  "1_qloo_popcap": {
+   "opus": {
+    "named": 30,
+    "real": 26,
+    "real_lesser_known": 24,
+    "not_found": 3,
+    "unknown": 1
+   },
+   "fable": {
+    "named": 30,
+    "real": 25,
+    "real_lesser_known": 23,
+    "not_found": 3,
+    "unknown": 2
+   },
+   "sonnet": {
+    "named": 30,
+    "real": 26,
+    "real_lesser_known": 22,
+    "not_found": 1,
+    "unknown": 3
+   },
+   "gpt": {
+    "named": 30,
+    "real": 25,
+    "real_lesser_known": 22,
+    "not_found": 2,
+    "unknown": 3
+   },
+   "composer": {
+    "named": 30,
+    "real": 26,
+    "real_lesser_known": 23,
+    "not_found": 2,
+    "unknown": 2
+   },
+   "gemini": {
+    "named": 30,
+    "real": 24,
+    "real_lesser_known": 22,
+    "not_found": 4,
+    "unknown": 2
+   },
+   "grok": {
+    "named": 30,
+    "real": 27,
+    "real_lesser_known": 24,
+    "not_found": 2,
+    "unknown": 1
+   },
+   "deepseek": {
+    "named": 30,
+    "real": 27,
+    "real_lesser_known": 24,
+    "not_found": 2,
+    "unknown": 1
+   },
+   "kimi": {
+    "named": 30,
+    "real": 25,
+    "real_lesser_known": 23,
+    "not_found": 3,
+    "unknown": 2
+   }
+  }
+ },
+ "rows": [
+  {
+   "step": "0_control",
+   "model": "opus",
+   "qid": "g2_A_artist",
+   "name": "Klein",
+   "found": true,
+   "views_60d": 556
+  },
+  {
+   "step": "0_control",
+   "model": "opus",
+   "qid": "g2_A_artist",
+   "name": "Sudan Archives",
+   "found": true,
+   "views_60d": 5840
+  },
+  {
+   "step": "0_control",
+   "model": "opus",
+   "qid": "g2_A_artist",
+   "name": "Moor Mother",
+   "found": true,
+   "views_60d": 2777
+  },
+  {
+   "step": "0_control",
+   "model": "opus",
+   "qid": "g2_A_artist",
+   "name": "Tirzah",
+   "found": true,
+   "views_60d": 368
+  },
+  {
+   "step": "0_control",
+   "model": "opus",
+   "qid": "g2_A_artist",
+   "name": "Loraine James",
+   "found": true,
+   "views_60d": 1139
+  },
+  {
+   "step": "0_control",
+   "model": "opus",
+   "qid": "g2_B_artist",
+   "name": "Kokoroko",
+   "found": true,
+   "views_60d": 5239
+  },
+  {
+   "step": "0_control",
+   "model": "opus",
+   "qid": "g2_B_artist",
+   "name": "Nérija",
+   "found": true,
+   "views_60d": 0
+  },
+  {
+   "step": "0_control",
+   "model": "opus",
+   "qid": "g2_B_artist",
+   "name": "Steam Down",
+   "found": true,
+   "views_60d": 0
+  },
+  {
+   "step": "0_control",
+   "model": "opus",
+   "qid": "g2_B_artist",
+   "name": "Maisha",
+   "found": true,
+   "views_60d": 0
+  },
+  {
+   "step": "0_control",
+   "model": "opus",
+   "qid": "g2_B_artist",
+   "name": "Mansur Brown",
+   "found": true,
+   "views_60d": 0
+  },
+  {
+   "step": "0_control",
+   "model": "opus",
+   "qid": "g2_A_film",
+   "name": "Beyond the Black Rainbow",
+   "found": true,
+   "views_60d": 17204
+  },
+  {
+   "step": "0_control",
+   "model": "opus",
+   "qid": "g2_A_film",
+   "name": "Holy Motors",
+   "found": true,
+   "views_60d": 11403
+  },
+  {
+   "step": "0_control",
+   "model": "opus",
+   "qid": "g2_A_film",
+   "name": "Atlantics",
+   "found": true,
+   "views_60d": 4609
+  },
+  {
+   "step": "0_control",
+   "model": "opus",
+   "qid": "g2_A_book",
+   "name": "The Employees",
+   "found": false
+  },
+  {
+   "step": "0_control",
+   "model": "opus",
+   "qid": "g2_A_book",
+   "name": "Grief Is the Thing with Feathers",
+   "found": true,
+   "views_60d": 5002
+  },
+  {
+   "step": "0_control",
+   "model": "opus",
+   "qid": "g2_A_book",
+   "name": "Hurricane Season",
+   "found": true,
+   "views_60d": 10
+  },
+  {
+   "step": "0_control",
+   "model": "opus",
+   "qid": "g2_A_book",
+   "name": "Ducks, Newburyport",
+   "found": true,
+   "views_60d": 5147
+  },
+  {
+   "step": "0_control",
+   "model": "opus",
+   "qid": "g2_A_book",
+   "name": "Open Water",
+   "found": true,
+   "views_60d": 287
+  },
+  {
+   "step": "0_control",
+   "model": "fable",
+   "qid": "g2_A_artist",
+   "name": "Little Dragon",
+   "found": true,
+   "views_60d": 7427
+  },
+  {
+   "step": "0_control",
+   "model": "fable",
+   "qid": "g2_A_artist",
+   "name": "Hiatus Kaiyote",
+   "found": true,
+   "views_60d": 7522
+  },
+  {
+   "step": "0_control",
+   "model": "fable",
+   "qid": "g2_A_artist",
+   "name": "Kae Tempest",
+   "found": true,
+   "views_60d": 13778
+  },
+  {
+   "step": "0_control",
+   "model": "fable",
+   "qid": "g2_A_artist",
+   "name": "Loraine James",
+   "found": true,
+   "views_60d": 1139
+  },
+  {
+   "step": "0_control",
+   "model": "fable",
+   "qid": "g2_A_artist",
+   "name": "Moses Sumney",
+   "found": true,
+   "views_60d": 10774
+  },
+  {
+   "step": "0_control",
+   "model": "fable",
+   "qid": "g2_B_artist",
+   "name": "Kokoroko",
+   "found": true,
+   "views_60d": 5239
+  },
+  {
+   "step": "0_control",
+   "model": "fable",
+   "qid": "g2_B_artist",
+   "name": "Chelsea Carmichael",
+   "found": true,
+   "views_60d": 15
+  },
+  {
+   "step": "0_control",
+   "model": "fable",
+   "qid": "g2_B_artist",
+   "name": "Steam Down",
+   "found": true,
+   "views_60d": 0
+  },
+  {
+   "step": "0_control",
+   "model": "fable",
+   "qid": "g2_B_artist",
+   "name": "Balimaya Project",
+   "found": true,
+   "views_60d": 2
+  },
+  {
+   "step": "0_control",
+   "model": "fable",
+   "qid": "g2_B_artist",
+   "name": "Emma-Jean Thackray",
+   "found": false
+  },
+  {
+   "step": "0_control",
+   "model": "opus",
+   "qid": "g2_B_film",
+   "name": "Space Is the Place",
+   "found": true,
+   "views_60d": 3817
+  },
+  {
+   "step": "0_control",
+   "model": "opus",
+   "qid": "g2_B_film",
+   "name": "Handsworth Songs",
+   "found": true,
+   "views_60d": 899
+  },
+  {
+   "step": "0_control",
+   "model": "opus",
+   "qid": "g2_B_film",
+   "name": "Burning an Illusion",
+   "found": true,
+   "views_60d": 564
+  },
+  {
+   "step": "0_control",
+   "model": "sonnet",
+   "qid": "g2_A_artist",
+   "name": "Arca",
+   "found": true,
+   "views_60d": 1548
+  },
+  {
+   "step": "0_control",
+   "model": "sonnet",
+   "qid": "g2_A_artist",
+   "name": "Black Country, New Road",
+   "found": true,
+   "views_60d": 46827
+  },
+  {
+   "step": "0_control",
+   "model": "sonnet",
+   "qid": "g2_A_artist",
+   "name": "Kae Tempest",
+   "found": true,
+   "views_60d": 13778
+  },
+  {
+   "step": "0_control",
+   "model": "sonnet",
+   "qid": "g2_A_artist",
+   "name": "Yves Tumor",
+   "found": true,
+   "views_60d": 17086
+  },
+  {
+   "step": "0_control",
+   "model": "sonnet",
+   "qid": "g2_A_artist",
+   "name": "Nilüfer Yanya",
+   "found": true,
+   "views_60d": 7134
+  },
+  {
+   "step": "0_control",
+   "model": "opus",
+   "qid": "g2_B_book",
+   "name": "As Serious As Your Life",
+   "found": true,
+   "views_60d": 72
+  },
+  {
+   "step": "0_control",
+   "model": "opus",
+   "qid": "g2_B_book",
+   "name": "Bass Culture",
+   "found": true,
+   "views_60d": 690
+  },
+  {
+   "step": "0_control",
+   "model": "opus",
+   "qid": "g2_B_book",
+   "name": "Don't Stop the Carnival",
+   "found": true,
+   "views_60d": 156
+  },
+  {
+   "step": "0_control",
+   "model": "opus",
+   "qid": "g2_B_book",
+   "name": "Brixton Rock",
+   "found": true,
+   "views_60d": 0
+  },
+  {
+   "step": "0_control",
+   "model": "opus",
+   "qid": "g2_B_book",
+   "name": "Free Jazz/Black Power",
+   "found": true,
+   "views_60d": 0
+  },
+  {
+   "step": "0_control",
+   "model": "sonnet",
+   "qid": "g2_A_film",
+   "name": "Climate of the Hunter",
+   "found": true,
+   "views_60d": 197
+  },
+  {
+   "step": "0_control",
+   "model": "sonnet",
+   "qid": "g2_A_film",
+   "name": "Fire of Love",
+   "found": true,
+   "views_60d": 39
+  },
+  {
+   "step": "0_control",
+   "model": "sonnet",
+   "qid": "g2_A_film",
+   "name": "Beyond the Hills",
+   "found": true,
+   "views_60d": 7615
+  },
+  {
+   "step": "0_control",
+   "model": "sonnet",
+   "qid": "g2_A_film",
+   "name": "Dogtooth",
+   "found": true,
+   "views_60d": 55339
+  },
+  {
+   "step": "0_control",
+   "model": "sonnet",
+   "qid": "g2_A_film",
+   "name": "Dancer in the Dark",
+   "found": true,
+   "views_60d": 50242
+  },
+  {
+   "step": "0_control",
+   "model": "sonnet",
+   "qid": "g2_A_film",
+   "name": "Beau Travail",
+   "found": true,
+   "views_60d": 19525
+  },
+  {
+   "step": "0_control",
+   "model": "sonnet",
+   "qid": "g2_A_film",
+   "name": "Enys Men",
+   "found": true,
+   "views_60d": 8886
+  },
+  {
+   "step": "0_control",
+   "model": "sonnet",
+   "qid": "g2_A_film",
+   "name": "Dogtooth",
+   "found": true,
+   "views_60d": 55339
+  },
+  {
+   "step": "0_control",
+   "model": "sonnet",
+   "qid": "g2_A_book",
+   "name": "Paradais",
+   "found": true,
+   "views_60d": 1731
+  },
+  {
+   "step": "0_control",
+   "model": "sonnet",
+   "qid": "g2_A_book",
+   "name": "The Employees",
+   "found": false
+  },
+  {
+   "step": "0_control",
+   "model": "sonnet",
+   "qid": "g2_A_book",
+   "name": "Convenience Store Woman",
+   "found": true,
+   "views_60d": 14630
+  },
+  {
+   "step": "0_control",
+   "model": "sonnet",
+   "qid": "g2_A_book",
+   "name": "Sula",
+   "found": true,
+   "views_60d": 694
+  },
+  {
+   "step": "0_control",
+   "model": "sonnet",
+   "qid": "g2_A_book",
+   "name": "Dept. of Speculation",
+   "found": true,
+   "views_60d": 2456
+  },
+  {
+   "step": "0_control",
+   "model": "fable",
+   "qid": "g2_A_film",
+   "name": "Neptune Frost",
+   "found": true,
+   "views_60d": 3278
+  },
+  {
+   "step": "0_control",
+   "model": "fable",
+   "qid": "g2_A_film",
+   "name": "The Juniper Tree",
+   "found": true,
+   "views_60d": 3088
+  },
+  {
+   "step": "0_control",
+   "model": "fable",
+   "qid": "g2_A_film",
+   "name": "Upstream Color",
+   "found": true,
+   "views_60d": 9649
+  },
+  {
+   "step": "0_control",
+   "model": "fable",
+   "qid": "g2_A_film",
+   "name": "The Fits",
+   "found": true,
+   "views_60d": 880
+  },
+  {
+   "step": "0_control",
+   "model": "fable",
+   "qid": "g2_A_film",
+   "name": "Lovers Rock",
+   "found": true,
+   "views_60d": 5027
+  },
+  {
+   "step": "0_control",
+   "model": "sonnet",
+   "qid": "g2_B_artist",
+   "name": "Yazmin Lacey",
+   "found": true,
+   "views_60d": 200
+  },
+  {
+   "step": "0_control",
+   "model": "sonnet",
+   "qid": "g2_B_artist",
+   "name": "Ezra Collective's peers Maisha",
+   "found": false
+  },
+  {
+   "step": "0_control",
+   "model": "sonnet",
+   "qid": "g2_B_artist",
+   "name": "Sons of Kemet's circle Kokoroko",
+   "found": false
+  },
+  {
+   "step": "0_control",
+   "model": "sonnet",
+   "qid": "g2_B_artist",
+   "name": "Emma-Jean Thackray",
+   "found": false
+  },
+  {
+   "step": "0_control",
+   "model": "sonnet",
+   "qid": "g2_B_artist",
+   "name": "Yussef Dayes",
+   "found": true,
+   "views_60d": 11201
+  },
+  {
+   "step": "0_control",
+   "model": "sonnet",
+   "qid": "g2_B_artist",
+   "name": "Yazmin Lacey",
+   "found": true,
+   "views_60d": 200
+  },
+  {
+   "step": "0_control",
+   "model": "sonnet",
+   "qid": "g2_B_artist",
+   "name": "Maisha",
+   "found": true,
+   "views_60d": 0
+  },
+  {
+   "step": "0_control",
+   "model": "sonnet",
+   "qid": "g2_B_artist",
+   "name": "Kokoroko",
+   "found": true,
+   "views_60d": 5239
+  },
+  {
+   "step": "0_control",
+   "model": "sonnet",
+   "qid": "g2_B_artist",
+   "name": "Emma-Jean Thackray",
+   "found": false
+  },
+  {
+   "step": "0_control",
+   "model": "sonnet",
+   "qid": "g2_B_artist",
+   "name": "Ezra Collective-adjacent Sampa? No—Ife Ogunjobi",
+   "found": false
+  },
+  {
+   "step": "0_control",
+   "model": "sonnet",
+   "qid": "g2_B_artist",
+   "name": "Yazmin Lacey",
+   "found": true,
+   "views_60d": 200
+  },
+  {
+   "step": "0_control",
+   "model": "sonnet",
+   "qid": "g2_B_artist",
+   "name": "Maisha",
+   "found": true,
+   "views_60d": 0
+  },
+  {
+   "step": "0_control",
+   "model": "sonnet",
+   "qid": "g2_B_artist",
+   "name": "Kokoroko",
+   "found": true,
+   "views_60d": 5239
+  },
+  {
+   "step": "0_control",
+   "model": "sonnet",
+   "qid": "g2_B_artist",
+   "name": "Emma-Jean Thackray",
+   "found": false
+  },
+  {
+   "step": "0_control",
+   "model": "sonnet",
+   "qid": "g2_B_artist",
+   "name": "Joe Armon-Jones",
+   "found": false
+  },
+  {
+   "step": "0_control",
+   "model": "fable",
+   "qid": "g2_A_book",
+   "name": "Ice",
+   "found": false
+  },
+  {
+   "step": "0_control",
+   "model": "fable",
+   "qid": "g2_A_book",
+   "name": "Under the Glacier",
+   "found": true,
+   "views_60d": 252
+  },
+  {
+   "step": "0_control",
+   "model": "fable",
+   "qid": "g2_A_book",
+   "name": "Assembly",
+   "found": true,
+   "views_60d": 1350
+  },
+  {
+   "step": "0_control",
+   "model": "fable",
+   "qid": "g2_A_book",
+   "name": "Memorial Device",
+   "found": false
+  },
+  {
+   "step": "0_control",
+   "model": "fable",
+   "qid": "g2_A_book",
+   "name": "They Can't Kill Us Until They Kill Us",
+   "found": true,
+   "views_60d": 2
+  },
+  {
+   "step": "0_control",
+   "model": "sonnet",
+   "qid": "g2_B_film",
+   "name": "Pirate Radio Nights",
+   "found": false
+  },
+  {
+   "step": "0_control",
+   "model": "sonnet",
+   "qid": "g2_B_film",
+   "name": "Playing Away",
+   "found": true,
+   "views_60d": 730
+  },
+  {
+   "step": "0_control",
+   "model": "sonnet",
+   "qid": "g2_B_film",
+   "name": "Handsworth Songs",
+   "found": true,
+   "views_60d": 899
+  },
+  {
+   "step": "0_control",
+   "model": "fable",
+   "qid": "g2_B_film",
+   "name": "We Out Here",
+   "found": false
+  },
+  {
+   "step": "0_control",
+   "model": "fable",
+   "qid": "g2_B_film",
+   "name": "Space Is the Place",
+   "found": true,
+   "views_60d": 3817
+  },
+  {
+   "step": "0_control",
+   "model": "fable",
+   "qid": "g2_B_film",
+   "name": "Soul Power",
+   "found": true,
+   "views_60d": 928
+  },
+  {
+   "step": "0_control",
+   "model": "fable",
+   "qid": "g2_B_film",
+   "name": "Touki Bouki",
+   "found": true,
+   "views_60d": 4515
+  },
+  {
+   "step": "0_control",
+   "model": "sonnet",
+   "qid": "g2_B_book",
+   "name": "Sounds Like London",
+   "found": true,
+   "views_60d": 48
+  },
+  {
+   "step": "0_control",
+   "model": "sonnet",
+   "qid": "g2_B_book",
+   "name": "Don't Stop the Carnival",
+   "found": true,
+   "views_60d": 156
+  },
+  {
+   "step": "0_control",
+   "model": "sonnet",
+   "qid": "g2_B_book",
+   "name": "Soul II Soul",
+   "found": false
+  },
+  {
+   "step": "0_control",
+   "model": "sonnet",
+   "qid": "g2_B_book",
+   "name": "Chick",
+   "found": false
+  },
+  {
+   "step": "0_control",
+   "model": "sonnet",
+   "qid": "g2_B_book",
+   "name": "A River Called Time",
+   "found": false
+  },
+  {
+   "step": "0_control",
+   "model": "gpt",
+   "qid": "g2_A_artist",
+   "name": "Tirzah",
+   "found": true,
+   "views_60d": 368
+  },
+  {
+   "step": "0_control",
+   "model": "gpt",
+   "qid": "g2_A_artist",
+   "name": "L’Rain",
+   "found": true,
+   "views_60d": 0
+  },
+  {
+   "step": "0_control",
+   "model": "gpt",
+   "qid": "g2_A_artist",
+   "name": "Young Fathers",
+   "found": true,
+   "views_60d": 7031
+  },
+  {
+   "step": "0_control",
+   "model": "gpt",
+   "qid": "g2_A_artist",
+   "name": "billy woods",
+   "found": true,
+   "views_60d": 0
+  },
+  {
+   "step": "0_control",
+   "model": "gpt",
+   "qid": "g2_A_artist",
+   "name": "Jockstrap",
+   "found": true,
+   "views_60d": 22347
+  },
+  {
+   "step": "0_control",
+   "model": "gpt",
+   "qid": "g2_B_artist",
+   "name": "corto.alto",
+   "found": true,
+   "views_60d": 0
+  },
+  {
+   "step": "0_control",
+   "model": "gpt",
+   "qid": "g2_B_artist",
+   "name": "Camilla George",
+   "found": true,
+   "views_60d": 378
+  },
+  {
+   "step": "0_control",
+   "model": "gpt",
+   "qid": "g2_B_artist",
+   "name": "Maisha",
+   "found": true,
+   "views_60d": 0
+  },
+  {
+   "step": "0_control",
+   "model": "gpt",
+   "qid": "g2_B_artist",
+   "name": "Nérija",
+   "found": true,
+   "views_60d": 0
+  },
+  {
+   "step": "0_control",
+   "model": "gpt",
+   "qid": "g2_B_artist",
+   "name": "Ashley Henry",
+   "found": true,
+   "views_60d": 0
+  },
+  {
+   "step": "0_control",
+   "model": "gpt",
+   "qid": "g2_A_film",
+   "name": "Neptune Frost",
+   "found": true,
+   "views_60d": 3278
+  },
+  {
+   "step": "0_control",
+   "model": "gpt",
+   "qid": "g2_A_film",
+   "name": "Morvern Callar",
+   "found": true,
+   "views_60d": 9384
+  },
+  {
+   "step": "0_control",
+   "model": "gpt",
+   "qid": "g2_A_film",
+   "name": "The Fits",
+   "found": true,
+   "views_60d": 880
+  },
+  {
+   "step": "0_control",
+   "model": "gpt",
+   "qid": "g2_A_film",
+   "name": "November",
+   "found": true,
+   "views_60d": 13841
+  },
+  {
+   "step": "0_control",
+   "model": "gpt",
+   "qid": "g2_A_film",
+   "name": "All About Lily Chou-Chou",
+   "found": true,
+   "views_60d": 22779
+  },
+  {
+   "step": "0_control",
+   "model": "fable",
+   "qid": "g2_B_book",
+   "name": "Make Some Space",
+   "found": true,
+   "views_60d": 0
+  },
+  {
+   "step": "0_control",
+   "model": "fable",
+   "qid": "g2_B_book",
+   "name": "Unapologetic Expression",
+   "found": true,
+   "views_60d": 0
+  },
+  {
+   "step": "0_control",
+   "model": "fable",
+   "qid": "g2_B_book",
+   "name": "Don't Stop the Carnival",
+   "found": true,
+   "views_60d": 156
+  },
+  {
+   "step": "0_control",
+   "model": "fable",
+   "qid": "g2_B_book",
+   "name": "As Serious As Your Life",
+   "found": true,
+   "views_60d": 72
+  },
+  {
+   "step": "0_control",
+   "model": "fable",
+   "qid": "g2_B_book",
+   "name": "Sounds Like London",
+   "found": true,
+   "views_60d": 48
+  },
+  {
+   "step": "0_control",
+   "model": "gpt",
+   "qid": "g2_A_book",
+   "name": "The Employees",
+   "found": false
+  },
+  {
+   "step": "0_control",
+   "model": "gpt",
+   "qid": "g2_A_book",
+   "name": "Ice",
+   "found": false
+  },
+  {
+   "step": "0_control",
+   "model": "gpt",
+   "qid": "g2_A_book",
+   "name": "The Hearing Trumpet",
+   "found": true,
+   "views_60d": 5496
+  },
+  {
+   "step": "0_control",
+   "model": "gpt",
+   "qid": "g2_A_book",
+   "name": "Freshwater",
+   "found": true,
+   "views_60d": 6163
+  },
+  {
+   "step": "0_control",
+   "model": "gpt",
+   "qid": "g2_A_book",
+   "name": "Small Bodies of Water",
+   "found": true,
+   "views_60d": 0
+  },
+  {
+   "step": "0_control",
+   "model": "gpt",
+   "qid": "g2_B_film",
+   "name": "Félicité",
+   "found": true,
+   "views_60d": 622
+  },
+  {
+   "step": "0_control",
+   "model": "gpt",
+   "qid": "g2_B_film",
+   "name": "Neptune Frost",
+   "found": true,
+   "views_60d": 3278
+  },
+  {
+   "step": "0_control",
+   "model": "gpt",
+   "qid": "g2_B_film",
+   "name": "The Cry of Jazz",
+   "found": true,
+   "views_60d": 422
+  },
+  {
+   "step": "0_control",
+   "model": "composer",
+   "qid": "g2_B_artist",
+   "name": "Kokoroko",
+   "found": true,
+   "views_60d": 5239
+  },
+  {
+   "step": "0_control",
+   "model": "composer",
+   "qid": "g2_B_artist",
+   "name": "Alfa Mist",
+   "found": true,
+   "views_60d": 3169
+  },
+  {
+   "step": "0_control",
+   "model": "composer",
+   "qid": "g2_B_artist",
+   "name": "Maisha",
+   "found": true,
+   "views_60d": 0
+  },
+  {
+   "step": "0_control",
+   "model": "composer",
+   "qid": "g2_B_artist",
+   "name": "Steam Down",
+   "found": true,
+   "views_60d": 0
+  },
+  {
+   "step": "0_control",
+   "model": "composer",
+   "qid": "g2_B_artist",
+   "name": "Ill Considered",
+   "found": true,
+   "views_60d": 0
+  },
+  {
+   "step": "0_control",
+   "model": "composer",
+   "qid": "g2_A_book",
+   "name": "The Hearing Trumpet",
+   "found": true,
+   "views_60d": 5496
+  },
+  {
+   "step": "0_control",
+   "model": "composer",
+   "qid": "g2_A_book",
+   "name": "The Wake",
+   "found": true,
+   "views_60d": 78
+  },
+  {
+   "step": "0_control",
+   "model": "composer",
+   "qid": "g2_A_book",
+   "name": "Signs Preceding the End of the World",
+   "found": false
+  },
+  {
+   "step": "0_control",
+   "model": "composer",
+   "qid": "g2_A_book",
+   "name": "Memoirs of a Polar Bear",
+   "found": false
+  },
+  {
+   "step": "0_control",
+   "model": "composer",
+   "qid": "g2_A_book",
+   "name": "A Girl Is a Half-formed Thing",
+   "found": true,
+   "views_60d": 1424
+  },
+  {
+   "step": "0_control",
+   "model": "composer",
+   "qid": "g2_A_artist",
+   "name": "Squid",
+   "found": true,
+   "views_60d": 56580
+  },
+  {
+   "step": "0_control",
+   "model": "composer",
+   "qid": "g2_A_artist",
+   "name": "Nala Sinephro",
+   "found": true,
+   "views_60d": 6453
+  },
+  {
+   "step": "0_control",
+   "model": "composer",
+   "qid": "g2_A_artist",
+   "name": "Moor Mother",
+   "found": true,
+   "views_60d": 2777
+  },
+  {
+   "step": "0_control",
+   "model": "composer",
+   "qid": "g2_A_artist",
+   "name": "Space Afrika",
+   "found": true,
+   "views_60d": 2366
+  },
+  {
+   "step": "0_control",
+   "model": "gemini",
+   "qid": "g2_A_artist",
+   "name": "Sudan Archives",
+   "found": true,
+   "views_60d": 5840
+  },
+  {
+   "step": "0_control",
+   "model": "gemini",
+   "qid": "g2_A_artist",
+   "name": "Squid",
+   "found": true,
+   "views_60d": 56580
+  },
+  {
+   "step": "0_control",
+   "model": "gemini",
+   "qid": "g2_A_artist",
+   "name": "Eartheater",
+   "found": true,
+   "views_60d": 133
+  },
+  {
+   "step": "0_control",
+   "model": "gemini",
+   "qid": "g2_A_artist",
+   "name": "Moor Mother",
+   "found": true,
+   "views_60d": 2777
+  },
+  {
+   "step": "0_control",
+   "model": "gemini",
+   "qid": "g2_A_artist",
+   "name": "Anna von Hausswolff",
+   "found": true,
+   "views_60d": 9361
+  },
+  {
+   "step": "0_control",
+   "model": "gpt",
+   "qid": "g2_B_book",
+   "name": "As Serious As Your Life",
+   "found": true,
+   "views_60d": 72
+  },
+  {
+   "step": "0_control",
+   "model": "gpt",
+   "qid": "g2_B_book",
+   "name": "Coming Through Slaughter",
+   "found": true,
+   "views_60d": 1650
+  },
+  {
+   "step": "0_control",
+   "model": "gpt",
+   "qid": "g2_B_book",
+   "name": "The Book of Harlan",
+   "found": true,
+   "views_60d": 0
+  },
+  {
+   "step": "0_control",
+   "model": "gpt",
+   "qid": "g2_B_book",
+   "name": "Bass Culture",
+   "found": true,
+   "views_60d": 690
+  },
+  {
+   "step": "0_control",
+   "model": "gpt",
+   "qid": "g2_B_book",
+   "name": "The Jazz of Physics",
+   "found": true,
+   "views_60d": 0
+  },
+  {
+   "step": "0_control",
+   "model": "gemini",
+   "qid": "g2_B_artist",
+   "name": "KOKOROKO",
+   "found": true,
+   "views_60d": 12
+  },
+  {
+   "step": "0_control",
+   "model": "gemini",
+   "qid": "g2_B_artist",
+   "name": "Alfa Mist",
+   "found": true,
+   "views_60d": 3169
+  },
+  {
+   "step": "0_control",
+   "model": "gemini",
+   "qid": "g2_B_artist",
+   "name": "Yussef Dayes",
+   "found": true,
+   "views_60d": 11201
+  },
+  {
+   "step": "0_control",
+   "model": "gemini",
+   "qid": "g2_B_artist",
+   "name": "Theon Cross",
+   "found": true,
+   "views_60d": 882
+  },
+  {
+   "step": "0_control",
+   "model": "gemini",
+   "qid": "g2_B_artist",
+   "name": "Maisha",
+   "found": true,
+   "views_60d": 0
+  },
+  {
+   "step": "0_control",
+   "model": "gemini",
+   "qid": "g2_A_film",
+   "name": "The Alchemist Cookbook",
+   "found": true,
+   "views_60d": 1605
+  },
+  {
+   "step": "0_control",
+   "model": "gemini",
+   "qid": "g2_A_film",
+   "name": "Upstream Color",
+   "found": true,
+   "views_60d": 9649
+  },
+  {
+   "step": "0_control",
+   "model": "gemini",
+   "qid": "g2_A_film",
+   "name": "Atlantics",
+   "found": true,
+   "views_60d": 4609
+  },
+  {
+   "step": "0_control",
+   "model": "composer",
+   "qid": "g2_A_film",
+   "name": "Holy Motors",
+   "found": true,
+   "views_60d": 11403
+  },
+  {
+   "step": "0_control",
+   "model": "composer",
+   "qid": "g2_A_film",
+   "name": "Berberian Sound Studio",
+   "found": true,
+   "views_60d": 5927
+  },
+  {
+   "step": "0_control",
+   "model": "composer",
+   "qid": "g2_A_film",
+   "name": "In Fabric",
+   "found": true,
+   "views_60d": 14190
+  },
+  {
+   "step": "0_control",
+   "model": "composer",
+   "qid": "g2_A_film",
+   "name": "Atlantics",
+   "found": true,
+   "views_60d": 4609
+  },
+  {
+   "step": "0_control",
+   "model": "composer",
+   "qid": "g2_A_film",
+   "name": "Good Manners",
+   "found": true,
+   "views_60d": 2857
+  },
+  {
+   "step": "0_control",
+   "model": "gemini",
+   "qid": "g2_A_book",
+   "name": "Entangled Life",
+   "found": true,
+   "views_60d": 3632
+  },
+  {
+   "step": "0_control",
+   "model": "gemini",
+   "qid": "g2_A_book",
+   "name": "Ghosts of My Life",
+   "found": true,
+   "views_60d": 39
+  },
+  {
+   "step": "0_control",
+   "model": "gemini",
+   "qid": "g2_A_book",
+   "name": "Caleb's Crossing",
+   "found": true,
+   "views_60d": 20
+  },
+  {
+   "step": "0_control",
+   "model": "gemini",
+   "qid": "g2_A_book",
+   "name": "Ice",
+   "found": false
+  },
+  {
+   "step": "0_control",
+   "model": "gemini",
+   "qid": "g2_A_book",
+   "name": "Assembly",
+   "found": true,
+   "views_60d": 1350
+  },
+  {
+   "step": "0_control",
+   "model": "gemini",
+   "qid": "g2_B_film",
+   "name": "Lovers Rock",
+   "found": true,
+   "views_60d": 5027
+  },
+  {
+   "step": "0_control",
+   "model": "gemini",
+   "qid": "g2_B_film",
+   "name": "The Last Angel of History",
+   "found": true,
+   "views_60d": 1564
+  },
+  {
+   "step": "0_control",
+   "model": "gemini",
+   "qid": "g2_B_film",
+   "name": "Rye Lane",
+   "found": true,
+   "views_60d": 10562
+  },
+  {
+   "step": "0_control",
+   "model": "composer",
+   "qid": "g2_B_film",
+   "name": "The Last Angel of History",
+   "found": true,
+   "views_60d": 1564
+  },
+  {
+   "step": "0_control",
+   "model": "composer",
+   "qid": "g2_B_film",
+   "name": "I Called Him Morgan",
+   "found": true,
+   "views_60d": 1435
+  },
+  {
+   "step": "0_control",
+   "model": "composer",
+   "qid": "g2_B_film",
+   "name": "Passing Through",
+   "found": true,
+   "views_60d": 590
+  },
+  {
+   "step": "0_control",
+   "model": "composer",
+   "qid": "g2_B_film",
+   "name": "Thunder Soul",
+   "found": true,
+   "views_60d": 180
+  },
+  {
+   "step": "0_control",
+   "model": "gemini",
+   "qid": "g2_B_book",
+   "name": "White Bicycles",
+   "found": true,
+   "views_60d": 445
+  },
+  {
+   "step": "0_control",
+   "model": "gemini",
+   "qid": "g2_B_book",
+   "name": "Bass Culture",
+   "found": true,
+   "views_60d": 690
+  },
+  {
+   "step": "0_control",
+   "model": "gemini",
+   "qid": "g2_B_book",
+   "name": "Vibration Cooking",
+   "found": true,
+   "views_60d": 174
+  },
+  {
+   "step": "0_control",
+   "model": "gemini",
+   "qid": "g2_B_book",
+   "name": "More Brilliant than the Sun",
+   "found": true,
+   "views_60d": 0
+  },
+  {
+   "step": "0_control",
+   "model": "gemini",
+   "qid": "g2_B_book",
+   "name": "Liner Notes for the Revolution",
+   "found": true,
+   "views_60d": 0
+  },
+  {
+   "step": "0_control",
+   "model": "grok",
+   "qid": "g2_A_artist",
+   "name": "Jenny Hval",
+   "found": true,
+   "views_60d": 2609
+  },
+  {
+   "step": "0_control",
+   "model": "grok",
+   "qid": "g2_A_artist",
+   "name": "These New Puritans",
+   "found": true,
+   "views_60d": 2201
+  },
+  {
+   "step": "0_control",
+   "model": "grok",
+   "qid": "g2_A_artist",
+   "name": "Loraine James",
+   "found": true,
+   "views_60d": 1139
+  },
+  {
+   "step": "0_control",
+   "model": "grok",
+   "qid": "g2_A_artist",
+   "name": "Wesley Joseph",
+   "found": true,
+   "views_60d": 0
+  },
+  {
+   "step": "0_control",
+   "model": "grok",
+   "qid": "g2_A_artist",
+   "name": "Gazelle Twin",
+   "found": true,
+   "views_60d": 2561
+  },
+  {
+   "step": "0_control",
+   "model": "composer",
+   "qid": "g2_B_book",
+   "name": "Don't Stop the Carnival",
+   "found": true,
+   "views_60d": 156
+  },
+  {
+   "step": "0_control",
+   "model": "composer",
+   "qid": "g2_B_book",
+   "name": "Kitch",
+   "found": false
+  },
+  {
+   "step": "0_control",
+   "model": "composer",
+   "qid": "g2_B_book",
+   "name": "Circular Breathing",
+   "found": true,
+   "views_60d": 103
+  },
+  {
+   "step": "0_control",
+   "model": "composer",
+   "qid": "g2_B_book",
+   "name": "The Front Room",
+   "found": true,
+   "views_60d": 24131
+  },
+  {
+   "step": "0_control",
+   "model": "composer",
+   "qid": "g2_B_book",
+   "name": "War Inna Babylon",
+   "found": false
+  },
+  {
+   "step": "0_control",
+   "model": "grok",
+   "qid": "g2_B_artist",
+   "name": "Emma-Jean Thackray",
+   "found": false
+  },
+  {
+   "step": "0_control",
+   "model": "grok",
+   "qid": "g2_B_artist",
+   "name": "Maisha",
+   "found": true,
+   "views_60d": 0
+  },
+  {
+   "step": "0_control",
+   "model": "grok",
+   "qid": "g2_B_artist",
+   "name": "SEED Ensemble",
+   "found": false
+  },
+  {
+   "step": "0_control",
+   "model": "grok",
+   "qid": "g2_B_artist",
+   "name": "Oscar Jerome",
+   "found": true,
+   "views_60d": 0
+  },
+  {
+   "step": "0_control",
+   "model": "grok",
+   "qid": "g2_B_artist",
+   "name": "Balimaya Project",
+   "found": true,
+   "views_60d": 2
+  },
+  {
+   "step": "0_control",
+   "model": "kimi",
+   "qid": "g2_A_artist",
+   "name": "L’Rain",
+   "found": true,
+   "views_60d": 0
+  },
+  {
+   "step": "0_control",
+   "model": "kimi",
+   "qid": "g2_A_artist",
+   "name": "Tirzah",
+   "found": true,
+   "views_60d": 368
+  },
+  {
+   "step": "0_control",
+   "model": "kimi",
+   "qid": "g2_A_artist",
+   "name": "Duval Timothy",
+   "found": true,
+   "views_60d": 870
+  },
+  {
+   "step": "0_control",
+   "model": "kimi",
+   "qid": "g2_A_artist",
+   "name": "Nala Sinephro",
+   "found": true,
+   "views_60d": 6453
+  },
+  {
+   "step": "0_control",
+   "model": "kimi",
+   "qid": "g2_A_artist",
+   "name": "Loraine James",
+   "found": true,
+   "views_60d": 1139
+  },
+  {
+   "step": "0_control",
+   "model": "grok",
+   "qid": "g2_A_film",
+   "name": "Upstream Color",
+   "found": true,
+   "views_60d": 9649
+  },
+  {
+   "step": "0_control",
+   "model": "grok",
+   "qid": "g2_A_film",
+   "name": "Morvern Callar",
+   "found": true,
+   "views_60d": 9384
+  },
+  {
+   "step": "0_control",
+   "model": "grok",
+   "qid": "g2_A_film",
+   "name": "November",
+   "found": true,
+   "views_60d": 13841
+  },
+  {
+   "step": "0_control",
+   "model": "grok",
+   "qid": "g2_A_film",
+   "name": "The Last Tree",
+   "found": true,
+   "views_60d": 495
+  },
+  {
+   "step": "0_control",
+   "model": "grok",
+   "qid": "g2_A_film",
+   "name": "Berberian Sound Studio",
+   "found": true,
+   "views_60d": 5927
+  },
+  {
+   "step": "0_control",
+   "model": "grok",
+   "qid": "g2_A_book",
+   "name": "Lote",
+   "found": true,
+   "views_60d": 78
+  },
+  {
+   "step": "0_control",
+   "model": "grok",
+   "qid": "g2_A_book",
+   "name": "The Employees",
+   "found": false
+  },
+  {
+   "step": "0_control",
+   "model": "grok",
+   "qid": "g2_A_book",
+   "name": "Tentacle",
+   "found": false
+  },
+  {
+   "step": "0_control",
+   "model": "grok",
+   "qid": "g2_A_book",
+   "name": "Assembly",
+   "found": true,
+   "views_60d": 1350
+  },
+  {
+   "step": "0_control",
+   "model": "grok",
+   "qid": "g2_A_book",
+   "name": "Terminal Boredom",
+   "found": true,
+   "views_60d": 0
+  },
+  {
+   "step": "0_control",
+   "model": "kimi",
+   "qid": "g2_A_film",
+   "name": "Neptune Frost",
+   "found": true,
+   "views_60d": 3278
+  },
+  {
+   "step": "0_control",
+   "model": "kimi",
+   "qid": "g2_A_film",
+   "name": "An Oversimplification of Her Beauty",
+   "found": true,
+   "views_60d": 804
+  },
+  {
+   "step": "0_control",
+   "model": "kimi",
+   "qid": "g2_A_film",
+   "name": "The Sound of Noise",
+   "found": false
+  },
+  {
+   "step": "0_control",
+   "model": "kimi",
+   "qid": "g2_A_film",
+   "name": "Born in Flames",
+   "found": true,
+   "views_60d": 5762
+  },
+  {
+   "step": "0_control",
+   "model": "kimi",
+   "qid": "g2_A_film",
+   "name": "A Pigeon Sat on a Branch Reflecting on Existence",
+   "found": true,
+   "views_60d": 6073
+  },
+  {
+   "step": "0_control",
+   "model": "deepseek",
+   "qid": "g2_A_book",
+   "name": "Piranesi",
+   "found": true,
+   "views_60d": 599
+  },
+  {
+   "step": "0_control",
+   "model": "deepseek",
+   "qid": "g2_A_book",
+   "name": "The Employees",
+   "found": false
+  },
+  {
+   "step": "0_control",
+   "model": "deepseek",
+   "qid": "g2_A_book",
+   "name": "Assembling Georgia",
+   "found": true,
+   "views_60d": 0
+  },
+  {
+   "step": "0_control",
+   "model": "deepseek",
+   "qid": "g2_A_book",
+   "name": "The Emissary",
+   "found": true,
+   "views_60d": 15
+  },
+  {
+   "step": "0_control",
+   "model": "deepseek",
+   "qid": "g2_A_book",
+   "name": "Black Wave",
+   "found": true,
+   "views_60d": 19
+  },
+  {
+   "step": "0_control",
+   "model": "grok",
+   "qid": "g2_B_film",
+   "name": "Babymother",
+   "found": true,
+   "views_60d": 412
+  },
+  {
+   "step": "0_control",
+   "model": "grok",
+   "qid": "g2_B_film",
+   "name": "The Stuart Hall Project",
+   "found": true,
+   "views_60d": 425
+  },
+  {
+   "step": "0_control",
+   "model": "grok",
+   "qid": "g2_B_film",
+   "name": "Burning an Illusion",
+   "found": true,
+   "views_60d": 564
+  },
+  {
+   "step": "0_control",
+   "model": "grok",
+   "qid": "g2_B_film",
+   "name": "Young Soul Rebels",
+   "found": true,
+   "views_60d": 1963
+  },
+  {
+   "step": "0_control",
+   "model": "deepseek",
+   "qid": "g2_A_film",
+   "name": "The Five Devils",
+   "found": true,
+   "views_60d": 2001
+  },
+  {
+   "step": "0_control",
+   "model": "deepseek",
+   "qid": "g2_A_film",
+   "name": "Neptune Frost",
+   "found": true,
+   "views_60d": 3278
+  },
+  {
+   "step": "0_control",
+   "model": "deepseek",
+   "qid": "g2_A_film",
+   "name": "Mandibles",
+   "found": true,
+   "views_60d": 1960
+  },
+  {
+   "step": "0_control",
+   "model": "deepseek",
+   "qid": "g2_A_film",
+   "name": "Suzume",
+   "found": true,
+   "views_60d": 53386
+  },
+  {
+   "step": "0_control",
+   "model": "deepseek",
+   "qid": "g2_A_artist",
+   "name": "Agnes Obel",
+   "found": true,
+   "views_60d": 26214
+  },
+  {
+   "step": "0_control",
+   "model": "deepseek",
+   "qid": "g2_A_artist",
+   "name": "serpentwithfeet",
+   "found": true,
+   "views_60d": 0
+  },
+  {
+   "step": "0_control",
+   "model": "deepseek",
+   "qid": "g2_A_artist",
+   "name": "Loma",
+   "found": true,
+   "views_60d": 221
+  },
+  {
+   "step": "0_control",
+   "model": "deepseek",
+   "qid": "g2_A_artist",
+   "name": "Noga Erez",
+   "found": true,
+   "views_60d": 31163
+  },
+  {
+   "step": "0_control",
+   "model": "deepseek",
+   "qid": "g2_A_artist",
+   "name": "Kae Tempest",
+   "found": true,
+   "views_60d": 13778
+  },
+  {
+   "step": "0_control",
+   "model": "kimi",
+   "qid": "g2_B_artist",
+   "name": "Steam Down",
+   "found": true,
+   "views_60d": 0
+  },
+  {
+   "step": "0_control",
+   "model": "kimi",
+   "qid": "g2_B_artist",
+   "name": "SEED Ensemble",
+   "found": false
+  },
+  {
+   "step": "0_control",
+   "model": "kimi",
+   "qid": "g2_B_artist",
+   "name": "Chelsea Carmichael",
+   "found": true,
+   "views_60d": 15
+  },
+  {
+   "step": "0_control",
+   "model": "kimi",
+   "qid": "g2_B_artist",
+   "name": "Theon Cross",
+   "found": true,
+   "views_60d": 882
+  },
+  {
+   "step": "0_control",
+   "model": "kimi",
+   "qid": "g2_B_artist",
+   "name": "Nubiyan Twist",
+   "found": true,
+   "views_60d": 0
+  },
+  {
+   "step": "0_control",
+   "model": "grok",
+   "qid": "g2_B_book",
+   "name": "As Serious As Your Life",
+   "found": true,
+   "views_60d": 72
+  },
+  {
+   "step": "0_control",
+   "model": "grok",
+   "qid": "g2_B_book",
+   "name": "Sounds Like London",
+   "found": true,
+   "views_60d": 48
+  },
+  {
+   "step": "0_control",
+   "model": "grok",
+   "qid": "g2_B_book",
+   "name": "Thinking in Jazz",
+   "found": true,
+   "views_60d": 0
+  },
+  {
+   "step": "0_control",
+   "model": "grok",
+   "qid": "g2_B_book",
+   "name": "African Rhythm and African Sensibility",
+   "found": true,
+   "views_60d": 0
+  },
+  {
+   "step": "0_control",
+   "model": "grok",
+   "qid": "g2_B_book",
+   "name": "Fela",
+   "found": true,
+   "views_60d": 174
+  },
+  {
+   "step": "0_control",
+   "model": "deepseek",
+   "qid": "g2_B_artist",
+   "name": "DoomCannon",
+   "found": true,
+   "views_60d": 0
+  },
+  {
+   "step": "0_control",
+   "model": "deepseek",
+   "qid": "g2_B_artist",
+   "name": "Jas Kayser",
+   "found": true,
+   "views_60d": 0
+  },
+  {
+   "step": "0_control",
+   "model": "deepseek",
+   "qid": "g2_B_artist",
+   "name": "Chelsea Carmichael",
+   "found": true,
+   "views_60d": 15
+  },
+  {
+   "step": "0_control",
+   "model": "deepseek",
+   "qid": "g2_B_artist",
+   "name": "Neue Grafik",
+   "found": true,
+   "views_60d": 289
+  },
+  {
+   "step": "0_control",
+   "model": "deepseek",
+   "qid": "g2_B_artist",
+   "name": "Pyjæn",
+   "found": true,
+   "views_60d": 0
+  },
+  {
+   "step": "0_control",
+   "model": "kimi",
+   "qid": "g2_B_film",
+   "name": "Soul Power",
+   "found": true,
+   "views_60d": 928
+  },
+  {
+   "step": "0_control",
+   "model": "kimi",
+   "qid": "g2_B_film",
+   "name": "Benda Bilili!",
+   "found": true,
+   "views_60d": 135
+  },
+  {
+   "step": "0_control",
+   "model": "kimi",
+   "qid": "g2_B_film",
+   "name": "Félicité",
+   "found": true,
+   "views_60d": 622
+  },
+  {
+   "step": "0_control",
+   "model": "kimi",
+   "qid": "g2_B_film",
+   "name": "I Called Him Morgan",
+   "found": true,
+   "views_60d": 1435
+  },
+  {
+   "step": "0_control",
+   "model": "kimi",
+   "qid": "g2_B_film",
+   "name": "They Will Have to Kill Us First",
+   "found": false
+  },
+  {
+   "step": "0_control",
+   "model": "deepseek",
+   "qid": "g2_B_book",
+   "name": "In Our Mad and Furious City",
+   "found": true,
+   "views_60d": 0
+  },
+  {
+   "step": "0_control",
+   "model": "deepseek",
+   "qid": "g2_B_book",
+   "name": "The Black Flamingo",
+   "found": true,
+   "views_60d": 31
+  },
+  {
+   "step": "0_control",
+   "model": "deepseek",
+   "qid": "g2_B_book",
+   "name": "Rainbow Milk",
+   "found": true,
+   "views_60d": 622
+  },
+  {
+   "step": "0_control",
+   "model": "deepseek",
+   "qid": "g2_B_book",
+   "name": "When We Speak of Nothing",
+   "found": true,
+   "views_60d": 37
+  },
+  {
+   "step": "0_control",
+   "model": "deepseek",
+   "qid": "g2_B_book",
+   "name": "Lote",
+   "found": true,
+   "views_60d": 78
+  },
+  {
+   "step": "0_control",
+   "model": "kimi",
+   "qid": "g2_A_book",
+   "name": "The Employees",
+   "found": false
+  },
+  {
+   "step": "0_control",
+   "model": "kimi",
+   "qid": "g2_A_book",
+   "name": "Lanny",
+   "found": true,
+   "views_60d": 191
+  },
+  {
+   "step": "0_control",
+   "model": "kimi",
+   "qid": "g2_A_book",
+   "name": "Água Viva",
+   "found": true,
+   "views_60d": 26
+  },
+  {
+   "step": "0_control",
+   "model": "kimi",
+   "qid": "g2_A_book",
+   "name": "The Deep",
+   "found": true,
+   "views_60d": 650
+  },
+  {
+   "step": "0_control",
+   "model": "kimi",
+   "qid": "g2_A_book",
+   "name": "Ice",
+   "found": false
+  },
+  {
+   "step": "0_control",
+   "model": "deepseek",
+   "qid": "g2_B_film",
+   "name": "Space is the Place",
+   "found": true,
+   "views_60d": 3817
+  },
+  {
+   "step": "0_control",
+   "model": "deepseek",
+   "qid": "g2_B_film",
+   "name": "Lovers Rock",
+   "found": true,
+   "views_60d": 5027
+  },
+  {
+   "step": "0_control",
+   "model": "deepseek",
+   "qid": "g2_B_film",
+   "name": "All Night Long",
+   "found": true,
+   "views_60d": 2585
+  },
+  {
+   "step": "0_control",
+   "model": "deepseek",
+   "qid": "g2_B_film",
+   "name": "Deep Crates",
+   "found": false
+  },
+  {
+   "step": "0_control",
+   "model": "deepseek",
+   "qid": "g2_B_film",
+   "name": "Been So Long",
+   "found": true,
+   "views_60d": 1398
+  },
+  {
+   "step": "0_control",
+   "model": "kimi",
+   "qid": "g2_B_book",
+   "name": "The Dragon Can't Dance",
+   "found": false
+  },
+  {
+   "step": "0_control",
+   "model": "kimi",
+   "qid": "g2_B_book",
+   "name": "Some Kind of Black",
+   "found": true,
+   "views_60d": 0
+  },
+  {
+   "step": "0_control",
+   "model": "kimi",
+   "qid": "g2_B_book",
+   "name": "The Perseverance",
+   "found": true,
+   "views_60d": 108
+  },
+  {
+   "step": "0_control",
+   "model": "kimi",
+   "qid": "g2_B_book",
+   "name": "It's a London Thing",
+   "found": true,
+   "views_60d": 0
+  },
+  {
+   "step": "0_control",
+   "model": "kimi",
+   "qid": "g2_B_book",
+   "name": "The Cartographer Tries to Map a Way to Zion",
+   "found": true,
+   "views_60d": 0
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "opus",
+   "qid": "g2_B_book",
+   "name": "Back to Black",
+   "found": true,
+   "views_60d": 60567
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "opus",
+   "qid": "g2_B_book",
+   "name": "Familiar Stranger",
+   "found": true,
+   "views_60d": 1
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "opus",
+   "qid": "g2_B_book",
+   "name": "Bessie Smith",
+   "found": true,
+   "views_60d": 29673
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "opus",
+   "qid": "g2_B_book",
+   "name": "Black Spartacus",
+   "found": true,
+   "views_60d": 0
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "opus",
+   "qid": "g2_B_book",
+   "name": "Loud Black Girls",
+   "found": false
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "opus",
+   "qid": "g2_A_book",
+   "name": "The Raincoats",
+   "found": false
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "opus",
+   "qid": "g2_A_book",
+   "name": "Kraftwerk",
+   "found": true,
+   "views_60d": 64567
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "opus",
+   "qid": "g2_A_book",
+   "name": "Nobody Ever Asked Me about the Girls",
+   "found": true,
+   "views_60d": 0
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "opus",
+   "qid": "g2_A_book",
+   "name": "Life After Dark",
+   "found": false
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "opus",
+   "qid": "g2_A_book",
+   "name": "Why Patti Smith Matters",
+   "found": true,
+   "views_60d": 0
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "fable",
+   "qid": "g2_A_book",
+   "name": "The Raincoats",
+   "found": false
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "fable",
+   "qid": "g2_A_book",
+   "name": "How To Be Invisible",
+   "found": true,
+   "views_60d": 0
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "fable",
+   "qid": "g2_A_book",
+   "name": "Nobody Ever Asked Me about the Girls",
+   "found": true,
+   "views_60d": 0
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "fable",
+   "qid": "g2_A_book",
+   "name": "Yoko Ono",
+   "found": true,
+   "views_60d": 326408
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "fable",
+   "qid": "g2_A_book",
+   "name": "Life After Dark",
+   "found": false
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "opus",
+   "qid": "g2_B_artist",
+   "name": "Chelsea Carmichael",
+   "found": true,
+   "views_60d": 15
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "opus",
+   "qid": "g2_B_artist",
+   "name": "Nduduzo Makhathini",
+   "found": true,
+   "views_60d": 1612
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "opus",
+   "qid": "g2_B_artist",
+   "name": "Onipa",
+   "found": true,
+   "views_60d": 0
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "opus",
+   "qid": "g2_B_artist",
+   "name": "Chip Wickham",
+   "found": true,
+   "views_60d": 0
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "opus",
+   "qid": "g2_B_artist",
+   "name": "Elliot Galvin",
+   "found": true,
+   "views_60d": 195
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "opus",
+   "qid": "g2_A_artist",
+   "name": "OHYUNG",
+   "found": true,
+   "views_60d": 4
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "opus",
+   "qid": "g2_A_artist",
+   "name": "NTsKi",
+   "found": true,
+   "views_60d": 0
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "opus",
+   "qid": "g2_A_artist",
+   "name": "MC Yallah",
+   "found": true,
+   "views_60d": 0
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "opus",
+   "qid": "g2_A_artist",
+   "name": "They Hate Change",
+   "found": true,
+   "views_60d": 140
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "opus",
+   "qid": "g2_A_artist",
+   "name": "72-HOUR POST FIGHT",
+   "found": true,
+   "views_60d": 0
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "opus",
+   "qid": "g2_B_film",
+   "name": "Broken Keys",
+   "found": true,
+   "views_60d": 168
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "opus",
+   "qid": "g2_B_film",
+   "name": "Les femmes du square",
+   "found": true,
+   "views_60d": null
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "opus",
+   "qid": "g2_B_film",
+   "name": "Pour la France",
+   "found": true,
+   "views_60d": 620
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "opus",
+   "qid": "g2_B_film",
+   "name": "Gloria Mundi",
+   "found": true,
+   "views_60d": null
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "opus",
+   "qid": "g2_A_film",
+   "name": "Christmas on Mars",
+   "found": true,
+   "views_60d": 2195
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "opus",
+   "qid": "g2_A_film",
+   "name": "The Nine Lives of Tomas Katz",
+   "found": true,
+   "views_60d": 642
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "opus",
+   "qid": "g2_A_film",
+   "name": "If I Think of Germany at Night",
+   "found": true,
+   "views_60d": null
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "opus",
+   "qid": "g2_A_film",
+   "name": "I Used to Be Darker",
+   "found": true,
+   "views_60d": 1388
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "opus",
+   "qid": "g2_A_film",
+   "name": "Instant Dreams",
+   "found": true,
+   "views_60d": 135
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "fable",
+   "qid": "g2_B_book",
+   "name": "Bessie Smith",
+   "found": true,
+   "views_60d": 29673
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "fable",
+   "qid": "g2_B_book",
+   "name": "Back to Black",
+   "found": true,
+   "views_60d": 60567
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "fable",
+   "qid": "g2_B_book",
+   "name": "Familiar Stranger",
+   "found": true,
+   "views_60d": 1
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "fable",
+   "qid": "g2_B_book",
+   "name": "Loud Black Girls",
+   "found": false
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "fable",
+   "qid": "g2_B_book",
+   "name": "Black Spartacus",
+   "found": true,
+   "views_60d": 0
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "fable",
+   "qid": "g2_A_artist",
+   "name": "MC Yallah",
+   "found": true,
+   "views_60d": 0
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "fable",
+   "qid": "g2_A_artist",
+   "name": "They Hate Change",
+   "found": true,
+   "views_60d": 140
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "fable",
+   "qid": "g2_A_artist",
+   "name": "Dear Laika",
+   "found": true,
+   "views_60d": 0
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "fable",
+   "qid": "g2_A_artist",
+   "name": "OHYUNG",
+   "found": true,
+   "views_60d": 4
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "fable",
+   "qid": "g2_A_artist",
+   "name": "NTsKi",
+   "found": true,
+   "views_60d": 0
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "sonnet",
+   "qid": "g2_A_film",
+   "name": "Christmas on Mars",
+   "found": true,
+   "views_60d": 2195
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "sonnet",
+   "qid": "g2_A_film",
+   "name": "Heartbeats",
+   "found": true,
+   "views_60d": 2245
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "sonnet",
+   "qid": "g2_A_film",
+   "name": "Instant Dreams",
+   "found": true,
+   "views_60d": 135
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "sonnet",
+   "qid": "g2_A_film",
+   "name": "The Nine Lives of Tomas Katz",
+   "found": true,
+   "views_60d": 642
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "sonnet",
+   "qid": "g2_B_artist",
+   "name": "Chelsea Carmichael",
+   "found": true,
+   "views_60d": 15
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "sonnet",
+   "qid": "g2_B_artist",
+   "name": "Elliot Galvin",
+   "found": true,
+   "views_60d": 195
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "sonnet",
+   "qid": "g2_B_artist",
+   "name": "Nduduzo Makhathini",
+   "found": true,
+   "views_60d": 1612
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "sonnet",
+   "qid": "g2_B_artist",
+   "name": "Rob Luft",
+   "found": true,
+   "views_60d": 547
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "sonnet",
+   "qid": "g2_B_artist",
+   "name": "Chip Wickham",
+   "found": true,
+   "views_60d": 0
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "sonnet",
+   "qid": "g2_A_artist",
+   "name": "MC Yallah",
+   "found": true,
+   "views_60d": 0
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "sonnet",
+   "qid": "g2_A_artist",
+   "name": "Monde UFO",
+   "found": true,
+   "views_60d": 0
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "sonnet",
+   "qid": "g2_A_artist",
+   "name": "Sour Widows",
+   "found": true,
+   "views_60d": 1076
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "sonnet",
+   "qid": "g2_A_artist",
+   "name": "They Hate Change",
+   "found": true,
+   "views_60d": 140
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "sonnet",
+   "qid": "g2_A_artist",
+   "name": "Félix Blume",
+   "found": true,
+   "views_60d": 0
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "sonnet",
+   "qid": "g2_A_book",
+   "name": "The Lark Ascending",
+   "found": true,
+   "views_60d": 1106
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "sonnet",
+   "qid": "g2_A_book",
+   "name": "Nobody Ever Asked Me about the Girls",
+   "found": true,
+   "views_60d": 0
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "sonnet",
+   "qid": "g2_A_book",
+   "name": "Kraftwerk",
+   "found": true,
+   "views_60d": 64567
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "sonnet",
+   "qid": "g2_A_book",
+   "name": "London Calling",
+   "found": true,
+   "views_60d": 46226
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "sonnet",
+   "qid": "g2_A_book",
+   "name": "Yoko Ono",
+   "found": true,
+   "views_60d": 326408
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "fable",
+   "qid": "g2_A_film",
+   "name": "Christmas on Mars",
+   "found": true,
+   "views_60d": 2195
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "fable",
+   "qid": "g2_A_film",
+   "name": "If I Think of Germany at Night",
+   "found": true,
+   "views_60d": null
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "fable",
+   "qid": "g2_A_film",
+   "name": "I Used to Be Darker",
+   "found": true,
+   "views_60d": 1388
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "fable",
+   "qid": "g2_A_film",
+   "name": "Instant Dreams",
+   "found": true,
+   "views_60d": 135
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "sonnet",
+   "qid": "g2_B_film",
+   "name": "Finding Jack Charlton",
+   "found": true,
+   "views_60d": 140
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "sonnet",
+   "qid": "g2_B_film",
+   "name": "Becoming Mona",
+   "found": true,
+   "views_60d": 45
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "sonnet",
+   "qid": "g2_B_film",
+   "name": "Broken Keys",
+   "found": true,
+   "views_60d": 168
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "fable",
+   "qid": "g2_B_artist",
+   "name": "Chelsea Carmichael",
+   "found": true,
+   "views_60d": 15
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "fable",
+   "qid": "g2_B_artist",
+   "name": "corto.alto",
+   "found": true,
+   "views_60d": 0
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "fable",
+   "qid": "g2_B_artist",
+   "name": "Nduduzo Makhathini",
+   "found": true,
+   "views_60d": 1612
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "fable",
+   "qid": "g2_B_artist",
+   "name": "Onipa",
+   "found": true,
+   "views_60d": 0
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "fable",
+   "qid": "g2_B_artist",
+   "name": "Elliot Galvin",
+   "found": true,
+   "views_60d": 195
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "sonnet",
+   "qid": "g2_B_book",
+   "name": "Back to Black",
+   "found": true,
+   "views_60d": 60567
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "sonnet",
+   "qid": "g2_B_book",
+   "name": "Familiar Stranger",
+   "found": true,
+   "views_60d": 1
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "sonnet",
+   "qid": "g2_B_book",
+   "name": "Black Spartacus",
+   "found": true,
+   "views_60d": 0
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "sonnet",
+   "qid": "g2_B_book",
+   "name": "Bessie Smith",
+   "found": true,
+   "views_60d": 29673
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "sonnet",
+   "qid": "g2_B_book",
+   "name": "Loud Black Girls",
+   "found": false
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "fable",
+   "qid": "g2_B_film",
+   "name": "Broken Keys",
+   "found": true,
+   "views_60d": 168
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "fable",
+   "qid": "g2_B_film",
+   "name": "Les femmes du square",
+   "found": true,
+   "views_60d": null
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "fable",
+   "qid": "g2_B_film",
+   "name": "Pour la France",
+   "found": true,
+   "views_60d": 620
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "fable",
+   "qid": "g2_B_film",
+   "name": "Gloria Mundi",
+   "found": true,
+   "views_60d": null
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "gpt",
+   "qid": "g2_B_artist",
+   "name": "Chelsea Carmichael",
+   "found": true,
+   "views_60d": 15
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "gpt",
+   "qid": "g2_B_artist",
+   "name": "corto.alto",
+   "found": true,
+   "views_60d": 0
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "gpt",
+   "qid": "g2_B_artist",
+   "name": "Onipa",
+   "found": true,
+   "views_60d": 0
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "gpt",
+   "qid": "g2_B_artist",
+   "name": "Zeitgeist Freedom Energy Exchange",
+   "found": true,
+   "views_60d": 0
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "gpt",
+   "qid": "g2_B_artist",
+   "name": "Allysha Joy",
+   "found": true,
+   "views_60d": 0
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "gpt",
+   "qid": "g2_A_book",
+   "name": "The Raincoats",
+   "found": false
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "gpt",
+   "qid": "g2_A_book",
+   "name": "How To Be Invisible",
+   "found": true,
+   "views_60d": 0
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "gpt",
+   "qid": "g2_A_book",
+   "name": "Kraftwerk",
+   "found": true,
+   "views_60d": 64567
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "gpt",
+   "qid": "g2_A_book",
+   "name": "Nobody Ever Asked Me about the Girls",
+   "found": true,
+   "views_60d": 0
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "gpt",
+   "qid": "g2_A_book",
+   "name": "London Calling",
+   "found": true,
+   "views_60d": 46226
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "gpt",
+   "qid": "g2_A_film",
+   "name": "Heartbeats",
+   "found": true,
+   "views_60d": 2245
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "gpt",
+   "qid": "g2_A_film",
+   "name": "Christmas on Mars",
+   "found": true,
+   "views_60d": 2195
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "gpt",
+   "qid": "g2_A_film",
+   "name": "The Nine Lives of Tomas Katz",
+   "found": true,
+   "views_60d": 642
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "gpt",
+   "qid": "g2_A_film",
+   "name": "If I Think of Germany at Night",
+   "found": true,
+   "views_60d": null
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "gpt",
+   "qid": "g2_A_artist",
+   "name": "OHYUNG",
+   "found": true,
+   "views_60d": 4
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "gpt",
+   "qid": "g2_A_artist",
+   "name": "Lonely Guest",
+   "found": true,
+   "views_60d": 11
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "gpt",
+   "qid": "g2_A_artist",
+   "name": "Dear Laika",
+   "found": true,
+   "views_60d": 0
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "gpt",
+   "qid": "g2_A_artist",
+   "name": "MC Yallah",
+   "found": true,
+   "views_60d": 0
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "gpt",
+   "qid": "g2_A_artist",
+   "name": "They Hate Change",
+   "found": true,
+   "views_60d": 140
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "gpt",
+   "qid": "g2_B_book",
+   "name": "Bessie Smith",
+   "found": true,
+   "views_60d": 29673
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "gpt",
+   "qid": "g2_B_book",
+   "name": "Familiar Stranger",
+   "found": true,
+   "views_60d": 1
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "gpt",
+   "qid": "g2_B_book",
+   "name": "Back to Black",
+   "found": true,
+   "views_60d": 60567
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "gpt",
+   "qid": "g2_B_book",
+   "name": "Loud Black Girls",
+   "found": false
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "gpt",
+   "qid": "g2_B_book",
+   "name": "Empire's Endgame",
+   "found": true,
+   "views_60d": 0
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "composer",
+   "qid": "g2_A_artist",
+   "name": "They Hate Change",
+   "found": true,
+   "views_60d": 140
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "composer",
+   "qid": "g2_A_artist",
+   "name": "NTsKi",
+   "found": true,
+   "views_60d": 0
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "composer",
+   "qid": "g2_A_artist",
+   "name": "Dear Laika",
+   "found": true,
+   "views_60d": 0
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "composer",
+   "qid": "g2_A_artist",
+   "name": "sign crushes motorist",
+   "found": true,
+   "views_60d": 0
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "composer",
+   "qid": "g2_A_artist",
+   "name": "MC Yallah",
+   "found": true,
+   "views_60d": 0
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "gpt",
+   "qid": "g2_B_film",
+   "name": "Broken Keys",
+   "found": true,
+   "views_60d": 168
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "gpt",
+   "qid": "g2_B_film",
+   "name": "Veins of the World",
+   "found": true,
+   "views_60d": 276
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "gpt",
+   "qid": "g2_B_film",
+   "name": "A Bigger World",
+   "found": true,
+   "views_60d": null
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "composer",
+   "qid": "g2_A_film",
+   "name": "Christmas on Mars",
+   "found": true,
+   "views_60d": 2195
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "composer",
+   "qid": "g2_A_film",
+   "name": "Heartbeats",
+   "found": true,
+   "views_60d": 2245
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "composer",
+   "qid": "g2_A_film",
+   "name": "If I Think of Germany at Night",
+   "found": true,
+   "views_60d": null
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "composer",
+   "qid": "g2_A_film",
+   "name": "Audition",
+   "found": true,
+   "views_60d": 73191
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "gemini",
+   "qid": "g2_A_artist",
+   "name": "Lonely Guest",
+   "found": true,
+   "views_60d": 11
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "gemini",
+   "qid": "g2_A_artist",
+   "name": "Noah Yorke",
+   "found": true,
+   "views_60d": 39
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "gemini",
+   "qid": "g2_A_artist",
+   "name": "Dear Laika",
+   "found": true,
+   "views_60d": 0
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "gemini",
+   "qid": "g2_A_artist",
+   "name": "They Hate Change",
+   "found": true,
+   "views_60d": 140
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "gemini",
+   "qid": "g2_A_artist",
+   "name": "Naeem",
+   "found": true,
+   "views_60d": 27
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "gemini",
+   "qid": "g2_A_book",
+   "name": "Kraftwerk",
+   "found": true,
+   "views_60d": 64567
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "gemini",
+   "qid": "g2_A_book",
+   "name": "How To Be Invisible",
+   "found": true,
+   "views_60d": 0
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "gemini",
+   "qid": "g2_A_book",
+   "name": "The Raincoats",
+   "found": false
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "gemini",
+   "qid": "g2_A_book",
+   "name": "Life After Dark",
+   "found": false
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "gemini",
+   "qid": "g2_A_book",
+   "name": "The Lark Ascending",
+   "found": true,
+   "views_60d": 1106
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "composer",
+   "qid": "g2_A_book",
+   "name": "The Raincoats",
+   "found": false
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "composer",
+   "qid": "g2_A_book",
+   "name": "Why Patti Smith Matters",
+   "found": true,
+   "views_60d": 0
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "composer",
+   "qid": "g2_A_book",
+   "name": "How To Be Invisible",
+   "found": true,
+   "views_60d": 0
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "composer",
+   "qid": "g2_A_book",
+   "name": "Nobody Ever Asked Me about the Girls",
+   "found": true,
+   "views_60d": 0
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "composer",
+   "qid": "g2_A_book",
+   "name": "Kraftwerk",
+   "found": true,
+   "views_60d": 64567
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "gemini",
+   "qid": "g2_B_artist",
+   "name": "Chelsea Carmichael",
+   "found": true,
+   "views_60d": 15
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "gemini",
+   "qid": "g2_B_artist",
+   "name": "corto.alto",
+   "found": true,
+   "views_60d": 0
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "gemini",
+   "qid": "g2_B_artist",
+   "name": "Zeitgeist Freedom Energy Exchange",
+   "found": true,
+   "views_60d": 0
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "gemini",
+   "qid": "g2_B_artist",
+   "name": "Onipa",
+   "found": true,
+   "views_60d": 0
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "gemini",
+   "qid": "g2_B_artist",
+   "name": "Nduduzo Makhathini",
+   "found": true,
+   "views_60d": 1612
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "gemini",
+   "qid": "g2_B_film",
+   "name": "Broken Keys",
+   "found": true,
+   "views_60d": 168
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "gemini",
+   "qid": "g2_B_film",
+   "name": "F@ck This Job",
+   "found": true,
+   "views_60d": null
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "gemini",
+   "qid": "g2_B_film",
+   "name": "Les femmes du square",
+   "found": true,
+   "views_60d": null
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "gemini",
+   "qid": "g2_B_book",
+   "name": "Back to Black",
+   "found": true,
+   "views_60d": 60567
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "gemini",
+   "qid": "g2_B_book",
+   "name": "Loud Black Girls",
+   "found": false
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "gemini",
+   "qid": "g2_B_book",
+   "name": "Familiar Stranger",
+   "found": true,
+   "views_60d": 1
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "gemini",
+   "qid": "g2_B_book",
+   "name": "Empire's Endgame",
+   "found": true,
+   "views_60d": 0
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "gemini",
+   "qid": "g2_B_book",
+   "name": "Bessie Smith",
+   "found": true,
+   "views_60d": 29673
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "composer",
+   "qid": "g2_B_book",
+   "name": "Back to Black",
+   "found": true,
+   "views_60d": 60567
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "composer",
+   "qid": "g2_B_book",
+   "name": "Familiar Stranger",
+   "found": true,
+   "views_60d": 1
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "composer",
+   "qid": "g2_B_book",
+   "name": "Loud Black Girls",
+   "found": false
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "composer",
+   "qid": "g2_B_book",
+   "name": "Bessie Smith",
+   "found": true,
+   "views_60d": 29673
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "composer",
+   "qid": "g2_B_book",
+   "name": "Black Spartacus",
+   "found": true,
+   "views_60d": 0
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "composer",
+   "qid": "g2_B_artist",
+   "name": "Chelsea Carmichael",
+   "found": true,
+   "views_60d": 15
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "composer",
+   "qid": "g2_B_artist",
+   "name": "Ryan Porter",
+   "found": true,
+   "views_60d": 1045
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "composer",
+   "qid": "g2_B_artist",
+   "name": "Zeitgeist Freedom Energy Exchange",
+   "found": true,
+   "views_60d": 0
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "composer",
+   "qid": "g2_B_artist",
+   "name": "Onipa",
+   "found": true,
+   "views_60d": 0
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "composer",
+   "qid": "g2_B_artist",
+   "name": "Nduduzo Makhathini",
+   "found": true,
+   "views_60d": 1612
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "gemini",
+   "qid": "g2_A_film",
+   "name": "Christmas on Mars",
+   "found": true,
+   "views_60d": 2195
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "gemini",
+   "qid": "g2_A_film",
+   "name": "If I Think of Germany at Night",
+   "found": true,
+   "views_60d": null
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "gemini",
+   "qid": "g2_A_film",
+   "name": "The Nine Lives of Tomas Katz",
+   "found": true,
+   "views_60d": 642
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "gemini",
+   "qid": "g2_A_film",
+   "name": "Vermilion Souls",
+   "found": false
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "gemini",
+   "qid": "g2_A_film",
+   "name": "I Used to Be Darker",
+   "found": true,
+   "views_60d": 1388
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "composer",
+   "qid": "g2_B_film",
+   "name": "Promises",
+   "found": true,
+   "views_60d": 805
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "composer",
+   "qid": "g2_B_film",
+   "name": "Broken Keys",
+   "found": true,
+   "views_60d": 168
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "composer",
+   "qid": "g2_B_film",
+   "name": "Les femmes du square",
+   "found": true,
+   "views_60d": null
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "composer",
+   "qid": "g2_B_film",
+   "name": "Those Who Work",
+   "found": true,
+   "views_60d": null
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "grok",
+   "qid": "g2_B_artist",
+   "name": "Chip Wickham",
+   "found": true,
+   "views_60d": 0
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "grok",
+   "qid": "g2_B_artist",
+   "name": "Chelsea Carmichael",
+   "found": true,
+   "views_60d": 15
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "grok",
+   "qid": "g2_B_artist",
+   "name": "Onipa",
+   "found": true,
+   "views_60d": 0
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "grok",
+   "qid": "g2_B_artist",
+   "name": "corto.alto",
+   "found": true,
+   "views_60d": 0
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "grok",
+   "qid": "g2_B_artist",
+   "name": "Nduduzo Makhathini",
+   "found": true,
+   "views_60d": 1612
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "grok",
+   "qid": "g2_B_book",
+   "name": "Familiar Stranger",
+   "found": true,
+   "views_60d": 1
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "grok",
+   "qid": "g2_B_book",
+   "name": "Back to Black",
+   "found": true,
+   "views_60d": 60567
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "grok",
+   "qid": "g2_B_book",
+   "name": "Loud Black Girls",
+   "found": false
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "grok",
+   "qid": "g2_B_book",
+   "name": "Bessie Smith",
+   "found": true,
+   "views_60d": 29673
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "grok",
+   "qid": "g2_B_book",
+   "name": "Empire's Endgame",
+   "found": true,
+   "views_60d": 0
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "grok",
+   "qid": "g2_A_artist",
+   "name": "Noah Yorke",
+   "found": true,
+   "views_60d": 39
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "grok",
+   "qid": "g2_A_artist",
+   "name": "NTsKi",
+   "found": true,
+   "views_60d": 0
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "grok",
+   "qid": "g2_A_artist",
+   "name": "MC Yallah",
+   "found": true,
+   "views_60d": 0
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "grok",
+   "qid": "g2_A_artist",
+   "name": "Dear Laika",
+   "found": true,
+   "views_60d": 0
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "grok",
+   "qid": "g2_A_artist",
+   "name": "They Hate Change",
+   "found": true,
+   "views_60d": 140
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "grok",
+   "qid": "g2_A_book",
+   "name": "The Raincoats",
+   "found": false
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "grok",
+   "qid": "g2_A_book",
+   "name": "Kraftwerk",
+   "found": true,
+   "views_60d": 64567
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "grok",
+   "qid": "g2_A_book",
+   "name": "Yoko Ono",
+   "found": true,
+   "views_60d": 326408
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "grok",
+   "qid": "g2_A_book",
+   "name": "Why Patti Smith Matters",
+   "found": true,
+   "views_60d": 0
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "grok",
+   "qid": "g2_A_book",
+   "name": "Nobody Ever Asked Me about the Girls",
+   "found": true,
+   "views_60d": 0
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "grok",
+   "qid": "g2_A_film",
+   "name": "Christmas on Mars",
+   "found": true,
+   "views_60d": 2195
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "grok",
+   "qid": "g2_A_film",
+   "name": "The Nine Lives of Tomas Katz",
+   "found": true,
+   "views_60d": 642
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "grok",
+   "qid": "g2_A_film",
+   "name": "If I Think of Germany at Night",
+   "found": true,
+   "views_60d": null
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "grok",
+   "qid": "g2_A_film",
+   "name": "I Used to Be Darker",
+   "found": true,
+   "views_60d": 1388
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "grok",
+   "qid": "g2_A_film",
+   "name": "Instant Dreams",
+   "found": true,
+   "views_60d": 135
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "deepseek",
+   "qid": "g2_A_artist",
+   "name": "They Hate Change",
+   "found": true,
+   "views_60d": 140
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "deepseek",
+   "qid": "g2_A_artist",
+   "name": "Dear Laika",
+   "found": true,
+   "views_60d": 0
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "deepseek",
+   "qid": "g2_A_artist",
+   "name": "NTsKi",
+   "found": true,
+   "views_60d": 0
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "deepseek",
+   "qid": "g2_A_artist",
+   "name": "Monde UFO",
+   "found": true,
+   "views_60d": 0
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "deepseek",
+   "qid": "g2_A_artist",
+   "name": "sign crushes motorist",
+   "found": true,
+   "views_60d": 0
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "grok",
+   "qid": "g2_B_film",
+   "name": "Broken Keys",
+   "found": true,
+   "views_60d": 168
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "grok",
+   "qid": "g2_B_film",
+   "name": "Veins of the World",
+   "found": true,
+   "views_60d": 276
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "grok",
+   "qid": "g2_B_film",
+   "name": "Gloria Mundi",
+   "found": true,
+   "views_60d": null
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "grok",
+   "qid": "g2_B_film",
+   "name": "Les femmes du square",
+   "found": true,
+   "views_60d": null
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "kimi",
+   "qid": "g2_B_book",
+   "name": "Back to Black",
+   "found": true,
+   "views_60d": 60567
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "kimi",
+   "qid": "g2_B_book",
+   "name": "Familiar Stranger",
+   "found": true,
+   "views_60d": 1
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "kimi",
+   "qid": "g2_B_book",
+   "name": "Bessie Smith",
+   "found": true,
+   "views_60d": 29673
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "kimi",
+   "qid": "g2_B_book",
+   "name": "Black Spartacus",
+   "found": true,
+   "views_60d": 0
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "kimi",
+   "qid": "g2_B_book",
+   "name": "Loud Black Girls",
+   "found": false
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "deepseek",
+   "qid": "g2_A_book",
+   "name": "Kraftwerk",
+   "found": true,
+   "views_60d": 64567
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "deepseek",
+   "qid": "g2_A_book",
+   "name": "I Met the Walrus",
+   "found": true,
+   "views_60d": 459
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "deepseek",
+   "qid": "g2_A_book",
+   "name": "William S. Burroughs and the Cult of Rock 'n' Roll",
+   "found": true,
+   "views_60d": 104
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "deepseek",
+   "qid": "g2_A_book",
+   "name": "The Raincoats",
+   "found": false
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "deepseek",
+   "qid": "g2_A_book",
+   "name": "Why Patti Smith Matters",
+   "found": true,
+   "views_60d": 0
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "deepseek",
+   "qid": "g2_B_film",
+   "name": "Broken Keys",
+   "found": true,
+   "views_60d": 168
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "deepseek",
+   "qid": "g2_B_film",
+   "name": "A Piece of Sky",
+   "found": true,
+   "views_60d": 264
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "deepseek",
+   "qid": "g2_B_film",
+   "name": "Veins of the World",
+   "found": true,
+   "views_60d": 276
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "deepseek",
+   "qid": "g2_B_film",
+   "name": "Red Soil",
+   "found": true,
+   "views_60d": null
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "kimi",
+   "qid": "g2_B_artist",
+   "name": "Chelsea Carmichael",
+   "found": true,
+   "views_60d": 15
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "kimi",
+   "qid": "g2_B_artist",
+   "name": "corto.alto",
+   "found": true,
+   "views_60d": 0
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "kimi",
+   "qid": "g2_B_artist",
+   "name": "Zeitgeist Freedom Energy Exchange",
+   "found": true,
+   "views_60d": 0
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "kimi",
+   "qid": "g2_B_artist",
+   "name": "Rohey",
+   "found": true,
+   "views_60d": 0
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "kimi",
+   "qid": "g2_B_artist",
+   "name": "Cotonete",
+   "found": true,
+   "views_60d": 64
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "kimi",
+   "qid": "g2_A_artist",
+   "name": "OHYUNG",
+   "found": true,
+   "views_60d": 4
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "kimi",
+   "qid": "g2_A_artist",
+   "name": "NTsKi",
+   "found": true,
+   "views_60d": 0
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "kimi",
+   "qid": "g2_A_artist",
+   "name": "3Phaz",
+   "found": true,
+   "views_60d": 0
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "kimi",
+   "qid": "g2_A_artist",
+   "name": "They Hate Change",
+   "found": true,
+   "views_60d": 140
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "kimi",
+   "qid": "g2_A_artist",
+   "name": "Naeem",
+   "found": true,
+   "views_60d": 27
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "deepseek",
+   "qid": "g2_B_artist",
+   "name": "Chelsea Carmichael",
+   "found": true,
+   "views_60d": 15
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "deepseek",
+   "qid": "g2_B_artist",
+   "name": "Muriel Grossmann",
+   "found": true,
+   "views_60d": 0
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "deepseek",
+   "qid": "g2_B_artist",
+   "name": "corto.alto",
+   "found": true,
+   "views_60d": 0
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "deepseek",
+   "qid": "g2_B_artist",
+   "name": "Zeitgeist Freedom Energy Exchange",
+   "found": true,
+   "views_60d": 0
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "deepseek",
+   "qid": "g2_B_artist",
+   "name": "Allysha Joy",
+   "found": true,
+   "views_60d": 0
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "kimi",
+   "qid": "g2_A_film",
+   "name": "Christmas on Mars",
+   "found": true,
+   "views_60d": 2195
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "kimi",
+   "qid": "g2_A_film",
+   "name": "The Nine Lives of Tomas Katz",
+   "found": true,
+   "views_60d": 642
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "kimi",
+   "qid": "g2_A_film",
+   "name": "I Used to Be Darker",
+   "found": true,
+   "views_60d": 1388
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "kimi",
+   "qid": "g2_A_film",
+   "name": "If I Think of Germany at Night",
+   "found": true,
+   "views_60d": null
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "deepseek",
+   "qid": "g2_A_film",
+   "name": "Christmas on Mars",
+   "found": true,
+   "views_60d": 2195
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "deepseek",
+   "qid": "g2_A_film",
+   "name": "The Nine Lives of Tomas Katz",
+   "found": true,
+   "views_60d": 642
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "deepseek",
+   "qid": "g2_A_film",
+   "name": "If I Think of Germany at Night",
+   "found": true,
+   "views_60d": null
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "deepseek",
+   "qid": "g2_A_film",
+   "name": "Audition",
+   "found": true,
+   "views_60d": 73191
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "deepseek",
+   "qid": "g2_A_film",
+   "name": "I Used to Be Darker",
+   "found": true,
+   "views_60d": 1388
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "kimi",
+   "qid": "g2_A_book",
+   "name": "The Raincoats",
+   "found": false
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "kimi",
+   "qid": "g2_A_book",
+   "name": "The History of Bones",
+   "found": true,
+   "views_60d": 0
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "kimi",
+   "qid": "g2_A_book",
+   "name": "The Lark Ascending",
+   "found": true,
+   "views_60d": 1106
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "kimi",
+   "qid": "g2_A_book",
+   "name": "Life After Dark",
+   "found": false
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "kimi",
+   "qid": "g2_A_book",
+   "name": "London Calling",
+   "found": true,
+   "views_60d": 46226
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "deepseek",
+   "qid": "g2_B_book",
+   "name": "Back to Black",
+   "found": true,
+   "views_60d": 60567
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "deepseek",
+   "qid": "g2_B_book",
+   "name": "Loud Black Girls",
+   "found": false
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "deepseek",
+   "qid": "g2_B_book",
+   "name": "Bessie Smith",
+   "found": true,
+   "views_60d": 29673
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "deepseek",
+   "qid": "g2_B_book",
+   "name": "Familiar Stranger",
+   "found": true,
+   "views_60d": 1
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "deepseek",
+   "qid": "g2_B_book",
+   "name": "Fallen Idols",
+   "found": true,
+   "views_60d": 2
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "kimi",
+   "qid": "g2_B_film",
+   "name": "Broken Keys",
+   "found": true,
+   "views_60d": 168
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "kimi",
+   "qid": "g2_B_film",
+   "name": "Veins of the World",
+   "found": true,
+   "views_60d": 276
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "kimi",
+   "qid": "g2_B_film",
+   "name": "Pour la France",
+   "found": true,
+   "views_60d": 620
+  },
+  {
+   "step": "1_qloo_popcap",
+   "model": "kimi",
+   "qid": "g2_B_film",
+   "name": "Gloria Mundi",
+   "found": true,
+   "views_60d": null
+  }
+ ]
+}
