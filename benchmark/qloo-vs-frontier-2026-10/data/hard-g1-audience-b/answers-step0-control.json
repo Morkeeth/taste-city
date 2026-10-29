@@ -488,5 +488,225 @@
    "seconds": 210.9,
    "usd": 0.022877
   }
+ },
+ "glm|hb_leeds": {
+  "qid": "hb_leeds",
+  "text": "1. Jumbo Records - Legendary independent record shop; essential UK jazz vinyl racks.\n2. The Wardrobe - Intimate venue programming soul, funk and jazz live.\n3. The HiFi Club - Small club with jazz, soul and funk nights.\n4. Crash Records - Long-running independent shop stocking new jazz releases.\n5. Oporto - Call Lane basement bar hosting live bands and DJs.",
+  "meta": {
+   "model": [
+    "z-ai-glm-5-3"
+   ],
+   "seconds": 31.0,
+   "usd": 0.016066775
+  }
+ },
+ "glm|hb_porto": {
+  "qid": "hb_porto",
+  "text": "1. Disco México - serious vinyl shop stocking UK jazz and leftfield beats\n2. Salão Brazil - intimate room hosting jazz and improvised live gigs\n3. Zero - indie cinema-café screening arthouse films near Cordoaria\n4. Maus Hábitos - rooftop spot for DJ sets and live music\n5. Café Céleste - arts-district café amid the Bombarda galleries",
+  "meta": {
+   "model": [
+    "z-ai-glm-5-3"
+   ],
+   "seconds": 54.6,
+   "usd": 0.027753375
+  }
+ },
+ "glm|hb_lyon": {
+  "qid": "hb_lyon",
+  "text": "1. Silence - indie vinyl shop; strong jazz, soul and afrobeat racks\n2. Le Sunshine - vinyl DJ bar spinning afrobeat, jazz and soul\n3. Chez Aline - natural-wine canteen where the scene drinks between gigs\n4. L'Antiquaire - jazz bar with live sessions, vinyl and late nights\n5. Le Tatio Expiatorio - quirky listening bar; DJs dig soul, funk, tropicália",
+  "meta": {
+   "model": [
+    "z-ai-glm-5-3"
+   ],
+   "seconds": 215.8,
+   "usd": 0.100043175
+  }
+ },
+ "glm|hb_valencia": {
+  "qid": "hb_valencia",
+  "text": "1. Wurlitzer Ballroom - Soul and funk-fuelled live gigs on Sueca itself.\n2. Estudio 64 - Basement club on Sueca for hip-hop, soul and bass nights.\n3. Ubik Café - Café-bookshop with vinyl, poetry nights and tiny live sets.\n4. Loco Club - Raw, sweaty small venue for loud independent live music.\n5. Freak Impulse Records - Independent record shop for pre-gig vinyl digging nearby.",
+  "meta": {
+   "model": [
+    "z-ai-glm-5-3"
+   ],
+   "seconds": 216.9,
+   "usd": 0.11852925
+  }
+ },
+ "qwen|hb_valencia": {
+  "qid": "hb_valencia",
+  "text": "1. Café Berlín - intimate live jazz, DJs and late-night listening.\n2. Amsterdam Discos - curated vinyl, strong jazz and groove crates.\n3. Oldies Records - secondhand vinyl finds spanning jazz, funk and soul.\n4. Loco Club - small Ruzafa venue with intimate concerts and club nights.\n5. 16 Tonelados - compact room for energetic live sets and club nights.",
+  "meta": {
+   "model": [
+    "qwen-3-8-max"
+   ],
+   "seconds": 292.7,
+   "usd": 0.08351
+  }
+ },
+ "nemotron|hb_leeds": {
+  "qid": "hb_leeds",
+  "text": "1. Rough Trade Leeds - curated jazz, experimental vinyl selection  \n2. The Wardrobe - intimate gigs featuring contemporary UK jazz  \n3. Everyman Leeds - boutique cinema with music‑documentary programming  \n4. Headrow House - vinyl listening sessions, eclectic bar atmosphere  \n5. Laynes Espresso - specialty coffee, relaxed vibe for creative minds",
+  "meta": {
+   "model": [
+    "nvidia-nemotron-3-ultra-550b-a55b"
+   ],
+   "seconds": 41.3,
+   "usd": 0.004893125
+  }
+ },
+ "nemotron|hb_ghent": {
+  "qid": "hb_ghent",
+  "text": "1. Vooruit - historic venue programming jazz & experimental acts  \n2. Sphinx Cinema - arthouse screenings with curated soundtrack events  \n3. Trefpunt - intimate club hosting live jazz & improv  \n4. Plank - vinyl shop specializing in UK jazz & electronic  \n5. De Klinker - café with turntable, jazz listening sessions",
+  "meta": {
+   "model": [
+    "nvidia-nemotron-3-ultra-550b-a55b"
+   ],
+   "seconds": 42.6,
+   "usd": 0.004623125
+  }
+ },
+ "nemotron|hb_lyon": {
+  "qid": "hb_lyon",
+  "text": "1. Le Sonic – intimate venue for contemporary jazz and improv  \n2. Utopia – independent cinema programming avant‑garde film & live scores  \n3. Le Disquaire (Rue des Capucins) – curated vinyl of UK jazz & electronic  \n4. Le Vinyle Bar (Rue de la Barre) – listening bar with high‑fi turntables  \n5. Café de la Place (Place de la Croix‑Rousse) – relaxed spot with local jazz sessions",
+  "meta": {
+   "model": [
+    "nvidia-nemotron-3-ultra-550b-a55b"
+   ],
+   "seconds": 64.5,
+   "usd": 0.008308125000000001
+  }
+ },
+ "nemotron|hb_porto": {
+  "qid": "hb_porto",
+  "text": "Disco 33 - curated jazz & experimental vinyl selection  \nMaus Hábitos - multidisciplinary venue with live jazz nights  \nCinema Trindade - art‑house cinema showing jazz documentaries  \nCafé Progresso - historic café hosting intimate jazz jams  \nMau Mau - basement club with high‑fi listening sessions",
+  "meta": {
+   "model": [
+    "nvidia-nemotron-3-ultra-550b-a55b"
+   ],
+   "seconds": 42.9,
+   "usd": 0.006235625
+  }
+ },
+ "nemotron|hb_valencia": {
+  "qid": "hb_valencia",
+  "text": "1. Jimmy Glass Jazz Bar - intimate live jazz nights.  \n2. Discos Raros - curated vinyl, jazz, funk, soul.  \n3. Filmoteca de València - indie cinema, jazz documentaries.  \n4. L'Ubik Café - relaxed cafe with weekly jazz sessions.  \n5. Bar La Casa del Vinilo - listening bar, deep jazz.",
+  "meta": {
+   "model": [
+    "nvidia-nemotron-3-ultra-550b-a55b"
+   ],
+   "seconds": 25.1,
+   "usd": 0.003998125
+  }
+ },
+ "minimax|hb_porto": {
+  "qid": "hb_porto",
+  "text": "1. Café Candelabro - Arts-district cafe-bar with live jazz and soul sessions\n2. Mathilda - Intimate cafe favored by Porto's creative music-loving community\n3. Combo Café - Cafe hosting rotating DJ sets and intimate live gigs\n4. Maus Hábitos - Underground venue championing jazz, soul and electronic experimentation\n5. Cinema Passos Manuel - Independent cinema screening auteur, jazz and world-music documentaries",
+  "meta": {
+   "model": [
+    "minimax-m3-preview"
+   ],
+   "seconds": 157.0,
+   "usd": 0.004030380000000001
+  }
+ },
+ "glm|hb_ghent": {
+  "qid": "hb_ghent",
+  "text": "1. De Damberd - Jazz café on the square itself; weekly live jams\n2. Hot Club de Gent - Intimate cellar jazz club steps away on Hoogpoort\n3. Kinky Star - Tiny Vlasmarkt venue for beats, grooves and DJs\n4. Studio Skoop - Independent arthouse cinema a short walk away\n5. Handelsbeurs - Historic hall programming jazz, soul and global sounds",
+  "meta": {
+   "model": [
+    "z-ai-glm-5-3"
+   ],
+   "seconds": 145.7,
+   "usd": 0.07945867499999999
+  }
+ },
+ "qwen|hb_ghent": {
+  "qid": "hb_ghent",
+  "text": "1. Cinema Sphinx - independent arthouse cinema directly on Vrijdagmarkt.\n2. Music Mania Records - vinyl shop stocking jazz, soul and electronics.\n3. Café Damberd - cosy square café with jazz-friendly programming.\n4. Kinky Star - intimate venue for adventurous live music.\n5. Charlatan - late-night music bar and small stage.",
+  "meta": {
+   "model": [
+    "qwen-3-8-max"
+   ],
+   "seconds": 193.5,
+   "usd": 0.05323
+  }
+ },
+ "minimax|hb_leeds": {
+  "qid": "hb_leeds",
+  "text": "1. Belgrave Music Hall - Hosts jazz and eclectic live music nights\n2. Wharf Chambers - Cooperative venue for jazz and experimental music\n3. The Bowery - Intimate basement venue hosting live jazz\n4. Crash Records - Independent shop with strong jazz vinyl selection\n5. Laynes Espresso - Indie cafe popular with the music crowd",
+  "meta": {
+   "model": [
+    "minimax-m3-preview"
+   ],
+   "seconds": 101.8,
+   "usd": 0.00263628
+  }
+ },
+ "minimax|hb_ghent": {
+  "qid": "hb_ghent",
+  "text": "1. Hot Club de Gand - intimate live jazz and improvised music venue\n2. Cinema Sphinx - independent art-house cinema for thoughtful screenings\n3. Kinky Star Records - independent shop for jazz and experimental vinyl\n4. Kaffee Damast - listening-friendly cafe with curated background sounds\n5. Trefpunt - cafe combining indie film screenings and music",
+  "meta": {
+   "model": [
+    "minimax-m3-preview"
+   ],
+   "seconds": 93.0,
+   "usd": 0.00209088
+  }
+ },
+ "minimax|hb_valencia": {
+  "qid": "hb_valencia",
+  "text": "1. Wah Wah Records - independent shop specializing in jazz, soul, and funk\n2. Black Note Club - intimate Valencia jazz club hosting live performances\n3. Sala Russafa - independent cinema screening arthouse and auteur films\n4. Radio City - small live music venue for jazz and alternative acts\n5. Ubik Café - literary café with relaxed listening atmosphere",
+  "meta": {
+   "model": [
+    "minimax-m3-preview"
+   ],
+   "seconds": 416.0,
+   "usd": 0.00188136
+  }
+ },
+ "qwen|hb_leeds": {
+  "qid": "hb_leeds",
+  "text": "1. The Wardrobe - small venue for live and club music.\n2. The Darkroom - compact basement for energetic dancefloor sounds.\n3. Crash Records - jazz, funk and club ready vinyl.\n4. Jumbo Records - independent records for crate digging DJs.\n5. Laynes Espresso - independent cafe right on Call Lane.",
+  "meta": {
+   "model": [
+    "qwen-3-8-max"
+   ],
+   "seconds": 266.4,
+   "usd": 0.0755975
+  }
+ },
+ "qwen|hb_porto": {
+  "qid": "hb_porto",
+  "text": "1. Matéria Prima - Great shop for jazz, broken beat and vinyl.\n2. Maus Hábitos - Intimate venue for adventurous live music and DJs.\n3. Plano B - Leftfield club nights and dancefloor energy.\n4. Cinema Trindade - Independent cinema for post-gig cultural stops.\n5. Café de Ferro - Vinyl-friendly café/bar for relaxed listening.",
+  "meta": {
+   "model": [
+    "qwen-3-8-max"
+   ],
+   "seconds": 306.4,
+   "usd": 0.08429
+  }
+ },
+ "minimax|hb_lyon": {
+  "qid": "hb_lyon",
+  "text": "1. Hot Club de Lyon - legendary intimate jazz club for connoisseurs.\n2. Ninkasi Kafé (Croix-Rousse) - live music bar with eclectic programming.\n3. Théâtre de la Croix-Rousse - contemporary jazz and creative music performances.\n4. Le Sathonay - café-bar with terrace on Place Sathonay.\n5. Octopussy - independent record shop for jazz and eclectic music.",
+  "meta": {
+   "model": [
+    "minimax-m3-preview"
+   ],
+   "seconds": 405.4,
+   "usd": 0.017410679999999998
+  }
+ },
+ "qwen|hb_lyon": {
+  "qid": "hb_lyon",
+  "text": "1. Danger House - jazz, funk and underground vinyl digging.\n2. Rock and Roll - soulful second-hand records beyond rock focus.\n3. Le Farmer - intimate gigs and DJ sets, relaxed.\n4. Cinéma Saint-Denis - independent cinema close to the square.\n5. Café des Fédérations - neighbourhood cafe for easy meetups.",
+  "meta": {
+   "model": [
+    "qwen-3-8-max"
+   ],
+   "seconds": 410.7,
+   "usd": 0.11860749999999999
+  }
  }
 }

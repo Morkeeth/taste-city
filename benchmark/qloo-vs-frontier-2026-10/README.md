@@ -2,7 +2,7 @@
 
 Short answer: **not at writing taste advice, yes at finding real places near an address.**
 
-We first asked whether Qloo taste data makes a frontier model give better advice. Against a fair control it did not. Then we asked a question with a checkable answer: name real places within 500 m of an address in a smaller city. On that task, one change, Qloo's location filter, lifted every model we tested to the same high level.
+We first asked whether Qloo taste data makes a frontier model give better advice. Against a fair control it did not. Then we asked a question with a checkable answer: name real places within 500 m of an address in a smaller city. On that task, one change, Qloo's location filter, lifted all 13 frontier models we tested to the same high level.
 
 Everything here was run on 29 October 2026. The code in `harness/` is the code that produced these numbers, with only private paths and Qloo IDs removed.
 
@@ -18,24 +18,30 @@ Everything here was run on 29 October 2026. The code in `harness/` is the code t
 
 | Model | Step 0 (no Qloo) | Step 1 (Qloo location filter) | Questions better / same / worse | Sign test p |
 |---|---|---|---|---|
+| GLM 5.3 (Venice) | 43% (32/75) | 87% (65/75) | 14 / 1 / 0 | 0.0001 |
+| MiniMax M3 Preview (Venice) | 32% (24/75) | 85% (64/75) | 15 / 0 / 0 | 0.0001 |
 | Cursor Composer 2.5 | 39% (29/75) | 83% (62/75) | 13 / 2 / 0 | 0.0002 |
 | Claude Sonnet 5.5 | 54% (44/82) | 85% (64/75) | 12 / 3 / 0 | 0.0005 |
 | Kimi K3.1 Pro | 49% (37/75) | 83% (62/75) | 13 / 1 / 1 | 0.0018 |
 | DeepSeek V4 Pro | 48% (36/75) | 84% (63/75) | 12 / 2 / 1 | 0.0034 |
-| Claude Fable 5.1 | 68% (51/75) | 88% (66/75) | 9 / 4 / 2 | 0.065 |
-| Gemini 4 Argon | 61% (46/75) | 85% (64/75) | 9 / 2 / 4 | 0.27 |
-| GPT-6.1 | 73% (55/75) | 85% (64/75) | 7 / 4 / 4 | 0.55 |
-| Claude Opus 5.5 | 77% (58/75) | 87% (65/75) | 7 / 6 / 2 | 0.18 |
-| Grok 4.7 | 83% (50/60) | 87% (65/75) | 7 / 6 / 2 | 0.18 |
+| NVIDIA Nemotron 3 Ultra (Venice) | 43% (28/65) | 81% (61/75) | 12 / 2 / 1 | 0.0034 |
+| Claude Fable 5.1 | 68% (51/75) | 88% (66/75) | 9 / 4 / 2 | 0.0654 |
+| Qwen 3.8 Max (Venice) | 52% (39/75) | 81% (61/75) | 9 / 4 / 2 | 0.0654 |
+| Grok 4.7 | 83% (50/60) | 87% (65/75) | 7 / 6 / 2 | 0.1797 |
+| Claude Opus 5.5 | 77% (58/75) | 87% (65/75) | 7 / 6 / 2 | 0.1797 |
+| Gemini 4 Argon | 61% (46/75) | 85% (64/75) | 9 / 2 / 4 | 0.2668 |
+| GPT-6.1 | 73% (55/75) | 85% (64/75) | 7 / 4 / 4 | 0.5488 |
 
 Percentages are the share of named places verified within 500 m. Denominators differ when a model named more or fewer than 5 places, or when an answer was not a parseable list. The p values come from a two-sided sign test over the 15 questions. Source: `data/hard-g1/result-combined-15-questions.json`.
 
 **What it shows:**
-- With Qloo's location filter, all 9 models end at 83 to 88%.
-- The gain is clear for 4 models (Composer, Sonnet, Kimi, DeepSeek), whose own local knowledge is weakest.
-- The strongest models were already at 68 to 83%, so their gain is smaller and not significant with 15 questions.
+- With Qloo's location filter, all 13 models end at 81 to 88%.
+- The gain is clear for 7 models (p < 0.05: GLM, MiniMax, Composer, Sonnet, Kimi, DeepSeek, Nemotron), whose own local knowledge is weakest.
+- The strongest models were already at 68 to 83% (Fable, GPT-6.1, Opus, Grok), so their gain is smaller and not significant with 15 questions.
 - Qloo works as a floor: every model ends up at the same level.
-- Audience B replicates audience A (`data/hard-g1-audience-b/result-audience-b.json`).
+- Audience B replicates audience A.
+
+Four of the models (GLM 5.3, Qwen 3.8 Max, MiniMax M3 Preview, Nemotron 3 Ultra) were **run on Venice** (api.venice.ai, OpenAI-compatible), with Venice's own system prompt switched off so every model got the same prompt. Venice ids: `z-ai-glm-5-3`, `qwen-3-8-max`, `minimax-m3-preview`, `nvidia-nemotron-3-ultra-550b-a55b`.
 
 **Dead end, reported:** keeping only the model's own picks that Qloo also lists. Qloo's list matches only 9 to 21 of each model's 50 picks, so this filter throws away as many real nearby places as it keeps (`data/hard-g1/hybrid-filter-dead-end.json`).
 
@@ -58,9 +64,23 @@ We gave each model 20 lesser-known London places and 20 lesser-known artists fro
 
 So frontier models do not make places up here; they lack coverage. That is the gap Qloo filled in Result 1. Source: `data/knowledge-probe/`.
 
-## Result 4: lesser-known artists, films and books
+## Result 4: lesser-known artists, films and books (null)
 
-Same two steps on lesser-known artists, films and books, with Qloo's popularity filter as the one change, checked against MusicBrainz, Wikidata, Open Library and Wikipedia views. Still being scored on 29 October; it will be added in a follow-up commit.
+Same two steps, with Qloo's popularity filter (`filter.popularity.max 0.5`) as the one change. The task: 6 questions, 2 audiences times artists, films and books, run on the first 9 models. Real means a MusicBrainz exact match for artists, a Wikidata film entry, or an Open Library title match. Lesser-known means under 30,000 English Wikipedia views in 60 days, or no article.
+
+| Model | Step 0: real and lesser-known | Step 1 with Qloo popularity cap |
+|---|---|---|
+| Cursor Composer 2.5 | 23/30 | 23/30 |
+| DeepSeek V4 Pro | 25/30 | 24/30 |
+| Claude Fable 5.1 | 25/30 | 23/30 |
+| Gemini 4 Argon | 24/30 | 22/30 |
+| GPT-6.1 | 26/30 | 22/30 |
+| Grok 4.7 | 25/30 | 24/30 |
+| Kimi K3.1 Pro | 24/30 | 23/30 |
+| Claude Opus 5.5 | 25/30 | 24/30 |
+| Claude Sonnet 5.5 | 25/46 | 22/30 |
+
+**No model improves; most drop by 1 to 4.** Frontier models already name real lesser-known works well. Qloo's popularity score is not fame: its film list at 0.5 or below included *City of God*. Source: `data/g2-live/`.
 
 ## Limits
 
@@ -74,7 +94,7 @@ Same two steps on lesser-known artists, films and books, with Qloo's popularity 
 
 ## Rerun it
 
-You need a Qloo API key (`QLOO_API_KEY`), the `claude` and `codex` CLIs for the subscription models, `cursor-agent` for Composer, and `OPENROUTER_API_KEY` for Gemini, Grok, Kimi and DeepSeek. All lookups to OpenStreetMap, Wikidata, MusicBrainz and Open Library are free and paced to their usage policies, at most one request per second.
+You need a Qloo API key (`QLOO_API_KEY`), the `claude` and `codex` CLIs for the subscription models, `cursor-agent` for Composer, `OPENROUTER_API_KEY` for Gemini, Grok, Kimi and DeepSeek, and a Venice key for GLM, Qwen, MiniMax and Nemotron (the harness reads it from the macOS keychain; adapt `models._venice_key`). All lookups to OpenStreetMap, Wikidata, MusicBrainz and Open Library are free and paced to their usage policies, at most one request per second.
 
 ```
 cd harness
@@ -85,11 +105,12 @@ python3 hard.py answer 1_qloo_location
 python3 hard.py score 0_control && python3 hard.py score 1_qloo_location
 python3 overpass_fetch.py   # named OpenStreetMap features within 1.5 km of each point
 python3 resolve.py          # Overpass second pass
-python3 hardb.py context && python3 hardb.py freeze && python3 hardb.py answer 0_control && python3 hardb.py answer 1_qloo_location && python3 hardb.py score
+python3 hardb.py context && python3 hardb.py freeze && python3 hardb.py answer 0_control && python3 hardb.py answer 1_qloo_location
+python3 combined.py         # the 15-question table above
 ```
 
 Fresh Qloo results and newer models will give different numbers. The protocol is what is frozen.
 
-**Cost of the 29 October run:** 35 Qloo calls on the hackathon key; $2.25 of API spend for Gemini, Grok, Kimi and DeepSeek through OpenRouter (`data/api-spend.jsonl`); Claude, GPT and Composer ran on subscriptions.
+**Cost of the 29 October run:** 35 Qloo calls on the hackathon key; $2.59 through OpenRouter for Gemini, Grok, Kimi and DeepSeek (`data/api-spend.jsonl`); $3.15 on Venice for GLM, Qwen, MiniMax and Nemotron (`data/venice-spend.jsonl`, one first test call estimated from list price); Claude, GPT and Composer ran on subscriptions.
 
 OpenStreetMap data © OpenStreetMap contributors, ODbL.

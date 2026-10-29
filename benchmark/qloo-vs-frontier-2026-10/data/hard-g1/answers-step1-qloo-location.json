@@ -978,5 +978,445 @@
    "seconds": 110.1,
    "usd": 0.03491
   }
+ },
+ "glm|h_lyon": {
+  "qid": "h_lyon",
+  "text": "1. Aquarium Ciné-Café - Independent cinema café with film screenings, locals' vibe.\n2. LA PENTE - Artistic, unique, inclusive café matching alternative crowd.\n3. Comptoir Sauvage - Vegan-friendly dessert café for foodie listeners.\n4. Le Terrier du Lapin Blanc - Cosy wine and cocktail café-bar.\n5. Le Sacré Cœur des Pentes - Trendy tapas bar in creative Croix-Rousse.",
+  "meta": {
+   "model": [
+    "z-ai-glm-5-3"
+   ],
+   "seconds": 6.1,
+   "usd": 0.005219
+  }
+ },
+ "glm|h_leeds": {
+  "qid": "h_leeds",
+  "text": "1. Crash Records - Independent record shop; essential vinyl for Radiohead devotees\n2. Wharf Chambers - DIY co-op venue hosting underground, leftfield gigs\n3. Colours May Vary - Quirky independent shop stocking vinyl and art\n4. The HiFi Club - Intimate venue; soul, funk, hip-hop nights\n5. Everyman Leeds - Boutique independent cinema, stylish programming",
+  "meta": {
+   "model": [
+    "z-ai-glm-5-3"
+   ],
+   "seconds": 7.9,
+   "usd": 0.006068175
+  }
+ },
+ "glm|h_bristol": {
+  "qid": "h_bristol",
+  "text": "1. The Bell - Vinyl culture pub; crate-digging Radiohead fans feel at home.\n2. Lakota - Small arts venue hosting leftfield electronic and hip-hop nights.\n3. The Croft - Tiny Stokes Croft stage for experimental, upcoming gigs.\n4. Cafe Kino - Independent inclusive cafe; perfect pre-gig Björk-fan hangout.\n5. The Love Inn - Late-night DJs and pop-ups suit eclectic alt tastes.",
+  "meta": {
+   "model": [
+    "z-ai-glm-5-3"
+   ],
+   "seconds": 8.7,
+   "usd": 0.006645075
+  }
+ },
+ "glm|h_ghent": {
+  "qid": "h_ghent",
+  "text": "1. Hot Club Gent - intimate live jazz venue hidden in a courtyard\n2. Sphinx Cinema and Cafe - arthouse independent cinema with cosy bar\n3. Cocteau - experimental culture venue hosting eclectic concerts and club nights\n4. Roes - small DJ bar for adventurous electronic listening nights\n5. De Parkiet - quiet riverside spirits cafe for post-gig conversations",
+  "meta": {
+   "model": [
+    "z-ai-glm-5-3"
+   ],
+   "seconds": 22.5,
+   "usd": 0.0138715
+  }
+ },
+ "glm|h_paris19e": {
+  "qid": "h_paris19e",
+  "text": "1. Yoyaku - Minimalist courtyard record shop beloved by crate-digging electronic heads.\n2. Point Éphémère - Intimate canal-side venue for experimental, indie and rap nights.\n3. MK2 Cinémas - Independent arthouse cinema; auteur programming for music-literate filmgoers.\n4. La Rotonde Stalingrad - Industrial-chic listening bar; DJ sets beside the canal.\n5. KOKO Coffee & Matcha - Tranquil canal cafe; specialty coffee for pre-gig calm.",
+  "meta": {
+   "model": [
+    "z-ai-glm-5-3"
+   ],
+   "seconds": 17.6,
+   "usd": 0.012029
+  }
+ },
+ "glm|h_manchester": {
+  "qid": "h_manchester",
+  "text": "1. Piccadilly Records - Independent record shop; crate-digging heaven for Björk devotees.\n2. Band on the Wall - Small legendary venue; eclectic bookings suit adventurous listeners.\n3. Night & Day Cafe - Intimate gig café; understated cult appeal, Radiohead-esque.\n4. The Fitzgerald - Speakeasy with vinyl-era sound; nearest listening bar.\n5. Ezra & Gil - Independent café; organic, industrial, art-led atmosphere.",
+  "meta": {
+   "model": [
+    "z-ai-glm-5-3"
+   ],
+   "seconds": 9.1,
+   "usd": 0.007119075
+  }
+ },
+ "glm|h_valencia": {
+  "qid": "h_valencia",
+  "text": "1. Sala Russafa - Artistic performing arts venue, suits experimental, boundary-pushing music fans.\n2. Café Mercedes Jazz - Small lively jazz cafe; improvisation appeals to Radiohead and Björk listeners.\n3. Jerusalem Pop&Rock - LGBTQ+ friendly pop-rock venue matching alternative, indie-leaning tastes.\n4. Ubik Café Cafetería Librería - Independent bookshop-cafe hybrid; classic, thoughtful, creative atmosphere.\n5. Bluebell Coffee Roasters - Aesthetic independent specialty coffee spot for design-conscious artistic crowds.",
+  "meta": {
+   "model": [
+    "z-ai-glm-5-3"
+   ],
+   "seconds": 8.3,
+   "usd": 0.006842075
+  }
+ },
+ "glm|h_antwerp": {
+  "qid": "h_antwerp",
+  "text": "1. Jones & Co - Live jazz, inclusive vibe suits adventurous listeners.\n2. Amici - Coffee & Books - Late-night cafe with books; cerebral, indie-minded hangout.\n3. De Vagant - Quiet spirits and board games; listening-bar intimacy.\n4. Beestenbos - Quirky small-plates cocktail spot, independent character.\n5. Spritz - Vegan-friendly, relaxed terrace; conscious alternative crowd energy.",
+  "meta": {
+   "model": [
+    "z-ai-glm-5-3"
+   ],
+   "seconds": 14.7,
+   "usd": 0.010591825
+  }
+ },
+ "glm|h_marseille": {
+  "qid": "h_marseille",
+  "text": "1. Videodrome 2 - Arthouse cinema plus record shop; perfect double fit\n2. Le Molotov - Underground music bar; raw, alternative, artist-forward crowd\n3. Espace Julien - Eclectic venue programming spanning rock, electro, hip-hop\n4. Ummagumma - Vinyl-soundtracked rock bar with listening-bar energy\n5. Epicerie L'IDEAL - Artistic cafe-epicerie favoured by the creative set",
+  "meta": {
+   "model": [
+    "z-ai-glm-5-3"
+   ],
+   "seconds": 43.9,
+   "usd": 0.026828075000000003
+  }
+ },
+ "qwen|h_leeds": {
+  "qid": "h_leeds",
+  "text": "1. Crash Records Leeds - Independent record shop and central music hub.\n2. Wharf Chambers - DIY urban-fringe venue suits experimental live nights.\n3. The HiFi Club - Destination listening bar with hard liquor and music focus.\n4. Everyman Leeds - Stylish cinema for independent and art-house screenings.\n5. Kapow Coffee - Casual independent cafe for relaxed cultural meetups.",
+  "meta": {
+   "model": [
+    "qwen-3-8-max"
+   ],
+   "seconds": 63.6,
+   "usd": 0.0219125
+  }
+ },
+ "qwen|h_lyon": {
+  "qid": "h_lyon",
+  "text": "1. Aquarium Ciné-Café - Local film screenings, café intimacy, independent cultural programming.\n2. LA PENTE - Artistic, unique, inclusive space for alternative creative gatherings.\n3. Le Terrier du Lapin Blanc - Wine, cocktails, relaxed drinks-only listening-bar atmosphere.\n4. Les Valseuses - Rum selection, bar service, casually adventurous evening meeting place.\n5. Comptoir Sauvage - Vegan desserts, intimate café for creatively inclined listeners.",
+  "meta": {
+   "model": [
+    "qwen-3-8-max"
+   ],
+   "seconds": 63.4,
+   "usd": 0.023567499999999998
+  }
+ },
+ "glm|h_porto": {
+  "qid": "h_porto",
+  "text": "1. Pensão Favorita - Funky local café culture; artsy, leftfield gallery-district anchor.\n2. Largo da Maternidade - Park hosting street music; spontaneous live sessions.\n3. Bar Aduela - Intimate local-culture wine bar; authentic, unpretentious atmosphere.\n4. Espaço 77 - Trendy Cedofeita bar; bustling alternative late-night energy.\n5. Cafe Lusitano - Social café-bar drawing lively, like-minded partygoers.",
+  "meta": {
+   "model": [
+    "z-ai-glm-5-3"
+   ],
+   "seconds": 107.8,
+   "usd": 0.06214825
+  }
+ },
+ "qwen|h_bristol": {
+  "qid": "h_bristol",
+  "text": "1. Lakota - arts-focused bar and venue for adventurous live music.\n2. The Croft - intimate small venue suited experimental alternative acts.\n3. The Bell - vinyl-culture pub for listening and late discovery.\n4. Cosies - loud underground nightlife matching experimental alternative tastes.\n5. Cafe Kino - relaxed cafe near Stokes Croft cultural circuit.",
+  "meta": {
+   "model": [
+    "qwen-3-8-max"
+   ],
+   "seconds": 33.8,
+   "usd": 0.012677500000000001
+  }
+ },
+ "qwen|h_ghent": {
+  "qid": "h_ghent",
+  "text": "1. Sphinx Cinema and Cafe - Independent cinema and cafe with onsite bar.\n2. Hot Club Gent - Hidden courtyard nightlife for intimate listening sessions.\n3. NTGent - Historic arts stage for adventurous live performances.\n4. Cocteau - Cultural arts ballroom for intimate eclectic performances.\n5. Tolhuisje Gent - Local cafe with relaxed creative riverside character.",
+  "meta": {
+   "model": [
+    "qwen-3-8-max"
+   ],
+   "seconds": 81.5,
+   "usd": 0.0279375
+  }
+ },
+ "qwen|h_manchester": {
+  "qid": "h_manchester",
+  "text": "1. Piccadilly Records - Independent record shop fitting eclectic avant-garde tastes.\n2. Band on the Wall - Intimate live venue for adventurous music.\n3. Night & Day Cafe - Cafe with live events, casual discovery.\n4. Tooth and Talon - Music-system bar for listening and drinks.\n5. Ezra & Gil - Organic vegetarian cafe with industrial atmosphere.",
+  "meta": {
+   "model": [
+    "qwen-3-8-max"
+   ],
+   "seconds": 28.9,
+   "usd": 0.0115975
+  }
+ },
+ "qwen|h_porto": {
+  "qid": "h_porto",
+  "text": "1. Pensão Favorita - Funky cafe culture near Crystal Palace gardens.\n2. Largo da Maternidade - Park square with local street music.\n3. Espaço 77 - Trendy spirits spot with bustling social energy.\n4. NOVA ROTA SUBLIMA - Craft beer and wine community bar.\n5. Bar Aduela - Local culture, food, wine, intimate mood.",
+  "meta": {
+   "model": [
+    "qwen-3-8-max"
+   ],
+   "seconds": 73.9,
+   "usd": 0.02629
+  }
+ },
+ "qwen|h_antwerp": {
+  "qid": "h_antwerp",
+  "text": "1. Jones & Co - Jazz music and LGBTQ+ vibe fit adventurous listeners.\n2. Amici - Coffee & Books - Bookish café with late-night, historic-centre independent feel.\n3. Beestenbos - Cocktails and small plates feel intimate, curious, slightly alternative.\n4. Spritz - Vegan lasagna and outdoor seating align with progressive tastes.\n5. De Vagant - Spirits, board games, dogs allowed create relaxed indie pub feel.",
+  "meta": {
+   "model": [
+    "qwen-3-8-max"
+   ],
+   "seconds": 67.6,
+   "usd": 0.02353
+  }
+ },
+ "qwen|h_valencia": {
+  "qid": "h_valencia",
+  "text": "1. Sala Russafa - Intimate artistic venue for adventurous live performances.\n2. SPLENDINI BAR I DISCOS - Relaxed bar with disco and listening vibes.\n3. Xtra Lrge Playground Valencia - Electronic music spot for experimental pop fans.\n4. Café Mercedes Jazz - Lively nearby café with informal music feel.\n5. Jerusalem Pop&Rock - Queer-friendly pop-rock venue for indie dancing.",
+  "meta": {
+   "model": [
+    "qwen-3-8-max"
+   ],
+   "seconds": 71.8,
+   "usd": 0.0261175
+  }
+ },
+ "qwen|h_paris19e": {
+  "qid": "h_paris19e",
+  "text": "1. Point Éphémère - Canal-side small venue for adventurous live music.\n2. MK2 Cinémas - Modern art-house cinema with adventurous programming.\n3. La Rotonde Stalingrad - Industrial-chic bar for evening cultural gatherings.\n4. Café Bolivar - Relaxed brewpub café with small plates.\n5. KOKO Coffee & Matcha - Minimalist canalside cafe for creative meetups.",
+  "meta": {
+   "model": [
+    "qwen-3-8-max"
+   ],
+   "seconds": 169.3,
+   "usd": 0.05395
+  }
+ },
+ "minimax|h_lyon": {
+  "qid": "h_lyon",
+  "text": "1. Aquarium Ciné-Café - Indie cinema and café with curated film screenings.\n2. LA PENTE - Artistic, inclusive hub likely hosting small live music.\n3. Les Valseuses - Atmospheric bar with curated rum and late-night listening vibe.\n4. Le Sacré Cœur des Pentes - Trendy tapas bar suiting relaxed musical conversation.\n5. Le Terrier du Lapin Blanc - Intimate cocktail and wine bar, drinks-only ethos.",
+  "meta": {
+   "model": [
+    "minimax-m3-preview"
+   ],
+   "seconds": 57.7,
+   "usd": 0.0015292799999999998
+  }
+ },
+ "qwen|h_marseille": {
+  "qid": "h_marseille",
+  "text": "1. Videodrome 2 - Independent cinema with eclectic, adventurous programming.\n2. Le Molotov - Lively underground music venue for intimate gigs.\n3. Espace Julien - Bustling local stage for concerts and cultural events.\n4. Maison des Nines - Artistic, inclusive café for relaxed cultural meetups.\n5. L’estaminet matinal bar karaoké club électro - Electro bar for late-night listening and dancing.",
+  "meta": {
+   "model": [
+    "qwen-3-8-max"
+   ],
+   "seconds": 161.5,
+   "usd": 0.0503025
+  }
+ },
+ "minimax|h_leeds": {
+  "qid": "h_leeds",
+  "text": "1. Crash Records Leeds - Independent record shop, hub for indie and alt music\n2. Wharf Chambers - DIY music venue hosting indie and experimental acts\n3. Everyman Leeds - Boutique independent cinema with eclectic arthouse programming\n4. Power, Corruption & Lies - Listening bar with New Order-inspired indie atmosphere\n5. Kapow Coffee - Independent cafe with relaxed daytime vibe and wine",
+  "meta": {
+   "model": [
+    "minimax-m3-preview"
+   ],
+   "seconds": 77.0,
+   "usd": 0.0018718799999999998
+  }
+ },
+ "minimax|h_ghent": {
+  "qid": "h_ghent",
+  "text": "1. Hot Club Gent - Small intimate music venue with hidden courtyard\n2. Sphinx Cinema and Cafe - Independent cinema with cozy bar onsite\n3. Tolhuisje Gent - Atmospheric cafe loved by locals along the river\n4. Huis van Alijn - Cultural museum cafe in the Patershol quarter\n5. Graffiti street | Gent - Creative urban art gallery in Werregarenstraat",
+  "meta": {
+   "model": [
+    "minimax-m3-preview"
+   ],
+   "seconds": 57.4,
+   "usd": 0.0014686799999999998
+  }
+ },
+ "minimax|h_porto": {
+  "qid": "h_porto",
+  "text": "1. ROSA ET AL - Quiet boutique perfect for reflective listening\n2. Pensão Favorita - Funky local cafe with creative energy\n3. WINE CLUB restaurante & wine bar - Stylish wine bar for music lovers\n4. Casa Carolina - Chic cafe with artistic, intimate atmosphere\n5. Hakko - Chill urban retreat for thoughtful conversation",
+  "meta": {
+   "model": [
+    "minimax-m3-preview"
+   ],
+   "seconds": 67.8,
+   "usd": 0.00143178
+  }
+ },
+ "minimax|h_bristol": {
+  "qid": "h_bristol",
+  "text": "1. The Bell - Vinyl culture pub doubles as listening bar\n2. Lakota - Iconic Bristol arts and music venue\n3. Cosies - Underground club for experimental hip-hop nights\n4. Cafe Kino - Independent community cafe for alternative culture\n5. Hamilton House - Creative hub for artistic production",
+  "meta": {
+   "model": [
+    "minimax-m3-preview"
+   ],
+   "seconds": 68.9,
+   "usd": 0.00145398
+  }
+ },
+ "minimax|h_manchester": {
+  "qid": "h_manchester",
+  "text": "1. Piccadilly Records - Iconic indie record store for serious music devotees\n2. Band on the Wall - Legendary small venue championing alternative and experimental sounds\n3. Night & Day Cafe - Intimate cafe hosting live indie and leftfield performances\n4. Aatma - Experimental arts space and listening room for adventurous ears\n5. Fig + Sparrow - Cosy vegan-friendly cafe rooted in Northern Quarter creative culture",
+  "meta": {
+   "model": [
+    "minimax-m3-preview"
+   ],
+   "seconds": 79.1,
+   "usd": 0.00162948
+  }
+ },
+ "minimax|h_paris19e": {
+  "qid": "h_paris19e",
+  "text": "1. Yoyaku - Cult Parisian record shop, minimalist canal courtyard\n2. Point Éphémère - Iconic indie music venue by Canal Saint-Martin\n3. MK2 Cinémas - Independent art-house cinema, modern programming\n4. KOKO Coffee & Matcha - Specialty cafe along Canal de la Loire\n5. La Rotonde Stalingrad - Industrial-chic evening bar at Place Stalingrad",
+  "meta": {
+   "model": [
+    "minimax-m3-preview"
+   ],
+   "seconds": 122.0,
+   "usd": 0.0023242799999999997
+  }
+ },
+ "nemotron|h_leeds": {
+  "qid": "h_leeds",
+  "text": "1. Crash Records Leeds - curated vinyl for eclectic tastes  \n2. Wharf Chambers - DIY venue hosting experimental acts  \n3. The HiFi Club - high‑fidelity listening bar atmosphere  \n4. Everyman Leeds - boutique cinema with diverse programming  \n5. Kapow Coffee - specialty coffee spot with creative vibe",
+  "meta": {
+   "model": [
+    "nvidia-nemotron-3-ultra-550b-a55b"
+   ],
+   "seconds": 8.0,
+   "usd": 0.002904375
+  }
+ },
+ "minimax|h_marseille": {
+  "qid": "h_marseille",
+  "text": "1. Videodrome 2 - Independent cinema screening art films\n2. Espace Julien - Legendary small venue for indie acts\n3. Le Molotov - Underground music bar, experimental and intimate\n4. Lacaille - Minimalist wine bar, curated listening atmosphere\n5. La dame du mont - Authentic local bar with raw character",
+  "meta": {
+   "model": [
+    "minimax-m3-preview"
+   ],
+   "seconds": 71.8,
+   "usd": 0.0016024799999999999
+  }
+ },
+ "nemotron|h_ghent": {
+  "qid": "h_ghent",
+  "text": "1. Sphinx Cinema and Cafe - independent cinema with cozy bar  \n2. Hot Club Gent - intimate live music venue hidden courtyard  \n3. Cocteau - cultural arts space courtyard ballroom  \n4. De Parkiet - riverside cafe bar walkable spirits  \n5. 't Dreupelkot - historic authentic nightlife bar",
+  "meta": {
+   "model": [
+    "nvidia-nemotron-3-ultra-550b-a55b"
+   ],
+   "seconds": 7.7,
+   "usd": 0.0030081250000000004
+  }
+ },
+ "nemotron|h_lyon": {
+  "qid": "h_lyon",
+  "text": "1. Aquarium Ciné-Café - Independent cinema with local film screenings  \n2. LA PENTE - Artistic inclusive space for experimental events  \n3. Les Valseuses - Bar offering curated music and rum selection  \n4. Le Terrier du Lapin Blanc - Cocktail bar with intimate live sets  \n5. Le Sacré Cœur des Pentes - Trendy tapas bar hosting indie DJ nights",
+  "meta": {
+   "model": [
+    "nvidia-nemotron-3-ultra-550b-a55b"
+   ],
+   "seconds": 10.4,
+   "usd": 0.00459375
+  }
+ },
+ "minimax|h_antwerp": {
+  "qid": "h_antwerp",
+  "text": "1. Jones & Co - Jazz music aligns with indie listener taste\n2. Me & My Monkey - Radiohead homage, welcoming indie hangout\n3. Amici - Coffee & Books cafe with literary calm\n4. Beestenbos - Cocktails and small plates, listening-bar feel\n5. BANKS Antwerp - Atmospheric terrace bar for social evenings",
+  "meta": {
+   "model": [
+    "minimax-m3-preview"
+   ],
+   "seconds": 80.5,
+   "usd": 0.0017719799999999998
+  }
+ },
+ "nemotron|h_paris19e": {
+  "qid": "h_paris19e",
+  "text": "1. Point Éphémère - iconic canal‑side music venue  \n2. MK2 Cinémas - arthouse cinema near the canal  \n3. KOKO Coffee & Matcha - Canal - specialty coffee cafe  \n4. Café Bolivar - brewpub with small plates  \n5. La Rotonde Stalingrad - industrial‑chic evening bar",
+  "meta": {
+   "model": [
+    "nvidia-nemotron-3-ultra-550b-a55b"
+   ],
+   "seconds": 14.9,
+   "usd": 0.00373375
+  }
+ },
+ "nemotron|h_porto": {
+  "qid": "h_porto",
+  "text": "1. Pensão Favorita - Funky local cafe culture vibe  \n2. Bar Aduela - Local culture wine bar atmosphere  \n3. Espaço 77 - Trendy bustling venue for music  \n4. NOVA ROTA SUBLIMA - Craft beer social spot, music  \n5. Largo da Maternidade - Park with street music performances",
+  "meta": {
+   "model": [
+    "nvidia-nemotron-3-ultra-550b-a55b"
+   ],
+   "seconds": 16.3,
+   "usd": 0.004041875
+  }
+ },
+ "minimax|h_valencia": {
+  "qid": "h_valencia",
+  "text": "1. Sala Russafa - Independent performing arts venue with art-house programming\n2. Café Mercedes Jazz - Intimate live jazz listening room, city center\n3. Ubik Café Cafetería Librería - Bookshop-cafe, intellectual and atmospheric\n4. La Escuela de Ruzafa - Cultural center with flexible arts programming\n5. Jerusalem Pop&Rock - Small live music venue, inclusive spirit",
+  "meta": {
+   "model": [
+    "minimax-m3-preview"
+   ],
+   "seconds": 57.9,
+   "usd": 0.0014086799999999998
+  }
+ },
+ "nemotron|h_manchester": {
+  "qid": "h_manchester",
+  "text": "1. Piccadilly Records - iconic indie record shop curating eclectic vinyl  \n2. Band on the Wall - historic intimate venue hosting avant‑garde gigs  \n3. Night & Day Cafe - cozy cafe doubling as live‑music hub  \n4. Fig + Sparrow - vegan farm‑to‑table cafe with relaxed vibe  \n5. Tooth and Talon - accessible bar featuring quality sound system",
+  "meta": {
+   "model": [
+    "nvidia-nemotron-3-ultra-550b-a55b"
+   ],
+   "seconds": 14.0,
+   "usd": 0.0034406249999999997
+  }
+ },
+ "nemotron|h_marseille": {
+  "qid": "h_marseille",
+  "text": "1. Videodrome 2 - independent cinema with eclectic programming  \n2. Le Molotov - underground music venue, intimate atmosphere  \n3. L’estaminet matinal bar karaoké club électro - electro listening bar, late-night vibe  \n4. Maison des Nines | Café - Parfums - Traiteur - Brunch - artsy café, brunch spot  \n5. La Traverse de Balkis - trendy cafe-bar, vibrant crowd",
+  "meta": {
+   "model": [
+    "nvidia-nemotron-3-ultra-550b-a55b"
+   ],
+   "seconds": 17.7,
+   "usd": 0.00433125
+  }
+ },
+ "nemotron|h_antwerp": {
+  "qid": "h_antwerp",
+  "text": "1. Jones & Co - Jazz music venue for eclectic listeners.  \n2. Amici - Coffee & Books - Indie café with literary vibe.  \n3. De Vagant - Spirits bar, board games, intimate listening.  \n4. Me & My Monkey - Welcoming casual bar, indie crowd.  \n5. Take 5 Minutes In Paris - Relaxing café, good for music chat.",
+  "meta": {
+   "model": [
+    "nvidia-nemotron-3-ultra-550b-a55b"
+   ],
+   "seconds": 19.4,
+   "usd": 0.00446625
+  }
+ },
+ "nemotron|h_bristol": {
+  "qid": "h_bristol",
+  "text": "1. The Bell - vinyl‑focused pub, listening‑bar atmosphere.  \n2. Lakota - arts‑centric bar hosting live music.  \n3. Hamilton House - creative hub with gigs and events.  \n4. Cafe Kino - relaxed indie cafe, community vibe.  \n5. The Crafty Egg - specialty coffee bar with full bar.",
+  "meta": {
+   "model": [
+    "nvidia-nemotron-3-ultra-550b-a55b"
+   ],
+   "seconds": 21.9,
+   "usd": 0.00495125
+  }
+ },
+ "nemotron|h_valencia": {
+  "qid": "h_valencia",
+  "text": "1. SPLENDINI BAR I DISCOS - Listening bar with vinyl focus  \n2. Xtra Lrge Playground Valencia - Small electronic‑music venue  \n3. Sala Russafa - Intimate performing‑arts space  \n4. Café Mercedes Jazz - Live jazz café atmosphere  \n5. Ubik Café Cafetería Librería - Café‑library hybrid for music lovers",
+  "meta": {
+   "model": [
+    "nvidia-nemotron-3-ultra-550b-a55b"
+   ],
+   "seconds": 11.8,
+   "usd": 0.003614375
+  }
  }
 }

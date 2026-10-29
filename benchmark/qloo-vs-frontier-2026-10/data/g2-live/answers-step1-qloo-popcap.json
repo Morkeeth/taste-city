@@ -1,0 +1,590 @@
+{
+ "opus|g2_B_book": {
+  "qid": "g2_B_book",
+  "text": "1. Back to Black: Retelling Black Radicalism for the 21st Century - Kehinde Andrews' British Black radical history mirrors their scene's roots.\n2. Familiar Stranger: A Life Between Two Islands - Stuart Hall on Caribbean-British identity, diaspora, and culture.\n3. Bessie Smith: A Poet's Biography of a Blues Legend - Jackie Kay's lyrical tribute to jazz's blues ancestry.\n4. Black Spartacus: The Epic Life of Toussaint Louverture - Caribbean revolutionary epic resonating with diasporic pride.\n5. Loud Black Girls: 20 Black Women Writers Ask: What's Next? - Contemporary Black British voices, like Nubya Garcia's generation.",
+  "meta": {
+   "model": [
+    "claude-opus-5-5"
+   ],
+   "attempt": 1,
+   "seconds": 5.3
+  }
+ },
+ "opus|g2_A_book": {
+  "qid": "g2_A_book",
+  "text": "1. The Raincoats - Post-punk pioneers whose experimental spirit mirrors Björk's fearlessness\n2. Kraftwerk: Future Music from Germany - Electronic innovation roots behind Radiohead's Kid A era\n3. Nobody Ever Asked Me about the Girls: Women, Music, and Fame - Women artists' struggles resonate with Björk and Little Simz\n4. Life After Dark: A History of British Nightclubs & Music Venues - British club culture underpinning Little Simz's London scene\n5. Why Patti Smith Matters (Music Matters) - Art-rock poet whose uncompromising vision fans will admire",
+  "meta": {
+   "model": [
+    "claude-opus-5-5"
+   ],
+   "attempt": 1,
+   "seconds": 5.4
+  }
+ },
+ "fable|g2_A_book": {
+  "qid": "g2_A_book",
+  "text": "1. The Raincoats - Post-punk art-rock pioneers; Björk and Radiohead kin.\n2. How To Be Invisible - Kate Bush lyrics; Björk fans' spiritual ancestor.\n3. Nobody Ever Asked Me about the Girls - Women in music; resonates with Simz and Björk.\n4. Yoko Ono: Collector of Skies - Avant-garde experimentalism this audience prizes.\n5. Life After Dark - British club culture shaping Simz and Radiohead's world.",
+  "meta": {
+   "model": [
+    "claude-fable-5-1"
+   ],
+   "attempt": 1,
+   "seconds": 6.0
+  }
+ },
+ "opus|g2_B_artist": {
+  "qid": "g2_B_artist",
+  "text": "1. Chelsea Carmichael - London saxophonist, Shabaka-produced, deep spiritual UK jazz.\n2. Nduduzo Makhathini - South African Blue Note pianist, meditative, rhythmic spiritual jazz.\n3. Onipa - Afro-London fusion, joyful dancefloor energy like Ezra Collective.\n4. Chip Wickham - Spiritual jazz flute and sax, warm modal grooves.\n5. Elliot Galvin - Inventive UK jazz pianist from London's adventurous scene.",
+  "meta": {
+   "model": [
+    "claude-opus-5-5"
+   ],
+   "attempt": 1,
+   "seconds": 7.4
+  }
+ },
+ "opus|g2_A_artist": {
+  "qid": "g2_A_artist",
+  "text": "1. OHYUNG - Lush experimental ambient-pop, emotionally raw like late Radiohead.\n2. NTsKi - Ethereal Japanese art-pop with Björk's playful electronic strangeness.\n3. MC Yallah - Ferocious Ugandan rapper over boundary-pushing Nyege Nyege production.\n4. They Hate Change - Inventive Tampa rap duo blending Little Simz-style wordplay.\n5. 72-HOUR POST FIGHT - Italian jazz-electronica, glitchy and atmospheric like Kid A.",
+  "meta": {
+   "model": [
+    "claude-opus-5-5"
+   ],
+   "attempt": 1,
+   "seconds": 8.1
+  }
+ },
+ "opus|g2_B_film": {
+  "qid": "g2_B_film",
+  "text": "1. Broken Keys - A pianist defies a regime that bans music.\n2. Crescendo - A youth orchestra bridges divides through shared musical improvisation.\n3. Les femmes du square - Vibrant West African diaspora story set in Paris.\n4. Pour la France - Diaspora identity and family, echoing multicultural London roots.\n5. Gloria Mundi - Gritty working-class realism with soulful, communal emotional depth.",
+  "meta": {
+   "model": [
+    "claude-opus-5-5"
+   ],
+   "attempt": 1,
+   "seconds": 8.2
+  }
+ },
+ "opus|g2_A_film": {
+  "qid": "g2_A_film",
+  "text": "1. Christmas on Mars - The Flaming Lips' homemade psychedelic sci-fi, art-rock fans' treasure\n2. The Nine Lives of Tomas Katz - Surreal, apocalyptic British oddity echoing Radiohead's dread\n3. If I Think of Germany at Night - Intimate techno documentary on electronic musicians' creative process\n4. I Used to Be Darker - Raw indie drama steeped in haunting folk music\n5. Instant Dreams - Dreamy, experimental Polaroid documentary with Björk-like visual wonder",
+  "meta": {
+   "model": [
+    "claude-opus-5-5"
+   ],
+   "attempt": 1,
+   "seconds": 8.2
+  }
+ },
+ "fable|g2_B_book": {
+  "qid": "g2_B_book",
+  "text": "1. Bessie Smith: A Poet's Biography of a Blues Legend - Jazz lineage, lyrical biography of a Black musical pioneer\n2. Back to Black: Retelling Black Radicalism for the 21st Century - British Black radical thought, mirrors London jazz scene's politics\n3. Familiar Stranger: A Life Between Two Islands - Stuart Hall's Caribbean-British memoir, diaspora identity resonates\n4. Loud Black Girls: 20 Black Women Writers Ask: What's Next? - Young Black British voices, same generation and cultural energy\n5. Black Spartacus: The Epic Life of Toussaint Louverture - Haitian revolution epic, Afro-Caribbean history fuels this music",
+  "meta": {
+   "model": [
+    "claude-fable-5-1"
+   ],
+   "attempt": 1,
+   "seconds": 5.1
+  }
+ },
+ "fable|g2_A_artist": {
+  "qid": "g2_A_artist",
+  "text": "1. MC Yallah - Ugandan rap over abrasive electronics, Little Simz meets experimental\n2. They Hate Change - Art-rap with UK garage and post-punk textures\n3. Dear Laika - Glacial, intimate electronic songcraft for Björk devotees\n4. OHYUNG - Shape-shifting producer bridging ambient drift and sharp rap\n5. NTsKi - Japanese avant-pop vocalist, dreamy and quietly strange",
+  "meta": {
+   "model": [
+    "claude-fable-5-1"
+   ],
+   "attempt": 1,
+   "seconds": 11.3
+  }
+ },
+ "sonnet|g2_A_film": {
+  "qid": "g2_A_film",
+  "text": "1. Christmas on Mars - Flaming Lips' psychedelic, handmade sci-fi oddity\n2. Heartbeats - Dolan's stylish, music-driven romance with dreamy aesthetics\n3. Instant Dreams - Hypnotic documentary on Polaroid, art, and obsession\n4. The Nine Lives of Tomas Katz - Surreal British experimental oddity, strange and apocalyptic\n5. Perfume - Sensory, atmospheric fable of obsession and haunting beauty",
+  "meta": {
+   "model": [
+    "claude-sonnet-5-5"
+   ],
+   "attempt": 1,
+   "seconds": 3.6
+  }
+ },
+ "sonnet|g2_B_artist": {
+  "qid": "g2_B_artist",
+  "text": "1. Chelsea Carmichael - Fiery London saxophonist, kin to Nubya Garcia's sound\n2. Elliot Galvin - Inventive UK jazz pianist with adventurous, genre-bending edge\n3. Nduduzo Makhathini - Spiritual South African jazz piano, deeply rhythmic and soulful\n4. Rob Luft - London guitarist blending jazz, folk, and groove\n5. Chip Wickham - Spiritual jazz flute with modern UK scene energy",
+  "meta": {
+   "model": [
+    "claude-sonnet-5-5"
+   ],
+   "attempt": 1,
+   "seconds": 3.9
+  }
+ },
+ "sonnet|g2_A_artist": {
+  "qid": "g2_A_artist",
+  "text": "1. MC Yallah - Fierce Ugandan-rooted rap echoing Little Simz's lyrical edge\n2. Monde UFO - Experimental, genre-bending textures that suit Björk devotees\n3. Sour Widows - Brooding, intricate indie that nods to Radiohead\n4. They Hate Change - Warped, inventive hip-hop with left-field production\n5. Félix Blume - Field-recording sound art, adventurous like Björk's experiments",
+  "meta": {
+   "model": [
+    "claude-sonnet-5-5"
+   ],
+   "attempt": 1,
+   "seconds": 5.1
+  }
+ },
+ "sonnet|g2_A_book": {
+  "qid": "g2_A_book",
+  "text": "1. The Lark Ascending: The Music of the British Landscape - Pastoral, experimental British sound, echoing Björk and Radiohead's atmospherics\n2. Nobody Ever Asked Me about the Girls: Women, Music, and Fame - Female trailblazers resonate with Björk and Little Simz fans\n3. Kraftwerk: Future Music from Germany - Electronic pioneers who shaped Radiohead's and Björk's futurism\n4. London Calling: A Countercultural History of London Since 1945 - Little Simz's London roots meet countercultural history\n5. Yoko Ono: Collector of Skies - Avant-garde female artist kindred to Björk's boundary-pushing creativity",
+  "meta": {
+   "model": [
+    "claude-sonnet-5-5"
+   ],
+   "attempt": 1,
+   "seconds": 5.0
+  }
+ },
+ "fable|g2_A_film": {
+  "qid": "g2_A_film",
+  "text": "1. Christmas on Mars - Flaming Lips' psychedelic DIY sci-fi; pure Radiohead-adjacent weirdness\n2. If I Think of Germany at Night - Techno DJ documentary; electronic textures Björk fans crave\n3. I Used to Be Darker - Intimate indie about musicians; raw, lyrical, Little Simz honesty\n4. Instant Dreams - Dreamy Polaroid documentary; analog obsession, hypnotic visual mood\n5. Allegro - Surreal Danish pianist fable; memory, melancholy, art-pop sensibility",
+  "meta": {
+   "model": [
+    "claude-fable-5-1"
+   ],
+   "attempt": 1,
+   "seconds": 13.2
+  }
+ },
+ "sonnet|g2_B_film": {
+  "qid": "g2_B_film",
+  "text": "1. Crescendo - Music bridging divides, echoing the ensemble spirit of London jazz\n2. Finding Jack Charlton - Warm British cultural portrait with communal, working-class heart\n3. Becoming Mona - Intimate, character-driven story with stylish, fresh storytelling\n4. Relativity - Title nods to improvisation, time, and shared rhythm\n5. Broken Keys - Music-rooted drama about resilience through sound and community",
+  "meta": {
+   "model": [
+    "claude-sonnet-5-5"
+   ],
+   "attempt": 1,
+   "seconds": 4.0
+  }
+ },
+ "fable|g2_B_artist": {
+  "qid": "g2_B_artist",
+  "text": "1. Chelsea Carmichael - London saxophonist on Shabaka's label; Afrobeat-rooted grooves\n2. corto.alto - Glasgow's broken-beat jazz echoes Moses Boyd's club energy\n3. Nduduzo Makhathini - South African spiritual jazz, kindred to Nubya's depth\n4. Onipa - Afrofuturist dancefloor jazz, Nubiyan Twist and K.O.G. lineage\n5. Elliot Galvin - Adventurous London pianist from the same scene",
+  "meta": {
+   "model": [
+    "claude-fable-5-1"
+   ],
+   "attempt": 1,
+   "seconds": 10.1
+  }
+ },
+ "sonnet|g2_B_book": {
+  "qid": "g2_B_book",
+  "text": "1. Back to Black: Retelling Black Radicalism for the 21st Century - Black British radical history mirrors the London jazz scene's roots.\n2. Familiar Stranger: A Life Between Two Islands - Stuart Hall's diasporic story echoes Caribbean-British musical heritage.\n3. Black Spartacus: The Epic Life of Toussaint Louverture - Epic Black liberation history that resonates with politically conscious jazz fans.\n4. Bessie Smith: A Poet's Biography of a Blues Legend - Jazz-adjacent roots music biography for devoted musicians' listeners.\n5. Loud Black Girls: 20 Black Women Writers Ask: What's Next? - Fresh Black British voices, matching Nubya Garcia's forward-looking energy.",
+  "meta": {
+   "model": [
+    "claude-sonnet-5-5"
+   ],
+   "attempt": 1,
+   "seconds": 4.3
+  }
+ },
+ "fable|g2_B_film": {
+  "qid": "g2_B_film",
+  "text": "1. Broken Keys - Pianist resisting repression; music as survival resonates deeply\n2. Crescendo - Youth orchestra bridging divides, collective music-making spirit\n3. Les femmes du square - Afro-diasporic Paris story, warmth, community, sharp social edge\n4. Pour la France - Franco-Algerian identity, grief and belonging, politically engaged\n5. Gloria Mundi - Working-class Marseille solidarity, socially conscious like their music",
+  "meta": {
+   "model": [
+    "claude-fable-5-1"
+   ],
+   "attempt": 1,
+   "seconds": 12.7
+  }
+ },
+ "gpt|g2_B_artist": {
+  "qid": "g2_B_artist",
+  "text": "1. Chelsea Carmichael - Expansive saxophone grooves rooted in London’s contemporary jazz scene.\n2. corto.alto - Playful brass, broken beats and infectious dancefloor energy.\n3. Onipa - Afro-electronic rhythms for fans of Ezra Collective’s communal energy.\n4. Zeitgeist Freedom Energy Exchange - Improvised jazz grooves with club rhythms and deep funk.\n5. Allysha Joy - Soulful vocals, warm keys and rhythmically adventurous jazz.",
+  "meta": {
+   "model": [
+    "gpt-6.1-sol"
+   ],
+   "attempt": 1,
+   "seconds": 12.0
+  }
+ },
+ "gpt|g2_A_book": {
+  "qid": "g2_A_book",
+  "text": "1. The Raincoats - Adventurous feminist post-punk for listeners drawn to unconventional voices.\n2. How To Be Invisible - Kate Bush’s lyrics reward Björk fans’ appetite for imaginative worlds.\n3. Kraftwerk: Future Music from Germany - Electronic experimentation connects with Björk and Radiohead’s sonic curiosity.\n4. Nobody Ever Asked Me about the Girls: Women, Music, and Fame - Women’s perspectives resonate with Little Simz’s fiercely independent storytelling.\n5. London Calling: A Countercultural History of London Since 1945 - Explores the cultural collisions behind adventurous British music.",
+  "meta": {
+   "model": [
+    "gpt-6.1-sol"
+   ],
+   "attempt": 1,
+   "seconds": 12.9
+  }
+ },
+ "gpt|g2_A_film": {
+  "qid": "g2_A_film",
+  "text": "1. Heartbeats - Stylish romantic longing with a lush, music-driven sensibility.\n2. Allegro - Melancholy science fiction intertwining music, memory and fractured love.\n3. Christmas on Mars - Psychedelic outsider cinema from the Flaming Lips’ strange universe.\n4. The Nine Lives of Tomas Katz - Surreal, anarchic filmmaking for adventurous, experimental tastes.\n5. If I Think of Germany at Night - Intimate electronic music portrait exploring creativity, identity and club culture.",
+  "meta": {
+   "model": [
+    "gpt-6.1-sol"
+   ],
+   "attempt": 1,
+   "seconds": 13.9
+  }
+ },
+ "gpt|g2_A_artist": {
+  "qid": "g2_A_artist",
+  "text": "1. OHYUNG - Experimental electronics and emotional intensity for Björk devotees.\n2. Lonely Guest - Shadowy trip-hop for Radiohead’s moodier listeners.\n3. Dear Laika - Intricate electronic textures and otherworldly vocals echo Björk’s adventurousness.\n4. MC Yallah - Commanding rap over fearless electronics bridges Simz and Björk.\n5. They Hate Change - Inventive rap and restless production reward this audience’s adventurous taste.",
+  "meta": {
+   "model": [
+    "gpt-6.1-sol"
+   ],
+   "attempt": 1,
+   "seconds": 16.0
+  }
+ },
+ "gpt|g2_B_book": {
+  "qid": "g2_B_book",
+  "text": "1. Bessie Smith: A Poet's Biography of a Blues Legend - Connects jazz tastes with blues history and Black artistry.\n2. Familiar Stranger: A Life Between Two Islands - Explores diasporic identity resonant with London's contemporary jazz scene.\n3. Back to Black: Retelling Black Radicalism for the 21st Century (Blackness in Britain) - Connects Black British cultural expression with radical political traditions.\n4. Loud Black Girls: 20 Black Women Writers Ask: What’s Next? (Slay in Your Lane) - Offers contemporary Black British voices beyond the music stage.\n5. Empire's Endgame: Racism and the British State - Explores political contexts surrounding Britain's diasporic cultural life.",
+  "meta": {
+   "model": [
+    "gpt-6.1-sol"
+   ],
+   "attempt": 1,
+   "seconds": 13.5
+  }
+ },
+ "composer|g2_A_artist": {
+  "qid": "g2_A_artist",
+  "text": "1. They Hate Change - Restless genre collage for Radiohead and Little Simz fans.\n2. NTsKi - Glitchy vocal electronics in Björk’s otherworldly pop lane.\n3. Dear Laika - Cinematic art-pop with Björk-scale emotion and mystery.\n4. sign crushes motorist - Dissonant post-rock tension Radiohead listeners already crave.\n5. MC Yallah - Global avant-rap with Little Simz-level fearlessness and bite.",
+  "meta": {
+   "model": [
+    "composer-2.5"
+   ],
+   "seconds": 13.5
+  }
+ },
+ "gpt|g2_B_film": {
+  "qid": "g2_B_film",
+  "text": "1. Broken Keys - Music, resistance and resilience echo jazz’s defiant spirit.\n2. Crescendo - Ensemble energy and cross-cultural collaboration meet social conviction.\n3. Veins of the World - Mongolian song connects cultural roots with contemporary struggle.\n4. Silence of the Tides - Immersive soundscapes reward an ear for rhythm and atmosphere.\n5. A Bigger World - Spiritual discovery and ritual resonate with exploratory musical tastes.",
+  "meta": {
+   "model": [
+    "gpt-6.1-sol"
+   ],
+   "attempt": 1,
+   "seconds": 16.1
+  }
+ },
+ "composer|g2_A_film": {
+  "qid": "g2_A_film",
+  "text": "1. Christmas on Mars - Psychedelic grief sci-fi for experimental art-pop lovers.\n2. Heartbeats - Stylized heartbreak with the intimacy Little Simz fans crave.\n3. Perfume - Sensory obsession cinema aligned with Björk's synesthetic worlds.\n4. If I Think of Germany at Night - Electronic auteurs documentary for sound-obsessed Radiohead listeners.\n5. Audition - Slow-burn nightmare beauty for art-house alienation like Radiohead.",
+  "meta": {
+   "model": [
+    "composer-2.5"
+   ],
+   "seconds": 15.3
+  }
+ },
+ "gemini|g2_A_artist": {
+  "qid": "g2_A_artist",
+  "text": "1. Lonely Guest - Tricky’s moody collaborative project bridging Radiohead's gloom and hip-hop.\n2. Noah Yorke - Thom Yorke’s son crafting haunting, Radiohead-adjacent alternative rock.\n3. Dear Laika - Avant-garde electronic art-pop matching Björk’s experimental, theatrical ethos.\n4. They Hate Change - Genre-blending, high-energy hip-hop with UK-inspired bass and sharp flows.\n5. Naeem - Boundary-pushing, genre-fluid experimental rap and electronic soul.",
+  "meta": {
+   "model": [
+    "google/gemini-4-argon"
+   ],
+   "seconds": 4.1,
+   "usd": 0.001786
+  }
+ },
+ "gemini|g2_A_book": {
+  "qid": "g2_A_book",
+  "text": "1. Kraftwerk: Future Music from Germany - Explores the electronic pioneers who directly influenced Radiohead and Björk.\n2. How To Be Invisible - Kate Bush's lyrics match Björk's art-pop and Simz's poetic depth.\n3. The Raincoats - Celebrates experimental post-punk feminism that resonates with Björk and Simz.\n4. Life After Dark: A History of British Nightclubs & Music Venues - Chronicles the UK underground club culture that shaped Little Simz.\n5. The Lark Ascending: The Music of the British Landscape - Connects British pastoral music traditions to Radiohead's atmospheric soundscapes.",
+  "meta": {
+   "model": [
+    "google/gemini-4-argon"
+   ],
+   "seconds": 3.6,
+   "usd": 0.002202
+  }
+ },
+ "composer|g2_A_book": {
+  "qid": "g2_A_book",
+  "text": "1. The Raincoats - Post-punk DIY spirit Björk fans cherish.\n2. Why Patti Smith Matters - Art-punk poetry Radiohead’s lineage honors.\n3. How To Be Invisible - Kate Bush craft, art-pop obsession fuel.\n4. Nobody Ever Asked Me about the Girls - Women, fame, industry Little Simz echoes.\n5. Kraftwerk: Future Music from Germany - Electronic roots behind Björk and Radiohead.",
+  "meta": {
+   "model": [
+    "composer-2.5"
+   ],
+   "seconds": 17.0
+  }
+ },
+ "gemini|g2_B_artist": {
+  "qid": "g2_B_artist",
+  "text": "1. Chelsea Carmichael - Rising UK jazz saxophonist with deep, soulful spiritual grooves.\n2. corto.alto - Glasgow collective blending modern jazz with heavy hip-hop beats.\n3. Zeitgeist Freedom Energy Exchange - Live jazz-fusion band delivering high-energy club and dance rhythms.\n4. Onipa - Afro-futurist group matching Ezra Collective's infectious, dancefloor-ready afrobeat energy.\n5. Nduduzo Makhathini - South African pianist offering powerful, spiritually resonant contemporary jazz.",
+  "meta": {
+   "model": [
+    "google/gemini-4-argon"
+   ],
+   "seconds": 6.5,
+   "usd": 0.001678
+  }
+ },
+ "gemini|g2_B_film": {
+  "qid": "g2_B_film",
+  "text": "1. Broken Keys - A musician's struggle for artistic freedom resonates with jazz lovers.\n2. Crescendo - Explores music's unifying power across deep cultural and political divides.\n3. Silence of the Tides - A hypnotic, rhythmic visual meditation matching spiritual jazz sensibilities.\n4. F@ck This Job - Rebellious independent spirit and socially conscious journalism appeal to crate-diggers.\n5. Les femmes du square - Warm, community-focused storytelling with vibrant, multicultural urban energy.",
+  "meta": {
+   "model": [
+    "google/gemini-4-argon"
+   ],
+   "seconds": 5.7,
+   "usd": 0.001638
+  }
+ },
+ "gemini|g2_B_book": {
+  "qid": "g2_B_book",
+  "text": "1. Back to Black: Retelling Black Radicalism for the 21st Century (Blackness in Britain) - Explores the Black British identity central to modern UK jazz.\n2. Loud Black Girls: 20 Black Women Writers Ask: What’s Next? (Slay in Your Lane) - Celebrates contemporary Black British female voices and cultural power.\n3. Familiar Stranger: A Life Between Two Islands (Stuart Hall: Selected Writings) - Connects Windrush-generation Caribbean heritage with modern British cultural theory.\n4. Empire's Endgame: Racism and the British State - Examines the socio-political realities that inspire London's socially conscious jazz.\n5. Bessie Smith: A Poet's Biography of a Blues Legend - Honors the foundational musical lineage behind today's jazz innovators.",
+  "meta": {
+   "model": [
+    "google/gemini-4-argon"
+   ],
+   "seconds": 7.2,
+   "usd": 0.00272
+  }
+ },
+ "composer|g2_B_book": {
+  "qid": "g2_B_book",
+  "text": "1. Back to Black: Retelling Black Radicalism for the 21st Century (Blackness in Britain) - Black British radicalism mirrors this scene’s politics.\n2. Familiar Stranger: A Life Between Two Islands (Stuart Hall: Selected Writings) - Stuart Hall maps the diaspora culture they inhabit.\n3. Loud Black Girls: 20 Black Women Writers Ask: What’s Next? (Slay in Your Lane) - Sharp Black British voices beyond the bandstand.\n4. Bessie Smith: A Poet's Biography of a Blues Legend - Blues lineage feeds their improvisational, ancestral sound.\n5. Black Spartacus: The Epic Life of Toussaint Louverture - Liberation epic resonates with collective, freedom-minded listening.",
+  "meta": {
+   "model": [
+    "composer-2.5"
+   ],
+   "seconds": 13.9
+  }
+ },
+ "composer|g2_B_artist": {
+  "qid": "g2_B_artist",
+  "text": "1. Chelsea Carmichael - Ezra Collective tenor voice, Nubya’s direct sax lineage.\n2. Ryan Porter - Spiritual brass and groove, Ezra-scale live energy.\n3. Zeitgeist Freedom Energy Exchange - London collective riot, Moses Boyd’s jazz-meets-street pulse.\n4. Onipa - Ghanaian-rooted Afro-jazz, diaspora warmth Nubya fans chase.\n5. Nduduzo Makhathini - African spiritual piano, depth for Garcia’s modal side.",
+  "meta": {
+   "model": [
+    "composer-2.5"
+   ],
+   "seconds": 16.1
+  }
+ },
+ "gemini|g2_A_film": {
+  "qid": "g2_A_film",
+  "text": "1. Christmas on Mars - Psychedelic, avant-garde sci-fi crafted by indie rock visionaries.\n2. If I Think of Germany at Night - Deep dive into pioneering, atmospheric electronic music subcultures.\n3. The Nine Lives of Tomas Katz - Surreal, dystopian art-house comedy matching Radiohead’s existential weirdness.\n4. Vermilion Souls - Haunting, poetic surrealism that echoes Björk's avant-garde theatricality.\n5. I Used to Be Darker - Intimate, musically driven indie drama with raw emotional lyricism.",
+  "meta": {
+   "model": [
+    "google/gemini-4-argon"
+   ],
+   "seconds": 14.2,
+   "usd": 0.009848
+  }
+ },
+ "composer|g2_B_film": {
+  "qid": "g2_B_film",
+  "text": "1. Promises - Sanders and Floating Points album; pure contemporary jazz lineage.\n2. Broken Keys - Pianist amid Tunisia’s uprising; music as resistance.\n3. Crescendo - Refugee musicians join a symphony; ensemble as solidarity.\n4. Les femmes du square - Paris immigrant women; diaspora community and dignity.\n5. Those Who Work - Precarious labor, class friction; socially awake like their scene.",
+  "meta": {
+   "model": [
+    "composer-2.5"
+   ],
+   "seconds": 18.3
+  }
+ },
+ "grok|g2_B_artist": {
+  "qid": "g2_B_artist",
+  "text": "1. Chip Wickham - Spiritual UK jazz aligned with this scene\n2. Chelsea Carmichael - London saxophonist from the same circle\n3. Onipa - Afrobeat-jazz energy like Ezra Collective\n4. corto.alto - Dancefloor jazz with collective UK drive\n5. Nduduzo Makhathini - Deep spiritual piano jazz beyond the UK",
+  "meta": {
+   "model": [
+    "x-ai/grok-4.7"
+   ],
+   "seconds": 7.2,
+   "usd": 0.004566
+  }
+ },
+ "grok|g2_B_book": {
+  "qid": "g2_B_book",
+  "text": "1. Familiar Stranger: A Life Between Two Islands (Stuart Hall: Selected Writings) - Diaspora life between Britain and Caribbean\n2. Back to Black: Retelling Black Radicalism for the 21st Century (Blackness in Britain) - Black radicalism remade for Britain now\n3. Loud Black Girls: 20 Black Women Writers Ask: What’s Next? (Slay in Your Lane) - Black women writers asking what next\n4. Bessie Smith: A Poet's Biography of a Blues Legend - Poetic life of a blues ancestor\n5. Empire's Endgame: Racism and the British State - How racism structures the British state",
+  "meta": {
+   "model": [
+    "x-ai/grok-4.7"
+   ],
+   "seconds": 12.2,
+   "usd": 0.007752
+  }
+ },
+ "grok|g2_A_artist": {
+  "qid": "g2_A_artist",
+  "text": "1. Noah Yorke - Restless electronics in the Radiohead family line\n2. NTsKi - Avant-pop curiosity close to Björk's palette\n3. MC Yallah - Sharp global rap beyond mainstream hip-hop\n4. Dear Laika - Vulnerable art electronics with classical nerve\n5. They Hate Change - Inventive hip-hop for adventurous rap listeners",
+  "meta": {
+   "model": [
+    "x-ai/grok-4.7"
+   ],
+   "seconds": 20.1,
+   "usd": 0.00895
+  }
+ },
+ "grok|g2_A_book": {
+  "qid": "g2_A_book",
+  "text": "1. The Raincoats - Cult art-punk women, fiercely experimental and independent\n2. Kraftwerk: Future Music from Germany - Machine-music futurism shaping adventurous electronic taste\n3. Yoko Ono: Collector of Skies - Avant-garde boundary-pushing like Björk's artistic world\n4. Why Patti Smith Matters (Music Matters) - Poetic punk spirit and fearless artistry\n5. Nobody Ever Asked Me about the Girls: Women, Music, and Fame - Women artists, fame, and creative power",
+  "meta": {
+   "model": [
+    "x-ai/grok-4.7"
+   ],
+   "seconds": 29.8,
+   "usd": 0.017096
+  }
+ },
+ "grok|g2_A_film": {
+  "qid": "g2_A_film",
+  "text": "1. Christmas on Mars - Psychedelic experiment for adventurous music obsessives\n2. The Nine Lives of Tomas Katz - Surreal apocalypse with uneasy art-rock mood\n3. If I Think of Germany at Night - Immersive electronic nightlife, nocturnal and hypnotic\n4. I Used to Be Darker - Quiet heartbreak among working musicians\n5. Instant Dreams - Dreamy analog images, intimate and strange",
+  "meta": {
+   "model": [
+    "x-ai/grok-4.7"
+   ],
+   "seconds": 30.6,
+   "usd": 0.01475
+  }
+ },
+ "deepseek|g2_A_artist": {
+  "qid": "g2_A_artist",
+  "text": "1. They Hate Change - Rhythmic, genre-fluid duo blending hip-hop, footwork, and post-punk.\n2. Dear Laika - Ethereal art-pop with glitchy electronics and operatic vulnerability.\n3. NTsKi - Luminous Japanese avant-pop merging ASMR textures with melodic synthwork.\n4. Monde UFO - Hypnagogic lounge and lo-fi jazz that feels extraterrestrial.\n5. sign crushes motorist - Hazy, introspective slowcore evoking deep adolescent melancholy.",
+  "meta": {
+   "model": [
+    "deepseek/deepseek-v4-pro"
+   ],
+   "seconds": 3.1,
+   "usd": 0.000495
+  }
+ },
+ "grok|g2_B_film": {
+  "qid": "g2_B_film",
+  "text": "1. Crescendo - Music bridges young people across conflict\n2. Broken Keys - A pianist fights for silenced music\n3. Veins of the World - Song, land, and resistance intertwine\n4. Gloria Mundi - Multicultural Marseille family, communal warmth\n5. Les femmes du square - Neighborhood women, solidarity, everyday joy",
+  "meta": {
+   "model": [
+    "x-ai/grok-4.7"
+   ],
+   "seconds": 30.4,
+   "usd": 0.012452
+  }
+ },
+ "kimi|g2_B_book": {
+  "qid": "g2_B_book",
+  "text": "1. Back to Black: Retelling Black Radicalism for the 21st Century (Blackness in Britain) - Connects Black British politics with contemporary cultural identity.\n2. Familiar Stranger: A Life Between Two Islands (Stuart Hall: Selected Writings) - Explores diaspora, identity, and Britain through Stuart Hall.\n3. Bessie Smith: A Poet's Biography of a Blues Legend - Links blues heritage to the jazz lineage they love.\n4. Black Spartacus: The Epic Life of Toussaint Louverture - Offers revolutionary Caribbean history with sweeping narrative energy.\n5. Loud Black Girls: 20 Black Women Writers Ask: What’s Next? (Slay in Your Lane) - Centers contemporary Black British women’s voices and futures.",
+  "meta": {
+   "model": [
+    "moonshotai/kimi-k3.1-pro"
+   ],
+   "seconds": 20.9,
+   "usd": 0.00763
+  }
+ },
+ "deepseek|g2_A_book": {
+  "qid": "g2_A_book",
+  "text": "1. Kraftwerk: Future Music from Germany - Pioneering electronic innovators, perfect for Björk’s synth-forward sensibilities.\n2. I Met the Walrus: How One Day with John Lennon Changed My Life Forever - Whimsical, creative encounter echoing Radiohead’s surreal storytelling.\n3. William S. Burroughs and the Cult of Rock 'n' Roll - Countercultural icon linking experimental lit to rock’s edge.\n4. The Raincoats - Feminist post-punk legends, beloved by eclectic, artful music fans.\n5. Why Patti Smith Matters (Music Matters) - Poetic, rebellious spirit resonating with Little Simz’s conscious lyricism.",
+  "meta": {
+   "model": [
+    "deepseek/deepseek-v4-pro"
+   ],
+   "seconds": 7.1,
+   "usd": 0.00114
+  }
+ },
+ "deepseek|g2_B_film": {
+  "qid": "g2_B_film",
+  "text": "1. Broken Keys - Jazz-like improvisation under oppressive circumstances; defiant creative spirit.\n2. A Piece of Sky - Meditative, expansive pacing; soulful, atmospheric soundscape akin to spiritual jazz.\n3. Veins of the World - Hypnotic rhythm of landscape and struggle; deeply soulful resilience.\n4. Crescendo - A film literally about musicians bridging worlds through collaborative sound.\n5. Red Soil - Urgent, rhythmic social realism with an underground, percussive heartbeat.",
+  "meta": {
+   "model": [
+    "deepseek/deepseek-v4-pro"
+   ],
+   "seconds": 2.7,
+   "usd": 0.000474
+  }
+ },
+ "kimi|g2_B_artist": {
+  "qid": "g2_B_artist",
+  "text": "1. Chelsea Carmichael - London saxophonist with deep ties to Nubya Garcia’s scene.\n2. corto.alto - Club-minded Scottish jazz mixing hip-hop, electronics and brass.\n3. Zeitgeist Freedom Energy Exchange - High-energy Australian jazz-funk made for collective dancing.\n4. Rohey - Norwegian future-soul pairing jazz musicianship with irresistible grooves.\n5. Cotonete - French collective delivering expansive, horn-rich spiritual jazz-funk.",
+  "meta": {
+   "model": [
+    "moonshotai/kimi-k3.1-pro"
+   ],
+   "seconds": 35.1,
+   "usd": 0.011176
+  }
+ },
+ "kimi|g2_A_artist": {
+  "qid": "g2_A_artist",
+  "text": "1. OHYUNG - Experimental electronic intimacy bridges Björk’s strangeness and Radiohead’s unease.\n2. NTsKi - Weightless avant-pop rewards listeners drawn to Björk’s sonic curiosity.\n3. 3Phaz - Fractured Egyptian club music suits Radiohead fans seeking rhythmic experimentation.\n4. They Hate Change - Inventive, restless rap matches Little Simz fans’ adventurous appetites.\n5. Naeem - Genre-blurring hip-hop pairs sharp lyricism with bold electronic production.",
+  "meta": {
+   "model": [
+    "moonshotai/kimi-k3.1-pro"
+   ],
+   "seconds": 38.7,
+   "usd": 0.011406
+  }
+ },
+ "deepseek|g2_B_artist": {
+  "qid": "g2_B_artist",
+  "text": "1. Chelsea Carmichael - Shabaka Hutchings protégée, deep spiritual jazz tenor.\n2. Muriel Grossmann - Hypnotic modal saxophone journeys akin to Coltrane.\n3. corto.alto - Glasgow nu-jazz with tight brass and broken beats.\n4. Zeitgeist Freedom Energy Exchange - Afrobeat rhythms fused with broken-beat electronics.\n5. Allysha Joy - Rhodes-heavy soul-jazz, like a raw Nubya Garcia.",
+  "meta": {
+   "model": [
+    "deepseek/deepseek-v4-pro"
+   ],
+   "seconds": 12.2,
+   "usd": 0.001047
+  }
+ },
+ "kimi|g2_A_film": {
+  "qid": "g2_A_film",
+  "text": "1. Christmas on Mars - Hallucinatory, melancholic sci-fi built around the Flaming Lips.\n2. The Nine Lives of Tomas Katz - Surreal London apocalypse with eerie humor and radical invention.\n3. Allegro - A haunting, metaphysical romance steeped in music and memory.\n4. I Used to Be Darker - Intimate family fractures, quiet performances, and affecting live music.\n5. If I Think of Germany at Night - Hypnotic documentary celebrating electronic music’s nocturnal introspection.",
+  "meta": {
+   "model": [
+    "moonshotai/kimi-k3.1-pro"
+   ],
+   "seconds": 39.9,
+   "usd": 0.012248
+  }
+ },
+ "deepseek|g2_A_film": {
+  "qid": "g2_A_film",
+  "text": "1. Christmas on Mars - Flaming Lips' surreal sci-fi musical, perfectly avant-garde and eerie.\n2. The Nine Lives of Tomas Katz - Surreal, darkly comic apocalypse like a Radiohead nightmare.\n3. If I Think of Germany at Night - Hypnotic techno documentary channeling Björk's electronic adventurousness.\n4. Audition - Art-house horror’s slow-burn dread mirrors Björk’s darker theatricality.\n5. I Used to Be Darker - Melancholy indie drama with raw, live song performances throughout.",
+  "meta": {
+   "model": [
+    "deepseek/deepseek-v4-pro"
+   ],
+   "seconds": 18.4,
+   "usd": 0.002684
+  }
+ },
+ "kimi|g2_A_book": {
+  "qid": "g2_A_book",
+  "text": "1. The Raincoats - Feminist post-punk experimentation echoes Björk’s fearless, genre-defying creativity.\n2. The History of Bones: A Memoir - Downtown experimentation and sardonic honesty reward adventurous, genre-fluid listeners.\n3. The Lark Ascending: The Music of the British Landscape - Landscape, music and identity suit Radiohead’s pastoral, experimental side.\n4. Life After Dark: A History of British Nightclubs & Music Venues - British nightlife history connects Radiohead’s roots with Little Simz’s scene.\n5. London Calling: A Countercultural History of London Since 1945 - London’s countercultural evolution illuminates the audience’s eclectic British influences.",
+  "meta": {
+   "model": [
+    "moonshotai/kimi-k3.1-pro"
+   ],
+   "seconds": 43.2,
+   "usd": 0.014372
+  }
+ },
+ "deepseek|g2_B_book": {
+  "qid": "g2_B_book",
+  "text": "1. Back to Black: Retelling Black Radicalism for the 21st Century - Reframes Black British radicalism for today's jazz-fueled movements.\n2. Loud Black Girls: 20 Black Women Writers Ask: What’s Next? - Black British women's bold voices echoing the scene's energy.\n3. Bessie Smith: A Poet's Biography of a Blues Legend - Lyrical ode to a foundational Black music icon.\n4. Familiar Stranger: A Life Between Two Islands - Stuart Hall's memoir, essential for understanding diasporic identity.\n5. Fallen Idols: Twelve Statues That Made History - Decolonizing public memory resonates with their cultural activism.",
+  "meta": {
+   "model": [
+    "deepseek/deepseek-v4-pro"
+   ],
+   "seconds": 12.9,
+   "usd": 0.001797
+  }
+ },
+ "kimi|g2_B_film": {
+  "qid": "g2_B_film",
+  "text": "1. Broken Keys - Music, resistance and exile echo jazz’s improvisational spirit.\n2. Crescendo - A youth orchestra turns cultural conflict into collective harmony.\n3. Veins of the World - Mongolian music and landscape meet community resistance.\n4. Pour la France - A searching drama of brotherhood, identity and injustice.\n5. Gloria Mundi - Tender, politically alert portrait of precarity and solidarity.",
+  "meta": {
+   "model": [
+    "moonshotai/kimi-k3.1-pro"
+   ],
+   "seconds": 41.3,
+   "usd": 0.011442
+  }
+ }
+}

@@ -1,0 +1,590 @@
+{
+ "opus|g2_A_artist": {
+  "qid": "g2_A_artist",
+  "text": "1. Klein - Experimental London producer blending glitch, gospel and noise.\n2. Sudan Archives - Violin-driven experimental R&B with bold, avant-garde production.\n3. Moor Mother - Afrofuturist poet fusing noise, jazz and sharp rap.\n4. Tirzah - Intimate, warped London soul with hypnotic minimalist textures.\n5. Loraine James - Glitchy electronic production meets introspective rap and IDM.",
+  "meta": {
+   "model": [
+    "claude-opus-5-5"
+   ],
+   "attempt": 1,
+   "seconds": 5.4
+  }
+ },
+ "opus|g2_B_artist": {
+  "qid": "g2_B_artist",
+  "text": "1. Kokoroko - Afrobeat-infused London jazz, warm horns, communal dancefloor energy.\n2. Nérija - Women-led UK jazz collective; Nubya Garcia's original ensemble.\n3. Steam Down - Deptford collective blending jazz, grime, spiritual improvisation.\n4. Maisha - Spiritual jazz group featuring Nubya Garcia, Jake Long.\n5. Mansur Brown - Guitarist fusing jazz, grime, lo-fi; Yussef Dayes collaborator.",
+  "meta": {
+   "model": [
+    "claude-opus-5-5"
+   ],
+   "attempt": 1,
+   "seconds": 6.0
+  }
+ },
+ "opus|g2_A_film": {
+  "qid": "g2_A_film",
+  "text": "1. Under the Skin - Hypnotic, alien, Mica Levi score; pure Björk-adjacent strangeness.\n2. Beyond the Black Rainbow - Synth-drenched dread, deliberate pacing, Kid A textures visualized.\n3. Rocks - Vivid London teen story; Little Simz's honesty and grit.\n4. Holy Motors - Shape-shifting, theatrical, emotionally raw avant-garde reinvention.\n5. Atlantics - Dreamlike Dakar ghost romance; haunting Fatima Al Qadiri score.",
+  "meta": {
+   "model": [
+    "claude-opus-5-5"
+   ],
+   "attempt": 1,
+   "seconds": 6.0
+  }
+ },
+ "opus|g2_A_book": {
+  "qid": "g2_A_book",
+  "text": "1. The Employees by Olga Ravn - Eerie, fragmented sci-fi; feels like a Radiohead album.\n2. Grief Is the Thing with Feathers by Max Porter - Experimental grief poetry-prose, raw and formally inventive.\n3. Hurricane Season by Fernanda Melchor - Breathless, ferocious voice with relentless rhythmic intensity.\n4. Ducks, Newburyport by Lucy Ellmann - Hypnotic stream-of-consciousness, intimate yet sprawling, utterly singular.\n5. Open Water by Caleb Azumah Nelson - Lyrical London love story steeped in Black music.",
+  "meta": {
+   "model": [
+    "claude-opus-5-5"
+   ],
+   "attempt": 1,
+   "seconds": 6.7
+  }
+ },
+ "fable|g2_A_artist": {
+  "qid": "g2_A_artist",
+  "text": "1. Little Dragon - Playful electronic art-pop with Björk-like vocal daring.\n2. Hiatus Kaiyote - Genre-bending neo-soul, intricate rhythms, fearless experimentation.\n3. Kae Tempest - Literate, politically charged spoken-word over textured production.\n4. Loraine James - Glitchy, emotionally raw electronics for Radiohead-adjacent ears.\n5. Moses Sumney - Falsetto art-soul, cinematic ambition, Björk-level theatricality.",
+  "meta": {
+   "model": [
+    "claude-fable-5-1"
+   ],
+   "attempt": 1,
+   "seconds": 7.7
+  }
+ },
+ "fable|g2_B_artist": {
+  "qid": "g2_B_artist",
+  "text": "1. Kokoroko - Afrobeat-infused London jazz, Ezra Collective's kindred spirits.\n2. Chelsea Carmichael - Nubya-adjacent saxophonist, spiritual and dub-tinged.\n3. Steam Down - Deptford collective, raw, communal, dancefloor-ready jazz.\n4. Balimaya Project - Mandé percussion meets big-band London jazz energy.\n5. Emma-Jean Thackray - Trumpeter blending cosmic jazz, broken beat, soul.",
+  "meta": {
+   "model": [
+    "claude-fable-5-1"
+   ],
+   "attempt": 1,
+   "seconds": 5.9
+  }
+ },
+ "opus|g2_B_film": {
+  "qid": "g2_B_film",
+  "text": "1. Babylon - Raw 1980 London sound-system culture, roots of their sound\n2. Space Is the Place - Sun Ra's Afrofuturist cosmic jazz odyssey, hugely influential\n3. Handsworth Songs - Black Audio Film Collective's rhythmic, political Black British collage\n4. Burning an Illusion - Menelik Shabazz's tender, defiant Black London love story\n5. Pressure - Horace Ové's pioneering Black British feature, Ladbroke Grove struggles",
+  "meta": {
+   "model": [
+    "claude-opus-5-5"
+   ],
+   "attempt": 1,
+   "seconds": 11.6
+  }
+ },
+ "sonnet|g2_A_artist": {
+  "qid": "g2_A_artist",
+  "text": "1. Arca - Experimental electronic voice-play echoing Björk's boundary-pushing intimacy.\n2. Black Country, New Road - Orchestral, restless art-rock with Radiohead's emotional unease.\n3. Kae Tempest - Razor-sharp spoken-word storytelling that parallels Little Simz's lyricism.\n4. Yves Tumor - Genre-fluid glam-noise shapeshifting with theatrical, unpredictable energy.\n5. Nilüfer Yanya - Moody art-pop guitar songwriting with Radiohead-style tension.",
+  "meta": {
+   "model": [
+    "claude-sonnet-5-5"
+   ],
+   "attempt": 1,
+   "seconds": 6.0
+  }
+ },
+ "opus|g2_B_book": {
+  "qid": "g2_B_book",
+  "text": "1. As Serious As Your Life - Valerie Wilmer's intimate portrait of free jazz's spiritual pioneers.\n2. Bass Culture - Lloyd Bradley traces reggae's roots shaping London's sound-system DNA.\n3. Don't Stop the Carnival - Kevin Le Gendre maps Black music's long British lineage.\n4. Brixton Rock - Alex Wheatle's gritty South London novel, Moses Boyd's home turf.\n5. Free Jazz/Black Power - Radical classic linking improvisation to Black liberation politics.",
+  "meta": {
+   "model": [
+    "claude-opus-5-5"
+   ],
+   "attempt": 1,
+   "seconds": 13.9
+  }
+ },
+ "sonnet|g2_A_film": {
+  "qid": "g2_A_film",
+  "text": "1. Climate of the Hunter - Ethereal, experimental sound design with art-pop sensibility.\n2. Under the Skin - Alien, haunting Mica Levi score; hypnotic and strange.\n3. Fire of Love - Volcano romance with ethereal archival beauty.\n4. Beyond the Hills - Slow, immersive, emotionally raw.\n5. Dogtooth - Surreal, unnerving, defiantly original.\n\nWait, I should correct that: those reasons are not all accurate for the titles chosen, and a couple of titles are household-ish. Here is the corrected list:\n\n1. Dancer in the Dark - Björk's own devastating musical; Trier's raw experiment.\n2. Beau Travail - Denis Lavant's hypnotic dance, Claire Denis's sensual minimalism.\n3. Enys Men - Cornish folk-horror, hallucinatory, with analog texture.\n4. Kuso - Flying Lotus's grotesque, Warp-style audiovisual freakout.\n5. Dogtooth - Surreal, unnerving, defiantly original.",
+  "meta": {
+   "model": [
+    "claude-sonnet-5-5"
+   ],
+   "attempt": 1,
+   "seconds": 6.6
+  }
+ },
+ "sonnet|g2_A_book": {
+  "qid": "g2_A_book",
+  "text": "1. Paradais by Fernanda Melchor - Feverish, lyrical Mexican noir with relentless, hypnotic momentum.\n2. The Employees by Olga Ravn - Eerie, tender workplace elegy about humans and sentient objects.\n3. Convenience Store Woman by Sayaka Murata - Quietly subversive outsider story, deadpan and strangely moving.\n4. Sula by Toni Morrison - Fierce female bond, myth, and rebellion against convention.\n5. Dept. of Speculation by Jenny Offill - Fragmentary, luminous marriage portrait, emotionally raw and formally inventive.",
+  "meta": {
+   "model": [
+    "claude-sonnet-5-5"
+   ],
+   "attempt": 1,
+   "seconds": 5.7
+  }
+ },
+ "fable|g2_A_film": {
+  "qid": "g2_A_film",
+  "text": "1. Neptune Frost - Afrofuturist musical: hacked circuitry, poetry, radical politics.\n2. The Juniper Tree - Björk's haunting debut; stark, folkloric, black-and-white Iceland.\n3. Upstream Color - Sound-design-driven mystery, textured like a Kid A album.\n4. The Fits - Hypnotic rhythm, movement, Black girlhood; minimalist and strange.\n5. Lovers Rock - One-night London house party; dub, bodies, sonic ecstasy.",
+  "meta": {
+   "model": [
+    "claude-fable-5-1"
+   ],
+   "attempt": 1,
+   "seconds": 18.7
+  }
+ },
+ "sonnet|g2_B_artist": {
+  "qid": "g2_B_artist",
+  "text": "1. Yazmin Lacey - Soulful London jazz-inflected vocals with warm, groove-led songwriting\n2. Ezra Collective's peers Maisha - Spiritual, Afrofuturist London jazz with cosmic, driving energy\n3. Sons of Kemet's circle Kokoroko - Afrobeat-jazz London septet with infectious, communal grooves\n4. Emma-Jean Thackray - Genre-bending trumpeter-composer mixing jazz, funk, and psychedelia\n5. Yussef Dayes - Drummer-led fusion of jazz, hip-hop, and global rhythms\n\nCorrection, since format matters:\n\n1. Yazmin Lacey - Jazz-soaked, soulful London vocals with warm grooves\n2. Maisha - Spiritual, cosmic London jazz with driving percussive energy\n3. Kokoroko - Afrobeat-jazz septet with infectious communal grooves\n4. Emma-Jean Thackray - Trumpeter-composer blending jazz, funk, and psychedelia\n5. Ezra Collective-adjacent Sampa? No—Ife Ogunjobi - Rising trumpeter with Nigerian and London jazz roots\n\nFinal answer:\n\n1. Yazmin Lacey - Jazz-soaked, soulful London vocals with warm grooves\n2. Maisha - Spiritual, cosmic London jazz with driving percussive energy\n3. Kokoroko - Afrobeat-jazz septet with infectious communal grooves\n4. Emma-Jean Thackray - Trumpeter-composer blending jazz, funk, and psychedelia\n5. Joe Armon-Jones - Keys virtuoso bridging jazz, dub, and club music",
+  "meta": {
+   "model": [
+    "claude-sonnet-5-5"
+   ],
+   "attempt": 1,
+   "seconds": 9.0
+  }
+ },
+ "fable|g2_A_book": {
+  "qid": "g2_A_book",
+  "text": "1. Ice - Anna Kavan's frozen dread reads like a Radiohead album.\n2. Under the Glacier - Icelandic strangeness, mystical and funny; Björk's spiritual kin.\n3. Assembly - Compressed, furious Black British prose; Little Simz energy.\n4. Memorial Device - Oral history of an invented post-punk scene; obsessive.\n5. They Can't Kill Us Until They Kill Us - Music criticism written as lyric essay; devotional, political.",
+  "meta": {
+   "model": [
+    "claude-fable-5-1"
+   ],
+   "attempt": 1,
+   "seconds": 23.3
+  }
+ },
+ "sonnet|g2_B_film": {
+  "qid": "g2_B_film",
+  "text": "1. Pirate Radio Nights - hypothetical; skip. \n\nCorrection, real films only:\n\n1. Babylon (1980) - Black British sound system culture, reggae-soaked, gritty London.\n2. Playing Away (1987) - Caribbean cricket comedy, sharp Black British social satire.\n3. Handsworth Songs - Black Audio Film Collective's essay on Britain, riots, memory.\n4. Rocks (2019) - London girls' friendship, vibrant, tender, community-rooted storytelling.\n5. Rebel Dread - Don Letts' documentary on punk-reggae crossover London.",
+  "meta": {
+   "model": [
+    "claude-sonnet-5-5"
+   ],
+   "attempt": 1,
+   "seconds": 13.0
+  }
+ },
+ "fable|g2_B_film": {
+  "qid": "g2_B_film",
+  "text": "1. We Out Here - Documentary on their exact London jazz scene.\n2. Babylon - Brixton sound system drama, Dennis Bovell dub score.\n3. Space Is the Place - Sun Ra's Afrofuturist cult film, cosmic jazz roots.\n4. Soul Power - Zaire '74 concert doc: Afrobeat meets funk.\n5. Touki Bouki - Senegalese classic, restless rhythm, sampled Afro-diasporic imagery.",
+  "meta": {
+   "model": [
+    "claude-fable-5-1"
+   ],
+   "attempt": 1,
+   "seconds": 21.7
+  }
+ },
+ "sonnet|g2_B_book": {
+  "qid": "g2_B_book",
+  "text": "1. Lloyd Bradley, \"Sounds Like London\" - Definitive history of Black London music, from jazz to grime.\n2. Kevin Le Gendre, \"Don't Stop the Carnival\" - Black British music's roots, written by a leading jazz critic.\n3. Jazzie B, \"Soul II Soul: Keep On Movin'\" - London sound-system culture, communal and genre-blending.\n4. Hannah Lowe, \"Chick\" - Poetry steeped in London, Caribbean heritage, and jazz-era memory.\n5. Courttia Newland, \"A River Called Time\" - Afrofuturist London novel with a deep musical pulse.",
+  "meta": {
+   "model": [
+    "claude-sonnet-5-5"
+   ],
+   "attempt": 1,
+   "seconds": 14.7
+  }
+ },
+ "gpt|g2_A_artist": {
+  "qid": "g2_A_artist",
+  "text": "1. Tirzah - Intimate vocals and off-kilter electronics with quietly radical production.\n2. L’Rain - Dreamlike collages weaving soul, psychedelia and adventurous song structures.\n3. Young Fathers - Urgent vocals, fractured beats and emotionally charged sonic experimentation.\n4. billy woods - Dense, incisive storytelling over unsettling, richly textured abstract hip-hop.\n5. Jockstrap - Soaring melodies pulled apart by playful, unpredictable electronic production.",
+  "meta": {
+   "model": [
+    "gpt-6.1-sol"
+   ],
+   "attempt": 1,
+   "seconds": 16.0
+  }
+ },
+ "gpt|g2_B_artist": {
+  "qid": "g2_B_artist",
+  "text": "1. corto.alto - Loose, danceable jazz with broken beats and brass hooks.\n2. Camilla George - Afrobeat grooves, luminous saxophone and joyful improvisation.\n3. Maisha - Spiritual jazz with deep percussion and expansive ensemble interplay.\n4. Nérija - Interlocking horns, soulful melodies and London jazz scene chemistry.\n5. Ashley Henry - Soulful piano, hip-hop rhythms and infectious rhythmic momentum.",
+  "meta": {
+   "model": [
+    "gpt-6.1-sol"
+   ],
+   "attempt": 1,
+   "seconds": 14.5
+  }
+ },
+ "gpt|g2_A_film": {
+  "qid": "g2_A_film",
+  "text": "1. Neptune Frost - Afrofuturist musical rebellion with handmade worlds and radical politics.\n2. Morvern Callar - Alienation, strange beauty, and an extraordinary mixtape soundtrack.\n3. The Fits - Hypnotic movement, outsider longing, and collective female power.\n4. November - Monochrome folk surrealism, eerie tenderness, and beautiful grotesquerie.\n5. All About Lily Chou-Chou - Ethereal music meets adolescent loneliness and digital disconnection.",
+  "meta": {
+   "model": [
+    "gpt-6.1-sol"
+   ],
+   "attempt": 1,
+   "seconds": 18.4
+  }
+ },
+ "fable|g2_B_book": {
+  "qid": "g2_B_book",
+  "text": "1. Make Some Space - Emma Warren inside Total Refreshment Centre, the scene's birthplace.\n2. Unapologetic Expression - André Marmot's oral history of the UK jazz explosion.\n3. Don't Stop the Carnival - Kevin Le Gendre on Black British music's deep lineage.\n4. As Serious As Your Life - Val Wilmer's free jazz classic, radical and intimate.\n5. Sounds Like London - Lloyd Bradley traces a century of Black London music.",
+  "meta": {
+   "model": [
+    "claude-fable-5-1"
+   ],
+   "attempt": 1,
+   "seconds": 36.7
+  }
+ },
+ "gpt|g2_A_book": {
+  "qid": "g2_A_book",
+  "text": "1. The Employees - Alienated voices turn corporate space travel into an unsettling chorus.\n2. Ice - Glacial dreamscapes, obsessive longing, and beauty edged with menace.\n3. The Hearing Trumpet - Surreal rebellion, occult ecology, and gloriously unruly older women.\n4. Freshwater - Fractured identity rendered with spiritual intensity and lyrical force.\n5. Small Bodies of Water - Intimate essays braid migration, belonging, memory, and the natural world.",
+  "meta": {
+   "model": [
+    "gpt-6.1-sol"
+   ],
+   "attempt": 1,
+   "seconds": 25.3
+  }
+ },
+ "gpt|g2_B_film": {
+  "qid": "g2_B_film",
+  "text": "1. Babylon - London sound systems, bass pressure and uncompromising Black British identity.\n2. Félicité - Kinshasa’s live music pulses through grief, resilience and everyday beauty.\n3. Neptune Frost - Afrofuturist rebellion powered by adventurous rhythms and dazzling visual invention.\n4. The Cry of Jazz - A fiercely political argument about jazz, freedom and Black life.\n5. Dingo - Miles Davis connects outback dreams with smoky Parisian jazz.",
+  "meta": {
+   "model": [
+    "gpt-6.1-sol"
+   ],
+   "attempt": 1,
+   "seconds": 21.5
+  }
+ },
+ "composer|g2_B_artist": {
+  "qid": "g2_B_artist",
+  "text": "1. Kokoroko - London afro-jazz collective beside Ezra Collective’s pulse.\n2. Alfa Mist - Hip-hop soul and jazz, Moses Boyd’s broken-beat cousin.\n3. Maisha - Spiritual jazz warmth in Nubya Garcia’s exploratory lane.\n4. Steam Down - Raw Brixton weekly jams, live communion energy.\n5. Ill Considered - Spontaneous sax-and-drums fireworks, Boyd-level rhythmic daring.",
+  "meta": {
+   "model": [
+    "composer-2.5"
+   ],
+   "seconds": 10.2
+  }
+ },
+ "composer|g2_A_book": {
+  "qid": "g2_A_book",
+  "text": "1. The Hearing Trumpet - Surreal feminist fable, lunar whimsy and rage.\n2. The Wake - Ecological collapse in ghosted Old English.\n3. Signs Preceding the End of the World - Mythic migration, knife-sharp and cosmic.\n4. Memoirs of a Polar Bear - Exile through bears, dry alien tenderness.\n5. A Girl Is a Half-formed Thing - Semicolon storm of trauma and defiance.",
+  "meta": {
+   "model": [
+    "composer-2.5"
+   ],
+   "seconds": 16.3
+  }
+ },
+ "composer|g2_A_artist": {
+  "qid": "g2_A_artist",
+  "text": "1. Squid - Angular UK post-punk with art-rock tension and wit.\n2. Nala Sinephro - Cosmic harp jazz electronics; spiritual spaciousness Björk fans crave.\n3. Moor Mother - Futurist poetry over noise; Simz conscience meets Radiohead dread.\n4. Space Afrika - Manchester mood sculptures; unsettling beauty like Kid A ghosts.\n5. Model/Actriz - NYC industrial dance-punk; bodily intensity Simz listeners respect.",
+  "meta": {
+   "model": [
+    "composer-2.5"
+   ],
+   "seconds": 19.0
+  }
+ },
+ "gemini|g2_A_artist": {
+  "qid": "g2_A_artist",
+  "text": "1. Sudan Archives - Avant-garde violin loops blended with experimental R&B and hip-hop.\n2. Squid - Post-punk art-rock channeling Radiohead's anxious energy and complex rhythms.\n3. Eartheater - Björk-like vocal acrobatics merged with deconstructed electronic and acoustic textures.\n4. Moor Mother - Poetic,jazz-infused experimental hip-hop with uncompromising lyrical depth.\n5. Anna von Hausswolff - Theatrical, gothic art-pop built on massive pipe organ drones.",
+  "meta": {
+   "model": [
+    "google/gemini-4-argon"
+   ],
+   "seconds": 4.4,
+   "usd": 0.001414
+  }
+ },
+ "gpt|g2_B_book": {
+  "qid": "g2_B_book",
+  "text": "1. As Serious As Your Life - Radical jazz, collective spirit, and music as liberation.\n2. Coming Through Slaughter - Fragmented, feverish fiction about jazz pioneer Buddy Bolden.\n3. The Book of Harlan - Black musicians navigate friendship, exile, and twentieth-century upheaval.\n4. Bass Culture - Jamaican sound-system roots behind Britain’s bass-heavy musical imagination.\n5. The Jazz of Physics - A musician connects improvisation, cosmic rhythms, and theoretical physics.",
+  "meta": {
+   "model": [
+    "gpt-6.1-sol"
+   ],
+   "attempt": 1,
+   "seconds": 23.6
+  }
+ },
+ "gemini|g2_B_artist": {
+  "qid": "g2_B_artist",
+  "text": "1. KOKOROKO - Joyful Afrobeat-infused horns that define the modern London jazz sound.\n2. Alfa Mist - Moody, hip-hop influenced keys with deep, introspective jazz grooves.\n3. Yussef Dayes - Intricate, high-energy drumming driving cosmic, bass-heavy jazz fusion.\n4.Theon Cross - Revolutionary tuba player bringing heavy grime and dancehall basslines.\n5. Maisha - Spiritual, rhythm-heavy ensemble led by drummer Jake Long.",
+  "meta": {
+   "model": [
+    "google/gemini-4-argon"
+   ],
+   "seconds": 3.6,
+   "usd": 0.001324
+  }
+ },
+ "gemini|g2_A_film": {
+  "qid": "g2_A_film",
+  "text": "1. Under the Skin - Alien alienation in Britain with a haunting, experimental electronic score.\n2. Rocks - Vibrant, authentic portrayal of Black British youth and resilient sisterhood.\n3. The Alchemist Cookbook - Lo-fi, paranoid isolation in nature blending hip-hop energy with dread.\n4. Upstream Color - Hypnotic, puzzle-box sci-fi exploring human connection and natural cycles.\n5.Atlantics - Mesmerizing senegalese supernatural drama with atmospheric synth-heavy soundscapes.",
+  "meta": {
+   "model": [
+    "google/gemini-4-argon"
+   ],
+   "seconds": 5.6,
+   "usd": 0.00134
+  }
+ },
+ "composer|g2_A_film": {
+  "qid": "g2_A_film",
+  "text": "1. Holy Motors - Leos Carax's surreal odyssey rewards adventurous music fans.\n2. Berberian Sound Studio - Obsessive sound design mirrors Radiohead's studio paranoia.\n3. In Fabric - Hypnotic retail horror with Björk-level textile surrealism.\n4. Atlantics - Senegalese ghost romance; moody like Little Simz cinematics.\n5. Good Manners - Brazilian fable blends social bite with wild genre shifts.",
+  "meta": {
+   "model": [
+    "composer-2.5"
+   ],
+   "seconds": 22.0
+  }
+ },
+ "gemini|g2_A_book": {
+  "qid": "g2_A_book",
+  "text": "1. Entangled Life by Merlin Sheldrake - Mind-bending fungal ecology that strongly echoes Björk’s biophilic obsession.\n2. Ghosts of My Life by Mark Fisher - Melancholic cultural criticism exploring twenty-first-century alienation, pure Radiohead vibes.\n3. Caleb's Crossing by Geraldine Brooks - Lyrical, rhythmic prose exploring identity, resilience, and sharp historical introspection.\n4. Ice by Anna Kavan - Surreal, claustrophobic slipstream fiction matching Kid A's icy dystopia.\n5. Assembly by Natasha Brown - Razor-sharp, poetic critique of modern British race and class.",
+  "meta": {
+   "model": [
+    "google/gemini-4-argon"
+   ],
+   "seconds": 6.0,
+   "usd": 0.00158
+  }
+ },
+ "gemini|g2_B_film": {
+  "qid": "g2_B_film",
+  "text": "1. Babylon (1980) - Iconic South London sound system culture and anti-racist struggle.\n2. Rocks (2019) - Vibrant, authentic portrait of multicultural East London youth sisterhood.\n3. Lovers Rock (2020) - Immersive, music-driven celebration of 1980s Black British house parties.\n4. The Last Angel of History (1996) - Foundational Afrofuturist documentary linking Black music, space, and technology.\n5. Rye Lane (2023) - Joyful, visually kinetic South London romance with great music.",
+  "meta": {
+   "model": [
+    "google/gemini-4-argon"
+   ],
+   "seconds": 6.4,
+   "usd": 0.0016
+  }
+ },
+ "composer|g2_B_film": {
+  "qid": "g2_B_film",
+  "text": "1. The Story of Lovers Rock - Sound-system romance, UK Caribbean warmth, dancefloor closeness.\n2. The Last Angel of History - Diaspora futurism, dub space, improvisation as politics.\n3. I Called Him Morgan - Late-night hard bop, tenderness, trumpet confession.\n4. Passing Through - Jazz as ritual, Black independence, rare spiritual intensity.\n5. Thunder Soul - Big ensemble fire, funk-soul uplift, communal groove.",
+  "meta": {
+   "model": [
+    "composer-2.5"
+   ],
+   "seconds": 17.8
+  }
+ },
+ "gemini|g2_B_book": {
+  "qid": "g2_B_book",
+  "text": "1. White Bicycles by Joe Boyd - Insider memoir of 1960s London underground jazz and folk scenes.\n2. Bass Culture by Lloyd Bradley - Definitive history of Jamaican sound systems shaping modern London music.\n3. Vibration Cooking by Vertamae Smart-Grosvenor - Improvisational culinary memoir steeped in Afro-diasporic jazz sensibilities.\n4. More Brilliant than the Sun by Kodwo Eshun - Radical exploration of Afrofuturism, rhythmic innovation, and sonic culture.\n5. Liner Notes for the Revolution by Daphne A. Brooks - Celebrates overlooked Black feminist pioneers in sound and music culture.",
+  "meta": {
+   "model": [
+    "google/gemini-4-argon"
+   ],
+   "seconds": 5.3,
+   "usd": 0.0016
+  }
+ },
+ "grok|g2_A_artist": {
+  "qid": "g2_A_artist",
+  "text": "1. Jenny Hval - Conceptual art-pop with fearless vocal experiments\n2. These New Puritans - Dark ritual rock fused with electronics\n3. Loraine James - Fractured UK electronics full of feeling\n4. Wesley Joseph - Surreal UK rap with jazz textures\n5. Gazelle Twin - Unsettling electronic theatre and folklore",
+  "meta": {
+   "model": [
+    "x-ai/grok-4.7"
+   ],
+   "seconds": 16.2,
+   "usd": 0.007332
+  }
+ },
+ "composer|g2_B_book": {
+  "qid": "g2_B_book",
+  "text": "1. Don't Stop the Carnival - Black British music history jazz heads rarely get.\n2. Kitch - Calypso myth, diaspora voice, improvisation on the page.\n3. Circular Breathing - UK jazz as culture, protest, and community practice.\n4. The Front Room - Caribbean aesthetics that shaped London Black domestic life.\n5. War Inna Babylon - Sound-system culture, carnival, and resistance documented sharply.",
+  "meta": {
+   "model": [
+    "composer-2.5"
+   ],
+   "seconds": 25.3
+  }
+ },
+ "grok|g2_B_artist": {
+  "qid": "g2_B_artist",
+  "text": "1. Emma-Jean Thackray - Spiritual jazz with dancefloor brass energy\n2. Maisha - Afrofuturist London jazz, spiritual and rhythmic\n3. SEED Ensemble - Politically charged UK jazz ensemble textures\n4. Oscar Jerome - Guitar-led jazz soul with Afrobeat pulse\n5. Balimaya Project - West African percussion meeting London jazz",
+  "meta": {
+   "model": [
+    "x-ai/grok-4.7"
+   ],
+   "seconds": 21.3,
+   "usd": 0.008298
+  }
+ },
+ "kimi|g2_A_artist": {
+  "qid": "g2_A_artist",
+  "text": "1. L’Rain - Grief-stricken experimental pop with layered, unpredictable beauty.\n2. Tirzah - Intimate, off-kilter pop built from fragile electronic textures.\n3. Duval Timothy - Meditative piano-electronic collages with subtle rhythmic invention.\n4. Nala Sinephro - Expansive ambient jazz blending harp, synths, spiritual calm.\n5. Loraine James - Restless electronic compositions fusing glitch, jazz, and emotion.",
+  "meta": {
+   "model": [
+    "moonshotai/kimi-k3.1-pro"
+   ],
+   "seconds": 24.3,
+   "usd": 0.006924
+  }
+ },
+ "grok|g2_A_film": {
+  "qid": "g2_A_film",
+  "text": "1. Upstream Color - Biological glitch romance soaked in electronic dread\n2. Morvern Callar - Grief escaped through private obsessive soundtracks\n3. November - Muddy folk magic, lust, and wild machines\n4. The Last Tree - Fractured British identity between estate and exile\n5. Berberian Sound Studio - Paranoia built entirely from tape and foley",
+  "meta": {
+   "model": [
+    "x-ai/grok-4.7"
+   ],
+   "seconds": 31.9,
+   "usd": 0.010238
+  }
+ },
+ "grok|g2_A_book": {
+  "qid": "g2_A_book",
+  "text": "1. Lote - Baroque Black queer art-world reverie\n2. The Employees - Tender dread among objects and crew\n3. Tentacle - Prophetic queer ecology with musical pulse\n4. Assembly - Razor account of British institutional life\n5. Terminal Boredom - Cool gendered science-fiction malaise",
+  "meta": {
+   "model": [
+    "x-ai/grok-4.7"
+   ],
+   "seconds": 38.5,
+   "usd": 0.01409
+  }
+ },
+ "kimi|g2_A_film": {
+  "qid": "g2_A_film",
+  "text": "1. Neptune Frost - Afrofuturist punk musical with hypnotic, anticolonial poetry.\n2. An Oversimplification of Her Beauty - Lyrical, formally restless romance about longing and self-deception.\n3. The Sound of Noise - Musicians turn urban percussion into anarchic, deadpan heist cinema.\n4. Born in Flames - Guerrilla feminist science fiction pulsing with punk insurgency.\n5. A Pigeon Sat on a Branch Reflecting on Existence - Bleakly comic tableaux turn alienation into uncanny poetry.",
+  "meta": {
+   "model": [
+    "moonshotai/kimi-k3.1-pro"
+   ],
+   "seconds": 35.5,
+   "usd": 0.01076
+  }
+ },
+ "deepseek|g2_A_book": {
+  "qid": "g2_A_book",
+  "text": "1. Piranesi by Susanna Clarke - A labyrinthine, liminal world scored by Björk-level wonder and logic.\n2. The Employees by Olga Ravn - Fragmented, poetic workplace sci-fi echoing Radiohead’s cold, human alienation.\n3. Assembling Georgia by Various Artists - Collaborative novel with the defiant, structural rhythm of Little Simz.\n4. The Emissary by Yoko Tawada - Fragile, post-disaster hope rebuilt from language like delicate Kid A textures.\n5. Black Wave by Michelle Tea - Genre-melting, apocalyptic queer diarism with raw, theatrical vulnerability.",
+  "meta": {
+   "model": [
+    "deepseek/deepseek-v4-pro"
+   ],
+   "seconds": 3.8,
+   "usd": 0.000366
+  }
+ },
+ "grok|g2_B_film": {
+  "qid": "g2_B_film",
+  "text": "1. Babymother - London dancehall glamour, grit, and chosen family\n2. The Stuart Hall Project - Diaspora ideas cut to Miles Davis\n3. Burning an Illusion - A West London romance grows political\n4. Ornette: Made in America - Free jazz filmed as urban liberation\n5. Young Soul Rebels - Carnival, pirate radio, and queer friendship",
+  "meta": {
+   "model": [
+    "x-ai/grok-4.7"
+   ],
+   "seconds": 43.8,
+   "usd": 0.016304
+  }
+ },
+ "deepseek|g2_A_film": {
+  "qid": "g2_A_film",
+  "text": "1. The Five Devils - Surreal, sensory-driven queer drama with a hypnotic soundscape.\n2. Neptune Frost - Afrofuturist musical rebellion, ecstatic and fiercely original.\n3. Mandibles - Absurdist buddy comedy with deadpan whimsy and giant fly.\n4. Beats - Monochrome rave culture elegy, pulsing with underground energy.\n5. Suzume - Grief-stricken road trip, visually lush and emotionally crescendoing.",
+  "meta": {
+   "model": [
+    "deepseek/deepseek-v4-pro"
+   ],
+   "seconds": 8.4,
+   "usd": 0.000649
+  }
+ },
+ "deepseek|g2_A_artist": {
+  "qid": "g2_A_artist",
+  "text": "1. Agnes Obel - Haunting piano melodies and ghostly electronic textures like Björk.\n2. serpentwithfeet - Operatic R&B with avant-garde production, Björk’s spiritual cousin.\n3. Loma - Widescreen, eerie art rock reminiscent of Radiohead’s experimental side.\n4. Noga Erez - Glitchy protest pop fusing Little Simz’s bite and Björk’s quirks.\n5. Kae Tempest - Politically charged poetry over electronic beats, like Little Simz.",
+  "meta": {
+   "model": [
+    "deepseek/deepseek-v4-pro"
+   ],
+   "seconds": 17.1,
+   "usd": 0.002852
+  }
+ },
+ "kimi|g2_B_artist": {
+  "qid": "g2_B_artist",
+  "text": "1. Steam Down - Joyful, percussive London jazz with communal energy.\n2. SEED Ensemble - Expansive compositions blending jazz, dub and social consciousness.\n3. Chelsea Carmichael - Potent saxophone grooves rooted in London’s jazz underground.\n4. Theon Cross - Tuba-led rhythms fusing grime, jazz and Caribbean influences.\n5. Nubiyan Twist - Horn-heavy Afrobeat and jazz built for dancing.",
+  "meta": {
+   "model": [
+    "moonshotai/kimi-k3.1-pro"
+   ],
+   "seconds": 31.5,
+   "usd": 0.009076
+  }
+ },
+ "grok|g2_B_book": {
+  "qid": "g2_B_book",
+  "text": "1. As Serious As Your Life - Free jazz lived, not mythologised from outside.\n2. Sounds Like London - A century of Black London sound.\n3. Thinking in Jazz - How players hear and answer each other.\n4. African Rhythm and African Sensibility - Drumming as community, timing, and feeling.\n5. Fela: This Bitch of a Life - Fela's life as rhythm and revolt.",
+  "meta": {
+   "model": [
+    "x-ai/grok-4.7"
+   ],
+   "seconds": 52.7,
+   "usd": 0.018956
+  }
+ },
+ "deepseek|g2_B_artist": {
+  "qid": "g2_B_artist",
+  "text": "1. DoomCannon - Lush keys blend jazz, hip-hop, and broken beat.\n2. Jas Kayser - Drummer-led fusion of afrobeat and spiritual jazz.\n3. Chelsea Carmichael - Powerful tenor sax immersed in deep spiritual grooves.\n4. Neue Grafik - Live jazz meets electronic afrobeat and house.\n5. Pyjæn - Energetic quintet fusing jazz, afrobeat, and dance.",
+  "meta": {
+   "model": [
+    "deepseek/deepseek-v4-pro"
+   ],
+   "seconds": 22.3,
+   "usd": 0.00248
+  }
+ },
+ "kimi|g2_B_film": {
+  "qid": "g2_B_film",
+  "text": "1. Soul Power - Zaire ’74 delivers electrifying performances and Black musical solidarity.\n2. Benda Bilili! - Kinshasa’s street musicians build joy from rhythm and resilience.\n3. Félicité - Kinshasa nightlife, grief and desire pulse through Kasai Allstars.\n4. I Called Him Morgan - Jazz brilliance and tragedy unfold with noir-like intimacy.\n5. They Will Have to Kill Us First - Malian musicians defy extremism with courage and song.",
+  "meta": {
+   "model": [
+    "moonshotai/kimi-k3.1-pro"
+   ],
+   "seconds": 55.4,
+   "usd": 0.015942
+  }
+ },
+ "deepseek|g2_B_book": {
+  "qid": "g2_B_book",
+  "text": "1. In Our Mad and Furious City - Grime and jazz-infused narrative of London's restless youth.\n2. The Black Flamingo - Poetic and flamboyant, a drag-drenched coming-of-age.\n3. Rainbow Milk - Raw, soulful prose about faith, music, and queer desire.\n4. When We Speak of Nothing - Linguistic jazz exploring queer identity across continents.\n5. Lote - Decadent and jazzy, resurrecting Black bohemian modernist lives.",
+  "meta": {
+   "model": [
+    "deepseek/deepseek-v4-pro"
+   ],
+   "seconds": 30.2,
+   "usd": 0.003329
+  }
+ },
+ "kimi|g2_A_book": {
+  "qid": "g2_A_book",
+  "text": "1. The Employees - Fragmented, eerie sci-fi about labor, consciousness, and longing.\n2. Lanny - Polyphonic village fable where folklore meets contemporary dread.\n3. Água Viva - Breathless, sensory prose that feels like improvised song.\n4. The Deep - Afrofuturist mythmaking about memory, trauma, and collective survival.\n5. Ice - A glacial, hallucinatory pursuit through collapsing inner worlds.",
+  "meta": {
+   "model": [
+    "moonshotai/kimi-k3.1-pro"
+   ],
+   "seconds": 73.1,
+   "usd": 0.02003
+  }
+ },
+ "deepseek|g2_B_film": {
+  "qid": "g2_B_film",
+  "text": "1. Space is the Place - Sun Ra's Afrofuturist cosmic jazz odyssey, pure liberation.\n2. Lovers Rock - Dreamy London reggae house party, pure rhythmic romance.\n3. All Night Long - Shakespeare's Othello in a swinging London jazz club.\n4. Deep Crates - Crate-digging doc, where jazz samples meet hip-hop beats.\n5. Been So Long - London musical with neo-soul heart and vibrant energy.",
+  "meta": {
+   "model": [
+    "deepseek/deepseek-v4-pro"
+   ],
+   "seconds": 48.0,
+   "usd": 0.005092
+  }
+ },
+ "kimi|g2_B_book": {
+  "qid": "g2_B_book",
+  "text": "1. The Dragon Can't Dance - Carnival, calypso, and community pulse through postcolonial Trinidad.\n2. Some Kind of Black - Black London life, campus politics, and restless musical energy.\n3. The Perseverance - Sound, silence, and Jamaican-British identity in electric poems.\n4. It's a London Thing - Rare groove, acid house, and jungle remap London.\n5. The Cartographer Tries to Map a Way to Zion - Jamaican landscapes meet spiritual, musical, fiercely inventive verse.",
+  "meta": {
+   "model": [
+    "moonshotai/kimi-k3.1-pro"
+   ],
+   "seconds": 81.5,
+   "usd": 0.023932
+  }
+ }
+}
