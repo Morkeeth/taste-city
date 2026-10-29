@@ -10,7 +10,7 @@ import json
 import os
 import pathlib
 
-from qloo_client import Live
+from qloo_client import Live, BudgetSpent
 from local_places import resolve_area, radius_metres, distance_metres, within_popularity_cap, LocationUnavailable
 from taste_match import MissingKey, entities, short
 
@@ -187,8 +187,8 @@ def _scenario_outlets(profile):
     return tuple((f"scenario-{index}", domain, DOMAIN_TYPES[domain]) for index, domain in enumerate(SCENARIO_PLANS[profile], 1))
 
 
-def _live(picks, city, key, base=None, diagnostics_path=None, profile=None, http_cap=None, local_area=None, radius=1000, discovery=False):
-    qloo = Live(key, base=base, max_calls=CALL_CAP, pause=0, max_http_reads=http_cap)
+def _live(picks, city, key, base=None, diagnostics_path=None, profile=None, http_cap=None, local_area=None, radius=1000, discovery=False, core=False):
+    qloo = Live(key, base=base, max_calls=9 if core else CALL_CAP, pause=0, max_http_reads=9 if core else http_cap)
     calls, anchors = [], []
     types = ",".join(f"urn:entity:{kind}" for kind in SEARCH_TYPES)
     for pick in picks:
@@ -229,6 +229,8 @@ def _live(picks, city, key, base=None, diagnostics_path=None, profile=None, http
             continue
         found = _require_ok(call)
         if not found:
+            if core and entity_type == "place":
+                continue
             raise QlooUnavailable(f"Qloo returned no {domain} entity.")
         if entity_type == "place":
             _write_food_diagnostics(diagnostics_path, call, found)
@@ -248,6 +250,8 @@ def _live(picks, city, key, base=None, diagnostics_path=None, profile=None, http
                 nearby_places = nearby_places[:5]
             chosen = next(iter(candidates), None)
             if not chosen:
+                if core:
+                    continue
                 raise QlooUnavailable(f"No matching restaurant was found within {radius} metres. Try a larger radius or turn off less mainstream discovery." if local_area else "Qloo returned no restaurant-typed food entity.")
         else:
             chosen = found[result_index] if result_index < len(found) else found[0]
@@ -264,6 +268,29 @@ def _live(picks, city, key, base=None, diagnostics_path=None, profile=None, http
             "source_entities": [{"id": anchor["id"], "name": anchor["name"]} for anchor in anchors],
         })
 
+    if core:
+        params = {'filter.type':'urn:entity:place', 'signal.interests.entities':seed_ids,
+                  'filter.location':f"POINT({local_area['lon']} {local_area['lat']})",
+                  'filter.location.radius':radius, 'take':25}
+        if discovery:
+            params['filter.popularity.max']=0.5
+        call=qloo.get('local places for this audience','/v2/insights',params)
+        calls.append(call)
+        nearby_places=[]
+        seen=set()
+        for entity in _require_ok(call):
+            distance=distance_metres(local_area,entity)
+            eid=entity.get('entity_id')
+            if not eid or eid in seen or distance is None or distance>radius or (discovery and not within_popularity_cap(entity)):
+                continue
+            seen.add(eid)
+            nearby_places.append(short(entity) | {'genre':place_genre(entity), 'distance_m':round(distance),
+                'call':call['id'],'why':'Qloo connects this place to the three selected audience tastes',
+                'popularity':entity.get('popularity')})
+        nearby_places=nearby_places[:5]
+        if not nearby_places:
+            raise QlooUnavailable('No coordinate-checked places matched this audience and radius. Change the radius or discovery filter.')
+
     return {
         "mode": "live",
         "recorded_at": datetime.datetime.now(datetime.timezone.utc).isoformat(),
@@ -279,7 +306,7 @@ def _live(picks, city, key, base=None, diagnostics_path=None, profile=None, http
     }
 
 
-def build(picks, city="London", env=None, cache_root=None, base=None, prefer_cache=False, profile=None, local=False, radius=1000, discovery=True):
+def build(picks, city="London", env=None, cache_root=None, base=None, prefer_cache=False, profile=None, local=False, radius=1000, discovery=True, core=False):
     """Use live Qloo once, then exact-choice cache on an unavailable network.
 
     QLOO_TASTE_OFFLINE=1 forces the recorded path. No keychain access exists
@@ -296,7 +323,7 @@ def build(picks, city="London", env=None, cache_root=None, base=None, prefer_cac
         if not isinstance(discovery, bool):
             raise InvalidTaste('Choose whether to explore less mainstream places.')
     city = str(city or "London").strip()[:160 if local else 80] or "London"
-    path = cache_path(picks, city, cache_root, profile=({"local_v": 1, "query": city, "radius": radius, "discovery": discovery} if local else profile))
+    path = cache_path(picks, city, cache_root, profile=({"local_v": 2 if core else 1, "query": city, "radius": radius, "discovery": discovery} if local else profile))
     cached = _fallback(path)
     if prefer_cache and cached:
         return cached
@@ -314,11 +341,11 @@ def build(picks, city="London", env=None, cache_root=None, base=None, prefer_cac
             picks, city, key, base=base or env.get("QLOO_BASE"),
             diagnostics_path=env.get("QLOO_TASTE_DIAGNOSTICS"),
             profile=profile,
-            local_area=resolve_area(city) if local else None, radius=radius, discovery=discovery,
+            local_area=resolve_area(city) if local else None, radius=radius, discovery=discovery, core=core,
         )
         _record(path, result)
         return result
-    except (QlooUnavailable, LocationUnavailable):
+    except (QlooUnavailable, LocationUnavailable, BudgetSpent):
         if cached:
             return cached
         raise

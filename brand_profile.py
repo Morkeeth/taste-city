@@ -214,7 +214,7 @@ def _archetypes(outlets):
     return result
 
 
-def _live(page, city, key, base=None):
+def _live(page, city, key, base=None, local_filter=None):
     qloo = Live(key, base=base, max_calls=MAX_CALLS, pause=0)
     calls, anchors = [], []
     types = ",".join(f"urn:entity:{kind}" for kind in SEARCH_TYPES)
@@ -227,20 +227,28 @@ def _live(page, city, key, base=None):
             anchors.append(chosen | {"asked": cue, "call": call["id"]})
     if not anchors:
         raise QlooUnavailable("Qloo did not resolve any public website cue.")
-    return _query_profile(page, city, qloo, anchors, calls)
+    return _query_profile(page, city, qloo, anchors, calls, local_filter=local_filter)
 
 
-def _query_profile(page, city, qloo, anchors, calls):
+def _query_profile(page, city, qloo, anchors, calls, local_filter=None):
     seed_ids = ",".join(anchor["id"] for anchor in anchors)
     outlets = []
     for domain, entity_type in OUTLETS:
         filter_type = "urn:demographics" if entity_type == "demographics" else f"urn:entity:{entity_type}"
         params = {"filter.type": filter_type, "signal.interests.entities": seed_ids, "take": 5}
         if entity_type == "place":
-            params["filter.location.query"] = city
+            if local_filter:
+                params.update(local_filter)
+            else:
+                params["filter.location.query"] = city
         call = qloo.get(f"brand profile {domain}", "/v2/insights", params)
         calls.append(call)
         found = _require_ok(call)
+        if entity_type == 'place' and local_filter:
+            from local_places import distance_metres
+            lon,lat=map(float,local_filter['filter.location'].removeprefix('POINT(').removesuffix(')').split())
+            area={'lat':lat,'lon':lon}
+            found=[row for row in found if distance_metres(area,row) is not None and distance_metres(area,row)<=local_filter['filter.location.radius']]
         entity = _demographic_entity(call) if entity_type == "demographics" else (short(found[0]) if found else None)
         if entity:
             outlets.append({"domain": domain, "entity": entity, "call": call["id"]})
@@ -255,6 +263,7 @@ def _query_profile(page, city, qloo, anchors, calls):
         "outlets": outlets,
         "archetypes": _archetypes(outlets),
         "calls": [_call_row(call) for call in calls],
+        "local_filter": local_filter,
         "notice": "Qloo affinity describes cultural fit. It does not predict demand, conversion, or purchase intent.",
     }
 
@@ -273,15 +282,18 @@ def confirm_anchors(profile, approved_ids, env=None, base=None):
     anchors = [{**a, 'call':'source:'+a['call']} for a in profile['anchors'] if a['id'] in approved]
     source_calls = [{**c, 'id':'source:'+c['id']} for c in profile['calls'] if any(c['id']==a['call'].removeprefix('source:') for a in anchors)]
     qloo = Live(key, base=base, max_calls=5, pause=0)
-    result = _query_profile(profile['page'], profile['city'], qloo, anchors, source_calls)
+    result = _query_profile(profile['page'], profile['city'], qloo, anchors, source_calls, local_filter=profile.get('local_filter'))
     result['anchor_confirmation'] = {'approved_ids':sorted(approved), 'source_recorded_at':profile['recorded_at'], 'notice':'Selected source entities, not measured customer tastes.'}
     return result
 
 
-def build(url, city="London", env=None, cache_root=None, base=None, prefer_cache=True, fetcher=fetch_public_html):
+def build(url, city="London", env=None, cache_root=None, base=None, prefer_cache=True, fetcher=fetch_public_html, local_filter=None):
     env = os.environ if env is None else env
     url = normalize_url(url)
     path = cache_path(url, cache_root)
+    if local_filter:
+        scope=hashlib.sha256(json.dumps(local_filter,sort_keys=True).encode()).hexdigest()[:16]
+        path=path.with_name(path.stem+'-local-'+scope+'.json')
     cached = _fallback(path)
     if prefer_cache and cached:
         return cached
@@ -295,6 +307,6 @@ def build(url, city="London", env=None, cache_root=None, base=None, prefer_cache
             return cached
         raise MissingKey("Set QLOO_API_KEY in the process environment and start again.")
     final_url, html = fetcher(url)
-    result = _live(page_profile(final_url, html), str(city or "London")[:80], key, base=base or env.get("QLOO_BASE"))
+    result = _live(page_profile(final_url, html), str(city or "London")[:80], key, base=base or env.get("QLOO_BASE"), local_filter=local_filter)
     _record(path, result)
     return result

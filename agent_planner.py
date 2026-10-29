@@ -39,7 +39,8 @@ def plan(body, key=None, base=None, first_graph=None, followup_client=None):
     graph = first_graph if first_graph is not None else taste_city._live(
         picks, request['city'], key, base=base, profile=profile, http_cap=9,
     )
-    if graph.get('mode') != 'live' or graph.get('profile') != profile:
+    shared_local = body.get('local_core') is True and graph.get('shared_local_graph') is True
+    if graph.get('mode') != 'live' or (not shared_local and graph.get('profile') != profile):
         raise AgentUnavailable('A live Qloo graph for this exact idea is required.')
     choices = [row for row in graph.get('outlets') or []
                if row.get('domain') in NEXT_DOMAIN and (row.get('entity') or {}).get('id')
@@ -47,6 +48,7 @@ def plan(body, key=None, base=None, first_graph=None, followup_client=None):
     if not choices:
         raise AgentUnavailable('Qloo did not return a cited cultural lead to investigate.')
     lead = max(choices, key=lambda row: float(row['entity']['affinity']))
+    graph_scope='the shared local audience graph' if shared_local else "this idea's graph"
     target_domain, target_type = NEXT_DOMAIN[lead['domain']]
     client = followup_client or Live(key, base=base, max_calls=1, pause=0, max_http_reads=2)
     call = client.get(
@@ -72,7 +74,7 @@ def plan(body, key=None, base=None, first_graph=None, followup_client=None):
         'flow': request['flow'], 'idea': scenario_engine.FLOW_CONFIG[request['flow']]['experiments'][request['experiment']],
         'city': request['city'], 'picks': picks,
         'steps': [
-            {'action': 'Observe', 'detail': f"Qloo returned {lead['entity']['name']} as the strongest cited cultural lead in this idea's graph.",
+            {'action': 'Observe', 'detail': f"Qloo returned {lead['entity']['name']} as the strongest cited cultural lead in {graph_scope}.",
              'domain': lead['domain'], 'call': lead['call'], 'affinity': lead['entity']['affinity'], 'entity_id': lead['entity']['id']},
             {'action': 'Choose tool', 'detail': f"The lead is {lead['domain']}, so the agent asks Qloo for a related {target_domain} lead, seeded with that returned entity ID.",
              'seed_call': lead['call'], 'target_domain': target_domain, 'seed_entity_id': lead['entity']['id'],

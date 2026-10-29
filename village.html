@@ -92,6 +92,8 @@ details { margin-top:8px; font-size:12px; color:var(--soft); } details ul { max-
 .taste-card { min-height:70px; border:1.5px solid var(--line); background:rgba(255,255,255,.28); color:var(--ink); border-radius:13px; padding:10px; font:650 14px/1.2 inherit; text-align:left; cursor:pointer; }
 .taste-card small { display:block; margin-top:5px; color:var(--soft); font-size:11px; font-weight:550; }
 .taste-card[aria-pressed=true] { border-color:var(--outlet); box-shadow:0 0 0 2px color-mix(in srgb, var(--outlet) 35%, transparent); background:color-mix(in srgb, var(--outlet) 12%, transparent); }
+.local-results { grid-template-columns:1fr; }
+.local-place[aria-pressed="true"] { border-color:var(--accent); background:rgba(122,79,176,.10); }
 .qloo-results { display:grid; gap:7px; margin:10px 0; }
 .qloo-result { display:grid; grid-template-columns:74px 1fr; gap:4px 10px; border:1px solid var(--line); border-radius:12px; padding:9px 10px; }
 .qloo-result .kind { grid-row:1/3; align-self:center; }
@@ -378,6 +380,21 @@ let setupStarted = false, setupCity = "London", discoveryAddress = "";
 /* The labelled fictional sample answers exactly one example. Say so before anyone taps. */
 const DEMO = q.get("demo") === "1", SAMPLE_PICKS = ["Björk","Radiohead","Little Simz"], SAMPLE_CITY = "London";
 if (DEMO) setupCity = SAMPLE_CITY;
+const localJourney = { purpose:'consumer', flow:'brand', result:null, picks:[], selected:new Set(), sourceContext:null, radius:1000, discovery:false };
+function corePayload(body) {
+  if (!localJourney.result || !localJourney.selected.size) throw new Error('Choose local places for this audience first.');
+  return {...body,local_core:true,planning_token:localJourney.result.planning_token || null,selected_place_ids:[...localJourney.selected]};
+}
+function localContext() {
+  const d=localJourney.result;
+  return d ? {area:d.local_area,places:(d.nearby_places || []).filter(p=>localJourney.selected.has(p.id)),mode:d.mode,recorded_at:d.recorded_at,
+    notice:d.mode==='synthetic'?'Fictional places and illustrative distances only. No provider inference or real-world verification.':'Coordinates checked against the radius. Opening hours, availability, rights and suitability still need checking.'} : null;
+}
+function localContextMarkup(context=localContext()) {
+  if (!context) return '';
+  return `<section class="guide" data-local-context><span class="kind">${context.mode==='synthetic'?'Fictional local example':'Your selected local foundation'}</span><p><b>${context.places.map(p=>esc(p.name)).join(' · ')}</b></p><p>${esc(context.area.label)} · ${esc(context.area.radius_m)} m search radius.</p><p>${context.mode==='synthetic'?'Illustrated places and distances only; no provider request.':esc(context.notice)}</p></section>`;
+}
+
 function sampleGuide() {
   return `<p class="sample-guide" data-sample-guide>Sample mode shows one worked example: <b>Björk, Radiohead and Little Simz in London</b>. It is fictional and makes no Qloo request. For your own tastes or city, <a href="?setup=1">use live mode</a>.</p>`;
 }
@@ -667,6 +684,7 @@ function showVerdict() {
   $("#next").onclick = () => { round++; round < G.length ? showRound() : end(); };
 }
 function backToGame() {
+  if (!data || !G.length) return enterCity("game");
   lightUp([]);
   if (round >= G.length) return end();
   answered ? showVerdict() : showRound();
@@ -824,39 +842,42 @@ function marketNav(which) {
   $("#navfest").setAttribute("aria-current", which === "city");
 }
 function openMarket() {
-  if (!data) { enterCity("market"); return; }
-  mode = "market"; marketNav("city"); lightUp([]); zoomTo = 78; panel.hidden = false; hud();
-  panel.innerHTML = `<div class="kind">Five doors into the city</div><div class="market-title">Walk in. Tap what you love.</div>
-    <div class="hint">Each bright outlet is one Qloo taste domain. Grow to city scale to see every door on the map.</div>
-    <div class="market-tabs"><button class="on" type="button">For me</button><button id="toorg" type="button">For a brand</button></div>
-    <div class="places">${OUTLETS.map(o => `<button class="place" data-outlet-card="${o.id}" style="--outlet:#${o.color.toString(16).padStart(6,"0")}"><span class="fit">${esc(o.icon)}</span><span class="kind">${esc(o.domain)}</span><b>${esc(o.name)}</b><small>Try this taste in a few taps.</small></button>`).join("")}</div>
-    <button class="quiet" id="togame">Play the taste game in this city</button>
-    <p class="sample">The cards are starting points. Three choices fill all five outlets from Qloo; if Qloo is offline, the page names the recorded response it uses.</p>`;
-  panel.querySelectorAll("[data-outlet-card]").forEach(b => b.onclick = () => { applyPopulation(25, true); openTasteOutlet(b.dataset.outletCard); });
-  $("#toorg").onclick = openBrandPlanner; $("#togame").onclick = backToGame;
+  if (localJourney.result) return renderLocalBoard(localJourney.result,localJourney.result.picks,0);
+  openSetup();
 }
 function openDiscovery() {
-  setupStarted = true; $("#load").hidden = true; applyPopulation(25, true); openTasteOutlet("echo");
+  localJourney.purpose='consumer';
+  setupStarted=true; $("#load").hidden=true; applyPopulation(25,true);
+  if (localJourney.result) return renderLocalBoard(localJourney.result,localJourney.result.picks,0);
+  openTasteOutlet('echo');
+}
+function startLocalBusiness(flow='brand',sourceContext=null) {
+  localJourney.purpose='business';localJourney.flow=flow;
+  if (sourceContext) { localJourney.sourceContext=sourceContext;localJourney.picks=sourceContext.picks || [];localJourney.result=null;localJourney.selected.clear(); }
+  if (localJourney.result && localJourney.selected.size) return openScenarioFlow(flow,sourceContext);
+  openTasteOutlet('echo');
 }
 function openTasteOutlet(id) {
   panel.scrollTop = 0;
   let outlet = OUTLETS.find(x => x.id === id) || OUTLETS[0];
   if (DEMO && !SAMPLE_PICKS.every(p => outlet.choices.includes(p))) outlet = OUTLETS.find(x => SAMPLE_PICKS.every(p => x.choices.includes(p))) || outlet;
-  const picked = new Set(DEMO ? SAMPLE_PICKS : []);
-  mode = "market"; marketNav("market"); panel.hidden = false; zoomTo = 74;
-  document.body.dataset.userPath = "consumer";
+  const picked = new Set(DEMO ? SAMPLE_PICKS : localJourney.picks);
+  const audienceChoices=[...new Set([...localJourney.picks,...outlet.choices])];
+  mode = "market"; marketNav(localJourney.purpose === "business" ? localJourney.flow : "market"); panel.hidden = false; zoomTo = 74;
+  document.body.dataset.userPath = localJourney.purpose;
+  document.body.dataset.journeyStage="audience";
   document.body.dataset.tasteOutlet = outlet.id; document.body.dataset.tastePicks = "0";
   panel.style.setProperty("--outlet", `#${outlet.color.toString(16).padStart(6,"0")}`);
-  panel.innerHTML = `<div class="kind">For me · discover</div><div class="market-title">Find your next favourite.</div>
-    <div class="hint">Choose three things you love. Discover music, films, food, books and places connected to your taste.</div>
+  panel.innerHTML = `<div class="kind">1. Audience and neighbourhood · ${localJourney.purpose === "business" ? "For business" : "For me"}</div><div class="market-title">Who is this place for?</div>
+    <div class="hint">Choose three things this audience loves. Qloo connects those tastes across culture, then finds real places within reach.</div>
     ${DEMO ? sampleGuide() : ""}
-    <label class="setup-city">Address or postcode to eat near<input id="discoverycity" value="${esc(DEMO ? SAMPLE_CITY : discoveryAddress || setupCity)}" maxlength="160" ${DEMO ? "readonly" : ""}></label>
-    ${DEMO ? "" : `<label class="setup-city">Search radius<select id="discoveryradius"><option value="500">500 metres</option><option value="1000" selected>1 kilometre</option><option value="1500">1.5 kilometres</option></select></label><label><input id="discoverylongtail" type="checkbox" checked> Explore less mainstream restaurants</label><p class="sample">Add the city or country to your address. Distances use the matched address or area centre, not walking routes. Address lookup uses OpenStreetMap; Qloo receives its coordinates. The server keeps an exact-search recording for fallback.</p>`}
-    <div class="taste-grid">${outlet.choices.map(choice => { const on = picked.has(choice), off = DEMO && !on;
+    <label class="setup-city">Address or postcode to explore near<input id="discoverycity" value="${esc(DEMO ? SAMPLE_CITY : discoveryAddress || setupCity)}" maxlength="160" ${DEMO ? "readonly" : ""}></label>
+    ${DEMO ? "" : `<label class="setup-city">Search radius<select id="discoveryradius"><option value="500">500 metres</option><option value="1000" selected>1 kilometre</option><option value="1500">1.5 kilometres</option></select></label><label><input id="discoverylongtail" type="checkbox" ${localJourney.discovery ? "checked" : ""}> Explore less mainstream places (optional)</label><p class="sample">Add the city or country to your address. Distances use the matched address or area centre, not walking routes. Address lookup uses OpenStreetMap; Qloo receives its coordinates. The server keeps an exact-search recording for fallback.</p>`}
+    <div class="taste-grid">${audienceChoices.map(choice => { const on = picked.has(choice), off = DEMO && !on;
       return `<button type="button" class="taste-card" data-taste-pick="${esc(choice)}" aria-pressed="${on}" ${off ? "disabled" : ""}>${esc(choice)}<small>${on ? "Chosen" : off ? "Live mode only" : "Tap to choose"}</small></button>`; }).join("")}</div>
-    <button class="go" id="trytaste" ${picked.size === 3 ? "" : "disabled"}>Find things I’ll love</button>
+    <button class="go" id="trytaste" ${picked.size === 3 ? "" : "disabled"}>Find places for this audience</button>
     <button class="quiet" id="backoutlets">Change my path</button>
-    <p class="sample">The key stays on the server. This page receives entity names, IDs and call references only.</p>`;
+    <p class="sample">The Qloo key stays on the server. Your plan carries the returned places, cultural links and source evidence.</p>`;
   document.body.dataset.tastePicks = String(picked.size);
   panel.querySelectorAll("[data-taste-pick]").forEach(card => card.onclick = () => {
     if (DEMO) return;  // the sample answers one example only
@@ -867,17 +888,23 @@ function openTasteOutlet(id) {
     $("#trytaste").disabled = picked.size !== 3;
   });
   $("#backoutlets").onclick = openSetup;
-  $("#trytaste").onclick = () => { discoveryAddress = DEMO ? SAMPLE_CITY : ($("#discoverycity").value.trim() || "London"); reactToTaste(outlet, [...picked], DEMO ? {} : {radius:Number($("#discoveryradius").value), discovery:$("#discoverylongtail").checked}); };
+  if (!DEMO) $("#discoveryradius").value=String(localJourney.radius);
+  $("#trytaste").onclick = () => {
+    discoveryAddress=DEMO ? SAMPLE_CITY : $("#discoverycity").value.trim();
+    localJourney.picks=[...picked];localJourney.result=null;localJourney.selected.clear();
+    if (!DEMO) {localJourney.radius=Number($("#discoveryradius").value);localJourney.discovery=$("#discoverylongtail").checked;}
+    reactToTaste(outlet,[...picked],DEMO ? {} : {radius:localJourney.radius,discovery:localJourney.discovery});
+  };
 }
 async function reactToTaste(outlet, picks, localOptions = {}) {
   const requestedArea = DEMO ? SAMPLE_CITY : discoveryAddress || setupCity;
   panel.scrollTop = 0;
   const started = performance.now();
   document.body.dataset.tastePicks = String(picks.length);
-  panel.innerHTML = `<div class="kind">${q.get("demo") === "1" ? "Loading fictional sample" : "Asking Qloo"}</div><div class="market-title">${esc(picks.join(" · "))}</div><p>${q.get("demo") === "1" ? "No provider request will be made." : "Resolving three entities, then filling five city outlets…"}</p>`;
+  panel.innerHTML = `<div class="kind">${q.get("demo") === "1" ? "Loading fictional sample" : "Asking Qloo"}</div><div class="market-title">${esc(picks.join(" · "))}</div><p>${q.get("demo") === "1" ? "No provider request will be made." : "Resolving the audience, connecting cultural tastes and checking places within the search radius…"}</p>`;
   let d;
   try {
-    const response = await fetch("/api/taste", { method:"POST", headers:{ "Content-Type":"application/json" }, body:JSON.stringify({ picks, city:requestedArea, ...localOptions, demo:q.get("demo") === "1" }) });
+    const response = await fetch("/api/taste", { method:"POST", headers:{ "Content-Type":"application/json" }, body:JSON.stringify({ picks, city:requestedArea, core:true, ...localOptions, demo:q.get("demo") === "1" }) });
     d = await response.json();
     if (!response.ok || d.error) throw new Error(d.error || `HTTP ${response.status}`);
   } catch (error) {
@@ -897,16 +924,43 @@ async function reactToTaste(outlet, picks, localOptions = {}) {
   document.body.dataset.tasteMode = d.mode;
   document.body.dataset.tasteEntities = String((d.outlets || []).length);
   say(MM, `${outlet.name} woke up the city.`, 2400);
-  const rows = (d.outlets || []).map(row => `<div class="qloo-result"><span class="kind">${esc(row.domain)}</span><b>${esc(row.entity.name)}</b><small data-entity-id="${esc(row.entity.id)}">${d.mode === "synthetic" ? "Fictional sample" : "Qloo " + esc(row.domain)} · entity ${esc(row.entity.id)} · call ${esc(row.call)}${row.entity.distance_m != null ? " · " + esc(row.entity.distance_m) + " m from matched centre" : ""}</small></div>`).join("");
-  const nearby = (d.nearby_places || []).map(place => `<div class="qloo-result"><span class="kind">${esc(place.distance_m)} m</span><b>${esc(place.name)}</b><small>${esc(place.why)} · Qloo entity ${esc(place.id)} · ${esc(place.call)}</small></div>`).join("");
-  const area = d.local_area ? `<p>Within ${esc(d.local_area.radius_m)} m of ${esc(d.local_area.label)}. ${d.local_area.popularity_cap != null ? "Less mainstream: Qloo popularity at most " + esc(d.local_area.popularity_cap) + "." : "All popularity levels."} Distances are straight-line from this matched centre.</p><h3>Restaurants near your address</h3><div class="qloo-results">${nearby}</div>` : "";
-  const source = d.mode === "live" ? "Live Qloo response" : d.mode === "synthetic" ? "Fictional sample · no provider request" : `Recorded Qloo response from ${esc(d.recorded_at || "an earlier live call")}`;
-  panel.innerHTML = `<div class="kind">${source}</div><div class="market-title">Your next discoveries</div><p>Because you love ${esc(picks.join(" · "))}. Food results are in ${esc(requestedArea)}.</p>
-    <div class="qloo-results">${rows}</div>${area}
-    <p class="perf-line" role="status">${Math.round(performance.now() - started)} ms from your tap to this result in this browser · ${esc(d.mode)}.</p><div class="hint">${d.mode === "synthetic" ? "Fictional examples only. No taste inference was made." : "Affinity suggests a connection, not a guarantee you will like it. Each result names its entity and source call."} ${(d.anchors || []).length ? "Source anchors: " + d.anchors.map(anchor => esc(anchor.name)).join(" · ") + "." : ""}</div>
-    <div class="row"><button id="againoutlet" style="flex:1">Try another taste</button><button id="alloutlets" style="flex:1">Start again</button></div>`;
-  $("#againoutlet").onclick = () => openTasteOutlet(outlet.id); $("#alloutlets").onclick = openDiscovery;
+  renderLocalBoard(d,picks,performance.now()-started);
 }
+function renderLocalBoard(d,picks,browserMs=0) {
+  localJourney.result=d;localJourney.picks=[...picks];
+  marketNav(localJourney.purpose==='business'?localJourney.flow:'market');
+  document.body.dataset.journeyStage='places';document.body.dataset.userPath=localJourney.purpose;
+  document.body.dataset.tasteMode=d.mode;document.body.dataset.tasteEntities=String(d.outlets.length);
+  panel.scrollTop=0;panel.hidden=false;
+  const sample=d.mode==='synthetic';
+  const source=d.mode === "live" ? "Live Qloo response" : sample ? "Fictional sample" : "Recorded Qloo response";
+  const places=d.nearby_places || [];
+  if (!places.length) { panel.innerHTML='<h2>No local places were returned</h2><p>Change the address or radius. No plan was generated.</p><button id="retrylocal">Change the local search</button>';$('#retrylocal').onclick=()=>openTasteOutlet('echo');return; }
+  outletLabels.forEach((label,i)=>{const p=places[i];if(p){label.el.textContent=`${p.name} · ${p.distance_m} m`;label.el.dataset.qlooEntity=p.id;label.el.onclick=()=>{renderLocalBoard(d,picks);};}});
+  const cards=places.map(p=>`<button type="button" class="place local-place" data-local-place="${esc(p.id)}" aria-pressed="${localJourney.selected.has(p.id)}"><span class="kind">${sample?'Illustrated distance': 'Straight-line distance'} · ${esc(p.distance_m)} m</span><b>${esc(p.name)}</b><small>${esc(p.why)}</small><small>${sample?'Fictional entity':'Qloo entity'} ${esc(p.id)} · ${esc(p.call)}</small><small data-selection>${localJourney.selected.has(p.id)?'Selected for your plan':'Select this place'}</small></button>`).join('');
+  const links=d.outlets.map(row=>`<div class="qloo-result"><span class="kind">${esc(row.domain)}</span><b>${esc(row.entity.name)}</b><small data-entity-id="${esc(row.entity.id)}">${sample?'Fictional reference':'Qloo cultural reference'} · ${esc(row.entity.id)} · ${esc(row.call)}</small></div>`).join('');
+  panel.innerHTML=`<div class="kind">2. Real places within reach · ${source}</div><div class="market-title">Your audience, in this neighbourhood.</div><p>For people who love <b>${picks.map(esc).join(' · ')}</b>.</p><section class="guide"><b>${esc(d.local_area.label)}</b><p>${esc(d.local_area.radius_m)} m radius · ${sample?'Fictional places and distances. No lookup or Qloo call.':'Qloo place coordinates checked within this radius. Hours, availability and suitability are not verified.'}</p>${d.mode==='recorded'?`<small>Recording from ${esc(d.recorded_at)}.</small>`:''}<small>The city is a visual index, not a street map or walking route.</small></section><h3>Choose up to three places to build around</h3><div class="places local-results">${cards}</div><p class="sample">${esc(d.planning_notice || "")}</p><p id="localchosen" role="status"></p><button class="go" id="planlocal">${localJourney.purpose==='business'?'Build the launch or event plan':'Build my outing'}</button><button class="quiet" id="localbusiness">Use these places for a business idea</button><details id="audienceconnections"><summary>Your audience profile and cultural connections</summary><p>These links explain the taste hypothesis. Music, films, books and destinations are cultural references; only the local shortlist above is radius checked. These are not measured customer segments.</p><div class="qloo-results">${links}</div></details><button class="quiet" id="culturedoors">Explore the five cultural doors</button><button class="quiet" id="changelocal">Change tastes, address or radius</button><button class="quiet" id="togame">Play the taste game in this city</button><p class="perf-line">${Math.round(browserMs)} ms in this browser. No booking or outreach is sent.</p>`;
+  const update=()=>{document.body.dataset.selectedLocalPlaces=String(localJourney.selected.size);$('#localchosen').textContent=`${localJourney.selected.size} of 3 places selected`;$('#planlocal').disabled=!localJourney.selected.size || (localJourney.purpose==='business' && !sample && !d.planning_token);$('#localbusiness').disabled=!localJourney.selected.size || (!sample && !d.planning_token);};
+  panel.querySelectorAll('[data-local-place]').forEach(button=>button.onclick=()=>{const id=button.dataset.localPlace;if(localJourney.selected.has(id))localJourney.selected.delete(id);else if(localJourney.selected.size<3)localJourney.selected.add(id);button.setAttribute('aria-pressed',String(localJourney.selected.has(id)));button.querySelector('[data-selection]').textContent=localJourney.selected.has(id)?'Selected for your plan':'Select this place';update();});
+  $('#planlocal').onclick=()=>{if(localJourney.purpose==='consumer')return renderLocalOuting();if(localJourney.websiteProfile){const profile=localJourney.websiteProfile;localJourney.websiteProfile=null;return websiteBuyerPlan(profile,localJourney.flow);}openScenarioFlow(localJourney.flow,localJourney.sourceContext);};
+  $('#localbusiness').onclick=()=>{localJourney.purpose='business';openScenarioFlow(localJourney.flow,localJourney.sourceContext);};
+  $('#culturedoors').onclick=openCultureDoors;$('#changelocal').onclick=()=>openTasteOutlet('echo');$('#togame').onclick=backToGame;update();
+}
+function openCultureDoors() {
+  panel.scrollTop=0;
+  panel.innerHTML=`<div class="kind">Your audience across culture</div><div class="market-title">Five doors into the city</div><p>Explore music, film, food, books and places as audience inputs. Any changed taste returns through a fresh local search before a plan.</p><div class="places">${OUTLETS.map(o=>`<button class="place" data-culture-door="${o.id}"><span class="kind">${esc(o.domain)}</span><b>${esc(o.name)}</b><small>Choose tastes from this cultural door</small></button>`).join('')}</div><button id="backlocalculture">Back to this audience’s local places</button>`;
+  panel.querySelectorAll('[data-culture-door]').forEach(button=>button.onclick=()=>openTasteOutlet(button.dataset.cultureDoor));
+  $('#backlocalculture').onclick=()=>renderLocalBoard(localJourney.result,localJourney.result.picks);
+}
+function renderLocalOuting() {
+  const d=localJourney.result,context=localContext();if(!context || !context.places.length)return openDiscovery();
+  document.body.dataset.journeyStage='plan';panel.scrollTop=0;
+  const stops=context.places.map((p,i)=>`<article class="archetype"><b>${i+1}. ${esc(p.name)}</b><p>${esc(p.distance_m)} m from the matched centre · ${esc(p.why)}</p><small>${d.mode==='synthetic'?'Fictional':'Qloo'} entity ${esc(p.id)} · ${esc(p.call)}</small>${d.mode==='synthetic'?'':`<p><a target="_blank" rel="noreferrer" href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(p.name+' '+(p.address || d.city))}">Check the place and opening hours</a></p>`}</article>`).join('');
+  panel.innerHTML=`<div class="kind">3. Your local plan · ${evidenceMode(d.mode)}</div><div class="market-title">An outing with a reason for every stop.</div>${localContextMarkup(context)}<p>Audience: ${d.picks.map(esc).join(' · ')}. Stops follow your selection order, not an optimised walking route.</p><div class="archetype-list">${stops}</div><label>When and what to check<textarea id="outingnotes" maxlength="2000" placeholder="Opening times, tickets, access, who is coming"></textarea></label><button id="savelocal" class="go">Save this local plan</button><button id="backlocal" class="quiet">Change places or explore the cultural links</button><p id="localsaved" role="status"></p>`;
+  $('#backlocal').onclick=()=>renderLocalBoard(d,d.picks);
+  $('#savelocal').onclick=()=>{const brief={version:1,kind:'personal outing',audience:d.picks,local_context:context,cultural_links:d.outlets,notes:$('#outingnotes').value.trim(),notice:'A planning shortlist, not confirmed availability or a booking.'};localStorage.setItem('taste-city-local-plan',JSON.stringify(brief));const url=URL.createObjectURL(new Blob([JSON.stringify(brief,null,2)],{type:'application/json'}));$('#localsaved').textContent='Saved on this device. No booking or outreach was sent.';const a=document.createElement('a');a.textContent='Download the plan';a.href=url;a.download='taste-city-local-plan.json';a.onclick=()=>setTimeout(()=>URL.revokeObjectURL(url),1000);$('#savelocal').replaceWith(a);document.body.dataset.localPlan='saved';};
+}
+
 function openPlace(id) {
   const p = PLACES.find(x => x.id === id) || PLACES[0]; mode = "market"; marketNav("market");
   panel.innerHTML = `<div class="kind">${esc(p.kind)} · ${esc(p.district)}</div><div class="market-title">${esc(p.name)}</div>
@@ -937,7 +991,7 @@ function renderBrandPlan(brand, goal, city, d) {
   $("#editbrand").onclick = openBrandPlanner; $("#tastecity").onclick = openMarket;
 }
 const FLOW_UI = {
-  brand: { title:"A coffee shop tests its next small idea.", name:"North Star Coffee", nameLabel:"Coffee shop", experiments:[["popup","City pop-up"],["flavour","Limited flavour"],["event","Late event"],["merch","Merch drop"]], sizes:[["neighbourhood","Neighbourhood"],["city","City"],["metro","Metro"]], button:"Run the brand simulation" },
+  brand: { title:"Compare a local launch or event.", name:"North Star Coffee", nameLabel:"Coffee shop", experiments:[["popup","City pop-up"],["flavour","Limited flavour"],["event","Late event"],["merch","Merch drop"]], sizes:[["neighbourhood","Neighbourhood"],["city","City"],["metro","Metro"]], button:"Run the brand simulation" },
   festival: { title:"Tune a festival without guessing the crowd.", name:"North Star Festival", nameLabel:"Festival", experiments:[["lineup","Lineup swap"],["sponsor","Sponsor pairing"],["food","Food village"],["night","Late-night programme"]], sizes:[["local","Local, 2,000 people"],["city","City, 15,000 people"],["destination","Destination, 60,000 people"]], button:"Run the festival simulation" }
 };
 function money(value) { return new Intl.NumberFormat("en-GB", { style:"currency", currency:"GBP", maximumFractionDigits:0 }).format(value); }
@@ -947,14 +1001,15 @@ function qlooEvidence(archetype, mode) {
 }
 function scenarioColumn(d) {
   const archetypes = d.archetypes.map(a => `<article class="archetype"><div class="archetype-head"><b>${esc(a.name)}</b><span>${a.graph_strength == null ? "No score" : a.graph_strength + (d.qloo.mode === "synthetic" ? " sample score" : " graph strength")}</span></div><p>${esc(a.action)}</p><small>${qlooEvidence(a, d.qloo.mode)}</small></article>`).join("");
+  const sharedLocal = d.qloo.shared_local_graph;
   const domains = (d.qloo.outlets || []).map(row => row.domain).join(" · ");
-  return `<section class="idea-result" data-profile="${esc(d.qloo.profile)}"><h3>${esc(d.experiment.label)}</h3><p class="sample">${d.qloo.mode === "synthetic" ? "Fictional example; no Qloo call:" : d.qloo.demo_shared ? "Shared recorded graph, not a separate query for this idea:" : (d.qloo.mode === "live" ? "Qloo queried for this idea:" : "Exact recorded query for this idea:")} ${esc(domains)}.</p><div class="archetype-list">${archetypes}</div></section>`;
+  return `<section class="idea-result" data-profile="${esc(d.qloo.profile)}"><h3>${esc(d.experiment.label)}</h3><p class="sample">${d.qloo.mode === "synthetic" ? "Fictional example; no Qloo call:" : sharedLocal ? "Shared audience graph anchored to your selected local places, not a separate demand prediction:" : d.qloo.demo_shared ? "Shared recorded graph, not a separate query for this idea:" : (d.qloo.mode === "live" ? "Qloo queried for this idea:" : "Exact recorded query for this idea:")} ${esc(domains)}.</p><div class="archetype-list">${archetypes}</div></section>`;
 }
 function chooseBuyerAction(d) {
   panel.scrollTop = 0;
   const evidence = (d.qloo.outlets || []).filter(r => r.entity && r.entity.name);
   const options = evidence.map((r, i) => `<option value="${i}">${esc(r.entity.name)} · ${esc(r.domain)}</option>`).join("");
-  panel.innerHTML = `<div class="kind">Shortlist → next action</div><div class="market-title">Check feasibility before committing</div>
+  panel.innerHTML = `<div class="kind">Shortlist → next action</div><div class="market-title">Check feasibility before committing</div>${localContextMarkup(d.local_context)}
     <p>${esc(d.experiment.label)} for ${esc(d.name)}. These are cultural references to investigate, not available or willing partners.</p>
     <label>Reference to investigate<select id="buyerreference">${options}</select></label>
     <label>Maximum pilot budget (GBP)<input id="buyerbudget" type="number" min="1" max="100000" value="600"></label>
@@ -970,7 +1025,7 @@ function chooseBuyerAction(d) {
       $("#buyererror").textContent = "Add a valid budget and your checks or missing information. A pilot also needs the feasibility confirmation."; return;
     }
     const ref = evidence[Number($("#buyerreference").value)];
-    const brief = { website_source:d.website_source || null, version:1, name:d.name, city:d.city, idea:d.experiment.label, next_action:action, budget_cap_gbp:budget,
+    const brief = { local_context:d.local_context || localContext(), audience:localJourney.result?.picks || [], cultural_links:d.qloo.outlets, website_source:d.website_source || null, version:1, name:d.name, city:d.city, idea:d.experiment.label, next_action:action, budget_cap_gbp:budget,
       reference:ref ? {name:ref.entity.name, domain:ref.domain, call:ref.call} : null,
       evidence_mode:d.qloo.mode, recorded_at:d.qloo.recorded_at || null, profile:d.qloo.profile,
       feasibility_checked:$("#buyerconfirmed").checked, notes, notice:d.qloo.mode === "synthetic" ? "Fictional sample only. No Qloo or agent result; no outreach sent." : "Planning brief only. No outreach sent. Affinity is not demand or partner availability.",
@@ -984,7 +1039,13 @@ function chooseBuyerAction(d) {
 }
 function websiteBuyerPlan(d, flow) {
   if (!d.anchor_confirmation) return;
-  const plan={flow,name:d.page.title,city:d.city,experiment:{id:flow === "brand" ? "popup" : "lineup",label:flow === "brand" ? "café pop-up reference" : "festival lineup reference"},
+  const picks=(d.anchors || []).map(a=>a.asked || a.name);
+  const sameAudience=localJourney.result && JSON.stringify(picks)===JSON.stringify(localJourney.result.picks);
+  if (!sameAudience || !localJourney.selected.size) {
+    localJourney.websiteProfile=d;
+    return startLocalBusiness(flow,{page:d.page,picks,audience_basis:'planner-confirmed website references'});
+  }
+  const plan={flow,name:d.page.title,city:localJourney.result.city,local_context:localContext(),experiment:{id:flow === "brand" ? "popup" : "lineup",label:flow === "brand" ? "café pop-up reference" : "festival lineup reference"},
     qloo:{mode:d.mode,recorded_at:d.recorded_at,profile:"confirmed-website-reference:"+flow,outlets:d.outlets,calls:d.calls,anchors:d.anchors},
     website_source:{page:d.page,audience_basis:"reviewed source entity; customer tastes unmeasured"}};
   chooseBuyerAction(plan);
@@ -997,12 +1058,12 @@ function renderBrandTaste(d) {
   const anchors = (d.anchors || []).map(row => `${esc(row.asked)} → ${esc(row.name)} · Qloo ${esc(row.call)}`).join("<br>");
   if (!d.anchor_confirmation) {
     document.body.dataset.brandPlan="needs-confirmation";
-    panel.innerHTML=`<div class="kind">Website matches need review</div><div class="market-title">${esc(d.page.title)}</div><p>${anchors}</p><p>These are proposed search matches, not confirmed customer interests. Generic website headings can match unrelated entities. The graph from this unconfirmed set is withheld from buyer planning.</p><button id="reviewsource">Read website and choose audience manually</button>`;
+    panel.innerHTML=`<div class="kind">Website matches need review</div><div class="market-title">${esc(d.page.title)}</div>${localContextMarkup(d.local_context)}<p>${anchors}</p><p>These are proposed search matches, not confirmed customer interests. Generic website headings can match unrelated entities. The graph from this unconfirmed set is withheld from buyer planning.</p><button id="reviewsource">Read website and choose audience manually</button>`;
     $("#reviewsource").onclick=()=>openScenarioFlow("brand",{page:d.page,audience_basis:"planner-confirmed hypothesis"});
     return;
   }
   const archetypes = (d.archetypes || []).map(a => `<article class="archetype"><div class="archetype-head"><b>${esc(a.name)}</b><span>${a.graph_strength == null ? "No affinity returned" : a.graph_strength + " graph strength"}</span></div><span class="reaction">${esc(a.reaction)}</span><p>Derived from ${a.derived_from.map(esc).join(" + ")}.</p><small>${qlooEvidence(a)}</small></article>`).join("");
-  panel.innerHTML = `<div class="kind">${d.mode === "live" ? "Live" : "Recorded"} Qloo website tasting</div><div class="market-title">${esc(d.page.title)}</div>
+  panel.innerHTML = `<div class="kind">${d.mode === "live" ? "Live" : "Recorded"} Qloo website tasting</div><div class="market-title">${esc(d.page.title)}</div>${localContextMarkup(d.local_context)}
     <div class="brand-source"><a href="${esc(d.page.url)}" target="_blank" rel="noreferrer">${esc(d.page.url)}</a><p>${esc(d.page.description || d.page.excerpt)}</p><small>Website cues: ${d.page.cues.map(esc).join(" · ")}</small></div>
     <div class="kind">How Qloo mapped the public site</div><p class="sample">${anchors}</p>
     <div class="archetype-list">${archetypes}</div>
@@ -1028,7 +1089,7 @@ function renderScenarioResult(d, comparison, browserMs) {
   document.body.dataset.tasteMode = d.qloo.mode;
   document.body.dataset.tasteEntities = String((d.qloo.outlets || []).length + (comparison.qloo.outlets || []).length);
   const spend = d.spend_sensitivity.map(row => `<div><span>${esc(row.label)} · ${Math.round(row.rate * 100)}%</span><b>${Number(row.visitors).toLocaleString("en-GB")}</b><small>${money(row.gross_spend)} scenario spend</small></div>`).join("");
-  panel.innerHTML = `<div class="kind">${evidenceMode(d.qloo.mode)} idea comparison</div><div class="market-title">${esc(d.name)}: compare the planning ideas</div>${d.qloo.mode === "synthetic" ? '<p role="status">Fictional examples only. No Qloo request or agent run occurred. Use live mode with a server key for provider evidence.</p>' : ''}
+  panel.innerHTML = `<div class="kind">${evidenceMode(d.qloo.mode)} idea comparison</div><div class="market-title">${esc(d.name)}: compare the planning ideas</div>${localContextMarkup(d.local_context)}${d.qloo.mode === "synthetic" ? '<p role="status">Fictional examples only. No Qloo request or agent run occurred. Use live mode with a server key for provider evidence.</p>' : ''}
     <div class="scenario-summary"><div><span class="kind">Scale</span><b>${esc(d.scale.label)}</b><small>${Number(d.scale.population).toLocaleString("en-GB")} population</small></div><div><span class="kind">In play</span><b>${Number(d.scale.people_in_scenario).toLocaleString("en-GB")}</b><small>scenario people</small></div><div><span class="kind">Taste graph</span><b>${d.archetypes.length}</b><small>archetypes per idea</small></div></div>
     <div class="idea-compare">${scenarioColumn(d)}${scenarioColumn(comparison)}</div><div class="row"><button id="chooseideaA">Choose ${esc(d.experiment.label)}</button><button id="chooseideaB">Choose ${esc(comparison.experiment.label)}</button></div>
     <div class="kind">Spend sensitivity, not a forecast</div><div class="spend-grid">${spend}</div><p class="sample">${esc(d.spend_assumption.notice)} The default is ${money(d.spend_assumption.per_visitor)} per visitor.</p>
@@ -1039,18 +1100,22 @@ function renderScenarioResult(d, comparison, browserMs) {
   $("#chooseideaA").onclick = () => chooseBuyerAction(d); $("#chooseideaB").onclick = () => chooseBuyerAction(comparison);
 }
 function openScenarioFlow(flow="brand", sourceContext=null) {
+  localJourney.purpose='business';localJourney.flow=flow;
+  if (sourceContext) localJourney.sourceContext=sourceContext;
+  if (!localJourney.result || !localJourney.selected.size) {localJourney.sourceContext=sourceContext;return openTasteOutlet('echo');}
+  document.body.dataset.journeyStage='plan';
   panel.scrollTop = 0;
-  const audiencePicks = DEMO ? SAMPLE_PICKS : (sourceContext?.picks || SAMPLE_PICKS);
+  const audiencePicks = DEMO ? SAMPLE_PICKS : localJourney.result.picks;
   const ui = FLOW_UI[flow]; mode = flow; marketNav(flow); lightUp([]); zoomTo = 88; panel.hidden = false; hud();
   document.body.dataset.userPath = "business"; $("#load").hidden = true; applyPopulation(25);
   document.body.dataset.brandPlan = "draft"; document.body.dataset.scenarioFlow = flow;
-  panel.innerHTML = `<div class="kind">${setupStarted ? "Setup · step 2 of 2 · " : ""}For business · ${flow === "brand" ? "Brand planning mode" : "Festival planning mode"}</div><div class="market-title">${esc(ui.title)}</div>
+  panel.innerHTML = `<div class="kind">${setupStarted ? "Setup · step 2 of 2 · " : ""}For business · ${flow === "brand" ? "Brand planning mode" : "Festival planning mode"}</div><div class="market-title">${esc(ui.title)}</div>${localContextMarkup()}
     <div class="flow-switch"><button id="flowbrand" aria-current="${flow === "brand"}">Coffee shop</button><button id="flowfestival" aria-current="${flow === "festival"}">Festival</button></div>
     ${sourceContext ? `<p class="sample">Website source: ${esc(sourceContext.page.title)} · ${esc(sourceContext.page.url)}. Interests below are planner-confirmed hypotheses, not inferred customer behaviour.</p>` : ""}<div class="hint">${flow === "brand" ? "Name your coffee shop, set three tastes you think your customers share, then compare two ideas or ask the live Taste Agent to follow one cultural lead into a small test." : "Describe your festival, set three audience tastes, then compare two ideas."} Audience tastes are your hypothesis; this is not a customer survey.</div>
-    <div class="brand-form"><label>${esc(ui.nameLabel)}<input id="scenarioname" value="${esc(sourceContext?.page?.title || ui.name)}" maxlength="60"></label><label>City<input id="scenariocity" value="${esc(DEMO ? SAMPLE_CITY : setupCity)}" maxlength="60" ${DEMO ? "readonly" : ""}></label>${flow === "brand" ? '<label style="grid-column:1/-1">Public website (optional reference)<input id="brandurl" type="url" value="https://www.monmouthcoffee.co.uk/" maxlength="300"></label>' : ""}<label>Size<select id="scenariosize">${ui.sizes.map(([value,label]) => `<option value="${value}">${esc(label)}</option>`).join("")}</select></label><label>Idea A<select id="scenarioexperiment">${ui.experiments.map(([value,label]) => `<option value="${value}">${esc(label)}</option>`).join("")}</select></label><label>Compare with<select id="scenariocompare">${ui.experiments.map(([value,label], index) => `<option value="${value}" ${index === 1 ? "selected" : ""}>${esc(label)}</option>`).join("")}</select></label></div>
+    <div class="brand-form"><label>${esc(ui.nameLabel)}<input id="scenarioname" value="${esc(sourceContext?.page?.title || ui.name)}" maxlength="60"></label><label>Area from the local search<input id="scenariocity" value="${esc(localJourney.result.city)}" maxlength="160" readonly></label>${flow === "brand" ? '<label style="grid-column:1/-1">Public website (optional reference)<input id="brandurl" type="url" value="https://www.monmouthcoffee.co.uk/" maxlength="300"></label>' : ""}<label>Size<select id="scenariosize">${ui.sizes.map(([value,label]) => `<option value="${value}">${esc(label)}</option>`).join("")}</select></label><label>Idea A<select id="scenarioexperiment">${ui.experiments.map(([value,label]) => `<option value="${value}">${esc(label)}</option>`).join("")}</select></label><label>Compare with<select id="scenariocompare">${ui.experiments.map(([value,label], index) => `<option value="${value}" ${index === 1 ? "selected" : ""}>${esc(label)}</option>`).join("")}</select></label></div>
     <div class="taste-grid">${["Björk","Radiohead","Little Simz","Studio Ghibli","New Nordic","Ursula Le Guin"].map((choice, i) => `<button type="button" class="taste-card" data-brand-pick="${esc(choice)}" aria-pressed="${audiencePicks.includes(choice)}" ${DEMO && !audiencePicks.includes(choice) ? "disabled" : ""}>${esc(choice)}<small>${audiencePicks.includes(choice) ? "In the audience" : DEMO ? "Live mode only" : "Tap to swap in"}</small></button>`).join("")}</div>${DEMO ? sampleGuide() : ""}
     ${flow === "brand" ? '<button class="go" id="readwebsite">Read optional website reference</button><button class="quiet" id="runwebsite">Profile the website and taste it</button>' : ""}<button class="go" id="runbrand">${esc(ui.button)}</button><button class="quiet" id="runagent">Ask live Taste Agent · Qloo</button><button class="quiet" id="backmarket">Back to the taste city</button>${setupStarted ? '<button class="quiet" id="backsetup">Change my starting path</button>' : ''}
-    <p class="sample">${q.get("demo") === "1" ? "The city and comparison demo may use fictional examples. The live Taste Agent is a separate Qloo request and needs a server key; its result is never simulated." : "Qloo supplies the cross-domain graph and affinity. Population and spend stay separate as visible scenario assumptions."}</p><button class="quiet" id="restorebuyer">Open saved next-action brief</button>`;
+    <p class="sample">${q.get("demo") === "1" ? "The city and comparison demo may use fictional examples. The live Taste Agent is a separate Qloo request and needs a server key; its result is never simulated." : "Qloo supplies the cross-domain graph and affinity. Population and spend stay separate as visible scenario assumptions."}</p><button class="quiet" id="restorebuyer">Open saved next-action brief</button><button id="rechecklocal" class="quiet">Change audience or local places</button>`;
   $("#restorebuyer").onclick = () => {
     let saved; try { saved = JSON.parse(localStorage.getItem("taste-city-buyer-brief")); } catch (_) {}
     if (!saved) { $("#restorebuyer").textContent="No saved brief on this device yet"; return; }
@@ -1058,6 +1123,8 @@ function openScenarioFlow(flow="brand", sourceContext=null) {
     $("#returnplan").onclick=()=>openScenarioFlow(flow);
   };
   const selected = new Set(audiencePicks);
+  $('#rechecklocal').onclick=()=>{localJourney.picks=[...selected];localJourney.result=null;localJourney.selected.clear();openTasteOutlet('echo');};
+  if (DEMO) {$('#runagent').disabled=true;$('#runagent').textContent='Live agent requires live local evidence';}
   $("#scenariocity").addEventListener("change", e => { setupCity = e.target.value.trim().slice(0, 60) || "London"; });
   if (setupStarted) $("#backsetup").onclick = openSetup;
   if (flow === "brand" && !sourceContext && q.get("demo") !== "1") { $("#brandurl").value = ""; $("#brandurl").placeholder = "https://your-brand.example"; }
@@ -1069,7 +1136,8 @@ function openScenarioFlow(flow="brand", sourceContext=null) {
     if (sourceContext) sourceContext.picks=[...selected];
     card.setAttribute("aria-pressed", String(selected.has(value)));
     card.querySelector("small").textContent = selected.has(value) ? "In the audience" : "Tap to swap in";
-    $("#runbrand").disabled = selected.size !== 3;
+    $('#runbrand').disabled=true;$('#runagent').disabled=true;if($('#runwebsite'))$('#runwebsite').disabled=true;
+    $('#rechecklocal').textContent='Audience changed: search local places again';
   });
   $("#flowbrand").onclick = () => openScenarioFlow("brand", sourceContext); $("#flowfestival").onclick = () => openScenarioFlow("festival", sourceContext);
   $("#backmarket").onclick = openMarket;
@@ -1089,7 +1157,7 @@ function openScenarioFlow(flow="brand", sourceContext=null) {
     const city = $("#scenariocity").value.trim() || "London";
     panel.innerHTML = `<div class="kind">Reading the public website</div><div class="market-title">Building a brand taste profile</div><p>Extracting public cues, resolving them in Qloo, then tasting the brand against graph-derived archetypes.</p>`;
     try {
-      const response = await fetch("/api/brand-taste", { method:"POST", headers:{ "Content-Type":"application/json" }, body:JSON.stringify({ url, city, demo:q.get("demo") === "1" }) });
+      const response = await fetch("/api/brand-taste", { method:"POST", headers:{ "Content-Type":"application/json" }, body:JSON.stringify(corePayload({url,city,picks:localJourney.result.picks,demo:q.get("demo") === "1"})) });
       const d = await response.json();
       if (!response.ok || d.error) throw new Error(d.error || `HTTP ${response.status}`);
       renderBrandTaste(d);
@@ -1100,7 +1168,7 @@ function openScenarioFlow(flow="brand", sourceContext=null) {
     }
   };
   $("#runagent").onclick = async () => {
-    const body = {demo:false, flow, name:$("#scenarioname").value.trim() || ui.name, city:$("#scenariocity").value.trim() || "London", size:$("#scenariosize").value, experiment:$("#scenarioexperiment").value, picks:[...selected]};
+    const body = corePayload({demo:false, flow, name:$("#scenarioname").value.trim() || ui.name, city:$("#scenariocity").value.trim() || "London", size:$("#scenariosize").value, experiment:$("#scenarioexperiment").value, picks:[...selected]});
     document.body.dataset.agentPlan = "loading";
     panel.innerHTML = `<div class="kind">Live Qloo Taste Agent</div><div class="market-title">Following the evidence</div><p>The agent will read one real Qloo graph, choose its next Qloo query from the returned lead, then stop at a small buyer test. No model API is used.</p>`;
     try {
@@ -1111,7 +1179,7 @@ function openScenarioFlow(flow="brand", sourceContext=null) {
       const trace = s => s.query ? `Query: ${esc(s.query.path)} · ${esc(s.query["filter.type"])} · seeded with entity ${esc(s.query["signal.interests.entities"])} from Qloo ${esc(s.seed_call)}` : `${s.call ? "Qloo " + esc(s.call) : ""}${s.entity_id ? " · entity " + esc(s.entity_id) : ""}${s.affinity != null ? " · affinity " + esc(s.affinity) : ""}`;
       const steps = d.steps.map(s => `<article class="archetype"><b>${esc(s.action)}</b><p>${esc(s.detail)}</p><small>${trace(s)}</small></article>`).join("");
       const reject = (d.reject_if || []).map(r => `<li>${esc(r)}</li>`).join("");
-      panel.innerHTML = `<div class="kind">Live Qloo Taste Agent · ${d.actual_http_reads} of ${d.max_http_reads} HTTP reads</div><div class="market-title">${esc(d.lead.name)} → ${esc(d.bridge.name)}</div><p>This is a live, rule-driven agent. It chose its follow-up query from Qloo's first result. No model call or fictional graph was used. The city scene behind this panel may still be illustrative.</p><div class="archetype-list">${steps}</div><p><b>Next:</b> ${esc(d.next_action)}</p>${reject ? `<p><b>Drop this idea if:</b></p><ul class="reject-list">${reject}</ul>` : ""}<p><b>Stop:</b> ${esc(d.stop_rule)}</p><p class="sample">${esc(d.limits)} Source calls: ${d.qloo_calls.map(c => esc(c.id)).join(" · ")}.</p><button id="agentback">Try another idea</button>`;
+      panel.innerHTML = `<div class="kind">Live Qloo Taste Agent · ${d.actual_http_reads} of ${d.max_http_reads} HTTP reads</div><div class="market-title">${esc(d.lead.name)} → ${esc(d.bridge.name)}</div>${localContextMarkup(d.local_context)}<p>This is a live, rule-driven agent. It chose its follow-up query from Qloo's first result. No model call or fictional graph was used. The city scene behind this panel may still be illustrative.</p><div class="archetype-list">${steps}</div><p><b>Next:</b> ${esc(d.next_action)}</p>${reject ? `<p><b>Drop this idea if:</b></p><ul class="reject-list">${reject}</ul>` : ""}<p><b>Stop:</b> ${esc(d.stop_rule)}</p><p class="sample">${esc(d.limits)} Source calls: ${d.qloo_calls.map(c => esc(c.id)).join(" · ")}.</p><button id="agentback">Try another idea</button>`;
       $("#agentback").onclick = () => openScenarioFlow(flow);
     } catch (error) {
       document.body.dataset.agentPlan = "error";
@@ -1120,7 +1188,7 @@ function openScenarioFlow(flow="brand", sourceContext=null) {
     }
   };
   $("#runbrand").onclick = async () => {
-    const body = { demo:q.get("demo") === "1", flow, name:$("#scenarioname").value.trim() || ui.name, city:$("#scenariocity").value.trim() || "London", size:$("#scenariosize").value, experiment:$("#scenarioexperiment").value, picks:[...selected] };
+    const body = corePayload({ demo:q.get("demo") === "1", flow, name:$("#scenarioname").value.trim() || ui.name, city:$("#scenariocity").value.trim() || "London", size:$("#scenariosize").value, experiment:$("#scenarioexperiment").value, picks:[...selected] });
     const compareBody = { ...body, experiment:$("#scenariocompare").value };
     if (compareBody.experiment === body.experiment) compareBody.experiment = ui.experiments.find(([value]) => value !== body.experiment)[0];
     const started = performance.now();
@@ -1136,14 +1204,14 @@ function openScenarioFlow(flow="brand", sourceContext=null) {
       renderScenarioResult(d, comparison, performance.now() - started);
     } catch (error) {
       document.body.dataset.brandPlan = "error";
-      panel.innerHTML = `<div class="kind">The simulation stayed blank</div><div class="market-title">This result is unavailable</div><p>${DEMO ? esc(error.message) : "Provider evidence is unavailable. No shortlist was generated."}</p>${DEMO ? sampleGuide() : ""}<button class="go" id="usesamplebrand">${DEMO ? "Use the working sample" : "Open the labelled sample instead"}</button><button class="quiet" id="editbrand">Try again</button>`;
+      panel.innerHTML = `<div class="kind">The simulation stayed blank</div><div class="market-title">This result is unavailable</div><p>${DEMO ? esc(error.message) : "Planning evidence is unavailable or expired. Refresh the local search before continuing."}</p>${DEMO ? sampleGuide() : ""}<button class="go" id="usesamplebrand">${DEMO ? "Use the working sample" : "Open the labelled sample instead"}</button><button class="quiet" id="editbrand">Try again</button>`;
       $("#usesamplebrand").onclick = () => { if (DEMO) openScenarioFlow(flow); else location.href = "?demo=1&setup=1"; };
-      $("#editbrand").onclick = () => openScenarioFlow(flow);
+      $('#editbrand').onclick=()=>{localJourney.result=null;localJourney.selected.clear();openTasteOutlet('echo');};
     }
   };
 }
-function openBrandPlanner() { openScenarioFlow("brand"); }
-function openFestivalPlanner() { openScenarioFlow("festival"); }
+function openBrandPlanner() { startLocalBusiness("brand"); }
+function openFestivalPlanner() { startLocalBusiness("festival"); }
 $("#navmarket").onclick = openDiscovery;
 $("#navorg").onclick = openBrandPlanner;
 $("#navfest").onclick = () => enterCity("market");
@@ -1153,17 +1221,17 @@ function openSetup() {
   setupStarted = true; mode = "setup"; marketNav(""); applyPopulation(25, true); zoomTo = 88; hud();
   $("#load").hidden = true; panel.hidden = false;
   document.body.dataset.userPath = "choose";
-  panel.innerHTML = `<div class="kind">One city · two ways in</div><div class="market-title">Test your next idea. Or find your next favourite.</div>
-    <p class="hint">Explore the same living 3D city through two different questions.</p>
-    <div class="guide" data-first-use><b>How it works</b><ol><li>Pick a way in: <b>For me</b> finds music, films, food, books and places connected to what you love. <b>For business</b> tests a small idea for a café or festival before you spend.</li><li>Choose three tastes and a city.</li><li>Read what connects, with where each result came from: live Qloo, a recording, or a labelled fictional sample.</li></ol></div>
+  panel.innerHTML = `<div class="kind">One city · two ways in</div><div class="market-title">Turn your audience into a local plan.</div>
+    <p class="hint">Audience taste → real places within reach → an outing, launch or event. The city keeps the cultural connections visible.</p>
+    <div class="guide" data-first-use><b>How it works</b><ol><li>Pick a way in: <b>For me</b> finds music, films, food, books and places connected to what you love. <b>For business</b> uses audience taste and real local places to shape a launch or event.</li><li>Choose three audience tastes, an address and a radius.</li><li>Choose from coordinate-checked local places, understand the cultural links, then build your plan. Live, recorded and fictional evidence stay labelled.</li></ol></div>
     ${DEMO ? sampleGuide() : ""}
-    <label class="setup-city">Your city<input id="setupcity" value="${esc(DEMO ? SAMPLE_CITY : setupCity)}" maxlength="60" autocomplete="address-level2" ${DEMO ? "readonly" : ""}></label>
-    <div class="setup-actions"><button id="setupbusiness"><span class="kind">For a coffee shop · test</span><b>Test your next small idea</b><small>Set three tastes you think your customers share. Qloo follows one cultural lead into a small test you can price before you book.</small></button>
-    <button id="setupconsumer"><span class="kind">For me · discover</span><b>Find what I’ll love</b><small>Start with your favourites. Find connected music, films, food, books and places.</small></button></div>
+    <label class="setup-city">Starting address or postcode<input id="setupcity" value="${esc(DEMO ? SAMPLE_CITY : discoveryAddress || setupCity)}" maxlength="160" autocomplete="address-level2" ${DEMO ? "readonly" : ""}></label>
+    <div class="setup-actions"><button id="setupbusiness"><span class="kind">For business · audience to place</span><b>Plan a local launch or event</b><small>Set three tastes you think your customers share. Find local places for that audience, then compare a launch or event you can check before booking.</small></button>
+    <button id="setupconsumer"><span class="kind">For me · discover</span><b>Find what I’ll love</b><small>Start with your favourites, choose local places that connect to them, then build an outing.</small></button></div>
     <p class="sample">${q.get("demo") === "1" ? "Fictional sample mode. Discovery and comparison use labelled examples, not provider results." : "Live results need a server Qloo key. Each result identifies live or recorded evidence."} <a id="setupsample" href="?demo=1&setup=1">Try the labelled fictional sample</a>.</p>`;
-  const saveCity = () => { setupCity = DEMO ? SAMPLE_CITY : ($("#setupcity").value.trim().slice(0, 60) || "London"); };
-  $("#setupconsumer").onclick = () => { saveCity(); openDiscovery(); };
-  $("#setupbusiness").onclick = () => { saveCity(); openScenarioFlow("brand"); };
+  const saveCity = () => { discoveryAddress = DEMO ? SAMPLE_CITY : ($("#setupcity").value.trim().slice(0, 160) || "London"); };
+  $("#setupconsumer").onclick = () => { saveCity(); localJourney.result=null;localJourney.selected.clear();openDiscovery(); };
+  $("#setupbusiness").onclick = () => { saveCity(); localJourney.result=null;localJourney.selected.clear();startLocalBusiness("brand"); };
 }
 
 /* ---------- hearts ---------- */
@@ -1251,7 +1319,7 @@ applyPopulation(targetPopulation);
 /* ---------- start ---------- */
 let villagePromise = null;
 function enterCity(target = "market") {
-  if (data) { target === "brand" ? openBrandPlanner() : openMarket(); return Promise.resolve(data); }
+  if (data) { target === "brand" ? openBrandPlanner() : target === "game" ? backToGame() : openMarket(); return Promise.resolve(data); }
   const tips = ["Asking Qloo who each villager is", "Finding films, shows, books, music and brands they love", "Reading who their fans are", "Wrapping the gifts"];
   const planned = q.get("me") ? 42 : 35, started = performance.now();
   $("#load").hidden = false; $("#loadtxt").textContent = tips[0] + "…";
@@ -1268,7 +1336,7 @@ function enterCity(target = "market") {
   return villagePromise.then(d => {
     $("#load").hidden = true;
     setupStarted = false;
-    target === "brand" ? openBrandPlanner() : openMarket();
+    target === "brand" ? openBrandPlanner() : target === "game" ? backToGame() : openMarket();
     requestAnimationFrame(() => requestAnimationFrame(() => { document.body.dataset.firstPaintMs = String(Math.round(performance.now())); }));
     setTimeout(() => say(MM, "Tap me when you have a friend in mind.", 3200), 1500);
     return d;

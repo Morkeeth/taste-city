@@ -7,6 +7,7 @@ from http.server import BaseHTTPRequestHandler
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 import brand_profile
+import core_context
 from taste_city import QlooUnavailable
 from taste_match import MissingKey
 
@@ -27,18 +28,25 @@ class handler(BaseHTTPRequestHandler):
     def do_POST(self):
         started = time.perf_counter()
         try:
-            size = min(int(self.headers.get("Content-Length") or 0), 4000)
+            size = min(int(self.headers.get("Content-Length") or 0), 64000)
             body = json.loads(self.rfile.read(size) or b"{}")
+            context=core_context.for_request(body) if body.get('local_core') is True else None
             if body.get("demo") is True:
                 import demo_replay
                 try:
-                    return self.reply(200, demo_replay.website(body))
+                    result=demo_replay.website(body)
+                    if context: result['local_context']=core_context.public(context)
+                    return self.reply(200,result)
                 except ValueError as error:
                     return self.reply(400, {"error": str(error)})
-            result = brand_profile.build(body.get("url"), body.get("city") or "London", prefer_cache=True)
+            if context:
+                result=brand_profile.build(body.get('url'),context['graph']['city'],prefer_cache=True,local_filter=core_context.place_filter(context))
+            else:
+                result = brand_profile.build(body.get("url"), body.get("city") or "London", prefer_cache=True)
+            if context: result['local_context']=core_context.public(context)
             result["total_ms"] = round((time.perf_counter() - started) * 1000, 1)
             return self.reply(200, result)
-        except brand_profile.InvalidBrandURL as error:
+        except (brand_profile.InvalidBrandURL, core_context.InvalidLocalContext) as error:
             return self.reply(400, {"error": str(error)})
         except (brand_profile.SiteUnavailable, QlooUnavailable) as error:
             return self.reply(502, {"error": str(error)})

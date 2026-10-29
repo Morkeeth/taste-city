@@ -2,8 +2,8 @@
 
 ## TLDR
 
-Find music, films, food, books and places connected to three things you love, in a living 3D city.<br>
-For a café or festival, turn an audience taste hypothesis into a small experiment with a budget cap and a stop rule.<br>
+Turn three audience tastes and an address into real places within reach, then a local plan, in a living 3D city.<br>
+For an outing, launch or event, choose places, explore cultural connections and save a plan with feasibility checks.<br>
 Qloo supplies checkable cultural links; our 13-model experiment found a benefit for nearby-place discovery, not better advice prose.
 
 [Try Taste City](https://taste-city.vercel.app/?setup=1) · [Watch the 1:53 demo](https://youtu.be/47e_Wt216SI) · [Read the benchmark](benchmark/qloo-vs-frontier-2026-10/) · [No-key sample](https://taste-city.vercel.app/?demo=1&setup=1)
@@ -18,23 +18,24 @@ Before building, we talked with pop-up shops, cafés and run clubs. Oscar spoke 
 
 Taste crosses categories. Someone's music can lead to films, books, food and places. Taste City makes those connections explorable and gives a small business a way to test an idea.
 
-- **For me:** choose three favourites, then a city or an address with its city/country. Discover across five domains. Nearby restaurant results show a matched address, straight-line distance, Qloo entity and source call. Choose 500 m, 1 km or 1.5 km; missing or out-of-radius coordinates are rejected.
-- **For business:** set an audience taste hypothesis, a city and two ideas, such as a pop-up versus a new flavour. Compare cultural references, then save or download an action brief with a budget cap, feasibility questions and a stop rule.
-- **Live Taste Agent:** follow one Qloo-returned cultural lead into a second domain, inspect the follow-up and propose a field test. One hosted check followed *Synecdoche, New York* to Pixies in **8 Qloo reads, within an 11-read cap**. This bounded tool loop makes no language-model call.
+- **The shared journey:** audience taste → coordinate-checked local places → a plan. Both personal and business paths use the same local foundation. Galleries, shops, cafés and other Qloo places appear with their entity, source call, matched centre and straight-line distance. Choose 500 m, 1 km or 1.5 km; missing or out-of-radius coordinates are rejected.
+- **For me:** select up to three local places, explore the connected music, films, food, books and destinations, then save or download an outing with practical checks. The selection order is not an optimised walking route.
+- **For business:** start with the audience hypothesis and local places, then compare a coffee-shop launch or festival idea. Cultural audience profiles, website references, feasibility questions, budget assumptions and stop rules stay part of the plan. Venue availability and customer demand still need real-world checking.
+- **Live Taste Agent:** follow a Qloo cultural lead into another domain while retaining the selected local places. The initial audience and local search is capped at nine HTTP reads; the adaptive follow-up keeps the total within eleven. The comparison reuses that audience graph rather than claiming a new provider demand prediction. No language-model call is made.
 - **The city:** explore residents, cultural outlets, a gift game, a subway, a festival and a day/night cycle.
 
 ### The actual product
 
 <table>
-<tr><th>Choose tastes and an address</th><th>Inspect nearby results</th><th>Plan a business experiment</th></tr>
+<tr><th>Start with the audience</th><th>Choose real local places</th><th>Build the business plan</th></tr>
 <tr>
-<td><img src="docs/images/nearby-setup.png" width="260" alt="Live Taste City discovery form with three selected tastes, an address and a 1.5 km radius"></td>
-<td><img src="docs/images/nearby-results.png" width="260" alt="Live nearby results with distances, entity references and a notice that affinity does not guarantee preference"></td>
-<td><img src="docs/images/business-setup.png" width="260" alt="Taste City business setup for a coffee shop comparing a city pop-up with a limited flavour"></td>
+<td><img src="docs/images/core-start.png" width="260" alt="Taste City home showing audience taste to real places within reach to a plan"></td>
+<td><img src="docs/images/core-local-places.png" width="260" alt="Live main place-selection screen with coordinate-checked places, distances and source IDs"></td>
+<td><img src="docs/images/core-business-plan.png" width="260" alt="Live business comparison retaining the selected local places and separate planning assumptions"></td>
 </tr>
 </table>
 
-Screens captured from the hosted product on **29 October 2026**. The nearby example uses **1.5 km**, not the benchmark's 500 m. The business screenshot is a setup example with an illustrative shop name, not a customer result. The [demo video](https://youtu.be/47e_Wt216SI) shows the product and labels the research chart separately.
+Screens captured from the hosted product on **29 October 2026**. The nearby example uses **1.5 km**, not the benchmark's 500 m. The business screenshot is a worked planning example using selected local places and an illustrative shop name, not a customer result. The [demo video](https://youtu.be/47e_Wt216SI) records an earlier 29 October flow and labels the research chart separately; these screenshots show the current audience → local places → plan flow.
 
 ## The experiment: where does Qloo actually help?
 
@@ -55,8 +56,8 @@ The [figure script](docs/figures/plot_location_benchmark.py) reads the published
 ## Try it
 
 1. [Open Taste City](https://taste-city.vercel.app/?setup=1). Choose **For me** for discovery or **For business** for planning.
-2. For nearby discovery, supply an address with its city/country, check the matched address and choose a radius. Address lookup uses OpenStreetMap Nominatim; Qloo receives coordinates. Distances are straight-line, not walking routes.
-3. For business, keep the coffee-shop defaults and click **Ask live Taste Agent**. Inspect the entity/call trail and the proposed stop rule.
+2. In either path, choose three audience tastes and supply an address with its city/country and a radius. Check the matched centre, then select one to three local places. Address lookup uses OpenStreetMap Nominatim; Qloo receives coordinates. Distances are straight-line, not walking routes.
+3. Build an outing, or continue to the business comparison and **Ask live Taste Agent**. The local places remain in the plan alongside the cultural references, assumptions and stop rule. The five cultural doors and taste game remain explorable.
 4. Without API access, use the [fictional sample](https://taste-city.vercel.app/?demo=1&setup=1). It makes no provider request. Default sample tastes and city are fixed.
 
 Live requests use Qloo quota. A cultural relationship is not proof of demand, sales, attendance or partner availability. Business spending inputs remain planner assumptions. Next, we need to observe which references owners act on and whether those decisions work.
@@ -83,6 +84,8 @@ For live discovery, business comparisons, the agent and city population, provide
 ```sh
 python3 -m unittest
 python3 build_static.py
+# Optional browser proof after requirements-dev.txt + Playwright installation:
+python3 tests/check_core_journey.py
 ```
 
 The tests use synthetic providers and make no external model or Qloo call. One optional private-recording test skips when its file is absent. Browser helpers in `tests/` require `requirements-dev.txt` and Playwright; live modes consume quota.

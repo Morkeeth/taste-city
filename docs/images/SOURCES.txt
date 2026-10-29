@@ -3,3 +3,5 @@ nearby-setup.png: discovery form, three tastes and a 1.5 km radius.
 nearby-results.png: results for that hosted request, straight-line distances and Qloo references.
 business-setup.png: business setup with illustrative shop name; no customer outcome claimed.
 The 500 m research task is separate from the 1.5 km screenshot.
+
+Core journey update29Oct: core-start.png, core-local-places.png and core-business-plan.png captured from https://taste-city.vercel.app/?setup=1 at deployed runtime885cf6b, live public-address ColumbiaRoad journey. Screens are product evidence, not reusable provider data. Business name and planning assumptions are examples.

@@ -60,3 +60,12 @@ def discovery(body):
                 {'id': outlet_id, 'domain': domain, 'entity': {'id': 'fictional:' + domain,
                  'name': EXAMPLES[domain][0], 'type': kind}, 'call': 'fictional sample'}
                 for outlet_id, domain, kind in taste_city.OUTLETS]}
+
+
+def local_discovery(body):
+    result=discovery(body)
+    result['local_area']={'label':'Fictional example neighbourhood, London','radius_m':1000,'popularity_cap':None,'source':'fictional sample'}
+    result['nearby_places']=[{'id':'fictional:local:'+kind,'name':name,'type':'place','genre':kind,
+        'distance_m':distance,'call':'fictional sample','why':'Illustrated connection only, no provider inference',
+        'popularity':None} for kind,name,distance in [('cafe','Example Corner Café',300),('cinema','Example Neighbourhood Cinema',650),('venue','Example Listening Room',900)]]
+    return result

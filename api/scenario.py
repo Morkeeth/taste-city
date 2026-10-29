@@ -8,6 +8,7 @@ from http.server import BaseHTTPRequestHandler
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 import scenario_engine
 import taste_city
+import core_context
 
 
 class handler(BaseHTTPRequestHandler):
@@ -27,8 +28,18 @@ class handler(BaseHTTPRequestHandler):
     def do_POST(self):
         started = time.perf_counter()
         try:
-            size = min(int(self.headers.get("Content-Length") or 0), 8000)
+            size = min(int(self.headers.get("Content-Length") or 0), 64000)
             body = json.loads(self.rfile.read(size) or b"{}")
+            if body.get('local_core') is True:
+                context=core_context.for_request(body)
+                request=scenario_engine.clean_request(body)
+                graph=core_context.graph_for(context,request)
+                result=scenario_engine.build(dict(body,city=context['graph']['city']),graph)
+                result['local_context']=core_context.public(context)
+                result['qloo']['shared_local_graph']=True
+                result['qloo_ms']=0
+                result['total_ms']=round((time.perf_counter()-started)*1000,1)
+                return self.reply(200,result)
             if body.get("demo") is True:
                 import demo_replay
                 try:
@@ -46,7 +57,7 @@ class handler(BaseHTTPRequestHandler):
             result["qloo_ms"] = qloo_ms
             result["total_ms"] = round((time.perf_counter() - started) * 1000, 1)
             return self.reply(200, result)
-        except (scenario_engine.InvalidScenario, taste_city.InvalidTaste) as error:
+        except (scenario_engine.InvalidScenario, taste_city.InvalidTaste, core_context.InvalidLocalContext) as error:
             return self.reply(400, {"error": str(error), "total_ms": round((time.perf_counter() - started) * 1000, 1)})
         except taste_city.MissingKey as error:
             return self.reply(503, {"error": str(error), "total_ms": round((time.perf_counter() - started) * 1000, 1)})

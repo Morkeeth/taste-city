@@ -8,6 +8,7 @@ Read README.md first. Keep the personal-discovery and business-planning paths cl
 - `village.html`: main browser UI; bundled Three.js is in `vendor/`.
 - `api/`: Vercel Python entry points reused by the local server.
 - `taste_city.py`, `local_places.py`, `qloo_client.py`: taste discovery, address/radius handling and provider access.
+- `core_context.py`: short-lived signed local evidence and selected-place validation for the core planning continuations.
 - `sample_demo.py`: explicitly fictional no-key results.
 - `benchmark/qloo-vs-frontier-2026-10/`: frozen experiment, redacted source data, harness and limits.
 - `docs/images/`: real hosted-product screenshots, dated and explained in README.md.
