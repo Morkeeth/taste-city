@@ -8,6 +8,7 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 import agent_planner
 import scenario_engine
 import taste_city
+import core_context
 from qloo_client import BudgetSpent
 
 
@@ -26,8 +27,18 @@ class handler(BaseHTTPRequestHandler):
 
     def do_POST(self):
         try:
-            size = min(int(self.headers.get('Content-Length') or 0), 8000)
+            size = min(int(self.headers.get('Content-Length') or 0), 64000)
             body = json.loads(self.rfile.read(size) or b'{}')
+            if body.get('local_core') is True:
+                context=core_context.for_request(body)
+                if context['mode'] != 'live':
+                    raise core_context.InvalidLocalContext('The live agent needs fresh live local evidence. Refresh the search in live mode.')
+                body=dict(body,city=context['graph']['city'])
+                request=scenario_engine.clean_request(body)
+                result=agent_planner.plan(body,first_graph=core_context.graph_for(context,request))
+                result['local_context']=core_context.public(context)
+                result['next_action']='At '+', '.join(p['name'] for p in context['places'])+': '+result['next_action']
+                return self.reply(200,result)
             return self.reply(200, agent_planner.plan(body))
         except (ValueError, scenario_engine.InvalidScenario, taste_city.InvalidTaste) as error:
             return self.reply(400, {'error': str(error)})
