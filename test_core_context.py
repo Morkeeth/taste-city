@@ -46,5 +46,5 @@ class ContextRules(unittest.TestCase):
     def test_sample_cannot_claim_real_places_and_never_queries_provider(self):
         with patch.object(taste_city,'_live',side_effect=AssertionError('provider called')):
             context=core_context.for_request({'demo':True,'picks':PICKS,'selected_place_ids':['fictional:local:cafe']})
-        self.assertEqual(context['mode'],'synthetic');self.assertTrue(context['places'][0]['id'].startswith('fictional:'))
+        self.assertEqual(context['mode'],'synthetic');self.assertIn('Fictional',context['notice']);self.assertTrue(context['places'][0]['id'].startswith('fictional:'))
         with self.assertRaises(core_context.InvalidLocalContext):core_context.for_request({'demo':True,'picks':PICKS,'selected_place_ids':['actual-test-place']})

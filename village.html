@@ -388,7 +388,7 @@ function corePayload(body) {
 function localContext() {
   const d=localJourney.result;
   return d ? {area:d.local_area,places:(d.nearby_places || []).filter(p=>localJourney.selected.has(p.id)),mode:d.mode,recorded_at:d.recorded_at,
-    notice:'Coordinates checked against the radius. Opening hours, availability, rights and suitability still need checking.'} : null;
+    notice:d.mode==='synthetic'?'Fictional places and illustrative distances only. No provider inference or real-world verification.':'Coordinates checked against the radius. Opening hours, availability, rights and suitability still need checking.'} : null;
 }
 function localContextMarkup(context=localContext()) {
   if (!context) return '';
@@ -684,6 +684,7 @@ function showVerdict() {
   $("#next").onclick = () => { round++; round < G.length ? showRound() : end(); };
 }
 function backToGame() {
+  if (!data || !G.length) return enterCity("game");
   lightUp([]);
   if (round >= G.length) return end();
   answered ? showVerdict() : showRound();
@@ -1317,7 +1318,7 @@ applyPopulation(targetPopulation);
 /* ---------- start ---------- */
 let villagePromise = null;
 function enterCity(target = "market") {
-  if (data) { target === "brand" ? openBrandPlanner() : openMarket(); return Promise.resolve(data); }
+  if (data) { target === "brand" ? openBrandPlanner() : target === "game" ? backToGame() : openMarket(); return Promise.resolve(data); }
   const tips = ["Asking Qloo who each villager is", "Finding films, shows, books, music and brands they love", "Reading who their fans are", "Wrapping the gifts"];
   const planned = q.get("me") ? 42 : 35, started = performance.now();
   $("#load").hidden = false; $("#loadtxt").textContent = tips[0] + "…";
@@ -1334,7 +1335,7 @@ function enterCity(target = "market") {
   return villagePromise.then(d => {
     $("#load").hidden = true;
     setupStarted = false;
-    target === "brand" ? openBrandPlanner() : openMarket();
+    target === "brand" ? openBrandPlanner() : target === "game" ? backToGame() : openMarket();
     requestAnimationFrame(() => requestAnimationFrame(() => { document.body.dataset.firstPaintMs = String(Math.round(performance.now())); }));
     setTimeout(() => say(MM, "Tap me when you have a friend in mind.", 3200), 1500);
     return d;

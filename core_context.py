@@ -73,7 +73,7 @@ def for_request(body, env=None, now=None):
     if any(x not in places for x in ids):
         raise InvalidLocalContext('That place is outside this local result. Choose again.')
     selected=[copy.deepcopy(places[x]) for x in ids]
-    return {'graph':copy.deepcopy(graph),'area':copy.deepcopy(graph['local_area']),'places':selected,'mode':graph['mode'],'recorded_at':graph.get('recorded_at'),'notice':'Coordinates checked against the search radius, not opening hours, availability, rights or suitability.'}
+    return {'graph':copy.deepcopy(graph),'area':copy.deepcopy(graph['local_area']),'places':selected,'mode':graph['mode'],'recorded_at':graph.get('recorded_at'),'notice':('Fictional places and illustrative distances only. No provider inference or real-world verification.' if graph['mode']=='synthetic' else 'Coordinates checked against the search radius, not opening hours, availability, rights or suitability.')}
 
 def graph_for(context, body):
     graph=copy.deepcopy(context['graph'])
