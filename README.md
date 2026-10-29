@@ -1,8 +1,32 @@
 # Taste City
 
-Explore culture through taste, then bring the results into a playful 3D city.
+**Test a business idea against real audience taste before you spend money on it.** A coffee-shop owner or festival programmer picks the tastes their customers share, compares two ideas, and gets a next-action brief. Every cultural link in it is a relationship Qloo returned, with the entity and the call you can check.
 
-[Open Taste City](https://taste-city.vercel.app/) · [Try the fictional no-key sample](https://taste-city.vercel.app/?demo=1&setup=1)
+[Open Taste City](https://taste-city.vercel.app/?setup=1) · [Try the fictional no-key sample](https://taste-city.vercel.app/?demo=1&setup=1)
+
+![Taste City business view: a coffee shop compares a pop-up and a limited flavour in the 3D city (fictional sample data)](docs/business-sample.jpg)
+
+## The pitch
+
+**The problem.** Ask an AI model with no audience context what a London coffee pop-up should do, and you get the classic answer: single-origin beans, pour-over, limited seating. Give it Qloo taste profiles for the audience and you get Yves Tumor listening sessions and Synecdoche, New York in the decor. A small business needs the second kind of answer, and it needs to know where each suggestion came from before it spends on it.
+
+**Who it is for.** Coffee-shop owners and festival programmers testing an idea, and anyone who wants to explore their own taste.
+
+**What it does.**
+
+- **For business:** pick audience tastes, a city and two ideas, such as a pop-up versus a new flavour. Taste City compares them through the Qloo taste graph and hands back a next-action brief with a budget cap and a stop rule.
+- **Live Taste Agent:** it does the research itself. It picks its strongest cultural lead, uses the returned Qloo entity ID to query a second domain, checks the result and proposes a small field test. On the live site it followed Synecdoche, New York into music and came back with Pixies, in 8 Qloo reads against a hard cap of 11.
+- **For me:** pick three favourites and a city. Qloo returns five discoveries across music, film, food, books and places, each naming the entity and the call it came from.
+- **The city:** residents, cultural outlets, a gift game, a subway, a festival and a day/night cycle.
+
+**Why Qloo.** Taste does not stay in one category: the music you love connects to the films, books, food and places you will love next. Qloo returns those cross-domain relationships as real entities with call references. A language model alone cannot give you that trail.
+
+**What we measured, and against what.**
+
+- Blind test, 24 Oct: five frozen business questions, a rubric written before any output existed, and a grader from a different model family that never knew which answer used Qloo. Against the same model (Claude Haiku 4.5) with no audience context, answers built on Qloo taste profiles scored 25 versus 19 on specificity and won 4 of the 5 questions, tying the fifth.
+- Frontier check, 29 Oct: against two frontier models given the same audience description without the Qloo facts, Qloo made no measurable difference to answer quality (Claude Opus 5.5 +1.3%, Codex gpt-6.1-sol -3.7%, inside grader noise). The value here is not nicer prose. It is that every cultural link is real, specific and checkable.
+
+**What is next.** Put the briefs in front of real coffee-shop owners and festival programmers and measure which Qloo references they act on.
 
 ## Judge path
 
